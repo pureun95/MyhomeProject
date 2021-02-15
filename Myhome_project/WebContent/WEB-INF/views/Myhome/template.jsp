@@ -23,7 +23,7 @@
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
     <div class="container">
-    아무거나더써볼가요
+    아무거나더써볼가요ㄷㄷㄷ
     </div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
