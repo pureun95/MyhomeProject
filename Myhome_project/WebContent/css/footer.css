@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+ 	#footer {
+        width: 100%;
+        height: 90px;
+        padding-top: 50px;
+        border: 1px solid black;
+        background-color: #F1AEAE;
+        text-align: center;
+        color: white;
+        line-height: 28px;
+        padding: 40px 0px;
+    }
+
+    #footer-img {
+        /* border: 1px solid black; */
+        width: 90px;
+        height: 90px;
+        background-image: url('/Myhome_project/image/logo/5_1.png');
+        object-fit: cover;
+        display: block;
+        background-size: cover;
+        background-position: 50% 50%;
+        position: relative;
+        left: 450px;
+    }
+
+    #footer-content {
+        border: 1px solid black;
+        width: 700px;
+        position: relative;
+        left: 590px;
+        top: -90px;
+        font-family: 'NanumBarunGothic', sans-serif;
+    }
+    #footer-content2 > a {
+        margin-right: 20px;
+    }
+
+    #chat {
+        width: 100px;
+        height: 100px;
+        background-image: url('../image/chat.png');
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        object-fit: cover;
+        display: block;
+        background-size: cover;
+        background-position: 50% 50%;
+    }

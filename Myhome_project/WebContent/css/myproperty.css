@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+ /* header */
+        
+        header {
+            background-color: white;
+        }
+
+        .li-list {    
+            color: #525151;
+            cursor: pointer;
+        }
+        
+
+        a {
+            text-decoration: none;    
+            color: #525151;
+            cursor: pointer;
+        }
+
+        .header-ul > ul > li > a {
+            color: #525151;
+        }
+
+
+        .section1 {
+            /* border: 1px solid rgb(70, 69, 69); */
+            width: auto;
+            height: auto;
+            padding: 0px 200px;
+        }
+
+
+        .section1-box2 {
+            /* border: 1px solid black; */
+            width: 250px;
+            height: 30px;
+            background-color: #f1acac;
+            color: white;
+            position: relative;
+            left: 0px;
+            text-align: center;
+            font-size: 2em;
+            top: 280px;
+            padding: 22px 50px;
+            font-family: 'MaplestoryOTFLight';
+            box-shadow: 0px 2px 7px #aca5a5;
+        }        
+
+        
+        
+        
+
+        .section1-box3 {
+            border: 1px solid rgb(48, 36, 214);
+            width: 1400px;
+            height: 1800px;
+            margin-top: 150px;
+            padding-left: 100px;
+        }
+
+        .section1-box3-box1 {
+            float: left;
+            /* border: 1px solid rgb(185, 183, 183); */
+            margin-left: 150px;
+            width: 950px;
+            height: auto;
+            /* padding-right: 150px; */
+            padding-left: 50px;
+            
+        }
+
+        .property-list {
+            border-bottom: 1px solid rgb(185, 183, 183);
+            /* box-shadow: 1px 2px 5px rgb(134, 133, 133); */
+            width: 900px;
+            height: 280px;
+            /* margin-bottom: 50px; */
+            padding-top: 30px;
+            font-family: 'NanumBarunGothic';
+            color: #424242;
+        }
+
+        .img-property {
+            /* border: 1px solid black; */
+            width: 350px;
+            height: 250px;
+            float: left;
+            background-image: url('../image/6.jpg');
+            background-position: 0% 0px; 
+            background-size: cover;
+        }
+
+       .property-list2 {
+           border: 1px solid black;
+           float: left;
+           margin-left: 35px;
+           width: 500px;
+           height: 250px;
+        }
+        .property-num {
+            font-size: .9em;
+            margin-bottom: 10px;
+        }
+
+        .property-title {
+            /* border: 1px solid rgb(128, 128, 128); */
+            width: 200px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: rgb(53, 53, 53);
+        }
+
+        .property-content {
+            /* border: 1px solid black; */
+            height: 50px;
+            float: left;
+            font-size: 1em;
+            margin-top: 40px;
+            margin-right: 20px;
+            margin-bottom: 45px;
+            background-color: hsl(0, 0%, 86%, 0.3);
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        #roomtype {
+            width: 60px;
+            color: rgb(53, 53, 53);
+        }
+
+        #floor {
+            width: 40px;
+            color: rgb(53, 53, 53);
+        }
+
+        #contract {
+            width: 80px;
+            color: rgb(53, 53, 53);
+        }
+
+        #price {
+            width: 150px;
+            background-color: #f1acac;
+            color: white;
+        }
+
+        #price > span {
+            color: white;
+        }
+        
+        .property-location {
+            border: 1px solid rgb(187, 12, 12);
+            width: 300px;
+            height: 35px;
+            font-size: 1em;
+            color: #424242;
+            clear: both;
+            padding-top: 5px;
+        }
+
+        .location-icon {
+            background-image: url('../image/location.png');
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: 50% 50%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .location-detail {
+            /* border: 1px solid black; */
+            float: left;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .property-content > span {
+            font-weight: bold;
+            color: rgb(88, 88, 88);
+        }
+
+        .property-content2 {
+            margin-top: 10px;
+        }
+
+        .state {
+            background-color: hsl(0, 0%, 100%, .7);
+            position: relative;
+            left: 240px;
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            padding: 5px;
+            color: #585858;
+            font-weight: bold;;
+        }

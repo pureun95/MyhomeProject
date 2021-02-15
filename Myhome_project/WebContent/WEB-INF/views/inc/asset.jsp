@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+
+
+<script src="/Myhome_project/js/jquery-1.12.4.js"></script>
+<script src="/Myhome_project/js/bootstrap.js"></script>
+
+<script src="/Myhome_project/js/header.js"></script>
+<script src="/Myhome_project/js/mypage-main.js"></script>
+<script src="/Myhome_project/js/nav.js"></script>
