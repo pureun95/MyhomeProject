@@ -24,6 +24,7 @@
  
     <div class="container">
     아무거나더써볼가요ㄷㄷㄷㅇㅇㅇㅇㅇㄹㅇㄹㅇㄹㅇㄹㅇㄹ마지막테스트
+    ㅇㄹㅇㄹㅇㄹ
     </div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
