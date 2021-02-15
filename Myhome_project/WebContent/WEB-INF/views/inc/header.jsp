@@ -19,18 +19,29 @@
 </head>
 <body>
     <header>
+    	<div class="header-wrap">
         <div class="header-ul">
             <div class="header-img"></div>
                 <ul class="header-ul2">
-                    <li class="li li-list">방찾기</li>
+                    <li class="li-list">방찾기</li>
+                    <li class="li-list">방올리기</li>
+                    <li class="li-list">커뮤니티</li>
+                    <li class="li-list">중고장터</li>
+                    <li class="li-list">마이페이지</li>
+                    <li class="li-list">고객센터</li>
+<!--                     <li class="li li-list">방찾기</li>
                     <li class="li li-list">방올리기</li>
                     <li class="li li-list">커뮤니티</li>
                     <li class="li li-list">중고장터</li>
                     <li class="li li-list">마이페이지</li>
-                    <li class="li li-list">고객센터</li>
+                    <li class="li li-list">고객센터</li> -->
                     <li id="login" class="li-login li-list">로그인</li>
                     <li id="signup" class="li-login li-list">회원가입</li>
+<!--                     <li id="login" class="li-login li-list">로그인</li>
+                    <li id="signup" class="li-login li-list">회원가입</li> -->
+                    <!-- <li id="last"></li> -->
                 </ul>
+            </div>
             </div>
     </header> 
 </body>
