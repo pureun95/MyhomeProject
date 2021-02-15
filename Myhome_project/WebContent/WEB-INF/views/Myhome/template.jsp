@@ -21,8 +21,9 @@
  
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
- 
+ 	
     <div class="container">
+    asdasdasddsasadsadsadsad
     </div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
