@@ -17,10 +17,17 @@
 	.header-ul2 {
 	    color: white !important;
 	}
+	
+	.header-ul2-scroll {
+    	color: #8d8d8d !important;
+    
+	}
+	
 </style>
 </head>
 <body>
  
+<div class="wrap">
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
@@ -97,6 +104,6 @@
     
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-    
+</div>
 </body>
 </html>
