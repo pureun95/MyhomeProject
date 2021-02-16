@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Template extends HttpServlet{
 
 	
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Myhome/template.jsp");
