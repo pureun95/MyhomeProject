@@ -15,11 +15,7 @@
 </style>
 </head>
 <body>
-	<!--  -->
-	<div class="container">
-		<h1 class="page-header">첫번째 페이지</h1>
-		
-	</div>
+	
 	
 	<script>
 		
