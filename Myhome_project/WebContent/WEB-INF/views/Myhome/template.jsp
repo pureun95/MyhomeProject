@@ -14,6 +14,7 @@
 
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
 
