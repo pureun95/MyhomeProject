@@ -14,7 +14,9 @@
 <link rel="stylesheet" href="/Myhome_project/css/main.css">
 
 <style>
-
+	.header-ul2 {
+	    color: white !important;
+	}
 </style>
 </head>
 <body>
