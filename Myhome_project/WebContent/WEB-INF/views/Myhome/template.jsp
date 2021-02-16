@@ -12,6 +12,14 @@
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
+<!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
+<link rel="stylesheet" href="/Myhome_project/css/template.css">
+
+<style>
+
+
+    
+
 <style>
 
 	body,html {
@@ -31,11 +39,11 @@
     }
 	
 	
-	
 </style>
 </head>
 <body>
- 
+<div class="wrap">
+
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
@@ -44,6 +52,7 @@
     </div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-    
+
+</div>    
 </body>
 </html>
