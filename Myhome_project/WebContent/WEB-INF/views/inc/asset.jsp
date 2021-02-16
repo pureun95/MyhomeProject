@@ -9,3 +9,5 @@
 <script src="/Myhome_project/js/header.js"></script>
 <script src="/Myhome_project/js/mypage-main.js"></script>
 <script src="/Myhome_project/js/nav.js"></script>
+
+<link rel="stylesheet" href="/Myhome_project/css/font.css">
