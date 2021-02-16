@@ -12,6 +12,8 @@
                                                  
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/main.css">
+<!-- <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 
 <style>
 	.header-ul2 {
@@ -23,6 +25,34 @@
     
 	}
 	
+	/* 부트스트랩 사용 설정 수정중... */
+	/* 부트스트랩 사용하실분들은 아래 링크랑 밑의 설정들을 추가해서 이용해주세요~~(아직 쓰지말아주세요 수정중!) */
+	/* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> */
+	/* .li-list{
+    	font-size:19.2px;
+    }
+    
+    .header-ul2 {
+    	top: 55px !important;
+    }
+    
+    .header-img {
+    	position: relative;
+    	left: 22px;
+    	top: 20px !important;
+    }
+    
+    .header-ul2-scroll {
+	    left: 475px !important;
+	    top: 25px !important;
+	}
+
+     
+   .li-list-hover {
+	    padding-bottom: 8px !important;
+	    font-size: 17.6px;
+	} */
+
 </style>
 </head>
 <body>
@@ -50,7 +80,8 @@
 
         <!-- 검색 박스 -->
        <div class="search">
-            <div id="search-title"><span>원하는 방을 검색해보세요.</span></div>
+            <div id="search-title"><span class="
+glyphicon glyphicon-search"></span><span>원하는 방을 검색해보세요.</span></div>
             <div class="category-room category">
                 <input type="button" value="원룸" class="btn2">
                 <input type="button" value="투룸" class="btn2">
@@ -105,5 +136,6 @@
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 </div>
+
 </body>
 </html>
