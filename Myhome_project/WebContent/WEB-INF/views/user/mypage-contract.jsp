@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <style>
 
 </style>
