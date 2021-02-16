@@ -1,14 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Myhome_project/css/main.css">
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
+<style>
+
+</style>
 </head>
 <body>
 
-	<div class="main1"></div>
+	
+	<script>
+		
+	</script>
 </body>
 </html>

@@ -9,17 +9,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+                                                 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <link rel="stylesheet" href="/Myhome_project/css/main.css">
 
 <style>
-
+	.header-ul2 {
+	    color: white !important;
+	}
+	
+	.header-ul2-scroll {
+    	color: #8d8d8d !important;
+    
+	}
+	
 </style>
 </head>
 <body>
  
+<div class="wrap">
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
@@ -96,6 +104,6 @@
     
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-    
+</div>
 </body>
 </html>
