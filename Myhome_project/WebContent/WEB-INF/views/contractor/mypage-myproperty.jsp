@@ -1,14 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Myhome_project/css/main.css">
+
+<style>
+
+</style>
 </head>
 <body>
-
-	<div class="main1"></div>
+	<!--  -->
+	<div class="container">
+		<h1 class="page-header">첫번째 페이지</h1>
+		
+	</div>
+	
+	<script>
+		
+	</script>
 </body>
 </html>
