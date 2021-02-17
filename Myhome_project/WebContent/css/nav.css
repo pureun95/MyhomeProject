@@ -1,7 +1,7 @@
 
 		.nav1 {
             border: 1px solid black;
-            width: 200px;
+            width: 180px;
             height: 1000px;
             font-family: 'NanumBarunGothic';
             font-size: 16px;
@@ -12,14 +12,14 @@
 
         .nav1-box1 {
             border: 1px solid black;
-            width: 200px;
+            width: 180px;
             height: 230px;
             margin-top: 50px;
         }
 
         .nav1-content {
             border-bottom: 1px solid #e2e2e2;
-            width: 200px;
+            width: 170px;
             height: 60px;
             padding: 10px;    
             cursor: pointer;
@@ -44,7 +44,7 @@
             width: 30px;
             height: 30px;
             float: left;
-            margin-left: 20px;
+            margin-left: 5px;
             margin-right: 20px;
             font-size: 24px;
             color: #f1acac;
@@ -52,7 +52,7 @@
 
         #mypage-title {
             background-color: #f1acac;
-            width: 200px;
+            width: 180px;
             height: 80px;
             border-radius: 30px;
             margin-bottom: 20px;
