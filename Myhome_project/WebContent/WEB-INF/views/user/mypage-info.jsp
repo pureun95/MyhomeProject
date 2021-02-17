@@ -35,6 +35,7 @@ style>body, html {
 	font-family: 'MaplestoryOTFLight';
 	color: #333;
 	margin-left: 500px;
+	border: 0px;
 }
 
 .section1 {
