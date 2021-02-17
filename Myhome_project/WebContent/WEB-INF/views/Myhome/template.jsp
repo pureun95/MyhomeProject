@@ -26,6 +26,10 @@ body, html {
 	background-color: white;
 }
 
+#header:hover {
+	background-color: white;
+}
+
 .header-containerwrap {
 	height: auto;
 	min-height: 100%;
