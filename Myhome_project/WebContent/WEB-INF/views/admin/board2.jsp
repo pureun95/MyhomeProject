@@ -18,23 +18,16 @@
 
 
 <style>
-	.header {
-		background-color : white;
-	}
-	
-	.boardwrap {
-		height: auto;
-    	min-height: 100%;
-	}
-	
-	
+   .header {
+      background-color : white;
+   }
+
 </style>
 
 
 </head>
 <body>
  
-<div class="wrap">
 <div class="boardwrap">
  
  <!-- header -->
@@ -108,6 +101,6 @@
  
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-</div>    
+
 </body>
 </html>
