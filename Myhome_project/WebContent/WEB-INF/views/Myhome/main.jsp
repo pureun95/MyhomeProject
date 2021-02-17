@@ -25,6 +25,7 @@
     
 	}
 	
+
 	/* 부트스트랩 사용 설정 수정중... */
 	/* 부트스트랩 사용하실분들은 아래 링크랑 밑의 설정들을 추가해서 이용해주세요~~(아직 쓰지말아주세요 수정중!) */
 	/* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> */
@@ -56,8 +57,8 @@
 </style>
 </head>
 <body>
- 
-<div class="wrap">
+<!-- <div class="wrap">  -->
+<div class="main-wrap">
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
@@ -133,9 +134,9 @@ glyphicon glyphicon-search"></span><span>원하는 방을 검색해보세요.</s
         </div>
     </div>
     
+</div><!-- main-wrap -->
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-</div>
-
+<!-- </div> -->
 </body>
 </html>

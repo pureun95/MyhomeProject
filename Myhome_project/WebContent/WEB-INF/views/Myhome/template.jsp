@@ -30,25 +30,21 @@ body, html {
 	background-color: white;
 }
 
-/* .header-containerwrap {
-	height: auto;
-	min-height: 100%;
-} */
 
 </style>
 </head>
 <body>
-	<div class="wrap">
+	<!-- <div class="wrap"> -->
 		<div class="header-containerwrap">
 			<!-- header -->
 			<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
-			<div class="container">안녕하세요.</div>
+			<div class="container">안녕하세요</div>
 		</div>
 
 
 		<!-- footer -->
 		<%@include file="/WEB-INF/views/inc/footer.jsp"%>
-	</div>
+	<!-- </div> -->
 </body>
 </html>
