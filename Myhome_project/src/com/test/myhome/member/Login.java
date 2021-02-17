@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
 		int result = dao.login(dto); //1 or 0
 		
 		//확인용
-		System.out.println(id + " " + password);
+		//System.out.println(id + " " + password);
 		
 		
 		//3.
