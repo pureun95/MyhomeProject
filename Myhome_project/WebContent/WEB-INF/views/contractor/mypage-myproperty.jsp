@@ -48,7 +48,7 @@
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
      <div class="container">
-     <%@include file="/WEB-INF/views/inc/nav.jsp" %>
+     <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
         <div class="boardcover">
             
 		 
