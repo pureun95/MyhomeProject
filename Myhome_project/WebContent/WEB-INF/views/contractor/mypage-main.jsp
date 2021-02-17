@@ -10,19 +10,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/Myhome_project/css/template.css">
-<link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="stylesheet" href="/team1_webproject/css/mypage-main.css">
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 
 <style>
 
-	#header {
-		background-color: white; 
-	}
-	
 </style>
+</head>
 <body>
-
 
  <!--header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
@@ -58,6 +55,6 @@
 
 <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
-
+     
 </body>
 </html>

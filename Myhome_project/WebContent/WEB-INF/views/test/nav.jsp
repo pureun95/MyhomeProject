@@ -23,19 +23,19 @@
            <div class="nav1-box1">
                <div class="nav1-content" id="nav1-content1">
                    <div class="nav1-box1-img" id="nav1-img1"></div>
-                        <div class="nav1-box1-content"><a href="mypage-myproperty.html" id="myupload">올린매물관리</a></div>
+                        <div class="nav1-box1-content"><a href="mypage-myproperty.html" id="upload">올린매물관리</a></div>
                </div>
                <div class="nav1-content" id="nav1-content2">
                    <div class="nav1-box1-img" id="nav1-img2"></div>
-                   <div class="nav1-box1-content"><a id="mymatching">매칭매물관리</a></div>
+                   <div class="nav1-box1-content"><a id="matching">매칭매물관리</a></div>
                </div>
                <div class="nav1-content" id="nav1-content3">
                    <div class="nav1-box1-img" id="nav1-img3"></div>
-                   <div class="nav1-box1-content"><a id="mycontract">전자계약관리</a></div>
+                   <div class="nav1-box1-content"><a id="contract">전자계약관리</a></div>
                </div>
                    <div class="nav1-content" id="nav1-content4">
                    <div class="nav1-box1-img" id="nav1-img4"></div>
-                   <div class="nav1-box1-content"><a id="myinfo">회원정보관리</a></div>
+                   <div class="nav1-box1-content"><a id="info">회원정보관리</a></div>
                </div>
          </div>
     </nav>
