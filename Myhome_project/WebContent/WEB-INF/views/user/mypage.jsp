@@ -41,6 +41,7 @@
 	    background-image: url(../image/3.jpg);
 	    background-size: cover;
 	    color: #333;
+	    border: 0px;
 	    		
     }
     
@@ -118,7 +119,7 @@
 					<div class="explain">회원정보를 수정할 수 있어요.</div>
 				</div>
 				
-				<div class="menu" onclick="location.href='/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypagelike.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-bookmark"></span>
@@ -128,7 +129,7 @@
 					<div class="explain">찜 목록을 확인할 수 있어요.</div>
 				</div>
 				
-				<div class="menu" onclick="location.href='/Myhome_project/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypagemywrite.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-pencil"></span>
