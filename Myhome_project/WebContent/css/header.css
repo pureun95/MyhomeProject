@@ -39,7 +39,7 @@ header {
 .header-ul2 {
     width: 710px;
     height: 30px;
-    color: #8d8d8d;
+    color: #202020;
     position: relative;
     left: 475px;
     top: 39px;
@@ -107,7 +107,7 @@ header {
 }
 
 .header-ul2-scroll {
-    color: #8d8d8d;
+    color: #202020;
     position: relative;
     left: 475px;
     top: 25px;
