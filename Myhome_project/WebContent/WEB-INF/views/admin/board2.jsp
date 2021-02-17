@@ -30,7 +30,7 @@
 </head>
 <body>
  
-<div class="wrap">
+<div class="boardwrap">
  
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/header.jsp" %>

@@ -15,12 +15,12 @@ font-family: 'NanumBarunGothic', sans-serif;
     	height: 100%;
     }
 
-    .wrap {
+/*     .wrap {
     	min-height: 100%;
     	position: relative;
     	padding-bottom: 130px;
     	margin-top:102px;
-    }
+    } */
     
     .container {
     	position: relative;
@@ -29,10 +29,17 @@ font-family: 'NanumBarunGothic', sans-serif;
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 10px solid green;
+		border: 1px solid green;
 		margin-top: 100px;
     }
     
+    
+    .header-containerwrap{
+        height: auto;
+	    min-height: 100%;
+	}
+	
+
     
     
     

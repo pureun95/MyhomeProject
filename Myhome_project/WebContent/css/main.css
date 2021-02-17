@@ -13,11 +13,17 @@
     }
     
 
-    .wrap {
+     /* .wrap {
     	min-height: 100%;
     	position: relative;
     	padding-bottom: 130px;
-    }
+    } */
+    
+    .main-wrap {
+        height: auto;
+	    min-height: 100%;
+	    position: relative;
+	}
     
 
     /* main */
