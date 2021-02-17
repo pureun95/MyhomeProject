@@ -19,27 +19,18 @@
 <style>
 
 
-    
-
-<style>
 
 	body,html {
-	    /* width: 100%; */
 	    height: 100%;
 	    margin: 0 auto;
 	    padding: 0;
 	}
+	
+	#header {
+      background-color: white; 
+   }
 
-	.container {
-		border: 1px solid green;
-		width: 1190px;
-		margin: 0px auto;
-		margin-top: 100px;
-		position: relative;
-		height: 1200px;
-    }
-	
-	
+
 </style>
 </head>
 <body>
@@ -51,6 +42,7 @@
     <div class="container">
     안녕하세요.
     </div>
+    
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 
