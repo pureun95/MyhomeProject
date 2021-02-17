@@ -1,4 +1,4 @@
-package com.test.user;
+package com.myhome.user;
 
 public class MypageContract {
 

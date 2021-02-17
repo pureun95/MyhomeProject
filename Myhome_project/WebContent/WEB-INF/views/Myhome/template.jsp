@@ -30,10 +30,10 @@ body, html {
 	background-color: white;
 }
 
-.header-containerwrap {
+/* .header-containerwrap {
 	height: auto;
 	min-height: 100%;
-}
+} */
 
 </style>
 </head>
