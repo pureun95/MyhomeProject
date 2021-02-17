@@ -21,7 +21,7 @@
 	}
 	
 	.header-ul2-scroll {
-    	color: #8d8d8d !important;
+    	color: #202020 !important;
     
 	}
 	
