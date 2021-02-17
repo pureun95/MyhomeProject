@@ -1,11 +1,11 @@
-package com.test.myhome.member;
+package com.myhome.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.test.myhome.DBUtil;
+import com.myhome.DBUtil;
 
 public class MemberDAO {
 
