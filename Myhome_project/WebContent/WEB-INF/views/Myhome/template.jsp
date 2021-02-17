@@ -26,15 +26,16 @@ body, html {
 	background-color: white;
 }
 
-.wrap2 {
+.header-containerwrap {
 	height: auto;
 	min-height: 100%;
 }
+
 </style>
 </head>
 <body>
 	<div class="wrap">
-		<div class="wrap2">
+		<div class="header-containerwrap">
 			<!-- header -->
 			<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
