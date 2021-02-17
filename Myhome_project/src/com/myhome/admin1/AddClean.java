@@ -1,4 +1,4 @@
-package com.test.admin;
+package com.myhome.admin1;
 
 import java.io.IOException;
 
@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/Myhome/admin/board.do")
-public class Board extends HttpServlet{
+@WebServlet("/Myhome/admin/addclean.do")
+public class AddClean extends HttpServlet{
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/board2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/addclean.jsp");
 		dispatcher.forward(request, response);
 		
 	}
