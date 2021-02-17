@@ -15,6 +15,7 @@ public class Myproperty extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//http://localhost:8090/Myhome_project/contractor/mypage-myproperty.do
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage-myproperty.jsp");
 		dispatcher.forward(request, response);
 		

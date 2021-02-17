@@ -13,7 +13,7 @@
 
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<link rel="stylesheet" href="/Myhome_project/css/board.css">
+<link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
 <link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
 
 
@@ -34,7 +34,8 @@
 		margin-top: 100px;
 		z-index: -1;
     }
-	
+    
+    
 
 </style>
 
