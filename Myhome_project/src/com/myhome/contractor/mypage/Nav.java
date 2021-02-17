@@ -15,6 +15,7 @@ public class Nav extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/inc/nav.jsp");
 		dispatcher.forward(request, response);
 		
