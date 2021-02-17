@@ -15,7 +15,7 @@ public class Mypage extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage/mypage.jsp");
 		dispatcher.forward(request, response);
 		
 	}
