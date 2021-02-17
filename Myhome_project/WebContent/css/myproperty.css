@@ -83,9 +83,9 @@
         .property-title {
             /* border: 1px solid rgb(128, 128, 128); */
             width: 200px;
-            font-size: 18px;
+            font-size: 24px;
             font-weight: bold;
-            color: rgb(53, 53, 53);
+            color: #202020;
         }
 
         .property-content {
@@ -130,7 +130,7 @@
             border: 1px solid rgb(187, 12, 12);
             width: 300px;
             height: 35px;
-            font-size: 1em;
+            font-size: 16px;
             color: #424242;
             clear: both;
             padding-top: 5px;
