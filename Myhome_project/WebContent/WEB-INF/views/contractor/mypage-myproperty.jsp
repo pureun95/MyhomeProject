@@ -36,8 +36,6 @@
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
      <div class="container">
-
-        <form action="" id="form1">
             <div class="boardcover">
             <%@include file="/WEB-INF/views/inc/nav.jsp" %>
 		 
@@ -252,11 +250,9 @@
 	</div>  
    
     
-     <!-- footer -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp" %>
+    
             
-            
-            <div class="Boardnext">
+         <div class="Boardnext">
                 <span class="tenplcount countbt ">◀</span>
                 <!-- 10개 이상일 경우에 1개씩 생기도록 화살표 태그에 개별 클래스를 입력하였습니다.!-->
                 <span class="countbt" >1</span>
@@ -264,14 +260,11 @@
             </div>
             
             </div>
-            
-        </form>
            
-            
             
         </div>
 
-   	</div>
+
  
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
