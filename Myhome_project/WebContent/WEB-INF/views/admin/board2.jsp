@@ -22,6 +22,10 @@
 		background-color : white;
 	}
 	
+	#header:hover {
+		background-color: white;
+	}
+	
 	
 	
 </style>
