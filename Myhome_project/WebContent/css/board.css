@@ -4,29 +4,38 @@
     font-weight: normal;
     font-style: normal;
     }
-    
+/*    
     .container{
         z-index: -1;
     }
-
+*/
     .li-list{
     font-size:19.2px;
     
     }
 
     .boardcover{
-        margin: 0px auto;
-        width: 1110px;
+        width: 500px;
         height: 500px;
  
     }
+    
     #board{
-        width: 1100px;
-        margin-top: 100px;
+        margin-top: 50px;
         margin-left: 20px
            
     }
     
+    #board{
+        width: 800px;
+        table-layout: fixed;
+    }
+    #board .Boardtdtitle{
+        word-break: break-all;
+        height: 20px;
+        overflow: hidden;
+    }
+
     #board tr{
         height: 30px;
     }
@@ -40,7 +49,7 @@
     }
     
     .sectd{
-        width: 550px;
+        width: 200px;
     }
     .thitd{
         width: 130px;
@@ -55,27 +64,27 @@
         width: 50px;
     }
     
-    
+
     .boardwork{
-        float: right;
-    }
+        width: 200px;
+        text-align: center;
+        margin-left: 700px;
+   
+    }        
     .boardwork button{
         background-color: #f1aeae;
         color: aliceblue;
+        display: inline;
         width: 70px;
+        margin-right: 10px;
         
-    }
+    }    
     
-    .boardwork::after{
-        content: "";
-        display: block;
-        clear: both;
-    }
     .boardserch{
         margin-top: 50px;    
         width: 150px;
         position: absolute;
-        left: 500px; /*위치 변경*/
+        left: 600px; /*위치 변경*/
     }
     
     .input-group{
@@ -107,7 +116,7 @@
         display: block;
         text-align: center;
         font-size: 15px;
-        margin-left:430px ;
+        margin-left:280px ;
         width: 330px;
     }
     
