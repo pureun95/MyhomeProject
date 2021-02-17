@@ -6,8 +6,7 @@
             font-family: 'NanumBarunGothic';
             font-size: 16px;
             line-height: 35px;
-            float: left;
-            
+            float: left; 
         }
 
         .nav1-box1 {
@@ -22,9 +21,9 @@
             width: 170px;
             height: 50px;
             padding: 10px;    
-            cursor: pointer !important;
+            cursor: pointer;
             text-decoration: none;
-            z-index: 1;
+            z-index: 999;
         }
 
         .nav1-content:last-child {
@@ -38,6 +37,14 @@
 			cursor: pointer;
 			font-size: 16px;
 		}
+		
+		.nav-list:hover {
+			color: #f1acac;
+			text-decoration: none;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		
 		
 		
         .nav1-box1-img {
