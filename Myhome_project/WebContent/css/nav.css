@@ -20,10 +20,11 @@
         .nav1-content {
             border-bottom: 1px solid #e2e2e2;
             width: 170px;
-            height: 60px;
+            height: 50px;
             padding: 10px;    
-            cursor: pointer;
+            cursor: pointer !important;
             text-decoration: none;
+            z-index: 1;
         }
 
         .nav1-content:last-child {
