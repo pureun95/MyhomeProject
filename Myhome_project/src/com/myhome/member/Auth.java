@@ -1,4 +1,4 @@
-package com.test.user;
+package com.myhome.member;
 
 import java.io.IOException;
 
@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/user/mypageinfo.do")
-public class MypageInfo extends HttpServlet {
+@WebServlet("/Member/Auth.do")
+public class Auth extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage/mypage-info.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/Member/Auth.jsp");
 		dispatcher.forward(req, resp);
-
 	}
-
 }
+

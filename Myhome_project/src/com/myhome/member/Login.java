@@ -1,4 +1,4 @@
-package com.test.myhome.member;
+package com.myhome.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;

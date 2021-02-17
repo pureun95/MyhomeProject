@@ -1,4 +1,4 @@
-package com.test.myhome.member;
+package com.myhome.member;
 
 public class MemberDTO {
 	
