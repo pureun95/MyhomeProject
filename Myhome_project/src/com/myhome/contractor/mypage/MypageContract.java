@@ -1,4 +1,4 @@
-package com.test.contractor;
+package com.myhome.contractor.mypage;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/contractor/mypage-info.do")
-public class MypageInfo extends HttpServlet{
+@WebServlet("/contractor/mypage-contract.do")
+public class MypageContract extends HttpServlet{
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage-info.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract.jsp");
 		dispatcher.forward(request, response);
 		
 	}

@@ -1,4 +1,4 @@
-package com.test.contractor;
+package com.myhome.contractor.mypage;
 
 import java.io.IOException;
 
