@@ -1,0 +1,126 @@
+    @font-face {
+    font-family: 'MaplestoryOTFLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+    
+    .container{
+        z-index: -1;
+    }
+
+    .li-list{
+    font-size:19.2px;
+    
+    }
+
+    .boardcover{
+        margin: 0px auto;
+        width: 1110px;
+        height: 500px;
+ 
+    }
+    #board{
+        width: 1100px;
+        margin-top: 100px;
+        margin-left: 20px
+           
+    }
+    
+    #board tr{
+        height: 30px;
+    }
+    .boardtd{
+        text-align: center;
+    
+    }
+    
+    .firtd{
+        width: 60px;
+    }
+    
+    .sectd{
+        width: 550px;
+    }
+    .thitd{
+        width: 130px;
+    }
+    .fortd{
+        width: 100px;
+    }
+    .fiftd{
+        width: 80px;
+    }
+    .sixtd{
+        width: 50px;
+    }
+    
+    
+    .boardwork{
+        float: right;
+    }
+    .boardwork button{
+        background-color: #f1aeae;
+        color: aliceblue;
+        width: 70px;
+        
+    }
+    
+    .boardwork::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .boardserch{
+        margin-top: 50px;    
+        width: 150px;
+        position: absolute;
+        left: 500px; /*위치 변경*/
+    }
+    
+    .input-group{
+        width: 200px;
+    }.form-control{
+        display: block;
+        width: 40px;
+    }
+    
+    .boardserch button{
+        background-color: #f1aeae;
+        color: aliceblue;
+        float: right;
+        position: relative;
+        top: -35px;
+        left: 125px;
+        outline: none;
+    }
+    
+    .boardserch button::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    
+    
+    .Boardnext{
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        margin-left:430px ;
+        width: 330px;
+    }
+    
+    .countbt{
+        padding:3px;
+    }
+    
+    
+.boardwrap{
+        
+    height: auto;
+    min-height: 100%;
+}
+
+ 
+ 
