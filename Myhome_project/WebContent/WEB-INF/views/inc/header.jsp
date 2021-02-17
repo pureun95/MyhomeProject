@@ -30,12 +30,7 @@
                     <li class="header-li li-list">중고장터</li>
                     <li class="header-li li-list">마이페이지</li>
                     <li class="header-li li-list">고객센터</li>
-<!--                <li class="li li-list">방찾기</li>
-                    <li class="li li-list">방올리기</li>
-                    <li class="li li-list">커뮤니티</li>
-                    <li class="li li-list">중고장터</li>
-                    <li class="li li-list">마이페이지</li>
-                    <li class="li li-list">고객센터</li> -->
+
                     <li id="login" class="li-login li-list">로그인</li>
                     <li id="signup" class="li-login li-list">회원가입</li>
                 </ul>

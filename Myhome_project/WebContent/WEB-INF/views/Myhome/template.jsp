@@ -16,21 +16,19 @@
 
 <style>
 
-	#header {
-		
-		background-color: white;
-	}
-	
+
 	body,html {
-	    /* width: 100%; */
 	    height: 100%;
 	    margin: 0 auto;
 	    padding: 0;
 	}
 
 	
-	
-	
+	#header {
+      background-color: white; 
+   }
+
+
 </style>
 </head>
 <body>
@@ -42,6 +40,7 @@
     <div class="container">
     <%@include file="/WEB-INF/views/inc/nav.jsp" %>
     </div>
+    
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 

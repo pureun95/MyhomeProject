@@ -11,15 +11,7 @@ header {
     position: fixed;
     left: 0px;
     top: 0px;
-    /* padding-bottom: 12px; */
-    
-    /* position: fixed;
-    left: 0px;
-    top: 0px; */
-    z-index: 1;
-    
-    
-    /* padding: 0px 200px; */
+ 	z-index: 999;
 }
 
 .header-ul {
@@ -32,7 +24,6 @@ header {
 }
 
 .header-img {
-    /* border: 1px solid black; */
     width: 70px;
     height: 70px;
     background-image: url('/Myhome_project/image/logo/5.png');
@@ -46,7 +37,6 @@ header {
 }
 
 .header-ul2 {
-    /* border: 1px solid black; */
     width: 710px;
     height: 30px;
     color: #8d8d8d;
@@ -62,49 +52,40 @@ header {
     list-style: none;
     margin-right: 20px;
     cursor: pointer;
-    /* margin-bottom: 50px; */
     position: relative;
-    /* left: 400px; */
     top: 3px;
     
 }
 
 #last {
-        clear: both;
-    } 
+    clear: both;
+} 
     
-    
+
 .li-list:last-child {
     margin-right: 0px;
 }
 
 .li-login {
-    
     font-size: 14px;
     position: relative;
     left: 15px;
-    top: 8px;
+    top: 9px;
 }
 
-/* .li-list:hover {
-    display:inline; 
-    border-bottom: 3px solid #F1AEAE; 
-    line-height: 3px;
-    padding-bottom: 4px;
-    padding-bottom: 24px;
-} */
+
 
 .li-list-hover {
     display:inline; 
     border-bottom: 3px solid #F1AEAE; 
-    padding-bottom: 12px;
+    padding-bottom: 11px;
 }
 
 
 .li-list-scroll-hover {
     display:inline; 
     border-bottom: 3px solid #F1AEAE; 
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 
 .header-scroll {
@@ -120,17 +101,13 @@ header {
 .header-img-scroll {
     width: 55px;
     height: 55px;
-    
     position: relative;
     left: 22px;
     top: 1px;
 }
 
 .header-ul2-scroll {
-/*     margin-top: 22px;
-    margin-left: 570px; */
     color: #8d8d8d;
-    
     position: relative;
     left: 475px;
     top: 25px;
