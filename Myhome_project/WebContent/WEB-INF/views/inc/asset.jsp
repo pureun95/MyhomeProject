@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     
 
-
 <script src="/Myhome_project/js/jquery-1.12.4.js"></script>
 <script src="/Myhome_project/js/bootstrap.js"></script>
 

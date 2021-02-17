@@ -15,20 +15,13 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
-
-
-	body,html {
-	    height: 100%;
-	    margin: 0 auto;
-	    padding: 0;
-	}
-
 	
 	#header {
-      background-color: white; 
-   }
-
-
+		background-color: white; 
+		
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -38,7 +31,7 @@
 <%@include file="/WEB-INF/views/inc/header.jsp" %>
  
     <div class="container">
-    <%@include file="/WEB-INF/views/inc/nav.jsp" %>
+		 <%@include file="/WEB-INF/views/inc/nav.jsp" %>
     </div>
     
      <!-- footer -->

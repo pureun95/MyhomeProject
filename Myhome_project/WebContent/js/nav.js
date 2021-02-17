@@ -6,27 +6,27 @@
         });
 
         $("#nav1-content1").hover(function() {
-            $("#upload").css("color", "#f1acac");
+            $("#myupload").css("color", "#f1acac");
         }, function() {
-            $("#upload").css("color", "");
+            $("#myupload").css("color", "");
         });
 
         $("#nav1-content2").hover(function() {
-            $("#matching").css("color", "#f1acac");
+            $("#mymatching").css("color", "#f1acac");
         }, function() {
-            $("#matching").css("color", "");
+            $("#mymatching").css("color", "");
         });
 
         $("#nav1-content3").hover(function() {
-            $("#contract").css("color", "#f1acac");
+            $("#mycontract").css("color", "#f1acac");
         }, function() {
-            $("#contract").css("color", "");
+            $("#mycontract").css("color", "");
         });
 
         $("#nav1-content4").hover(function() {
-            $("#info").css("color", "#f1acac");
+            $("#myinfo").css("color", "#f1acac");
         }, function() {
-            $("#info").css("color", "");
+            $("#myinfo").css("color", "");
         });
         
 

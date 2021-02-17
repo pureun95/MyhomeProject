@@ -10,20 +10,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<script src="/Myhome_project/js/jquery-1.12.4.js"></script>
-<script src="/Myhome_project/js/bootstrap.js"></script>
 
-<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
-<link rel="stylesheet" href="/Myhome_project/css/main.css">
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="stylesheet" href="/Myhome_project/css/template.css">
 
 <style>
-@font-face {
-font-family: 'MaplestoryOTFLight';
-src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
-font-weight: normal;
-font-style: normal;
-}
+
 
 #form1{
     display: inline-block;

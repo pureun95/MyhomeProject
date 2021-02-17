@@ -61,7 +61,7 @@ header {
     clear: both;
 } 
     
-    
+
 .li-list:last-child {
     margin-right: 0px;
 }
@@ -73,11 +73,14 @@ header {
     top: 9px;
 }
 
+
+
 .li-list-hover {
     display:inline; 
     border-bottom: 3px solid #F1AEAE; 
     padding-bottom: 11px;
 }
+
 
 .li-list-scroll-hover {
     display:inline; 

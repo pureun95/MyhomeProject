@@ -40,7 +40,7 @@ style>body, html {
 		<!-- header -->
 		<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
-		<div class="container">
+		<%-- <div class="container">
 			<form class="login_form" method="post" action="/Myhome_project/member/login.do">
 				<!-- <img src="image/logo/5.png" width="150px"> <br>  -->
 				<input type="text" id="id" name="id" class="id_area" placeholder="아이디" required> 
@@ -62,7 +62,7 @@ style>body, html {
 		<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	</div>
-	
+	 --%>
 		<script>
     
 		function test(id, pw) {
