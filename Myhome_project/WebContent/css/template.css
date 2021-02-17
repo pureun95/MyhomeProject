@@ -23,7 +23,7 @@ font-family: 'NanumBarunGothic', sans-serif;
     } */
     
     .container {
-    	position: relative;
+    	/* position: relative; */
         width: 1190px;
         margin: 0 auto;
         letter-spacing: -.2px;

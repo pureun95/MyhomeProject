@@ -9,48 +9,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
-<link rel="stylesheet" href="/Myhome_project/css/template.css">
-<link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
+
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
+<link rel="stylesheet" href="/Myhome_project/css/board.css">
+<link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
+
+
+
+
 <style>
-
-	#header {
-		
-		background-color: white;
+	.header {
+		background-color : white;
 	}
 	
-	body,html {
-	    /* width: 100%; */
-	    height: 100%;
-	    margin: 0 auto;
-	    padding: 0;
-	}
-
-	/* .container {
+	.container {
+        width: 1190px;
+        margin: 0 auto;
+        letter-spacing: -.2px;
+        min-height:100%;
+		padding-bottom:100px;
 		border: 1px solid green;
-		width: 1190px;
-		margin: 0px auto;
 		margin-top: 100px;
-		position: relative;
-		height: 1200px;
-    } */
+		z-index: -1;
+    }
 	
-	
+
 </style>
+
+
 </head>
 <body>
-	<div class="wrap">
-
- 	<!-- header -->
-	<%@include file="/WEB-INF/views/inc/header.jsp" %>
  
-    <div class="container">
-	<%@include file="/WEB-INF/views/inc/nav.jsp" %>
+<div class="boardwrap">
+ 
+ <!-- header -->
+<%@include file="/WEB-INF/views/inc/header.jsp" %>
+ 
+     <div class="container">
+     <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
+        <div class="boardcover">
+            
 		 
-		 <div class="section1-box3-box1">
+		 <!-- 리스트 -->
+		 <div class="property-box">
+		 
+		 
                 <div class="property-list">
                     <div class="img-property"><div class="state">입주가능</div></div>
                     <div class="property-list2">
@@ -261,9 +266,24 @@
 	</div>  
    
     
-     <!-- footer -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp" %>
+    
+            
+    <div class="Boardnext">
+       <span class="tenplcount countbt ">◀</span>
+       <!-- 10개 이상일 경우에 1개씩 생기도록 화살표 태그에 개별 클래스를 입력하였습니다.!-->
+          <span class="countbt" >1</span>
+          <span class="tenmicount countbt">▶</span>
+    </div>
+            
+   </div>
+           
+            
+</div>
 
-</div>    
+
+ 
+     <!-- footer -->
+<%@include file="/WEB-INF/views/inc/footer.jsp" %>
+ 
 </body>
 </html>

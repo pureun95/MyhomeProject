@@ -1,5 +1,5 @@
 
-        $(".li-list").hover(function() {
+       /* $(".li-list").hover(function() {
             $(this).addClass("li-list-hover");
         }, function() {
             $(this).removeClass("li-list-hover");
@@ -28,5 +28,5 @@
         }, function() {
             $("#myinfo").css("color", "");
         });
-        
+        */
 

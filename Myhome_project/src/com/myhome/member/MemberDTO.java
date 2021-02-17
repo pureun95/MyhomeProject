@@ -12,6 +12,14 @@ public class MemberDTO {
 	private String phonenumber;
 	private String address;
 	
+	private String idNumber;
+	
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 	public int getSeqAllUser() {
 		return seqAllUser;
 	}
