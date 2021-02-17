@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/user/mypage.do")
 public class Mypage extends HttpServlet {
 
+	//http://localhost:8090/Myhome_project/user/mypage.do
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
