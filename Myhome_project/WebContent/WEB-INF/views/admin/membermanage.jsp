@@ -7,17 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome</title>
 
-<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
-
-<!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/board.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
+
 style>body, html {
 	/* width: 100%; */
 	height: 100%;
@@ -35,24 +33,7 @@ style>body, html {
 }
 
 /* ------------------------------------------- */
-@font-face {
-	font-family: 'MapoPeacefull';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 
-/*정선동강체 Regular*/
-@font-face {
-	font-family: 'JSDongkang-Regular';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
 
 .boardcover{
 /* 	border: 1px solid tomato; */
@@ -62,57 +43,73 @@ style>body, html {
 	margin-left: 20px; 
 }
 
-h1 {
-	font-family: 'MapoPeacefull';
+#title {
+	font-size: 24px;
+	font-family: 'MaplestoryOTFLight';
 	border-left: 5px solid #F1AEAE;
-	padding: 0px 10px;
+	margin: 30px 10px;
+	padding : 0px 10px;
 }
 
-.tbl, .tbl th, .tbl td {
-	border: 1px solid #CCC;
-	border-collapse: collapse;
-	font-family: 'JSDongkang-Regular';
+#tbl1, #tbl2{
+	width:940px;
 }
 
-.list:nth-child(1) { width: 30px; }
-.list:nth-child(2) { width: 80px; }
-.list:nth-child(3) { width: 100px; }
-.list:nth-child(4) { width: 100px; }
-.list:nth-child(5) { width: 100px; }
-.list:nth-child(6) { width: 140px; }
-.list:nth-child(7) { width: 230px; }
-.list:nth-child(8) { width: 140px; }
-
-.tbl {
-	float: left;
-	width: 920px;
-	margin-bottom: 30px;
-	margin: 0px auto;
+.table {
+	position: absolute;
+	left: 215px;
+	top: 140px;
 }
 
-.tbl td {
-	text-align: center;
-	height: 35px;
+.delete, .search, .pagebar {
+	position: relative;
+	top: 390px;
 }
 
-.tbl th {
-	background-color: #F1AEAE;
-	height: 40px;
+input[type=submit], input[type=buttom]{
+	border: none;
+}
+
+#tbl1 th, #tbl1 td, #tbl2 th, #tbl2 td {
+	font-family: 'NanumBarunGothic';
 	text-align: center;
 }
+#tbl1 th, #tbl2 td{
+	font-size: 13px;
+}
+
+
+.mlist:nth-child(1) { width: 40px; }
+.mlist:nth-child(2) { width: 80px; }
+.mlist:nth-child(3) { width: 100px; }
+.mlist:nth-child(4) { width: 90px; }
+.mlist:nth-child(5) { width: 100px; }
+.mlist:nth-child(6) { width: 140px; }
+.mlist:nth-child(7) { width: 230px; }
+.mlist:nth-child(8) { width: 160px; }
+
+.clist:nth-child(1) { width: 40px; }
+.clist:nth-child(2) { width: 60px; }
+.clist:nth-child(3) { width: 60px; }
+.clist:nth-child(4) { width: 60px; }
+.clist:nth-child(5) { width: 80px; }
+.clist:nth-child(6) { width: 100px; }
+.clist:nth-child(7) { width: 110px; }
+.clist:nth-child(8) { width: 120px; }
+.clist:nth-child(9) { width: 190px; }
+.clist:nth-child(10) { width: 130px; }
+
+
+
 
 input, select {
 	font-family: 'JSDongkang-Regular';
 	outline: none;
 }
 
-.btn {
-	cursor: pointer;
-}
-
 .page, .search {
 	text-align: center;
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 
 .page {
@@ -132,13 +129,30 @@ input, select {
 
 #member {
 	margin: 10px;
-	
 }
 
-a {
-	color:#000000;
-	cursor: pointer;
+#member input{
+	border: none;
+	background-color: transparent;
+
 }
+
+#member #user{
+	font-size: 1.3em;
+	font-weight: bold;
+	color : #F1AEAE;
+}
+
+#member input:hover{
+	color: #F1AEAE;
+	text-decoration : none;
+}
+
+
+/* a {
+	color:#202020;
+	cursor: pointer;
+} */
 
 .paging_number {
 	display: inline-block;
@@ -173,7 +187,7 @@ li {
     
     .btn {
     	cursor: pointer;
-    	margin-bottom: 30px;
+    	margin-bottom: 20px;
     	margin-right : 10px;
     	padding : 6px 12px;
     	background-color: #F1AEAE;
@@ -183,13 +197,21 @@ li {
     	color: aliceblue;
 	
     }
+    
+    #tbl2 {
+	visibility : hidden;
+}
+
+
+
+
 
 
 
 </style>
 </head>
 <body>
-	<div class="wrap">
+	<div class="boardwrap">
 
 		<!-- header -->
 		<%@include file="/WEB-INF/views/admin/header.jsp"%>
@@ -198,170 +220,274 @@ li {
 		<%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
 
-			<h1>회원관리</h1>
+			<div id="title">회원 정보 관리</div>
 
 			<div id="member">
-				<a id="user" class="active"> <span>일반회원</span></a> 
+				<input type="button" id="user" value="일반회원" >
 				<span class="bar"> ┃ </span> 
-				<a id="contractor"> <span>중개인</span></a>
+				<input type="button" id="contractor" value="중개인">
 			</div>
+			
+				<table id="tbl1" class="table table-hover table-striped table-condensed">
+    
+                <tr class="headtr">
+                	<th class="mlist">선택</th>
+                    <th class="mlist">회원번호</th>
+                    <th class="mlist">아이디</th>
+                    <th class="mlist">이름</th>
+                    <th class="mlist">생년월일</th>
+                    <th class="mlist">전화번호</th>
+                    <th class="mlist">주소</th>
+                    <th class="mlist">신고횟수(신고사항)</th>
+                </tr>
+                
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0001</td>
+                    <td class="mlist">아이디</td>
+                    <td class="mlist">홍길동</td>
+                    <td class="mlist">111111</td>
+                    <td class="mlist">010-1234-5678</td>
+                    <td class="mlist">서울시 강남구 역삼동</td>
+                    <td class="mlist">1회(허위매물)</td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0002</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0003</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0004</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0005</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0006</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0007</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0008</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0009</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                <tr class="boardtr">
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                    <td class="mlist">0010</td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                    <td class="mlist"></td>
+                </tr>
+                
+                
+            </table>
 
-			<table id="tbl1" class="tbl">
+			<table id="tbl2" class="table table-hover table-striped table-condensed">
 				<tr>
-					<th class="list"><input type="checkbox" name="allcheck"></th>
-					<th class="list">회원번호</th>
-					<th class="list">아이디</th>
-					<th class="list">이름</th>
-					<th class="list">생년월일</th>
-					<th class="list">전화번호</th>
-					<th class="list">주소</th>
-					<th class="list">신고횟수(신고사항)</th>
+					<th class="clist">선택</th>
+					<th class="clist">회원번호</th>
+					<th class="clist">아이디</th>
+					<th class="clist">이름</th>
+					<th class="clist">생년월일</th>
+					<th class="clist">공인중개소명</th>
+					<th class="clist">사업자등록번호</th>
+					<th class="clist">전화번호</th>
+					<th class="clist">주소</th>
+					<th class="clist">신고횟수(신고사항)</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox"></td>
-					<td>0001</td>
-					<td>아이디</td>
-					<td>홍길동</td>
-					<td>111111</td>
-					<td>010-1234-5678</td>
-					<td>서울시 강남구 역삼동</td>
-					<td>1회(허위매물)</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0002</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0003</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0004</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0005</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0006</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0007</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0008</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0009</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0010</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-
-			</table>
-
-			<!-- 			<table id="tbl2" class="tbl">
-				<tr>
-					<th class="list"><input type="checkbox" name="allcheck"></th>
-					<th class="list">회원번호</th>
-					<th class="list">아이디</th>
-					<th class="list">이름</th>
-					<th class="list">생년월일</th>
-					<th class="list">공인중개소명</th>
-					<th class="list">사업자등록번호</th>
-					<th class="list">전화번호</th>
-					<th class="list">주소</th>
-					<th class="list">신고횟수(신고사항)</th>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>0001</td>
-					<td>아이디</td>
-					<td>홍길동</td>
-					<td>111111</td>
-					<td>햇살공인중개사</td>
-					<td>사업자등록번호</td>
-					<td>010-1234-5678</td>
-					<td>서울시 강남구 역삼동</td>
-					<td>1회(허위매물)</td>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0001</td>
+					<td class="clist">아이디</td>
+					<td class="clist">홍길동</td>
+					<td class="clist">111111</td>
+					<td class="clist">햇살공인중개사</td>
+					<td class="clist">사업자등록번호</td>
+					<td class="clist">010-1234-5678</td>
+					<td class="clist">서울시 강남구 역삼동</td>
+					<td class="clist">1회(허위매물)</td>
 				</tr>	
 				<tr>
-					<td><input type="checkbox"></td>
-					<td>0002</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>			
-			</table> -->
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0002</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>	
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0003</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0004</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0005</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0006</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0007</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0008</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0009</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>
+				<tr>
+					<td class="clist"><input type="checkbox"></td>
+					<td class="clist">0010</td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+					<td class="clist"></td>
+				</tr>		
+			</table>
 
-			<span> 
+			<div class="delete"> 
 			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
-			</span>
+			</div>
+			
+			<div class="search">
+				<input type="text" placeholder="회원번호 / 아이디 / 이름" style="size: 10px;">
+				<input type="submit" class="btn" value="검색">
+			</div>
 
 			<nav class="pagebar">
 				<ul class="paging_number">
@@ -380,13 +506,6 @@ li {
 			</nav>
 
 
-
-			<div class="search">
-				<input type="text" placeholder="회원번호 / 아이디 / 이름" style="size: 10px;">
-				<input type="submit" class="btn" value="검색">
-			</div>
-
-
 		</div>
 
 	</div>
@@ -398,6 +517,35 @@ li {
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 	
 	<script>
+	
+		var user = document.getElementById("user");
+		var contractor = document.getElementById("contractor");
+		
+		user.onclick = function() {
+			document.getElementById("tbl1").style.visibility = 'visible';
+			document.getElementById("tbl2").style.visibility = 'hidden';
+			user.style.color = '#F1AEAE';
+			user.style.fontWeight = 'bold';
+			user.style.fontSize = '1.3em';
+			contractor.style.color = '#202020';
+			contractor.style.fontWeight = 'normal';
+			contractor.style.fontSize = '1em';
+		};
+		
+
+	
+		contractor.onclick = function() {
+			document.getElementById("tbl1").style.visibility = 'hidden';
+			document.getElementById("tbl2").style.visibility = 'visible';
+			user.style.color = '#202020';
+			user.style.fontWeight = 'normal';
+			user.style.fontSize = '1em';
+			contractor.style.color = '#F1AEAE';
+			contractor.style.fontWeight = 'bold';
+			contractor.style.fontSize = '1.3em';
+		};
+		
+		
 	
 	
 	</script>

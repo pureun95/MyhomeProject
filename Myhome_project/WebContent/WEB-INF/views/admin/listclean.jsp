@@ -47,7 +47,7 @@
         <div class="boardcover">
         
         
-		<h1>청소업체관리</h1>
+		<div id="title">청소업체관리</div>
 			<div class="btns">
 				<input type="button" value="등록">
 				<input type="button" value="삭제">
