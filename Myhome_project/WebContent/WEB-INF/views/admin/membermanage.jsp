@@ -132,6 +132,7 @@ input, select {
 
 #member {
 	margin: 10px;
+	
 }
 
 a {
@@ -143,14 +144,14 @@ a {
 	display: inline-block;
 }
 
-.paging_number>li>a {
+.paging_number>li>a, #member > a {
 	position: relative;
 	/* float: left; */
 	text-decoration: none;
 }
 
-/* .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {*/
-.paging_number > .active > a {
+
+.paging_number > .active > a, .paging_number > .active > a:hover, #member > .active{
 	color: #F1AEAE;
 	font-weight: bold;
 }
@@ -168,24 +169,41 @@ ul {
 li {
 	float: left;
 }
+
+    
+    .btn {
+    	cursor: pointer;
+    	margin-bottom: 30px;
+    	margin-right : 10px;
+    	padding : 6px 12px;
+    	background-color: #F1AEAE;
+    	border-radius: 4px;
+    	/* outline: none; */
+    	border : none;
+    	color: aliceblue;
+	
+    }
+
+
+
 </style>
 </head>
 <body>
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/inc/header.jsp"%>
+		<%@include file="/WEB-INF/views/admin/header.jsp"%>
 
 		<div class="container">
-		<%@include file="/WEB-INF/views/inc/nav.jsp" %>
+		<%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
 
 			<h1>회원관리</h1>
 
 			<div id="member">
-				<a id="user"> <span>일반회원</span>
-				</a> <span class="bar"> ┃ </span> <a id="contractor"> <span>중개인</span>
-				</a>
+				<a id="user" class="active"> <span>일반회원</span></a> 
+				<span class="bar"> ┃ </span> 
+				<a id="contractor"> <span>중개인</span></a>
 			</div>
 
 			<table id="tbl1" class="tbl">
@@ -341,9 +359,8 @@ li {
 				</tr>			
 			</table> -->
 
-			<span class="page"> <input type="button" class="btn"
-				id="delete" value="선택한 회원 삭제"
-				onclick="location.href='/jsp/project/communitywrite.jsp';">
+			<span> 
+			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
 			</span>
 
 			<nav class="pagebar">
@@ -376,9 +393,15 @@ li {
 
 	</div>
 
-
 	</div>
 	<!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+	
+	<script>
+	
+	
+	</script>
+
+
 </body>
 </html>

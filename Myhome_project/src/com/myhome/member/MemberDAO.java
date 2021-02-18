@@ -29,7 +29,7 @@ public class MemberDAO {
 	}
 
 	/**
-	 * 로그인
+	 * tblAllUser select
 	 * @param dto
 	 * @return 결과유무
 	 */
@@ -38,7 +38,7 @@ public class MemberDAO {
 		try {
 
 			//쿼리
-			String sql = "select count(*) as cnt from tblAllUser where id = ? and password = ?";
+			String sql = "select * from tblAllUser where id = ? and password = ?";
 
 			//준비
 			pstat = conn.prepareStatement(sql);
@@ -47,11 +47,16 @@ public class MemberDAO {
 
 			//실행
 			rs = pstat.executeQuery();
+			
+			MemberDTO mdto = new MemberDTO();
+			
+			int seqAllUser = 0;
 
 			//리턴
 			if (rs.next()) {
-				/* System.out.println("cnt" + rs.getInt("cnt")); */
-				return rs.getInt("cnt"); //1 or 0
+				seqAllUser = (rs.getInt("seqAllUser"));
+				
+				return seqAllUser; // 0 이거나  또는 0 이상
 			}
 
 		} catch (Exception e) {
@@ -185,5 +190,69 @@ public class MemberDAO {
 		}
 		return 0;
 	}
+
+	/**
+	 * tblContractor insert
+	 * @param seqContractor
+	 * @param companynumber
+	 * @param companyname
+	 * @return
+	 */
+	public int addContractor(int seqContractor, String companynumber, String companyname) {
+		
+		try {
+			String sql = "insert into tblContractor (seqContractor, companynumber, contractorname, reportcount) " +
+						"values (?, ?, ?, 0)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, seqContractor);
+			pstat.setString(2, companynumber);
+			pstat.setString(3, companyname);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("MemberDAO.addContractor"+e);
+		}
+		return 0;
+	}
+
+	
+	/**
+	 * tblAllUser select 
+	 * @param seqAllUser
+	 * @return
+	 */
+	public MemberDTO getMember(int seqAllUser) {
+		
+		try {
+			
+			String sql = "select * from tblAllUser where seqAllUser = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, seqAllUser);
+			
+			rs = pstat.executeQuery();
+			
+			MemberDTO dto = new MemberDTO();
+			
+			while(rs.next()) {
+				dto.setSeqAllUser(rs.getInt("seqAllUser"));
+				dto.setName(rs.getString("name"));
+				dto.setNickname(rs.getString("nickname"));
+				dto.setPhonenumber(rs.getString("phonenumber"));
+				dto.setAddress(rs.getString("address"));
+			}
+			
+			return dto;
+			
+			
+		} catch (Exception e) {
+			System.out.println("MemberDAO.login()");
+		}
+		
+		return null;
+	}
+
 
 }

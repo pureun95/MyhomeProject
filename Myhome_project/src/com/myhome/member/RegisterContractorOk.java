@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/member/RegisterOk.do")
-public class RegisterOk extends HttpServlet {
+@WebServlet("/member/RegisterContractorOk.do")
+public class RegisterContractorOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,9 +27,8 @@ public class RegisterOk extends HttpServlet {
 		String email = "";		//이메일
 		String tel = "";		//전화번호
 		String address = "";	//주소
-		String location = "";	//선호하는지역 seq 번호넘오온다
-		String alarm = "";
-		String roomtype = "";
+		String companyname = "";//회사명
+		String companynumber ="";//사업자번호
 		
 		int result = 0; //업무 결과
 
@@ -44,14 +43,13 @@ public class RegisterOk extends HttpServlet {
 			email = req.getParameter("email");
 			tel = req.getParameter("tel");
 			address = req.getParameter("address");
-			location = req.getParameter("location");
-			roomtype = req.getParameter("roomtype");
-			alarm = req.getParameter("alarm");
+			companyname = req.getParameter("companyname");
+			companynumber = req.getParameter("companynumber");
 
 			//확인용
 			//System.out.println(id+" "+pw+" "+name+" "+idNumber+" "+ nickname +" "+email+" "+tel+" "+address);
 			//System.out.println(location);
-			//System.out.println(alarm + " " + roomtype);
+			//System.out.println(companyname + " " + companynumber);
 
 			//DB 작업 -> 위임
 			// - DAO + DTO
@@ -70,13 +68,13 @@ public class RegisterOk extends HttpServlet {
 			//tblAllUser (중개인, 회원)
 			result = dao.add(dto); //위임 -> 1(성공) 0(실패)
 			
-			//tblUser (회원)
+			//tblContractor (중개인)
 			//1. seq만 가져온다
 			int seqAllUser = dao.getSeq(dto);
 			//확인용
 			//System.out.println(seqAllUser);
 			//2. seq를 보내준다
-			result = dao.addUser(dto, roomtype, alarm, seqAllUser, location);
+			result = dao.addContractor(seqAllUser, companynumber, companyname);
 			
 			System.out.println(result);
 			
@@ -88,7 +86,7 @@ public class RegisterOk extends HttpServlet {
 		//결과 : JSP 작업 X -> Servlet 작업 O
 		if (result == 1) {
 			//회원 가입 성공
-			resp.sendRedirect("/codestudy/index.do");
+			resp.sendRedirect("/Myhome_project/Myhome/main.do");
 		} else {
 			//회원 가입 실패
 			PrintWriter writer = resp.getWriter();

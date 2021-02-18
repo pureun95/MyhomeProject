@@ -1,6 +1,5 @@
 package com.myhome.member;
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/Register.do")
-public class Register extends HttpServlet {
+@WebServlet("/member/RegisterContractor.do")
+public class RegisterContractor extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/Register.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/RegisterContractor.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
