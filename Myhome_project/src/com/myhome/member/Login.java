@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 @WebServlet("/member/login.do")
 public class Login extends HttpServlet {
 
@@ -31,18 +32,24 @@ public class Login extends HttpServlet {
 		dto.setId(id);
 		dto.setPassword(password);
 		
-		int result = dao.login(dto); //1 or 0
+		int seqAllUser = dao.login(dto); // 0 or 0이상
 		
 		//확인용
 		//System.out.println(id + " " + password);
+		//System.out.println(seqAllUser);
 		
 		
 		//3.
-		if (result == 1) {
-			System.out.println("성공");
+		if (seqAllUser > 0) {
+			
+			MemberDTO mdto = dao.getMember(seqAllUser);
+			
+			HttpSession session = req.getSession();
+			session.setAttribute("seqAllUser", seqAllUser); 
+			session.setAttribute("name", mdto.getName());
 			
 			//시작 페이지로 이동
-			resp.sendRedirect("/codestudy/index.do");			
+			resp.sendRedirect("/Myhome_project/Myhome/main.do");			
 			
 		} else {
 			//로그인 실패
