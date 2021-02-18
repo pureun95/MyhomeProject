@@ -40,10 +40,10 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/header.jsp" %>
+<%@include file="/WEB-INF/views/admin/header.jsp" %>
  
      <div class="container">
-     <%@include file="/WEB-INF/views/inc/nav.jsp" %>
+     <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
         
         
