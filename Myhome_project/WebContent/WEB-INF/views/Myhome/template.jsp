@@ -39,7 +39,7 @@ body, html {
 			<!-- header -->
 			<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
-			<div class="container">안녕하세요</div>
+			<div class="container">안녕하세요. 이것은 템플릿입니다.</div>
 		</div>
 
 
