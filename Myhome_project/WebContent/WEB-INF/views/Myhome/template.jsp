@@ -16,7 +16,6 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
-body, html {
 	height: 100%;
 	margin: 0 auto;
 	padding: 0;
