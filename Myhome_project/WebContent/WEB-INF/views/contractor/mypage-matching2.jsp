@@ -78,6 +78,11 @@
     
     }
     
+   .boardtd {
+   	 text-align: center;
+    vertical-align: middle;
+   }
+    
     .firtd {
     	width: 10px;
     }
@@ -94,24 +99,51 @@
     	width: 20px;
     }
     
-   	.table > .headtr {
-   		line-height: 3px;
+   	.boardtd {
+   		text-align: center;
+    vertical-align: middle;
    	
-   	}
+   	} 
    	
    	.btn {
    		background-color: #f1aeae;
    		color: white;
    		outline: none !important;
    		font-family: 'NanumBarunGothic';
+   		margin-right: 5px;
    	} 
    	
-   	#button-addon3 {
-   		background-color: #f1aeae;
-   		color: white;
-   		outline: none !important;
-   		font-family: 'NanumBarunGothic';
-   	}
+   	
+   	#button-addon1 {
+	   	background-color: #f1aeae;
+	   	color: white;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+   }
+   
+   #button-addon2 {
+	   	background-color: white;
+	   	color: #202020;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+   }
+   
+   
+   
+   #search {
+   		width: 300px;
+   		outline: 0;
+   
+   }
+   
+   #div {
+   	min-height: 35px;
+   	border: 1px solid black;
+   	padding: 5px;
+   
+   }
     
     
     
@@ -136,10 +168,8 @@
 		 <div class="property-box">
 		 
 		 	<div class="matching-option">
-		 		<div style="float: left">
-		 			<button class="btn btn-outline-secondary" type="button" id="button-addon3">나에게 들어온 매칭</button>
-            		<button class="btn btn-outline-secondary" type="button" id="button-addon3">내가 신청한 매칭</button>
-            	</div>
+		 		<button class="btn btn-outline-secondary" type="button" id="button-addon1">나에게 들어온 매칭</button>
+            	<button class="btn btn-outline-secondary" type="button" id="button-addon2">내가 신청한 매칭</button>
 		 	</div>
                 
           
@@ -158,9 +188,9 @@
             </tr>
             
             <tr class="boardtr">
-                <td class="firtd boardtd">1</td>
-                <td class="sectd boardtd"><span class="boardspan headspan">정말 좋은 방</span></td>
-                <td class="thitd boardtd">아이구</td>
+                <td class="firtd boardtd "><div id="div">1</div></td>
+                <td class="sectd boardtd boardtext align-middle"><span class="boardspan headspan">정말 좋은 방</span></td>
+                <td class="thitd boardtd align-middle" >아이구</td>
                 <td class="fortd boardtd">
                 	<button class="btn btn-outline-secondary" type="button" id="button-addon2">매칭수락</button>
             		<button class="btn btn-outline-secondary" type="button" id="button-addon2">매칭거절</button>  
@@ -168,7 +198,7 @@
             </tr>
             
             <tr class="boardtr">
-                <td class="firtd boardtd">2</td>
+                <td class="firtd boardtd"><div id="div">2</div></td>
                 <td class="sectd boardtd"><span class="boardspan headspan">정말 좋은 방</span></td>
                 <td class="thitd boardtd">아이구</td>
                 <td class="fortd boardtd">
@@ -178,30 +208,23 @@
             </tr>
             
             <tr class="boardtr">
-                <td class="firtd boardtd">3</td>
+                <td class="firtd boardtd "><div id="div">3</div></td>
                 <td class="sectd boardtd"><span class="boardspan headspan">정말 좋은 방</span></td>
                 <td class="thitd boardtd">아이구</td>
                 <td class="fortd boardtd">
                 	<span>매칭완료(2021-02-01)</span>
-                	
-            		 
             	</td>
             </tr>
+            
+           
         </table>
        
-
+		<div>
+		
+			<input type="text" class="form-control" id="search" placeholder="닉네임, 매물번호를 입력해주세요."> 
+		
+		</div>
         
-           
-
-
-       <div class="boardserch">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-          
-          </div>
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-        </div>
-    
         
     </form>
          

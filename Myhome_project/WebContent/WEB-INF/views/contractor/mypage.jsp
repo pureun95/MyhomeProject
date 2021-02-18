@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
-<link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
+<link rel="stylesheet" href="/Myhome_project/css/contractor-mypage-main.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
