@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/contractor/mypage-matching1.do")
-public class MypageMatching extends HttpServlet{
+public class MypageMatching1 extends HttpServlet{
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
