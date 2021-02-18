@@ -57,7 +57,7 @@
 						<td class="navboardtd">
 
 					<!-- nav -->
-					<%@include file="/WEB-INF/views/user/nav.jsp"%>
+					<%@include file="/WEB-INF/views/inc/nav.jsp"%>
 				
 						</td>
 
