@@ -78,18 +78,36 @@
         width: 70px;
         margin-right: 10px;
         
-    }    
+    }
     
-    .boardserch{
+
+	.boardserch{
+ 	    display: block;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 280px;
+    width: 330px;
+ 	
+
+	}
+	
+	#button-addon2{
+	display: inline-block;
+	 background-color:#f1aeae ;
+	 color: white;
+	 outline: none;
+	}
+    /*
+    	.boardserch{
         margin-top: 50px;    
         width: 150px;
-        position: absolute;
-        left: 600px; /*위치 변경*/
-    }
+
+	}
     
     .input-group{
         width: 200px;
-    }.form-control{
+    }
+    .form-control{
         display: block;
         width: 40px;
     }
@@ -109,8 +127,9 @@
         display: block;
         clear: both;
     }
-    
-    
+   
+	 */
+
     
     .Boardnext{
         display: block;
@@ -125,11 +144,18 @@
     }
     
     
-.boardwrap{
-        
-    height: auto;
-    min-height: 100%;
-}
+	.boardwrap{
+	        
+	    height: auto;
+	    min-height: 100%;
+	}
+	
 
- 
- 
+ /*02/18 추가사항 */
+ 	.navboardtd{
+	
+	    vertical-align: top;
+			
+	}
+
+ /*02/18 추가사항 */
