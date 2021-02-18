@@ -13,6 +13,8 @@
 
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
+<link rel="stylesheet" href="/Myhome_project/css/board.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
@@ -52,6 +54,14 @@ style>body, html {
 	font-style: normal;
 }
 
+.boardcover{
+/* 	border: 1px solid tomato; */
+	float: left;
+	width:900px;
+	height: auto;
+	margin-left: 20px; 
+}
+
 h1 {
 	font-family: 'MapoPeacefull';
 	border-left: 5px solid #F1AEAE;
@@ -64,18 +74,19 @@ h1 {
 	font-family: 'JSDongkang-Regular';
 }
 
-.list:nth-child(1) { width: 40px; }
-.list:nth-child(2) { width: 100px; }
-.list:nth-child(3) { width: 150px; }
-.list:nth-child(4) { width: 150px; }
-.list:nth-child(5) { width: 120px; }
-.list:nth-child(6) { width: 180px; }
-.list:nth-child(7) { width: 280px; }
-.list:nth-child(8) { width: 170px; }
+.list:nth-child(1) { width: 30px; }
+.list:nth-child(2) { width: 80px; }
+.list:nth-child(3) { width: 100px; }
+.list:nth-child(4) { width: 100px; }
+.list:nth-child(5) { width: 100px; }
+.list:nth-child(6) { width: 140px; }
+.list:nth-child(7) { width: 230px; }
+.list:nth-child(8) { width: 140px; }
 
 .tbl {
-	width: 1190px;
-	margin-bottom: 10px;
+	float: left;
+	width: 920px;
+	margin-bottom: 30px;
 	margin: 0px auto;
 }
 
@@ -87,6 +98,7 @@ h1 {
 .tbl th {
 	background-color: #F1AEAE;
 	height: 40px;
+	text-align: center;
 }
 
 input, select {
@@ -111,6 +123,11 @@ input, select {
 .pagebar {
 	float: left;
 	text-align: center;
+}
+
+.page input, .pagebar{
+	margin-top : 30px;
+	text-align : center;
 }
 
 #member {
@@ -160,6 +177,8 @@ li {
 		<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 		<div class="container">
+		<%@include file="/WEB-INF/views/inc/nav.jsp" %>
+        <div class="boardcover">
 
 			<h1>회원관리</h1>
 
@@ -353,13 +372,13 @@ li {
 
 		</div>
 
-
+	</div>
 
 	</div>
 
-	<%-- 	<!-- footer -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp"%> --%>
 
 	</div>
+	<!-- footer -->
+<%@include file="/WEB-INF/views/inc/footer.jsp" %>
 </body>
 </html>
