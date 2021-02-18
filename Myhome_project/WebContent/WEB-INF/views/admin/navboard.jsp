@@ -33,7 +33,25 @@
     	width: 200px;
 
     }
-
+	 .navboardtd{
+	
+	    vertical-align: top;
+			
+	}
+	
+	
+	#boardtitle{
+	
+		width:300px;
+		height:70px;
+    	font-size:23px;
+    	font-weight: bolder;	
+    	margin:20px;
+    	text-align:center;
+    	color:white;
+    	background-color:#f1aeae;
+    	border-radius: 20px;
+	}
 
 
 </style>
@@ -64,7 +82,8 @@
 						<!---->
 
 						<td class="navboardtd">
-
+							<div id="boardtitle" class=" alert alert-success">청약안내게시판</div>
+							
 
 							<div class="boardcover">
 								<table id="board"
