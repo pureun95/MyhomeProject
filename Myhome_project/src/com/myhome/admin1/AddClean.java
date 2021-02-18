@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/Myhome/admin/addclean.do")
 public class AddClean extends HttpServlet{
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/addclean.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/addclean.jsp");
+		dispatcher.forward(req, resp);
 		
 	}
 	

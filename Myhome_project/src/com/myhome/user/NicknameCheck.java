@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/user/mypagereservation.do")
-public class MypageReservation extends HttpServlet {
+@WebServlet("/user/nicknamecheck.do")
+public class NicknameCheck extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage-reservation.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/nicknamecheck.jsp");
 		dispatcher.forward(req, resp);
 
 	}
