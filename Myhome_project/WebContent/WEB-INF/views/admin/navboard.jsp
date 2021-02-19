@@ -33,7 +33,25 @@
     	width: 200px;
 
     }
-
+	 .navboardtd{
+	
+	    vertical-align: top;
+			
+	}
+	
+	
+	#boardtitle{
+	
+		width:300px;
+		height:70px;
+    	font-size:23px;
+    	font-weight: bolder;	
+    	margin:20px;
+    	text-align:center;
+    	color:white;
+    	background-color:#f1aeae;
+    	border-radius: 20px;
+	}
 
 
 </style>
@@ -64,7 +82,8 @@
 						<!---->
 
 						<td class="navboardtd">
-
+							<div id="boardtitle" class=" alert alert-success">청약안내게시판</div>
+							
 
 							<div class="boardcover">
 								<table id="board"
@@ -144,18 +163,14 @@
 							</div>
 
 
-							<div class="boardserch">
-								<div class="input-group mb-3">
-									<input type="text" class="form-control"
-										placeholder="Recipient's username"
-										aria-label="Recipient's username"
-										aria-describedby="button-addon2">
-
-								</div>
-								<button class="btn btn-outline-secondary" type="button"
-									id="button-addon2">Button</button>
-							</div>
-
+							    <div class="boardserch">
+							           <input type="text" class=""
+							                placeholder="Recipient's username"
+							                aria-label="Recipient's username"
+							                aria-describedby="button-addon2">
+							        <button class="btn btn-outline-secondary" type="button"
+							            id="button-addon2">Button</button>
+							    </div>
 
 
 							<div class="Boardnext">
