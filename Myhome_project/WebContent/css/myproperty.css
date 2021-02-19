@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
         .property-box {
-        	padding-top: 34px;
+        	padding-top: 50px;
             float: left;
             border: 1px solid blue;
             margin-left: 50px;
-            width: 870px;
+            width: 900px;
             height: auto;
             margin-bottom: 50px;
             /* padding-right: 150px; */
