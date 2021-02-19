@@ -54,14 +54,26 @@
     	color: #202020;
     }
     
-    .who-matching {
+    
+    
+    .matching-option > a {
     	cursor: pointer;
-    	text-decoration: none;
     	color: #202020;
-    	margin: 5px;
-    	list-style: none;
+    	margin-right: 20px;
     	float: left;
     	margin-left: 0px;
+    }
+    
+     .matching-option > a:hover {
+    	color: #f1acac;    	
+    	text-decoration: none;
+    }
+    
+    .matching-option > a:nth-child(2) {
+    	color: #f1acac;
+    	display: inline;
+    	border-bottom: 2px solid #f1acac;
+    	padding-bottom: 4px;
     }
     
     
@@ -131,8 +143,8 @@
    }
    
    #button-addon2 {
-	   	background-color: white;
-	   	color: #202020;
+	   	background-color: #f1aeae;
+	   	color: white;
 	   	outline: none !important;
 	   	font-family: 'NanumBarunGothic';
 	   	border: 1px solid #f1aeae;
@@ -162,14 +174,18 @@
    }
    
    .paging {
-  		border: 1px solid black;
+  		border: 1px solid blue;
   		width: 810px;
-  		height: 30px;
-  		padding: 5px 50px;
-  		
-   
+  		height: 80px;
+  		padding: 5px 250px;
+
    }
-  
+
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	
+	}
     
     
     
@@ -183,7 +199,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -195,10 +211,8 @@
 		 	<div class="board-name">매칭매물관리</div>
 		 	
 		 	<div class="matching-option">
-		 		<ul>
-		 			<li class="who-matching" id="tome">나에게 들어온 매칭</li>
-		 			<li class="who-matching" id="fromme">내가 신청한 매칭</li>
-		 		</ul>		 		
+		 			<a>나에게 들어온 매칭</a>
+		 			<a>내가 신청한 매칭</a>		 		 			
 		 	</div>
                 
           
@@ -315,7 +329,20 @@
 	        </table>
        
        
-       		<div class="paging">페이징</div>
+       		<div class="paging">
+       			<ul class="pagination">
+				    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
+				    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
+				    <li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+       		</div>
+       		
+       		
        		</div>
        		
        		<div id="search-box">		
