@@ -129,6 +129,7 @@ input, select {
 
 #member {
 	margin: 10px;
+	
 }
 
 #member input{
@@ -187,6 +188,7 @@ li {
     
     .btn {
     	cursor: pointer;
+
     	margin-bottom: 20px;
     	margin-right : 10px;
     	padding : 6px 12px;
@@ -197,12 +199,11 @@ li {
     	color: aliceblue;
 	
     }
+
     
     #tbl2 {
 	visibility : hidden;
 }
-
-
 
 
 
@@ -480,6 +481,51 @@ li {
 				</tr>		
 			</table>
 
+<!-- 충돌난 부분
+			<!-- 			<table id="tbl2" class="tbl">
+				<tr>
+					<th class="list"><input type="checkbox" name="allcheck"></th>
+					<th class="list">회원번호</th>
+					<th class="list">아이디</th>
+					<th class="list">이름</th>
+					<th class="list">생년월일</th>
+					<th class="list">공인중개소명</th>
+					<th class="list">사업자등록번호</th>
+					<th class="list">전화번호</th>
+					<th class="list">주소</th>
+					<th class="list">신고횟수(신고사항)</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>0001</td>
+					<td>아이디</td>
+					<td>홍길동</td>
+					<td>111111</td>
+					<td>햇살공인중개사</td>
+					<td>사업자등록번호</td>
+					<td>010-1234-5678</td>
+					<td>서울시 강남구 역삼동</td>
+					<td>1회(허위매물)</td>
+				</tr>	
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>0002</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>			
+			</table> -->
+
+			<span> 
+			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
+			</span>
+--!>
+
 			<div class="delete"> 
 			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
 			</div>
@@ -488,6 +534,7 @@ li {
 				<input type="text" placeholder="회원번호 / 아이디 / 이름" style="size: 10px;">
 				<input type="submit" class="btn" value="검색">
 			</div>
+
 
 			<nav class="pagebar">
 				<ul class="paging_number">
@@ -517,7 +564,10 @@ li {
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 	
 	<script>
-	
+
+    
+
+<!-- 충돌난 부분
 		var user = document.getElementById("user");
 		var contractor = document.getElementById("contractor");
 		
@@ -547,6 +597,7 @@ li {
 		
 		
 	
+--!>
 	
 	</script>
 
