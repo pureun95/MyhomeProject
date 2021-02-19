@@ -44,10 +44,18 @@ style>body, html {
 }
 
 
-h1 {
-	font-family: 'MapoPeacefull';
+#title {
+	font-size: 24px;
+	font-family: 'MaplestoryOTFLight';
 	border-left: 5px solid #F1AEAE;
-	padding: 0px 10px;
+	margin: 30px 10px;
+	padding : 0px 10px;
+}
+
+#subtitle{
+	font-size: 24px;
+	font-family: 'MaplestoryOTFLight';
+	margin-bottom: 10px;
 }
 
 h2 {
@@ -109,10 +117,10 @@ input[type=submit]{
 		<div class="container">
 		<%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
-			<h1>청소업체관리</h1>
+			<div id="title">청소업체 관리</div>
 
 			<div class="add">
-				<h2>청소업체 등록하기</h2>
+				<div id="subtitle">청소업체 등록하기</div>
 		
 				<input type="text" class="txt" name="name" placeholder="업체명"> 
 				<input type="text" class="txt" name="address" placeholder="주소"> 

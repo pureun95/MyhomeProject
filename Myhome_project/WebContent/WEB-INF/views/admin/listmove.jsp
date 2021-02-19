@@ -47,7 +47,7 @@
         <div class="boardcover">
         
         
-		<h1>이사업체관리</h1>
+		<div id="title">이사업체관리</div>
 			<div class="btns">
 				<input type="button" value="등록">
 				<input type="button" value="삭제">
