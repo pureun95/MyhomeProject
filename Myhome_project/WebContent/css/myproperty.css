@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
         .property-box {
+        	/* border: 1px solid blue; */
         	padding-top: 50px;
-            float: left;
-            border: 1px solid blue;
+            float: left;            
             margin-left: 50px;
             width: 900px;
             height: auto;

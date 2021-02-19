@@ -10,3 +10,4 @@
 <script src="/Myhome_project/js/nav.js"></script>
 
 <link rel="stylesheet" href="/Myhome_project/css/font.css">
+<link rel="icon" href="/Myhome_project/image/logo/home.ico" type="image/x-icon">
