@@ -47,24 +47,24 @@
         text-align: center;
     } */
     
-    th {
+    /* th {
     	text-align: center;
-    }
+    } */
     
-    .boardtr sectd, .boardtr thitd {
+    /* .boardtr sectd, .boardtr thitd {
     	text-align: left;
     }
     
     .boardtr firtd, .boardtr fortd, .boardtr fiftd {
     	text-align: center;
-    }
+    } */
     
     
     
     
     
     
-    .firtd{
+    /* .firtd{
         width: 80px;
     }
     
@@ -79,10 +79,10 @@
     }
     .fiftd{
         width: 80px;
-    }
+    } */
 
 
-    .boardwork{
+    /* .boardwork{
         width: 200px;
         text-align: center;
         margin-left: 700px;
@@ -97,11 +97,11 @@
         
     }    
     
-    .boardserch{
+    .boardsearch{
         margin-top: 50px;    
         width: 150px;
         position: absolute;
-        left: 600px; /*위치 변경*/
+        left: 600px; 위치 변경
     }
     
     .input-group{
@@ -139,7 +139,7 @@
     
     .countbt{
         padding:3px;
-    }
+    } */
     
     
 .boardwrap{
