@@ -24,21 +24,26 @@
            <div class="nav1-box1">
                <div class="nav1-content" id="nav1-content1">
                    <div class="nav1-box1-img glyphicon glyphicon-upload"></div>
-                        <div class="nav1-box1-content"><a id="upload" href="mypage-myproperty.html" class="nav-list">올린매물관리</a></div>
+                        <div class="nav1-box1-content"><a id="upload" class="nav-list" onclick="location.href='/Myhome_project/contractor/mypage-myproperty.do';">올린매물관리</a></div>
                </div>
                <div class="nav1-content" id="nav1-content2">
                    <div class="nav1-box1-img glyphicon glyphicon-resize-small"></div>
-                   <div class="nav1-box1-content"><a id="mymatching" class="nav-list">매칭매물관리</a></div>
+                   <div class="nav1-box1-content"><a id="mymatching" class="nav-list" onclick="location.href='/Myhome_project/contractor/mypage-mymatching1.do';">매칭매물관리</a></div>
                </div>
                <div class="nav1-content" id="nav1-content3">
                    <div class="nav1-box1-img glyphicon glyphicon-pencil"></div>
-                   <div class="nav1-box1-content"><a id="mycontract" class="nav-list">전자계약관리</a></div>
+                   <div class="nav1-box1-content"><a id="mycontract" class="nav-list" onclick="location.href='/Myhome_project/contractor/mypage-contract.do';">전자계약관리</a></div>
                </div>
                    <div class="nav1-content" id="nav1-content4">
                    <div class="nav1-box1-img glyphicon glyphicon-user"></div>
-                   <div class="nav1-box1-content"><a id="myinfo" class="nav-list">회원정보관리</a></div>
+                   <div class="nav1-box1-content"><a id="myinfo" class="nav-list" onclick="location.href='/Myhome_project/contractor/mypage-info.do';">회원정보수정</a></div>
                </div>
          </div>
     </nav>
+    
+    
+    <script>
+    	
+    </script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::회원정보수정</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 
@@ -36,12 +36,13 @@
     
     .board-name {
     	border-bottom: 1px solid #eaecef;
-    	width: 400px;
+    	width: 810px;
     	height: 50px;
     	padding-bottom: 10px;
     	font-size: 24px;
     	font-family: 'NanumBarunGothic';
     	color: #202020;
+    	margin-bottom: 20px;
     	
     }
     
@@ -277,6 +278,10 @@
 		color: #202020;
 		margin-top: 30px;
 	}
+	
+	#myinfo {
+    	color: #f1acac;
+    }
     
 </style>
 
@@ -306,21 +311,25 @@
         	
 	       <span>아이디</span>
 	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id"> 
-			<span>이름</span>
-			<input type="text" class="form-control form-weight readonly" id="" readonly>		
-			<span>닉네임</span> 			
+			<!-- <span>이름</span>
+			<input type="text" class="form-control form-weight readonly" id="" readonly>		 -->
+			<!-- <span>닉네임</span> 			
 			<input type="text" class="form-control form-weight" id="nickname">
-			<span class="desc">닉네임이 중복입니다.</span> 
-      		<span>주민번호</span> 
-			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 readonly> -
-			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 readonly>
+			<span class="desc">닉네임이 중복입니다.</span>  -->
+			<span>공인중개소명</span> 			
+			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소">
+			<span>사업자번호</span> 			
+			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544">		
+      		<!-- <span>주민번호</span> 
+			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 readonly placeholder="900101"> -
+			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 readonly placeholder="1234567"> -->
 			<span>비밀번호</span> 
 	       <input type="password" class="form-control form-weight" id="">
 			<span>비밀번호확인</span>
 			<input type="password" class="form-control form-weight" id="search-text">
 			
 			<span>주소</span>
-			<input type="text" class="form-control" id="search-text">
+			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동">
 			
 			<span>전화번호</span> 
 			<input type="text" class="form-control tel" id="tel1" maxlength=3>-
@@ -330,7 +339,7 @@
 			<span>이메일</span>
 			<input type="text" class="form-control" id="search-text">
 			
-			<span>관심매물</span>
+			<!-- <span>관심매물</span>
 			<select class="form-control multiple">
 				<option>원룸</option>
 				<option>투룸</option>
@@ -360,7 +369,7 @@
 				<option value="50" title="제주특별자치도" >제주특별자치도</option>
 			</select>		
 			
-			<!-- 임시 -->
+			임시
 			<select title="시/군/구 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
 				<option>시/군/구</option>
 				<option value="11" title="서울특별시" >서울특별시</option>
@@ -371,7 +380,7 @@
 				<option value="46" title="전라남도" >전라남도</option>
 			</select>		
 			
-			<!-- 임시 -->
+			임시
 			<select title="동/읍/면 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
 				<option>동/읍/면</option>
 				<option value="11" title="서울특별시" >서울특별시</option>
@@ -380,7 +389,7 @@
 				<option value="48" title="경상남도" >경상남도</option>
 				<option value="47" title="경상북도" >경상북도</option>
 				<option value="46" title="전라남도" >전라남도</option>
-			</select>	
+			</select>	 -->
 			
 			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
 			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
