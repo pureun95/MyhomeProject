@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::방찾기</title>
+<title>Myhome::임대인방찾기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 
@@ -92,6 +92,7 @@
     	/* border: 1px solid blue; */
     	width: 820px;
     	height: 600px;
+    	margin-right: 50px;
     }
     
     #board {
@@ -230,17 +231,17 @@
 <%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
  
      <div class="container">
-     <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
         <div class="boardcover">
             
-		 
 		 <!-- 리스트 -->
 		 <div class="property-box">
-		 	<div class="board-name">매칭매물관리</div>
+		 
+		 <!-- TODO bottom left 추가하기 -->
+		 	<div class="board-name">방찾기</div>
 		 	
 		 	<div class="matching-option">
-		 			<a href="mypage-matching1.do">나에게 들어온 매칭</a>
-		 			<a href="mypage-matching2.do">내가 신청한 매칭</a>		 		 			
+		 		<a href="search-lessor.do">임대인이 올린 매물</a>
+		 		<a href="search-contractor.do">중개인이 올린 매물</a>		 		 			
 		 	</div>
                 
           
