@@ -273,6 +273,7 @@
 		/* border: 1px solid black; */
 		width: 200px;
 		margin: 10px 120px;
+		font-size: 16px;
 	}
 	
     

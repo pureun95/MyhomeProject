@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
         .property-box {
-        	/* border: 1px solid blue; */
+        	border: 1px solid blue;
         	padding-top: 50px;
             float: left;            
             margin-left: 50px;
@@ -30,6 +30,7 @@
             background-image: url('../image/6.jpg');
             background-position: 0% 0px; 
             background-size: cover;
+            cursor: pointer;
         }
 
        .property-list2 {
