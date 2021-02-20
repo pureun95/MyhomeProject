@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	
+
 %>
 <!DOCTYPE html>
 <html>
@@ -9,9 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
-<!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
@@ -32,11 +30,66 @@ body, html {
 
 
 </style>
+
 </head>
 <body>
 		<div class="header-containerwrap">
 			<!-- header -->
 			<%@include file="/WEB-INF/views/inc/header.jsp"%>
+			
+		<script>
+ 			var midArray = [];
+			<c:forEach var="middle" items="${middle}">
+			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
+			</c:forEach>
+			
+			var endArray = [];
+			<c:forEach var="end" items="${end}">
+				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
+			</c:forEach> 
+			
+			
+			$(function() {
+			   $("#frontsel").change(function(e) {
+			      var frontsel = $(this).val();
+			      midCreate(frontsel);
+			   });
+			   midCreate($("#frontsel").val());
+			});
+			
+			function midCreate(frontsel) {
+				$("#middlesel").children().remove();
+				var html = "";
+				$(midArray).each(function(i, elem) {
+					//console.log(frontsel + " == " + elem.mseq);
+					if(frontsel == elem.mLocation) {
+				         html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+				      }
+					});
+				$("#middlesel").html(html);
+				endCreate($("#middlesel").val());
+			}
+			
+			$(function() {
+				$("#middlesel").change(function(e) {
+					var middlesel = $(this).val();
+					endCreate(middlesel);
+				});
+				endCreate($("#middlesel").val());
+			});
+				
+			function endCreate(middlesel) {
+				$("#endsel").children().remove();
+				var html = "";
+				$(endArray).each(function(i, elem) {
+					if(middlesel == elem.mLocation) {
+						html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+					}
+				});
+				$("#endsel").html(html);
+			} 
+			
+		</script>
 
 			<div class="container">
 			유저회원가입<br>
@@ -59,11 +112,19 @@ body, html {
 					<br>
 					<input type="text" id="address" name="address" placeholder="주소" required>
 					<br><hr>
-					선호하는 지역<br>
-					<select id="location" name="location">
-						<c:forEach var="location" items="${location }" varStatus="status">
-							<option value="${location.key }">${location.value }</option>
-						</c:forEach>
+					선호하는 지역(시)<br>
+					<select id="frontsel" name="frontsel">
+	 					<c:forEach var="front" items="${front }" varStatus="status">
+							<option value="${front.location }">${front.location }</option>
+						</c:forEach> 
+					</select>
+					<br>
+					선호하는 지역(구)<br>
+					<select id="middlesel" name="middlesel">
+					</select>
+					<br>
+					선호하는 지역(동)<br>
+					<select id="endsel" name="endsel">
 					</select>
 					<br>
 					선호하는 방<br>
@@ -84,6 +145,14 @@ body, html {
 
 		<!-- footer -->
 		<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+		
+		<script>
+		
+		$("#frontsel").change(function() {
+			console.log($("#frontsel option:selected").val());
+		});
+		</script>
+		
 
 </body>
 </html>
