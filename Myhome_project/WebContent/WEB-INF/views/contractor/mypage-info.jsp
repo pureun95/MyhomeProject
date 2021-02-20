@@ -11,6 +11,7 @@
 <title>Myhome::회원정보수정</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
@@ -298,17 +299,76 @@
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
         <div class="boardcover">
             
-		 
-		 <!-- 리스트 -->
-		 <div class="property-box">
-		 	<div class="board-name">회원정보수정</div>
+    
+    <!-- 관심지역 script -->        
+	<script>
+	
+ 			var midArray = [];
+			<c:forEach var="middle" items="${middle}">
+			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
+			</c:forEach>
+			
+			var endArray = [];
+			<c:forEach var="end" items="${end}">
+				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
+			</c:forEach> 
+			
+			
+			$(function() {
+			   $("#frontsel").change(function(e) {
+			      var frontsel = $(this).val();
+			      midCreate(frontsel);
+			   });
+			   midCreate($("#frontsel").val());
+			});
+			
+			function midCreate(frontsel) {
+				$("#middlesel").children().remove();
+				var html = "";
+				$(midArray).each(function(i, elem) {
+					//console.log(frontsel + " == " + elem.mseq);
+					if(frontsel == elem.mLocation) {
+				         html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+				      }
+					});
+				$("#middlesel").html(html);
+				endCreate($("#middlesel").val());
+			}
+			
+			$(function() {
+				$("#middlesel").change(function(e) {
+					var middlesel = $(this).val();
+					endCreate(middlesel);
+				});
+				endCreate($("#middlesel").val());
+			});
+				
+			function endCreate(middlesel) {
+				$("#endsel").children().remove();
+				var html = "";
+				$(endArray).each(function(i, elem) {
+					if(middlesel == elem.mLocation) {
+						html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+					}
+				});
+				$("#endsel").html(html);
+			} 
+			
+		</script>
+
+
+				 
+		<!-- 리스트 -->
+		<div class="property-box">
+			<div class="board-name">회원정보수정</div>
 		 	
 		 	
-       <form action="" id="form1">
-   
+  		 <form method="post" id="form1" action="/Myhome_project/member/mypage-infook.do">
+   		
    		<!-- 시작 -->
         <div class="start">
-        	
+        	       	
+        
 	       <span>아이디</span>
 	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id"> 
 			<!-- <span>이름</span>
@@ -340,57 +400,34 @@
 			<input type="text" class="form-control" id="search-text">
 			
 			
-			<!-- <span>관심매물</span>
+			<span>관심매물</span>
 			<select class="form-control multiple">
 				<option>원룸</option>
 				<option>투룸</option>
 				<option>오피스텔</option>
-			</select> -->
+			</select>
 			
 			
-			<!-- <span><label for="siCode2">관심지역</label></span>
-			<select title="시/도 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>시/도 선택</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
-				<option value="45" title="전라북도" >전라북도</option>
-				<option value="44" title="충청남도" >충청남도</option>
-				<option value="43" title="충청북도" >충청북도</option>
-				<option value="29" title="광주광역시" >광주광역시</option>
-				<option value="27" title="대구광역시" >대구광역시</option>
-				<option value="30" title="대전광역시" >대전광역시</option>
-				<option value="26" title="부산광역시" >부산광역시</option>
-				<option value="31" title="울산광역시" >울산광역시</option>
-				<option value="28" title="인천광역시" >인천광역시</option>
-				<option value="36" title="세종특별자치시" >세종특별자치시</option>
-				<option value="50" title="제주특별자치도" >제주특별자치도</option>
+			<span><label for="siCode2">관심지역</label></span>
+			<select title="시/도 선택" id="frontsel" name="frontsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="frontsel" style="width:250px">
+				<c:forEach var="front" items="${front}" varStatus="status">
+					<option value="${front.location}">${front.location}</option>
+				</c:forEach>
 			</select>		
 			
-			임시
-			<select title="시/군/구 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>시/군/구</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
+			
+			<select title="시/군/구 선택"  name="middlesel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="middlesel" style="width:250px">
+				<c:forEach var="front" items="${front}" varStatus="status">
+					<option value="${front.location}">${front.location}</option>
+				</c:forEach>
 			</select>		
 			
-			임시
-			<select title="동/읍/면 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>동/읍/면</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
-			</select> -->
+			
+			<select title="동/읍/면 선택"  name="endsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="endsel" style="width:250px">
+				<c:forEach var="front" items="${front}" varStatus="status">
+					<option value="${front.location}">${front.location}</option>
+				</c:forEach>
+			</select>
 			
 			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
 			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
