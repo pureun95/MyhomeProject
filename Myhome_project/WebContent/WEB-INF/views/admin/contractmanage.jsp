@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome::거래정보관리</title>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
@@ -19,86 +19,91 @@
 
 <style>
 
-style>body, html {
-	/* width: 100%; */
-	height: 100%;
-	margin: 0 auto;
-	padding: 0;
-}
+	style>body, html {
+		/* width: 100%; */
+		height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.container {
+		border: 1px solid green;
+		width: 1190px;
+		margin: 0px auto;
+		margin-top: 100px;
+		position: relative;
+		height: 1200px;
+	}
+	
+	/* ------------------------------------------- */
+	
+	
+	.boardcover{
+	/* 	border: 1px solid tomato; */
+		float: left;
+		width:900px;
+		height: auto;
+		margin-left: 20px; 
+	}
+	
+	#title {
+		font-size: 24px;
+		font-family: 'MaplestoryOTFLight';
+		border-left: 5px solid #F1AEAE;
+		margin: 30px 10px;
+		padding : 0px 10px;
+	}
+	#tbl {
+		width:920px;
+	}
+	
+	.list:nth-child(1) { width: 60px; }
+	.list:nth-child(2) { width: 100px; }
+	.list:nth-child(3) { width: 100px; }
+	.list:nth-child(4) { width: 150px; }
+	.list:nth-child(5) { width: 200px; }
+	.list:nth-child(6) { width: 150px; }
+	.list:nth-child(6) { width: 150px; }
+	
+	#tbl1 th, #tbl1 td {
+		font-family: 'NanumBarunGothic';
+		text-align: center;
+	}
+	
+	
+	
+	input, select {
+		font-family: 'NanumBarunGothic';
+		outline: none;
+	}
+	
+	.btn {
+	    cursor: pointer;
+    	margin-bottom: 20px;
+    	margin-right : 10px;
+    	padding : 6px 12px;
+    	background-color: #F1AEAE;
+    	border-radius: 4px;
+    	outline: none !important;
+    	border : none;
+    	color: aliceblue;
+	    
+	}  
+	
+    .delete {
+    	text-align : right;
+    }
 
-.container {
-	border: 1px solid green;
-	width: 1190px;
-	margin: 0px auto;
-	margin-top: 100px;
-	position: relative;
-	height: 1200px;
-}
-
-/* ------------------------------------------- */
-
-
-.boardcover{
-/* 	border: 1px solid tomato; */
-	float: left;
-	width:900px;
-	height: auto;
-	margin-left: 20px; 
-}
-
-#title {
-	font-size: 24px;
-	font-family: 'MaplestoryOTFLight';
-	border-left: 5px solid #F1AEAE;
-	margin: 30px 10px;
-	padding : 0px 10px;
-}
-#tbl {
-	width:920px;
-}
-
-.list:nth-child(1) { width: 60px; }
-.list:nth-child(2) { width: 100px; }
-.list:nth-child(3) { width: 100px; }
-.list:nth-child(4) { width: 150px; }
-.list:nth-child(5) { width: 200px; }
-.list:nth-child(6) { width: 150px; }
-.list:nth-child(6) { width: 150px; }
-
-#tbl1 th, #tbl1 td {
-	font-family: 'NanumBarunGothic';
-	text-align: center;
-}
-
-
-
-input, select {
-	font-family: 'JSDongkang-Regular';
-	outline: none;
-}
-
-.btn {
-    background-color: #f1aeae;
-    color: aliceblue;
-    display: inline;
-    margin-right: 10px;
-    
-}  
-
-.search{
-	text-align:center;
-	margin : 20px;
-}
-
-#txt{
-	margin-right: 10px;
-	size: 100px;
-}
-
-
-input[type=text]{
-	width : 220px;
-}
+	.search {
+		text-align:center;
+		margin : 20px auto;
+	   	padding: 10px;
+	}
+	
+	.search #txt {
+		width: 300px;
+		display: inline;
+	}
 
 
 
@@ -222,13 +227,14 @@ input[type=text]{
                 
             </table>
             
-            <div class="btns">
+            <div class="delete">
             	<input type="button" class="btn" value="선택한 거래 삭제" id="delete">
-            	<div class="search">
-	            	<input type="text" placeholder="매물번호/중개인/임대인/임차인" id="txt">
-	            	<input type="button" class="btn" value="검색" id="serch">
-            	</div>
             </div>
+            <div class="search">
+	            	<input type="text" class="form-control" placeholder="매물번호/중개인/임대인/임차인" id="txt">
+	            	<input type="button" class="btn" value="검색" id="serch">
+            </div>
+            
             
             <div>
             	페이징

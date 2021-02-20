@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::체크리스트 게시판 관리</title>
+<title>MyHome::부동산 정책 게시판 관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
@@ -55,11 +55,17 @@
 		padding : 0px 10px;
 	}
 	
+	#subtitle{
+		font-size: 24px;
+		font-family: 'NanumBarunGothic';
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	
 	.txt input, .txt textarea {
 		width: 90%;
 		margin : 10px auto;
 	}
-	
 	
 	
 	#content { 
@@ -67,13 +73,16 @@
 	}
 	
 	
-	
 	input, select {
 		font-family: 'NanumBarunGothic';
 		outline: none;
 	}
 	
-	
+	button {
+		outline:none;
+	}
+
+
 	.btn {
 		width: 70px;
 		cursor: pointer;
@@ -85,17 +94,18 @@
 		outline: none !important;
 		border : none;
 		color: aliceblue;
-		
 	
 	}
 	
 	.btns {
-		text-align : center;
+		text-align: center;
 	}
-	
+
 	#file {
-			outline: none;
+		outline: none;
 	}
+
+
 
 
 </style>
@@ -110,19 +120,21 @@
      <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
              
-		<div id="title">부동산 체크리스트 게시판 관리</div>
+		<div id="title">부동산 정책 게시판 관리</div>
+		
+		<div id ="subtitle">부동산 정책 게시판 등록</div>
 		
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="수정전 체크리스트 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="수정전 체크리스트 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="부동산 정책 제목입니다."> 
+	            <textarea class="form-control" name="content" id="content" placeholder="부동산 정책 내용입니다."></textarea>
 				<input type="file"  id="file">
 			</div>
 			        
             <div class="btns">
                     <button type="button" class="btn" onclick="">
-                        수정
+                        등록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/viewchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listpolicy.do';">
                         취소
                     </button>
               </div>

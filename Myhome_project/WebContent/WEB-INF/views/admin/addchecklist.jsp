@@ -55,6 +55,13 @@
 		padding : 0px 10px;
 	}
 	
+	#subtitle{
+		font-size: 24px;
+		font-family: 'NanumBarunGothic';
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	
 	.txt input, .txt textarea {
 		width: 90%;
 		margin : 10px auto;
@@ -110,19 +117,21 @@
      <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
              
-		<div id="title">부동산 체크리스트 게시판 관리</div>
+		<div id="title">체크리스트 게시판 관리</div>
+			
+			<div id ="subtitle">체크리스트 등록</div>
 		
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="수정전 체크리스트 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="수정전 체크리스트 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="체크리스트 제목입니다."> 
+	            <textarea class="form-control" name="content" id="content" placeholder="체크리스트 내용입니다."></textarea>
 				<input type="file"  id="file">
 			</div>
 			        
             <div class="btns">
                     <button type="button" class="btn" onclick="">
-                        수정
+                        등록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/viewchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listchecklist.do';">
                         취소
                     </button>
               </div>
