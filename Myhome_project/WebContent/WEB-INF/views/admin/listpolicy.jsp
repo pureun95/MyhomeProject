@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome::부동산 정책 게시판 관리</title>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
@@ -49,7 +49,8 @@ style>body, html {
 #title {
 	font-size: 24px;
 	font-family: 'MaplestoryOTFLight';
-	border-left: 5px solid #F1AEAE;
+	border-bottom: 1px solid #eaecef;
+	padding-bottom: 10px;
 	margin: 30px 10px;
 	padding : 0px 10px;
 }
@@ -82,6 +83,7 @@ input, select {
     display: inline;
     width: 70px;
     margin-right: 10px;
+    outline: none !important;
     
 }  
 
@@ -93,6 +95,10 @@ input, select {
 #txt{
 	margin-right: 10px;
 	size: 100px;
+}
+
+.btns {
+	text-align : right;
 }
 
 

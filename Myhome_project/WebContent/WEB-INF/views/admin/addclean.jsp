@@ -46,9 +46,11 @@
 	#title {
 		font-size: 24px;
 		font-family: 'MaplestoryOTFLight';
-		border-left: 5px solid #F1AEAE;
+		border-bottom: 1px solid #eaecef;
+		padding-bottom: 10px;		
 		margin: 30px 10px;
 		padding : 0px 10px;
+		
 	}
 	
 	#subtitle{
@@ -70,18 +72,18 @@
 	
 	.add{ /* 파일태그 가운데정렬************************** */
 		text-align: center;
+
 	}
 	
+
 	.add input, .add textarea {
+		dispaly: block;
 		width: 70%;
 		margin : 5px 0px;
 	}
 	
-	.txt {
-		height :25px;
-	}
 	
-	textarea {
+	#introduce {
 		height : 200px;
 		outline : none;
 	}
@@ -123,20 +125,20 @@
 			<div class="add">
 				<div id="subtitle">청소업체 등록하기</div>
 		
-				<input type="text" class="txt" name="name" placeholder="업체명"> 
-				<input type="text" class="txt" name="address" placeholder="주소"> 
-				<input type="text" class="txt" name="tel" placeholder="전화번호"> 
-				<input type="text" class="txt" name="businessnum" placeholder="사업자번호"> 
-				<input type="text" class="txt" name="price" placeholder="가격">
-				<textarea name="introduce" placeholder="소개"></textarea>
-				<input type="file" name="img">
+				<input type="text" class="form-control" name="name" placeholder="업체명"> 
+				<input type="text" class="form-control" name="address" placeholder="주소"> 
+				<input type="text" class="form-control" name="tel" placeholder="전화번호"> 
+				<input type="text" class="form-control" name="businessnum" placeholder="사업자번호"> 
+				<input type="text" class="form-control" name="price" placeholder="가격">
+				<textarea class="form-control" name="introduce" id="introduce" placeholder="소개"></textarea>
+				<input type="file"  name="img">
 
 				
 			</div>
 			
 			<div class="btns">		
 				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">취소하기</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/listclean.do';">취소하기</button>
 			</div>
 
 		</div>
