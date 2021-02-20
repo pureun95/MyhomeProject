@@ -264,7 +264,7 @@
 	                <td class="thitd boardtd align-middle"><div class="temp">노푸른</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
 	                <td class="fiftd boardtd">
-	                	<button class="btn btn-outline-secondary" type="button" id="button-addon2">계약취소</button>	            	
+	                	<div class="temp">진행중</div>            	
 	       			</td>
 	            </tr>
 	            
@@ -275,7 +275,7 @@
 	                <td class="thitd boardtd align-middle"><div class="temp">이대홍</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
 	                <td class="fiftd boardtd">
-	                	<button class="btn btn-outline-secondary" type="button" id="button-addon2">계약취소</button>	            	
+	                	<div class="temp">진행중</div>    	
 	       			</td>
 	            </tr>
 	            

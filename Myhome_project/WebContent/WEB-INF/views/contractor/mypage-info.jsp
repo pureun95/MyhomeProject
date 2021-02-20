@@ -339,15 +339,16 @@
 			<span>이메일</span>
 			<input type="text" class="form-control" id="search-text">
 			
+			
 			<!-- <span>관심매물</span>
 			<select class="form-control multiple">
 				<option>원룸</option>
 				<option>투룸</option>
 				<option>오피스텔</option>
-			</select>
+			</select> -->
 			
 			
-			<span><label for="siCode2">관심지역</label></span>
+			<!-- <span><label for="siCode2">관심지역</label></span>
 			<select title="시/도 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
 				<option>시/도 선택</option>
 				<option value="11" title="서울특별시" >서울특별시</option>
@@ -389,7 +390,7 @@
 				<option value="48" title="경상남도" >경상남도</option>
 				<option value="47" title="경상북도" >경상북도</option>
 				<option value="46" title="전라남도" >전라남도</option>
-			</select>	 -->
+			</select> -->
 			
 			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
 			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
