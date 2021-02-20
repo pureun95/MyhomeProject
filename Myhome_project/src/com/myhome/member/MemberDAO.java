@@ -134,7 +134,7 @@ public class MemberDAO {
 	 * @param seqAllUser 
 	 * @return
 	 */
-	public int addUser(MemberDTO dto, String roomtype, String alarm, int seqUser, String location) {
+	public int addUser(MemberDTO dto, String roomtype, String alarm, int seqUser, int seqLocation) {
 		
 		try {
 			//쿼리작성
@@ -144,7 +144,7 @@ public class MemberDAO {
 			//준비
 			pstat = conn.prepareStatement(sql);
 			pstat.setInt(1, seqUser);
-			pstat.setInt(2, Integer.parseInt(location));
+			pstat.setInt(2, seqLocation);
 			pstat.setInt(3, Integer.parseInt(roomtype));
 			pstat.setString(4, dto.getIdNumber());
 			pstat.setInt(5, Integer.parseInt(alarm));
