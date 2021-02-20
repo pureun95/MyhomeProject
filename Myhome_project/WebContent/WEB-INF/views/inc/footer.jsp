@@ -39,14 +39,12 @@
 
     <div id="chat"></div>
     
-    
+    <%@include file="/WEB-INF/views/member/chat.jsp" %>
+
 <script>
 
-	/* 채팅 */
 	
-	$("#chat").click(function() {
-		$("#chatmode").css("visibility", "visible");
-	});
+	
 
 </script>
 
