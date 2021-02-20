@@ -23,6 +23,7 @@
 		background-color : white;
 	}
 	
+	/* myproperty.css 덮어쓰기 */
 	.container {
         width: 1190px;
         margin: 0 auto;
@@ -31,6 +32,7 @@
 		padding-bottom:100px;
 		border: 1px solid green;
 		margin-top: 100px;
+		padding: 100px 200px;
 		z-index: -1;
     }
     
@@ -72,7 +74,7 @@
     	text-decoration: none;
     }
     
-    .matching-option > a:nth-child(1) {
+    .matching-option > a:nth-child(2) {
     	color: #f1acac;
     	display: inline;
     	border-bottom: 2px solid #f1acac;
@@ -89,7 +91,7 @@
     }
     
     .matching-board {
-    	/* border: 1px solid blue; */
+    	border: 1px solid blue;
     	width: 820px;
     	height: 600px;
     	margin-right: 50px;
@@ -130,6 +132,33 @@
    	
    	} 
    	
+   	/* 전체 property list 박스 property.css 덮어쓰기 */
+   	
+   	.property-box {
+   		border: 1px solid blue; */
+	    float: left;
+	    width: 900px;
+	    height: auto;
+	    margin-bottom: 50px;
+	    margin-left: 0px;
+	    padding-left: 0px;
+	    padding-top: 0px;
+   	
+   	}
+   	
+   	.img-property {
+        border: 1px solid black;
+       	width: 280px;
+        height: 180px;
+        float: left;
+       	background-image: url('../image/6.jpg');
+        background-position: 0% 0px; 
+        background-size: cover;
+        cursor: pointer;
+     }
+   	
+   	
+   	
    	
    	/* 헤더 */
    	
@@ -137,6 +166,7 @@
 		color: #f1acac;
 	}   
 	
+
 	
 	/* 매칭버튼 */
 	
@@ -166,10 +196,11 @@
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
+    	margin-top: 50px;
     }
     
     .paging {
-  		/* border: 1px solid blue; */
+  		border: 1px solid blue;
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
@@ -234,25 +265,21 @@
      <div class="container">
         <div class="boardcover">
             
-		 <!-- 리스트 -->
-		 <div class="property-box">
 		 
-		 <!-- TODO bottom left 추가하기 -->
-		 	<div class="board-name">방찾기</div>
+		 
+		 <!-- 상단 게시판 타이틀 -->
+		 <div class="board-name">방찾기</div>
 		 	
 		 	<div class="matching-option">
 		 		<a href="search-lessor.do">임대인이 올린 매물</a>
 		 		<a href="search-contractor.do">중개인이 올린 매물</a>		 		 			
 		 	</div>
                 
-          
-        
-         	 
-        <form action="" id="form1">
-   
-   		<!-- 매물 게시판 -->
-        <div class="matching-board">      
+         <!-- 리스트 -->
+		 <div class="property-box">		 	
 		 
+		 <!-- form -->
+		 <form action="POST">
                 <div class="property-list">
                     <div class="img-property"><div class="state">입주가능</div></div>
                     <div class="property-list2">
@@ -281,11 +308,15 @@
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
                             <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>                        
-               		</div>
-               		
-               		
-               		 <div class="property-list">
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                
+                
+                <div class="property-list">
                     <div class="img-property"><div class="state">입주가능</div></div>
                     <div class="property-list2">
                         <div class="property-num">no.0001</div>
@@ -313,70 +344,87 @@
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
                             <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>                        
-               		</div>
-               		
-               		
-               		
-               		
-               		
-               		
-                    
-                    
-                    
-                    
+                        </div>
+                        
+                    </div>
                 </div>
-       
-       	
-       	
-       	
-       		<!-- 검색, 페이지바 -->
-       		<div class="paging">
-       			<ul class="pagination">
-				    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
+                
+                
+                
+                <div class="property-list">
+                    <div class="img-property"><div class="state">입주가능</div></div>
+                    <div class="property-list2">
+                        <div class="property-num">no.0001</div>
+                        <div class="property-title">너무 좋은 방</div>
+                        <div class="property-content" id="roomtype">
+                            <span>방유형</span>
+                            <div class="property-content2">원룸</div>
+                        </div>
+                        
+                        <div class="property-content" id="floor">
+                            <span>층</span>
+                            <div class="property-content2">3/4</div>
+                        </div>
+                        
+                        <div class="property-content" id="contract">
+                            <span>계약유형</span>
+                            <div class="property-content2">월세</div>
+                        </div>
+                        
+                        <div class="property-content" id="price">
+                            <span>가격</span>
+                            <div class="property-content2">30,000원/월(24)</div>
+                        </div>
+                        
+                        <div class="property-location">
+                            <div class="location-icon" style="float: left;"></div>
+                            <div class="location-detail">서울특별시 동작구 상도동</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+
+                
+        <!-- 검색, 페이지바 -->
+   		<div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
 					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
 					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
 					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-				    <li><a class="page-link page-a" href="">다음</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
 				</ul>       		
-       		</div>
-       		
-       		
-       		</div>
-       		
-       		<div id="search-box">		
+	       	</div>
+	       		
+	       		
+	    	<div id="search-box">		
 				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
 				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
 			</div>
-       	
-       	
-       	</form>
-       
+       	<!-- search-paging -->
+       	</div>         
+
+
+		<!-- form -->
+		</form>
+                
+        <!-- property-box -->
+        </div>
         
-       
-		
+        
         
         
     
-         
-              
-          
-          
-          
-          
-          <!-- property-box -->
-          </div>
-             
-             
-             
-             
              
     <!-- container -->        
 	</div>  

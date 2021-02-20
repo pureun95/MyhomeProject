@@ -18,7 +18,6 @@
 
 
 
-
 <style>
 	.header {
 		background-color : white;
@@ -35,8 +34,6 @@
 		z-index: -1;
     }
     
-    /* 게시판 이름 */
-    
     .board-name {
     	border-bottom: 1px solid #eaecef;
     	width: 810px;
@@ -45,18 +42,127 @@
     	font-size: 24px;
     	font-family: 'NanumBarunGothic';
     	color: #202020;
-    	margin-bottom: 20px;
+    	margin-bottom: 60px;
     	
     }
     
-    /* 네비 활성화 */
     
-    #upload {
-    	color: #f1acac;
+    .matching-option {
+    	/* border: 1px solid blue; */
+    	width: 400px;
+    	height: 100px;
+    	padding: 40px 0px;
+    	font-size: 16px;
+    	font-family: 'NanumBarunGothic';
+    	color: #202020;
     }
     
     
-    /* 검색, 페이지바 */
+    
+    .matching-option > a {
+    	cursor: pointer;
+    	color: #202020;
+    	margin-right: 20px;
+    	float: left;
+    	margin-left: 0px;
+    }
+    
+    .matching-option > a:hover {
+    	color: #f1acac;    	
+    	text-decoration: none;
+    }
+    
+    .matching-option > a:nth-child(1) {
+    	color: #f1acac;
+    	display: inline;
+    	border-bottom: 2px solid #f1acac;
+    	padding-bottom: 4px;
+    }
+    
+    
+    #tome {
+    	color: #f1acac;
+    	display: inline; 
+    	border-bottom: 3x solid #202020; 
+    	padding-bottom: 5px;
+    	text-decoration: none;
+    }
+    
+    .matching-board {
+    	/* border: 1px solid blue; */
+    	width: 820px;
+    	height: 550px;
+    }
+    
+    #board {
+    	width: 810px;
+    	margin-top: 0px;
+    	margin-left: 0px;
+    
+    }
+    
+   .boardtd {
+	   	text-align: center;
+	    vertical-align: middle;
+   }
+    
+    .firtd {
+    	width: 10px;
+    }
+    
+    .sectd {
+    	width: 20px;
+    }
+    
+    .thitd {
+    	width: 10px;
+    }
+    
+    .fortd {
+    	width: 20px;
+    }
+    
+   	.boardtd {
+   		text-align: center;
+    	vertical-align: middle;
+   	
+   	} 
+   	
+   	
+   	/* 헤더 */
+   	
+	#mycontract {
+		color: #f1acac;
+	}   
+	
+	
+	/* 매칭버튼 */
+	
+	#button-addon1 {
+	  	background-color: #f1aeae;
+	   	color: white;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+   }
+   
+   #button-addon2 {
+	   	background-color: #f1aeae;
+	   	color: white;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+	   	margin-left: 5px;
+   }
+   
+   
+   .boardtr > .boardtd {
+   		cursor: pointer;
+   }
+	 	
+
+   
+   /* 검색, 페이지바 */
     
     .search-paging {
     	border: 1px solid black;
@@ -107,9 +213,14 @@
    
    }
     
-
-    
-    
+   
+   .temp {
+	   	min-height: 35px;
+	   	/* border: 1px solid black; */
+	   	padding: 5px;
+   
+   }
+   	
     
 
 </style>
@@ -130,80 +241,118 @@
 		 
 		 <!-- 리스트 -->
 		 <div class="property-box">
-		 	<div class="board-name">전자계약관리</div>
-		 
-                <div class="property-list">
-                    <div class="img-property"><div class="state">입주가능</div></div>
-                    <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
-                        <div class="property-content" id="roomtype">
-                            <span>방유형</span>
-                            <div class="property-content2">원룸</div>
-                        </div>
-                        
-                        <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
-                        </div>
-                        
-                        <div class="property-content" id="contract">
-                            <span>계약유형</span>
-                            <div class="property-content2">월세</div>
-                        </div>
-                        
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
-                        
-                        <div class="property-location">
-                            <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-
-
-                
-        <!-- 검색, 페이지바 -->
-   		<div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
+		 	<div class="board-name">전자계약관리</div>		 	
+         	 
+        <form action="" id="form1">
+   
+   		<!-- 게시판 -->
+        <div class="matching-board">
+        
+	        <table id="board" class="table table-hover table-striped table-condensed">
+	
+	            <tr class="headtr">
+	                <th class="firtd boardtd">계약번호</th>
+	                <th class="sectd boardtd">임대인</th>
+	                <th class="thitd boardtd">임차인</th>
+	                <th class="fortd boardtd">중개인</th>
+	                <th class="fortd boardtd">계약상태</th>
+	            </tr>
+	            
+	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-detail.do';">
+	                <td class="firtd boardtd "><div class="temp">01010201</div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">박지현</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">노푸른</div></td>
+	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
+	                <td class="fiftd boardtd">
+	                	<button class="btn btn-outline-secondary" type="button" id="button-addon2">계약취소</button>	            	
+	       			</td>
+	            </tr>
+	            
+	            
+	              <tr class="boardtr">
+	                <td class="firtd boardtd "><div class="temp">01010202</div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">이준오</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">이대홍</div></td>
+	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
+	                <td class="fiftd boardtd">
+	                	<button class="btn btn-outline-secondary" type="button" id="button-addon2">계약취소</button>	            	
+	       			</td>
+	            </tr>
+	            
+	            
+	            <tr class="boardtr">
+	                <td class="firtd boardtd "><div class="temp">01010203</div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">윤지현</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">장진영</div></td>
+	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
+	                <td class="fiftd boardtd">
+	                	<div class="temp">계약완료(2020-01-01)</div>	            	
+	       			</td>
+	            </tr>
+	            
+	           
+	        </table>
+       		
+       		</div>
+       		
+       		
+       	
+       		<!-- 검색, 페이지바 -->
+       		<div class="search-paging">
+	       		<div class="paging">
+	       			<ul class="pagination">
+					    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					    <li><a class="page-link page-a" href="">다음</a></li>
+					</ul>       		
+	       		</div>
+	       		
+	       		
+	       		<div id="search-box">		
+					<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
+					<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
+				</div>
+	       		
 	       	</div>
 	       		
 	       		
-	    	<div id="search-box">		
-				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
-			</div>
-       	<!-- search-paging -->
-       	</div>         
-                
-        <!-- property-box -->
-        </div>
+       		
+       	
+       	</form>
+       
+        
+       
+		
+        
+        
+    
+         
+              
+          
+          
+          
+          
+          <!-- property-box -->
+          </div>
              
-
+             
+             
+             
              
     <!-- container -->        
 	</div>  
    
-   		
+    
+  
    </div>
            
             
