@@ -128,7 +128,7 @@ body, html {
 						<td class="navboardtd">
 
 					<!-- nav -->
-					<%@include file="/WEB-INF/views/adminmenu/nav.jsp"%>
+					<%@include file="/WEB-INF/views/admin/nav.jsp"%>
 				
 						</td>
 

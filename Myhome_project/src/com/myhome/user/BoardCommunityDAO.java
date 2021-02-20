@@ -39,8 +39,10 @@ public class BoardCommunityDAO {
 			
 			if (map.get("search") != null) {
 				
-				//제목과 내용에 포함되는 것만 검색되도록 설정했음.. 추후에 작성자도 검색할 수 있도록 코드 수정할 것*****
-				where = String.format("where nickName like '%%%s%%' or title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+				//제목과 내용에 포함되는 것만 검색되도록 설정했음.. 추후에 작성자도 검색할 수 있도록 코드 수정할 것. 수정하기*****
+//				  where = String.format("where nickName like '%%%s%%' or title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+				 
+				where = String.format("where title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"));
 			}
 			
 			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwCommunityUserVer %s order by seqCommunity desc) a) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
@@ -142,7 +144,9 @@ public class BoardCommunityDAO {
 			String where = "";
 			
 			if (map.get("search") != null) {
-				where = String.format("where nickName like '%%%s%%' or title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+				//로그인 연동 후 수정하기*****
+//				where = String.format("where nickName like '%%%s%%' or title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+				where = String.format("where title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"));
 			}
 			
 			String sql = String.format("select count(*) as cnt from tblCommunity %s", where);
