@@ -46,12 +46,19 @@
     	
     }
     
+    /* myproperty css */
+    .property-box {
+    	border: 0px;
+    	padding-left: 30px;
+    }
+    
 
    	/* 헤더 */
    	
 	#mycontract {
 		color: #f1acac;
 	}   
+	
 	
 	
 	/* 전자계약 css */
@@ -62,18 +69,25 @@
         margin-left: 20px;
         table-layout: fixed;
     }
-    #adcontracttbl .headtr th{
+    
+    #adcontracttbl .headtr th {
         text-align: center;
+        background-color: #ffe7e7;
         
     }
 
     .adcontacttd{
         text-align: center;
     }
+    
+    .info-color {
+    	background-color: #ececec !important;
+    }
+    
+    
     /*.adcontacttd>*/
     input[type="text"]{
         border: 0px solid #000;
-        background-color: #d1e7dd;
         text-align: center;
         margin: 0px;
         padding: 0px;
@@ -98,7 +112,7 @@
     
     .low {
     	text-align: left;
-    	padding: 5px;
+    	padding: 30px 5px;
     
     }
     
@@ -115,9 +129,42 @@
     .radio {
     	margin-left: 20px;
     }
-   
-   	
     
+    
+    /* 암호입력 div 세로 크기 조절 */
+    
+    .vertical-align {
+    	/* border: 1px solid black; */
+   		width: 70px;
+    	height: 30px;
+    	padding: 5px 0px;
+    }
+    
+    /* 계약하기/폐기하기 버튼 */
+    
+    
+    .btn-contract {
+   		/* border: 1px solid black; */
+   		width: 850px;
+   		height: 50px;
+   		padding: 10px 330px;
+   		margin-top: 70px;
+   		float: left;
+   }
+   
+   	 .btn-contract1  {
+	  	background-color: #f1aeae;
+	   	color: white;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+	   	margin-right: 15px;
+   }
+   
+   
+   
+   
+ 
 
 </style>
 
@@ -165,31 +212,33 @@
 				
 			<table id="adcontracttbl" class="table table-condensed">					
 				<tr class="headtr">
-					<th class="adcontacttd">계약번호</th>
-						<td class="adcontacttd" colspan="2">123456</td>
-						<th class="adcontacttd" colspan="1">주소</th>
-						<td class="adcontacttd" colspan="6" style="background-color: #fff3cd;">서울특별시 강남구 역산동 테레란로
-						1324-1 1234호</td>
+					<th class="adcontacttd title-color">계약번호</th>
+					<td class="adcontacttd" colspan="2">123456</td>
+					<th class="adcontacttd">계약일자</th>
+					<td class="adcontacttd" colspan="3">2020-12-31</td>
+					<th class="adcontacttd">계약상태</th>
+					<td class="adcontacttd" colspan="2">계약완료</td>
 				</tr>
 
 				<tr class="headtr">
-					<th class="adcontacttd">계약일자</th>
-					<td class="adcontacttd" colspan="2">2020-12-31</td>
-					<th class="adcontacttd" colspan="1">게약상태</th>
-					<td class="adcontacttd" colspan="1">계약완료</td>
-					<th class="adcontacttd" colspan="1">금액</th>
-						<td class="adcontacttd" colspan="4" style="background-color: #fff3cd;">1,100,000,000 원(계약금100,000,000 원)</td>
+					<th class="adcontacttd info-color" colspan="10">부동산의 표시</th>
 				</tr>
 				
 				<tr class="headtr">
-					<th class="adcontacttd" colspan="10">부동산의 표시</th>
+					<th class="adcontacttd title-color">주소</th>
+						<td class="adcontacttd" colspan="9" >서울특별시 강남구 역산동 테레란로 1324-1 1234호</td>
+				</tr>
+				
+				<tr class="headtr">
+					<th class="adcontacttd title-color">금액</th>
+					<td class="adcontacttd" colspan="4" >1,100,000,000 원</td>
+					<th class="adcontacttd title-color">계약금</th>
+					<td class="adcontacttd" colspan="4" >100,000,000 원</td>
 				</tr>
 				
 				
-									
-				
 				<tr>
-					<td class="adcontacttd" colspan="10"">
+					<td class="adcontacttd" colspan="10">
 										
 						<!-- 법률 -->
 						<div class="low">
@@ -216,7 +265,7 @@
 						개업공인중개사는 임대인과 임차인이 본 계약을 불이행함으로 인한 책임을 지지 않는다. 또한, 중개보수는 본 계약체결과 동시에
 						계약 당사자 쌍방이 각각 지불하며, 개업공인중개사 고의나 과실없이 본 계약이 무효·취소 또는 해제되어도 중개보수는 지급한다.
 						공동중개인 경우에 임대인과 임차인은 자신이 중개 의뢰한 개업공인중개사에게 각각 중개보수를 지급한다.
-						(중개보수는 거래가액의<span class="underline">00%로</span> 한다.
+						(중개보수는 거래가액의<span class="underline">00%로</span> 한다.)
 						<br><br>
 						<span class="low-title">제 9조 (중개대상물확인·설명서 교부 등)</span> 
 						개업공인중개사는 중개대상물 확인·설명서를 작성하고 업무보증관계증서(공제증서 등) 사본을 첨부하여 계약체결과 동시에
@@ -226,9 +275,10 @@
 					</td>
 				</tr>
 
-
+				
+				<!-- 임차인 정보 -->
 				<tr>
-					<th class="adcontacttd" colspan="10" style="background-color: #cfe2ff;">임차인 정보 </th>
+					<th class="adcontacttd info-color" colspan="10">임차인 정보 </th>
 				</tr>
 
 
@@ -237,126 +287,116 @@
 					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
 					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
-					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<th class="adcontacttd">주민번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
 				</tr>
 
-									<tr class="headtr">
-										<th class="adcontacttd">주민번호</th>
-										<td class="adcontacttd" colspan="2"><input type="text"
-											style="width: 140px;" value="123456-1234567"></td>
-										<th class="adcontacttd" colspan="1">주소</th>
-										<td class="adcontacttd" colspan="6"><input type="text"
-											style="width: 450px;"
-											value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
-									</tr>
+							
+					
+				<tr class="headtr">
+					<th class="adcontacttd" colspan="1">주소</th>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<th class="adcontacttd" colspan="2">암호입력상태</th>
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+				</tr>		
+				
+				<!-- 암호입력 -->
+				<tr class="headtr">
+					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+				</tr>		
+					
+					
+									
 
 
-									<!-- 임차인 정보 -->
-									<tr>
-										<th class="adcontacttd" colspan="10"
-											style="background-color: #cfe2ff;">임대인 정보</th>
-									</tr>
+			<!-- 임대인 정보 -->
+				<tr>
+					<th class="adcontacttd info-color" colspan="10">임대인 정보 </th>
+				</tr>
 
 
-									<tr class="headtr">
-										<th class="adcontacttd">계약자명</th>
-										<td class="adcontacttd" colspan="3"><input type="text"
-											style="width: 200px;" value="공인중개사사무소공인중개사"></td>
-										<th class="adcontacttd" colspan="1">전화번호</th>
-										<td class="adcontacttd" colspan="2"><input type="text"
-											style="width: 140px;" value="010=1234-5678"></td>
-										<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
-										<th class="adcontacttd" colspan="2">암호입력상태</th>
-										<td class="adcontacttd" colspan="1"><input type="text"
-											style="width: 80px; background-color: transparent;"
-											value="해당무" disabled></td>
-									</tr>
+				<tr class="headtr">
+					<th class="adcontacttd">계약자명</th>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<th class="adcontacttd" colspan="1">전화번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<th class="adcontacttd">주민번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+				</tr>
 
-									<tr class="headtr">
-										<th class="adcontacttd">주민번호</th>
-										<td class="adcontacttd" colspan="2"><input type="text"
-											style="width: 140px;" value="123456-1234567"></td>
-										<th class="adcontacttd" colspan="1">주소</th>
-										<td class="adcontacttd" colspan="6"><input type="text"
-											style="width: 450px;"
-											value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
-									</tr>
-
-									<!-- 임차인 정보 -->
-									<tr>
-										<th class="adcontacttd" colspan="10"
-											style="background-color: #cfe2ff;">중개인 정보</th>
-									</tr>
-
-
-									<tr class="headtr">
-										<th class="adcontacttd">계약자명</th>
-										<td class="adcontacttd" colspan="3"><input type="text"
-											style="width: 200px;" value="공인중개사사무소공인중개사"></td>
-										<th class="adcontacttd" colspan="1">전화번호</th>
-										<td class="adcontacttd" colspan="2"><input type="text"
-											style="width: 140px;" value="010=1234-5678"></td>
-										<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
-										<th class="adcontacttd" colspan="2">암호입력상태</th>
-										<td class="adcontacttd" colspan="1"><input type="text"
-											style="width: 80px; background-color: transparent;"
-											value="해당무" disabled></td>
-									</tr>
-
-									<tr class="headtr">
-										<th class="adcontacttd">중개사번호</th>
-										<td class="adcontacttd" colspan="2"><input type="text"
-											style="width: 140px;" value="123456-1234567"></td>
-										<th class="adcontacttd" colspan="1">주소</th>
-										<td class="adcontacttd" colspan="6"><input type="text"
-											style="width: 450px;"
-											value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
-									</tr>
+							
+					
+				<tr class="headtr">
+					<th class="adcontacttd" colspan="1">주소</th>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<th class="adcontacttd" colspan="2">암호입력상태</th>
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+				</tr>		
+				
+				
+				<!-- 암호입력 -->
+				<tr class="headtr">
+					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+				</tr>		
+									
+									
+									
+				<!-- 중개인 정보 -->
+				<tr>
+					<th class="adcontacttd info-color" colspan="10">중개인 정보 </th>
+				</tr>
 
 
-								</table>
-							</div>
+				<tr class="headtr">
+					<th class="adcontacttd">계약자명</th>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<th class="adcontacttd" colspan="1">전화번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<th class="adcontacttd">주민번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+				</tr>
 
+							
+					
+				<tr class="headtr">
+					<th class="adcontacttd" colspan="1">주소</th>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<th class="adcontacttd" colspan="2">암호입력상태</th>
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+				</tr>							
 
-							<div class="boardwork d-grid gap-2 d-md-block btn-group">
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2">LIst</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2">Insert</button>
-							</div>
-
-						</td>
-					</tr>
-				</table>
-	        
-       		
+				
+				<!-- 암호입력 -->
+				<tr class="headtr">				
+					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+				</tr>		
+				
+			</table>
+							
+				
+       		<!-- boardcover  -->
        		</div>
        		
+       	</div>
        		
-       	
        		
-	       		
-	       		
+       		<!-- 계약하기 버튼 -->
+       		<div class="btn-contract">
+       			<input type="button" class="btn btn-contract1" value="계약하기">
+       			<input type="button" class="btn btn-contract1" value="폐기하기">
+       		</div>
        		
-       	
        	</form>
-       
-        
-       
-		
-        
-        
-    
-         
-              
-          
-          
-          
-          
+      
+
           <!-- property-box -->
-          </div>
+         </div>
              
              
              
