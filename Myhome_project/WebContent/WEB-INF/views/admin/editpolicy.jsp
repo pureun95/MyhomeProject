@@ -142,7 +142,7 @@ button {
      <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
              
-		<div id="title">부동산 정책 게시판 관리</div>
+		<div id="title">부동산 정책 게시판 수정</div>
 		
 		<table id="tbl" class="table table-striped table-condensed">
     
@@ -172,14 +172,11 @@ button {
             </table>
             
             <div class="btns">
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/policy.do'">
-                        목록
-                    </button>
-                    <button type="button" class="btn" onclick="location.href=''">
+                    <button type="button" class="btn" onclick="">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href=''">
-                        삭제
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listpolicy.do';">
+                        취소
                     </button>
               </div>
             

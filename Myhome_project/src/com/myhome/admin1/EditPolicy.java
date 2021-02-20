@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/policy.do")
-public class Policy extends HttpServlet {
+@WebServlet("/Myhome/admin/editpolicy.do")
+public class EditPolicy extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/policy.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/editpolicy.jsp");
 		dispatcher.forward(req, resp);
 
 	}

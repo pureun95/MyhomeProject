@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::이사업체등록</title>
+<title>MyHome::청소업체수정</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
@@ -50,6 +50,7 @@
 		padding-bottom: 10px;		
 		margin: 30px 10px;
 		padding : 0px 10px;
+		
 	}
 	
 	#subtitle{
@@ -71,9 +72,12 @@
 	
 	.add{ /* 파일태그 가운데정렬************************** */
 		text-align: center;
+
 	}
 	
+
 	.add input, .add textarea {
+		dispaly: block;
 		width: 70%;
 		margin : 5px 0px;
 	}
@@ -103,6 +107,8 @@
 		text-align : center;
 	}
 
+
+
 </style>
 </head>
 <body>
@@ -114,10 +120,10 @@
 		<div class="container">
 		<%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
-			<div id="title">이사업체 관리</div>
+			<div id="title">청소업체 관리</div>
 
 			<div class="add">
-				<div id="subtitle">이사업체 등록하기</div>
+				<div id="subtitle">청소업체 수정하기</div>
 		
 				<input type="text" class="form-control" name="name" placeholder="업체명"> 
 				<input type="text" class="form-control" name="address" placeholder="주소"> 
@@ -131,16 +137,16 @@
 			</div>
 			
 			<div class="btns">		
-				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">취소하기</button>
+				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">수정하기</button>		
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/listclean.do';">취소하기</button>
 			</div>
-			
-		</div>
 
+		</div>
+		
 	</div>
 	</div>
-	
-	<!-- footer -->
-<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+     <!-- footer -->
+<%@include file="/WEB-INF/views/inc/footer.jsp" %>
+ 
 </body>
 </html>

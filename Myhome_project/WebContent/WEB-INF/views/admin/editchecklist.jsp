@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::부동산 정책 게시판 관리</title>
+<title>MyHome::체크리스트 게시판 관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
@@ -95,10 +95,6 @@ input, select {
 	outline: none;
 }
 
-button {
-	outline:none;
-}
-
 /* .btn {
     background-color: #f1aeae;
     color: aliceblue;
@@ -120,12 +116,14 @@ button {
 	outline: none !important;
 	border : none;
 	color: aliceblue;
+	
 
 }
 
 .btns {
-	text-align: right;
+	text-align : right;
 }
+
 
 
 
@@ -142,14 +140,14 @@ button {
      <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
              
-		<div id="title">부동산 정책 게시판 관리</div>
+		<div id="title">부동산 체크리스트 게시판 관리</div>
 		
 		<table id="tbl" class="table table-striped table-condensed">
     
                 <tr class="title">
                 	<td>
 	                	<span class="seq">001</span>
-	                    <span class="subject">부동산 정책 게시판 제목</span>
+	                    <span class="subject">부동산 체크리스트 게시판 제목</span>
 	                    <span class="count">123</span>
 	                    <span class="date">2021-02-20 12:12:12</span>
 	                    <span class="name">관리자1</span>
@@ -157,29 +155,18 @@ button {
                  </tr>
                  <tr>
                  	<td class="content">
-                 		부동산 정책 내용입니다. 부동산 정책 내용입니다. 부동산 정책 내용입니다. 부동산 정책 내용입니다. 부동산 정책 내용입니다. 부동산 정책 내용입니다. 부동산 정책 내용입니다.
-                 	</td>
+                 		부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 
                  
-                 </tr>
-                 <tr>
-                 	<td class="download">
-                 		<span class="glyphicon glyphicon-floppy-disk">파일이름</span>
-                 		<a></a>
-                 		[download : 3회]
-                 	</td>
                  </tr>
           	
             </table>
             
             <div class="btns">
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/policy.do'">
-                        목록
-                    </button>
                     <button type="button" class="btn" onclick="location.href=''">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href=''">
-                        삭제
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listchecklist.do';">
+                        취소
                     </button>
               </div>
             

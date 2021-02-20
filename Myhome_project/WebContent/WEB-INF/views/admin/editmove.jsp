@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::이사업체등록</title>
+<title>MyHome::이사업체수정</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
@@ -117,7 +117,7 @@
 			<div id="title">이사업체 관리</div>
 
 			<div class="add">
-				<div id="subtitle">이사업체 등록하기</div>
+				<div id="subtitle">이사업체 수정하기</div>
 		
 				<input type="text" class="form-control" name="name" placeholder="업체명"> 
 				<input type="text" class="form-control" name="address" placeholder="주소"> 
@@ -131,8 +131,8 @@
 			</div>
 			
 			<div class="btns">		
-				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">취소하기</button>
+				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">수정하기</button>		
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/listmove.do';">취소하기</button>
 			</div>
 			
 		</div>

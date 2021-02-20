@@ -49,7 +49,8 @@ style>body, html {
 #title {
 	font-size: 24px;
 	font-family: 'MaplestoryOTFLight';
-	border-left: 5px solid #F1AEAE;
+	border-bottom: 1px solid #eaecef;
+	padding-bottom: 10px;
 	margin: 30px 10px;
 	padding : 0px 10px;
 }
@@ -119,6 +120,10 @@ input, select {
 
 }
 
+.btns {
+	text-align : right;
+}
+
 
 
 
@@ -157,7 +162,7 @@ input, select {
             </table>
             
             <div class="btns">
-                    <button type="button" class="btn" onclick="location.href='/Myhome/admin1/checklist.do'">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/checklist.do'">
                         목록
                     </button>
                     <button type="button" class="btn" onclick="location.href=''">
