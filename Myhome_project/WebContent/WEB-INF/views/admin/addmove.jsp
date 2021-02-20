@@ -7,103 +7,103 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome::이사업체등록</title>
+<%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
-<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
-
-<!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/board.css">
-<%@include file="/WEB-INF/views/inc/asset.jsp"%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 
 <style>
-<
-style>body, html {
-	/* width: 100%; */
-	height: 100%;
-	margin: 0 auto;
-	padding: 0;
-}
 
-.container {
-	border: 1px solid green;
-	width: 1190px;
-	margin: 0px auto;
-	margin-top: 100px;
-	position: relative;
-	height: 1200px;
-}
+	style>body, html {
+		/* width: 100%; */
+		height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.container {
+		border: 1px solid green;
+		width: 1190px;
+		margin: 0px auto;
+		margin-top: 100px;
+		position: relative;
+		height: 1200px;
+	}
+	
+	.boardcover{
+		border: 1px solid tomato;
+		float: left;
+		width:900px;
+		height: auto;
+		margin-left: 30px; 
+	}
+	
+	/* 타이틀 */
+	#title {
+		font-size: 24px;
+		font-family: 'MaplestoryOTFLight';
+		border-left: 5px solid #F1AEAE;
+		margin: 30px 10px;
+		padding : 0px 10px;
+	}
+	
+	#subtitle{
+		font-size: 24px;
+		font-family: 'NanumBarunGothic';
+		margin-bottom: 10px;
+	}
+	
+	
+	/* 본문 내용 */
+	.container .add {
+		margin: 0px auto;
+		position: relative;
+	}
+	
+	input {
+		outline: none;
+	}
+	
+	.add{ /* 파일태그 가운데정렬************************** */
+		text-align: center;
+	}
+	
+	.add input, .add textarea {
+		width: 70%;
+		margin : 5px 0px;
+	}
+	
+	.txt {
+		height :25px;
+	}
+	
+	textarea {
+		height : 200px;
+		outline : none;
+	}
 
-.boardcover{
-	border: 1px solid tomato;
-	float: left;
-	width:900px;
-	height: auto;
-	margin-left: 30px; 
-}
-
-
-#title {
-	font-size: 24px;
-	font-family: 'MaplestoryOTFLight';
-	border-left: 5px solid #F1AEAE;
-	margin: 30px 10px;
-	padding : 0px 10px;
-}
-
-#subtitle{
-	font-size: 24px;
-	font-family: 'MaplestoryOTFLight';
-	margin-bottom: 10px;
-}
-
-h2 {
-	text-align : center;
-}
-
-.container .add {
-	margin: 0px auto;
-	position: relative;
-}
-
-input {
-	outline: none;
-}
-
-.add, .add {
-	text-align: center;
-}
-
-.add input, textarea {
-	width: 70%;
-	margin : 5px 0px;
-}
-
-textarea {
-	height : 300px;
-}
-
-input[type=submit]{
-	cursor: pointer;
-	margin : 30px 10px;
-   	padding : 6px 12px;
-   	background-color: #F1AEAE;
-   	border-radius: 4px;
-   	/* outline: none; */
-   	border : none;
-   	color: aliceblue;
-}
-
-.txt{
-	height :25px;
-
-}
-
-.btn {
-	text-align : center;
-
-}
+	/* 버튼 */
+   	.btns{
+   		text-align :center;
+   		margin: 10px 0px;
+   	}   
+   	   
+   	   	
+   	#button-addon1 {
+	   	background-color: #f1aeae;
+	   	color: white;
+	   	outline: none !important;
+	   	font-family: 'NanumBarunGothic';
+	   	border: 1px solid #f1aeae;
+   }
+   	
+	.btn {
+		text-align : center;
+	}
 
 </style>
 </head>
@@ -131,10 +131,12 @@ input[type=submit]{
 
 				
 			</div>
-			<div class="btn">
-				<input type="submit" value="등록하기">
-				<input type="submit" value="취소하기">
+			
+			<div class="btns">		
+				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1">취소하기</button>
 			</div>
+			
 		</div>
 
 	</div>
