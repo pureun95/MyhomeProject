@@ -16,7 +16,7 @@
 <style>
 
 
-	#chatmode {
+	#chatreal {
 		/* border: 1px solid white; */
 		background-color: #efefef;
 		border-radius: 15px;
@@ -27,7 +27,7 @@
 		bottom: 20px;
 		box-shadow: 0px 1px 10px #c5c3c3;
 		z-index: 1;
-		/* visibility: hidden; */
+		visibility: hidden;
 	}
 	
 	
@@ -182,7 +182,7 @@
 </head>
 <body>
 	
-	<div id="chatmode">
+	<div id="chatreal">
    		<div id="chatstart">
    			<div id="chat-logo"></div>
    			<div id="chat-title">채팅하기</div>
@@ -201,6 +201,14 @@
    		<input type="submit" id="chat-submit" value="보내기">
    		
     </div>
+    
+    <script>
+    
+    $("#chat-out").click(function() {
+		$("#chatreal").css("visibility", "hidden");
+	});
+    
+    </script>
 	
 	
 </body>
