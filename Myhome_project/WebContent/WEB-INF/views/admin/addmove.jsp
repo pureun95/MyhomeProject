@@ -56,6 +56,7 @@
 		font-size: 24px;
 		font-family: 'NanumBarunGothic';
 		margin-bottom: 10px;
+		text-align: center;
 	}
 	
 	
@@ -65,17 +66,9 @@
 		position: relative;
 	}
 	
-	input {
-		outline: none;
-	}
-	
-	.add{ /* 파일태그 가운데정렬************************** */
-		text-align: center;
-	}
-	
 	.add input, .add textarea {
 		width: 70%;
-		margin : 5px 0px;
+		margin : 5px auto;
 	}
 	
 	
@@ -102,6 +95,10 @@
 	.btn {
 		text-align : center;
 	}
+	
+	#file {
+		outline: none;
+	}
 
 </style>
 </head>
@@ -125,14 +122,14 @@
 				<input type="text" class="form-control" name="businessnum" placeholder="사업자번호"> 
 				<input type="text" class="form-control" name="price" placeholder="가격">
 				<textarea class="form-control" name="introduce" id="introduce" placeholder="소개"></textarea>
-				<input type="file"  name="img">
+				<input type="file"  id="file">
 
 				
 			</div>
 			
 			<div class="btns">		
 				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">취소하기</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/listmove.do';">취소하기</button>
 			</div>
 			
 		</div>

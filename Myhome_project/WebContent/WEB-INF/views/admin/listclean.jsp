@@ -8,16 +8,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome::청소업체관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/board.css">
-<link rel="stylesheet" href="/Myhome_project/css/moveclean-list.css">
+<!-- <link rel="stylesheet" href="/Myhome_project/css/moveclean-list.css"> -->
 
 <style>
-
-@charset "UTF-8";
 
 	.header {
 		background-color : white;
@@ -33,7 +31,34 @@
 		margin-top: 100px;
     }
     
-/*     .imagelogo{
+	.boardcover{
+    	border: 1px solid tomato;
+    	float: left;
+    	width:900px;
+    	height: auto;
+    	margin-left: 30px; 
+    }
+    
+	#title {
+		font-size: 24px;
+		font-family: 'MaplestoryOTFLight';
+		border-bottom: 1px solid #eaecef;
+		padding-bottom: 10px;
+		margin: 30px 10px;
+		padding : 0px 10px;
+	}
+	
+	.list {
+    	/* text-align : center; */
+    	/* float: left; */
+    	margin : 10px auto;
+    	width: 80%;
+    	height : 200px;
+    	/* border : 5px solid black; */
+    	padding : 15px 0px;
+    }
+    
+    .imagelogo{
     	border : 1px solid black;
     	width: 280px;
         height: 180px;
@@ -45,8 +70,96 @@
         /* background-repeat: no-repeat; */
         background-position: 0% 0px; 
         background-size: cover;
-        margin: 0px 10px;
+        margin: 0px 20px;
+    }
+    
+    .listbox{
+    	float: left;
+    	width: 200px;
+    	height: 180px;
+    	margin-left : 30px;
+    }
+
+    
+/*     .check, .imagelogo {
+    	float: left;
     } */
+    
+    .btns {
+    	position : relative;
+    	cursor: pointer;
+    	margin-left: 50px;
+    	margin-bottom: 30px;
+    }
+    
+    .btn {
+	    background-color: #f1aeae;
+	    color: aliceblue;
+	    display: inline;
+	    width: 70px;
+	    margin-right: 10px;
+	    outline: none !important;
+	    
+	}  
+
+    
+    .check {
+    	size :2em;
+    }
+    
+	
+	.stars {
+    	background-color: rgba( 255, 255, 255, 0.5 );
+    }
+	
+    
+    .glyphicon, .rating {
+  
+    	/* float: left; */
+    	font-size : 16px;
+    	padding-left : 10px;
+    	padding-top: 10px;
+    	margin : 0px;
+    }
+    
+    .glyphicon {
+    	color : #F1AEAE;
+    }   
+    
+  
+    
+    .name{
+    	font-size: 20px;
+    	margin: 5px 0px;
+    	border-bottom: 1px solid #eaecef;
+    }
+    
+    .content{
+    	font-size: 16px;
+    }
+    
+    .address, .tel, .price, .businessnum, .introduce{
+    	margin : 5px 0px;
+    }
+    
+    
+
+    
+    .search{
+		text-align:center;
+		margin : 20px auto;
+	   	padding: 10px;
+	}
+	
+	.btns {
+		text-align : right;
+		
+	}
+	
+	.search #txt {
+		width: 150px;
+		display: inline;
+	}
     
     
 </style>
@@ -65,111 +178,107 @@
         
         
 		<div id="title">청소업체관리</div>
+
+			<div class="list">
+				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
+				<div class="imagelogo">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="rating">3.0 / 5.0</span>
+				</div>
+				<div class="listbox">
+					<div class="name" style="font-weight:bold">청소업체명</div>
+					<div class="content">
+						<div class="tel">010-1234-5678</div>
+						<div class="address">서울시 강남구 역삼동</div>
+						<div class="businessnum">123-3456-7890</div>
+						<div class="price">80,000원</div>
+						<div class="introduce">청소업체소개글입니다</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="list">
+				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
+				<div class="imagelogo">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="rating">3.0 / 5.0</span>
+				</div>
+				<div class="listbox">
+					<div class="name" style="font-weight:bold">청소업체명</div>
+					<div class="content">
+						<div class="tel">010-1234-5678</div>
+						<div class="address">서울시 강남구 역삼동</div>
+						<div class="businessnum">123-3456-7890</div>
+						<div class="price">80,000원</div>
+						<div class="introduce">청소업체소개글입니다</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="list">
+				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
+				<div class="imagelogo">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="rating">3.0 / 5.0</span>
+				</div>
+				<div class="listbox">
+					<div class="name" style="font-weight:bold">청소업체명</div>
+					<div class="content">
+						<div class="tel">010-1234-5678</div>
+						<div class="address">서울시 강남구 역삼동</div>
+						<div class="businessnum">123-3456-7890</div>
+						<div class="price">80,000원</div>
+						<div class="introduce">청소업체소개글입니다</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="list">
+				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
+				<div class="imagelogo">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="rating">3.0 / 5.0</span>
+				</div>
+				<div class="listbox">
+					<div class="name" style="font-weight:bold">청소업체명</div>
+					<div class="content">
+						<div class="tel">010-1234-5678</div>
+						<div class="address">서울시 강남구 역삼동</div>
+						<div class="businessnum">123-3456-7890</div>
+						<div class="price">80,000원</div>
+						<div class="introduce">청소업체소개글입니다</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="list">
+				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
+				<div class="imagelogo">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="rating">3.0 / 5.0</span>
+				</div>
+				<div class="listbox">
+					<div class="name" style="font-weight:bold">청소업체명</div>
+					<div class="content">
+						<div class="tel">010-1234-5678</div>
+						<div class="address">서울시 강남구 역삼동</div>
+						<div class="businessnum">123-3456-7890</div>
+						<div class="price">80,000원</div>
+						<div class="introduce">청소업체소개글입니다</div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="btns">
-				<input type="button" value="등록">
-				<input type="button" value="삭제">
-			</div>
-			<div class="list">
-				<div class="listbox1">
-					<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-					<div class="imagelogo">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="rating">3.0 / 5.0</span>
-					</div>
-					<div class="listbox2">
-						<div class="name" style="font-weight:bold">청소업체명</div>
-						<div class="content">
-							<div class="tel">010-1234-5678</div>
-							<div class="address">서울시 강남구 역삼동</div>
-							<div class="businessnum">123-3456-7890</div>
-							<div class="price">80,000원</div>
-							<div class="introduce">청소업체소개글입니다</div>
-						</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<div class="listbox1">
-					<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-					<div class="imagelogo">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="rating">3.0 / 5.0</span>
-					</div>
-					<div class="listbox2">
-						<div class="name" style="font-weight:bold">청소업체명</div>
-						<div class="content">
-							<div class="tel">010-1234-5678</div>
-							<div class="address">서울시 강남구 역삼동</div>
-							<div class="businessnum">123-3456-7890</div>
-							<div class="price">80,000원</div>
-							<div class="introduce">청소업체소개글입니다</div>
-						</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<div class="listbox1">
-					<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-					<div class="imagelogo">
-						<div class="stars">
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="rating">3.0 / 5.0</span>
-						</div>
-					</div>
-					<div class="listbox2">
-						<div class="name" style="font-weight:bold">청소업체명</div>
-						<div class="content">
-							<div class="tel">010-1234-5678</div>
-							<div class="address">서울시 강남구 역삼동</div>
-							<div class="businessnum">123-3456-7890</div>
-							<div class="price">80,000원</div>
-							<div class="introduce">청소업체소개글입니다</div>
-						</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<div class="listbox1">
-					<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-					<div class="imagelogo">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="rating">3.0 / 5.0</span>
-					</div>
-					<div class="listbox2">
-						<div class="name" style="font-weight:bold">청소업체명</div>
-						<div class="content">
-							<div class="tel">010-1234-5678</div>
-							<div class="address">서울시 강남구 역삼동</div>
-							<div class="businessnum">123-3456-7890</div>
-							<div class="price">80,000원</div>
-							<div class="introduce">청소업체소개글입니다</div>
-						</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<div class="listbox1">
-					<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-					<div class="imagelogo">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="rating">3.0 / 5.0</span>
-					</div>
-					<div class="listbox2">
-						<div class="name" style="font-weight:bold">청소업체명</div>
-						<div class="content">
-							<div class="tel">010-1234-5678</div>
-							<div class="address">서울시 강남구 역삼동</div>
-							<div class="businessnum">123-3456-7890</div>
-							<div class="price">80,000원</div>
-							<div class="introduce">청소업체소개글입니다</div>
-						</div>
-					</div>
-				</div>	
-			</div>
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/Myhome/admin/addclean.do';">
+            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
+            	<input type="button" class="btn" value="삭제" id="delete">
+            </div>
+           	<div class="search">
+            	<input type="text" class="form-control" placeholder="청소업체명" id="txt">
+            	<input type="button" class="btn" value="검색" id="serch">
+           	</div>
+            
 		
 
 		

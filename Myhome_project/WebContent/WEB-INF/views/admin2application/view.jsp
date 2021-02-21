@@ -8,14 +8,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지 -> testpage</title>
+<title>Myhome::청약안내</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Myhome_project/css/board.css"">
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
+<link rel="stylesheet" href="/Myhome_project/css/board.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
@@ -98,18 +100,21 @@ body, html {
 	}
 	
 	/*타이틀 태그 */
-	#boardtitle{
-	
-		width:300px;
-		height:70px;
-    	font-size:23px;
-    	font-weight: bolder;	
-    	margin:20px;
-    	text-align:center;
-    	color:white;
-    	background-color:#f1aeae;
-    	border-radius: 20px;
-	}
+
+	/*타이틀 태그 */
+	#boardtitle {
+	font-size: 24px;
+	margin: 30px 10px;
+	padding: 0px 10px;
+	color: black;
+	font-family: 'MaplestoryOTFLight';
+	border-left: 5px solid #F1AEAE;
+}
+
+#board {
+	margin-left: 0px;
+}
+
 
 	.boardtext{
 		margin-top:10px;
@@ -134,7 +139,7 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/inc/header.jsp"%>
+		<%@include file="/WEB-INF/views/admin/header.jsp"%>
 
 		<div class="container">
 
@@ -146,14 +151,14 @@ body, html {
 						<td class="navboardtd">
 
 					<!-- nav -->
-					<%@include file="/WEB-INF/views/adminmenu/nav.jsp"%>
+					<%@include file="/WEB-INF/views/admin/nav.jsp"%>
 				
 						</td>
 
 						<!-- 상세 보기 입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class=" alert alert-success">청약안내게시판</div>
+							<div id="boardtitle" class="">청약안내게시판</div>
 							
 							<div class="boardcover">
 								<table id="board"

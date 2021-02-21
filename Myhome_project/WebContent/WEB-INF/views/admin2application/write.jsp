@@ -14,8 +14,10 @@
 
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Myhome_project/css/board.css"">
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
+<link rel="stylesheet" href="/Myhome_project/css/board.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
@@ -98,18 +100,18 @@ body, html {
 	}
 	
 	/*타이틀 태그 */
-	#boardtitle{
-	
-		width:300px;
-		height:70px;
-    	font-size:23px;
-    	font-weight: bolder;	
-    	margin:20px;
-    	text-align:center;
-    	color:white;
-    	background-color:#f1aeae;
-    	border-radius: 20px;
-	}
+#boardtitle {
+	font-size: 24px;
+	margin: 30px 10px;
+	padding: 0px 10px;
+	color: black;
+	font-family: 'MaplestoryOTFLight';
+	border-left: 5px solid #F1AEAE;
+}
+
+#board {
+	margin-left: 0px;
+}
 
 	.boardtext{
 		margin-top:10px;
@@ -134,6 +136,11 @@ body, html {
 	.boardtitletext>input{
 		width:790px
 	}
+
+	.boardfile{
+	width:940px;
+	}
+
 	
 </style>
 </head>
@@ -141,7 +148,7 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/inc/header.jsp"%>
+		<%@include file="/WEB-INF/views/admin/header.jsp"%>
 
 		<div class="container">
 
@@ -153,14 +160,14 @@ body, html {
 						<td class="navboardtd">
 
 					<!-- nav -->
-					<%@include file="/WEB-INF/views/adminmenu/nav.jsp"%>
+					<%@include file="/WEB-INF/views/admin/nav.jsp"%>
 				
 						</td>
 
 						<!-- 글쓰기 입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class=" alert alert-success">청약안내게시판</div>
+							<div id="boardtitle" class="">청약안내게시판</div>
 							
 							<div class="boardcover">
 								<table id="board"
@@ -193,11 +200,11 @@ body, html {
 						<!-- 지금은 삭제? 아니면 안보이게? -->
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome-project/admin2/application/deleteok.do';">
-									Insert</button>
+									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/list.do';">
+									목록</button>
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome-project/admin2/application/list.do';">
-									List</button>
+									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/writeok.do';">
+									등록</button>
 							</div>
 
 		

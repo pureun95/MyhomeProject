@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin2contract/view.do")
+@WebServlet("/admin2/contract/view.do")
 public class View extends HttpServlet {
 
 	@Override

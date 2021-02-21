@@ -83,26 +83,17 @@ style>body, html {
 	margin : 5px 5px;
 }
 
-.content { 
+#content { 
 	height: 500px;
-	padding: 25px 15px; /* padding 적용 확인*************** */
+	padding: 25px 25px;
 }
 
 
 
 input, select {
-	font-family: 'JSDongkang-Regular';
+	font-family: 'NanumBarunGothic';
 	outline: none;
 }
-
-/* .btn {
-    background-color: #f1aeae;
-    color: aliceblue;
-    display: inline;
-    width: 70px;
-    margin-right: 10px;
-    
-}  */ 
 
 
 .btn {
@@ -154,7 +145,7 @@ input, select {
                     </td>
                  </tr>
                  <tr>
-                 	<td class="content">
+                 	<td class="content" id="content">
                  		부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 
                  
                  </tr>
@@ -162,10 +153,10 @@ input, select {
             </table>
             
             <div class="btns">
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/checklist.do'">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listchecklist.do';">
                         목록
                     </button>
-                    <button type="button" class="btn" onclick="location.href=''">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/editchecklist.do';">
                         수정
                     </button>
                     <button type="button" class="btn" onclick="location.href=''">
