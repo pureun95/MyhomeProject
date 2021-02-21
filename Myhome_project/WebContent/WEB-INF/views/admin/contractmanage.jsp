@@ -147,7 +147,7 @@
                     <th class="list">거래상태</th>
                 </tr>
                 
-                <tr class="boardtr">
+                <tr class="boardtr" id="item" name="item">
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
                     <td class="list">111111</td>
                     <td class="list">2021-02-19</td>
@@ -276,6 +276,17 @@
 	
 	<!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+
+	<script>
+	
+		var item = window.document.all.item;
+		
+		item.onclick = function(){
+	        window.open("/Myhome_project/Myhome/admin/viewcontract.do", "contract", "width=1000, height= 1200");
+	    }
+	
+	
+	</script>
  
 </body>
 </html>
