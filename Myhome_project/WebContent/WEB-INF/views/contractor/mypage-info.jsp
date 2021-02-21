@@ -367,34 +367,38 @@
    		
    		<!-- 시작 -->
         <div class="start">
-        	       	
-	       <span>아이디</span>
-	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id" name="id"> 
-			
-			<span>공인중개소명</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소" name="businessName">
-			
-			<span>사업자번호</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544" name="businessNum">		
-			
-			<span>비밀번호</span> 
-	       	<input type="password" class="form-control form-weight" id="" name="password">
-			
-			<!-- 비밀번호 확인 제약 스크립트 만들기 -->
-			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="search-text" name="repassword">
-			
-			<span>주소</span>
-			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동" name="address">
-			
-			<span>전화번호</span> 
-			<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1">-
-			<input type="text" class="form-control tel" id="" maxlength=4 name="tel2">-
-			<input type="text" class="form-control tel" id="" maxlength=4 name="tel3">
-			
-			<span>이메일</span>
-			<input type="text" class="form-control" id="search-text" name="email">
-			
+        
+        	<c:forEach items="${list}" var="dto">
+		       <span>아이디</span>
+		       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.id}" name="id"> 
+				
+				<span>이름</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.name}" name="name">
+				
+				<span>공인중개소명</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.companyname}" name="companyname">
+				
+				<span>사업자번호</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.businessnum}" name="businessnum">		
+				
+				<span>비밀번호</span> 
+		       	<input type="password" class="form-control form-weight" id="" name="password" ${dto.password}>
+				
+				<!-- 비밀번호 확인 제약 스크립트 만들기 -->
+				<span>비밀번호확인</span>
+				<input type="password" class="form-control form-weight" id="search-text" name="repassword">
+				
+				<span>주소</span>
+				<input type="text" class="form-control" id="search-text" placeholder="${dto.address}" name="address">
+				
+				<span>전화번호</span> 
+				<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1" placeholder="${dto.tel1}">-
+				<input type="text" class="form-control tel" id="" maxlength=4 name="tel2" placeholder="${dto.tel2}">-
+				<input type="text" class="form-control tel" id="" maxlength=4 name="tel3" placeholder="${dto.tel3}">
+				
+				<span>이메일</span>
+				<input type="text" class="form-control" id="search-text" name="email" placeholder="${dto.email}">
+			</c:forEach>
 			
 			<!-- <span>관심매물</span>
 			<select class="form-control multiple">
@@ -429,7 +433,7 @@
 			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-out" value="회원탈퇴">
        		
        		<!-- 회원번호 -->
-       		<input type="hidden" name="seq" value="${dto.seq}">
+       		<input type="hidden" name="seq" value="81">
        		
        	</div>
        		

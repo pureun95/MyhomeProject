@@ -2,7 +2,6 @@ package com.myhome.contractor.mypage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.myhome.member.LocationDTO;
 import com.myhome.member.MemberDAO;
 
+
 @WebServlet("/contractor/mypage-info.do")
 public class MypageInfo extends HttpServlet{
 
@@ -21,112 +21,140 @@ public class MypageInfo extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		
-		HashMap<Integer, String> location = new HashMap<Integer, String>();
-
-		ArrayList<LocationDTO> front = new ArrayList<LocationDTO>();
-		ArrayList<LocationDTO> middle = new ArrayList<LocationDTO>();
-		ArrayList<LocationDTO> end = new ArrayList<LocationDTO>();
-
-		MemberDAO dao = new MemberDAO();
-
-		// 지역 받아옴
-		location = dao.getLocation();
-
-		int seqFront = 1;
-		int seqMiddle = 1;
-		int seqEnd = 1;
-		int flag = 0;
-
-		// 시
-		for (int i = 1; i < location.size(); i++) {
-
-			String line[] = location.get(i).split(" ");
-
-			// 중복검사
-			flag = 0;
-
-			// 시
-			for (int j = 0; j < front.size(); j++) {
-				if (front.get(j).getLocation().equals(line[0])) {
-					flag = 1;
-					break;
-				}
-			}
-
-			if (flag == 0) {
-				LocationDTO ldto = new LocationDTO();
-
-				ldto.setSeq(seqFront++);
-				ldto.setmLocation(null);
-				ldto.setLocation(line[0]);
-				front.add(ldto);
-			}
-		}
-
-		// 구
-		for (int i = 1; i < location.size(); i++) {
-
-			String line[] = location.get(i).split(" ");
-
-			flag = 0;
-			for (int j = 0; j < middle.size(); j++) {
-				if (middle.get(j).getLocation().equals(line[1])) {
-					flag = 1;
-					break;
-				}
-			}
-
-			if (flag == 0) {
-				LocationDTO ldto = new LocationDTO();
-
-				ldto.setSeq(seqMiddle++);
-
-				for (int j = 0; j < front.size(); j++) {
-					if (front.get(j).getLocation().equals(line[0])) {
-						ldto.setmLocation(front.get(j).getLocation());
-					}
-				}
-				ldto.setLocation(line[1]);
-				middle.add(ldto);
-			}
+//		HashMap<Integer, String> location = new HashMap<Integer, String>();
+//
+//		ArrayList<LocationDTO> front = new ArrayList<LocationDTO>();
+//		ArrayList<LocationDTO> middle = new ArrayList<LocationDTO>();
+//		ArrayList<LocationDTO> end = new ArrayList<LocationDTO>();
+//
+//		MemberDAO dao = new MemberDAO();
+//
+//		// 지역 받아옴
+//		location = dao.getLocation();
+//
+//		int seqFront = 1;
+//		int seqMiddle = 1;
+//		int seqEnd = 1;
+//		int flag = 0;
+//
+//		// 시
+//		for (int i = 1; i < location.size(); i++) {
+//
+//			String line[] = location.get(i).split(" ");
+//
+//			// 중복검사
+//			flag = 0;
+//
+//			// 시
+//			for (int j = 0; j < front.size(); j++) {
+//				if (front.get(j).getLocation().equals(line[0])) {
+//					flag = 1;
+//					break;
+//				}
+//			}
+//
+//			if (flag == 0) {
+//				LocationDTO ldto = new LocationDTO();
+//
+//				ldto.setSeq(seqFront++);
+//				ldto.setmLocation(null);
+//				ldto.setLocation(line[0]);
+//				front.add(ldto);
+//			}
+//		}
+//
+//		// 구
+//		for (int i = 1; i < location.size(); i++) {
+//
+//			String line[] = location.get(i).split(" ");
+//
+//			flag = 0;
+//			for (int j = 0; j < middle.size(); j++) {
+//				if (middle.get(j).getLocation().equals(line[1])) {
+//					flag = 1;
+//					break;
+//				}
+//			}
+//
+//			if (flag == 0) {
+//				LocationDTO ldto = new LocationDTO();
+//
+//				ldto.setSeq(seqMiddle++);
+//
+//				for (int j = 0; j < front.size(); j++) {
+//					if (front.get(j).getLocation().equals(line[0])) {
+//						ldto.setmLocation(front.get(j).getLocation());
+//					}
+//				}
+//				ldto.setLocation(line[1]);
+//				middle.add(ldto);
+//			}
+//		}
+//		
+//		// 동
+//		for (int i = 1; i < location.size(); i++) {
+//
+//			String line[] = location.get(i).split(" ");
+//
+//			flag = 0;
+//			for (int j = 0; j < end.size(); j++) {
+//				if (end.get(j).getLocation().equals(line[2])) {
+//					flag = 1;
+//					break;
+//				}
+//			}
+//
+//			if (flag == 0) {
+//				LocationDTO ldto = new LocationDTO();
+//
+//				ldto.setSeq(seqEnd++);
+//
+//				for (int j = 0; j < middle.size(); j++) {
+//					if (middle.get(j).getLocation().equals(line[1])) {
+//						ldto.setmLocation(middle.get(j).getLocation());
+//					}
+//				}
+//				ldto.setLocation(line[2]);
+//				end.add(ldto);
+//			}
+//		}
+//
+//		 
+//		// 지역 보내줌
+//		req.setAttribute("front", front);
+//		req.setAttribute("middle", middle);
+//		req.setAttribute("end", end);
+//		
+		
+		
+		//1. 내 정보
+		ContractorDAO dao = new ContractorDAO();
+				
+		ArrayList<ContractorDTO> list = dao.list("81");
+		
+				
+		//데이터 조작 -> 서블릿 담당
+		//데이터 출력 -> JSP 담당
+				
+		//1.5 데이터 조작
+		for (ContractorDTO dto : list) {
+					
+			dto.setSeq(dto.getSeq());
+			dto.setId(dto.getId());
+			dto.setCompanyname(dto.getCompanyname());
+			dto.setBusinessnum(dto.getBusinessnum());
+			dto.setName(dto.getName());
+			dto.setEmail(dto.getEmail());
+			dto.setAddress(dto.getAddress());
+			dto.setPassword(dto.getPassword());
+			dto.setTel1(dto.getTel1());
+			dto.setTel2(dto.getTel2());
+			dto.setTel3(dto.getTel3());
+			
 		}
 		
-		// 동
-		for (int i = 1; i < location.size(); i++) {
-
-			String line[] = location.get(i).split(" ");
-
-			flag = 0;
-			for (int j = 0; j < end.size(); j++) {
-				if (end.get(j).getLocation().equals(line[2])) {
-					flag = 1;
-					break;
-				}
-			}
-
-			if (flag == 0) {
-				LocationDTO ldto = new LocationDTO();
-
-				ldto.setSeq(seqEnd++);
-
-				for (int j = 0; j < middle.size(); j++) {
-					if (middle.get(j).getLocation().equals(line[1])) {
-						ldto.setmLocation(middle.get(j).getLocation());
-					}
-				}
-				ldto.setLocation(line[2]);
-				end.add(ldto);
-			}
-		}
-
-		 
-
-		// 지역 보내줌
-		req.setAttribute("front", front);
-		req.setAttribute("middle", middle);
-		req.setAttribute("end", end);
-		
-		
+		//내 정보 보내기
+		req.setAttribute("list", list);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-info.jsp");
 		dispatcher.forward(req, resp);
