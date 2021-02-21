@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
@@ -31,28 +33,73 @@ public class ContractorDAO {
 		
 	}
 	
+	//회원목록 달라고 위임
+	public ArrayList<ContractorDTO> list(String seq) {
+			
+		try {
+			
+			String sql = "select * from vwContractor where seq = ?";
+			
+			//System.out.println(sql);
+			
+			//회원번호 넘겨주기
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			
+			rs = pstat.executeQuery();
+				
+			//ResultSet -> ArrayList<DTO>
+			ArrayList<ContractorDTO> list = new ArrayList<ContractorDTO>();
+				
+			while (rs.next()) {
+			//레코드 1줄 -> DTO 1개
+			ContractorDTO dto = new ContractorDTO();
+					
+				dto.setSeq(rs.getString("seq"));
+				dto.setId(rs.getString("id"));
+				dto.setAddress(rs.getString("address"));
+				dto.setBusinessnum(rs.getString("companynumber"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPassword(rs.getString("password"));
+				dto.setCompanyname(rs.getString("companyname"));
+				dto.setName(rs.getString("name"));
+				dto.setTel1(rs.getString("tel").substring(0, 3));
+				dto.setTel2(rs.getString("tel").substring(4, 8));
+				dto.setTel3(rs.getString("tel").substring(9, 13));
+							
+				list.add(dto);				
+			}
+				
+				return list; 
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			
+			return null;
+		}
+	
 
+	
 	public int edit(ContractorDTO dto) {
 		
 		try {
 			
 			String sql = "update tblAllUser set password = ?, "
-					+ "                email= ?, "
-					+ "                nickName= ?, "
+					+ "                email = ?, "
 					+ "                phoneNumber = ?, "
 					+ "                address= ?"
-					+ " where seqAllUser = 1";
+					+ " where seqAllUser = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			
 			pstat.setString(1, dto.getPassword());
 			pstat.setString(2, dto.getEmail());
-			//pstat.setString(3, dto.getName());	//공인중개소명
-			pstat.setString(4, dto.getTel());
-			pstat.setString(5, dto.getAddress());
-			/*
-			 * pstat.setString(6, dto.getSeq()); //AllUser seq
-			 */			
+			pstat.setString(3, dto.getTel1() + "-" + dto.getTel2() + "-" + dto.getTel3());
+			pstat.setString(4, dto.getAddress());
+			pstat.setString(5, dto.getSeq()); //중개인 seq
+					
 	
 			return pstat.executeUpdate();
 			

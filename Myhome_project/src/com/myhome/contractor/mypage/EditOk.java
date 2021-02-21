@@ -32,29 +32,34 @@ public class EditOk extends HttpServlet {
 		String seq = req.getParameter("seq");	//회원번호 
 		String id = req.getParameter("id");
 		String password = req.getParameter("password");
-		String businessNum = req.getParameter("businessNum");
-		/* String name = req.getParameter("businessName"); */
+		String name = req.getParameter("name");
+		String businessnum = req.getParameter("businessnum");
+		String companyname = req.getParameter("companyname");
 		String email = req.getParameter("email"); 
 		String address = req.getParameter("address");
 		String tel1 = req.getParameter("tel1");
 		String tel2 = req.getParameter("tel2");	
 		String tel3 = req.getParameter("tel3");
-			
+		
 		//2.
 		ContractorDAO dao = new ContractorDAO();
 		ContractorDTO dto = new ContractorDTO();
 		
 		//가져온거 쓰기
 		dto.setSeq(seq); //회원번호
-		dto.setBusinessnum(businessNum);
 		dto.setId(id);
-		//dto.setName(name); //공인중개소명
+		dto.setBusinessnum(businessnum);
+		dto.setCompanyname(companyname); //공인중개소명
+		dto.setName(name);
 		dto.setPassword(password);
 		dto.setEmail(email);
 		dto.setAddress(address);
-		dto.setTel(tel1 + "-" + tel2 + "-" + tel3);
+		dto.setTel1(tel1);
+		dto.setTel2(tel2);
+		dto.setTel3(tel3);
 			
-		int result = dao.edit(dto); //글수정하기
+		//글수정하기
+		int result = dao.edit(dto); 
 			
 		if (result == 1) {
 			//회원정보수정 성공 -> 수정성공 팝업
