@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/board.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 
 
@@ -109,7 +110,80 @@
 	}
 	
 	
+	/* 매물 검색 창  */
+	.search-room {
+		border: 1px solid white;
+		width: 850px;
+		height: 300px;
+		margin: 60px 140px;
+		padding: 50px;
+		border-radius: 10px;
+	}	
+
+	.search-title {
+		font-size: 28px;
+		color: white;
+		font-family: 'MaplestoryOTFLight';
+		text-align: center;
+	}
 	
+	.search-box1 {
+		border: 1px solid white;
+		width: 800px;
+		height: 70px;
+		margin-top: 20px;
+		
+	}
+	
+	.search-box2 {
+		/* border: 1px solid white; */
+		width: 340px;
+		height: 50px;
+		background-color: white;
+		float: left;
+	}
+	
+	.search-box2 > div {
+		border-right: 1px solid #e0e0e0;
+		float: left;
+		width: 106px;
+		height: 50px;
+		font-size: 20px;
+		/* background-color: pink; */
+		text-align: center;
+		padding: 10px 0px;
+		font-size: 20px;
+		font-family: 'NanumBarunGothic';
+	}
+	
+	.search-box2 > .search-last {
+		border-right: 0px;
+	}
+	
+	.search-box2:nth-child(2) {
+		margin-left: 60px;
+	}
+	
+	.form-control {
+		width: 300px;
+		height: 40px;
+		float: left;
+	}
+	
+	.btn {
+		background-color: #f1aeae;
+   		color: white;
+   		outline: none !important;
+   		font-family: 'NanumBarunGothic';
+   		margin-right: 5px;
+   		height: 40px;
+   		/* margin-left: 20px; */
+	}
+	
+	
+	.btn-big {
+		/* margin-right: 10px; */
+	}
 	
 	
 </style>
@@ -142,14 +216,41 @@
      	
      	
      	
+     	<!-- 검색창 -->
      	<div class="search-room">
-     	
+     		<div class="search-title"><span class="glyphicon glyphicon-search"></span> 원하는 방을 검색해보세요.</div>
+     		
+     		<!-- 원룸, 투룸, 전세, 월세 -->
+     		<div class="search-box1">
+     		
+     			<div class="search-box2">
+     				<div class="btn btn-big">원룸</div>
+     				<div class="btn btn-big">투룸</div>
+     				<div class="btn btn-big">오피스텔</div>
+     			</div>
+     			
+     			<div class="search-box2">
+     				<div class="btn btn-big2">전세</div>
+     				<div class="btn btn-big2">월세</div>
+     				<div class="btn btn-big2">매매</div>
+     			</div>
+     			
+     		</div>
+     		
+     		
+     		<!-- 지하철역 검색 -->
+     		<div class="search-box1">
+     			<input type="text" class="form-control" placeholder="지역, 지하철역을 검색해주세요.">
+     			<button class="btn btn-outline-secondary" type="button" id="btn-edit">검색하기</button>
+     		</div>
      	</div>
         
 	
 	<!-- container -->
     </div>
     
+    
+   
     <div class="container2">
     	<div class="contents">
     		
