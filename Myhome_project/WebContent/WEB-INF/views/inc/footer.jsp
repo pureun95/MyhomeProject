@@ -10,16 +10,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/Myhome_project/css/footer.css">
-
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
 
+	
+	
+	
 </style>
-<script>
-   
 
-</script>
 </head>
 <body>
 	<div id="footer">
@@ -36,6 +35,18 @@
     </div>
 
 
+	
+
     <div id="chat"></div>
+    
+    <%@include file="/WEB-INF/views/member/chat.jsp" %>
+
+<script>
+
+	
+	
+
+</script>
+
 </body>
 </html>

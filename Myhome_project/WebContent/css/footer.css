@@ -38,6 +38,8 @@
         display: block;
         background-size: cover;
         background-position: 50% 50%;
+        cursor: pointer;
+        z-index: 0;
     }
     
     

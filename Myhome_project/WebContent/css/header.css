@@ -57,6 +57,12 @@ header {
     
 }
 
+.li-list > a {
+	color: #202020 !important;
+	text-decoration: none;
+}
+
+
 #last {
     clear: both;
 } 

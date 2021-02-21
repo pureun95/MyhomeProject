@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::매칭매물관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 
@@ -35,17 +35,20 @@
     }
     
     .board-name {
-    	/* border: 1px solid blue; */
-    	width: 400px;
+    	border-bottom: 1px solid #eaecef;
+    	width: 810px;
     	height: 50px;
+    	padding-bottom: 10px;
     	font-size: 24px;
     	font-family: 'NanumBarunGothic';
     	color: #202020;
+    	margin-bottom: 20px;
+    	
     }
     
     
     .matching-option {
-    	border: 1px solid blue;
+    	/* border: 1px solid blue; */
     	width: 400px;
     	height: 100px;
     	padding: 40px 0px;
@@ -69,7 +72,7 @@
     	text-decoration: none;
     }
     
-    .matching-option > a:nth-child(2) {
+    .matching-option > a:nth-child(1) {
     	color: #f1acac;
     	display: inline;
     	border-bottom: 2px solid #f1acac;
@@ -86,9 +89,9 @@
     }
     
     .matching-board {
-    	border: 1px solid blue;
+    	/* border: 1px solid blue; */
     	width: 820px;
-    	height: 600px;
+    	height: 550px;
     }
     
     #board {
@@ -125,17 +128,18 @@
    	
    	} 
    	
-   	.btn {
-   		background-color: #f1aeae;
-   		color: white;
-   		outline: none !important;
-   		font-family: 'NanumBarunGothic';
-   		margin-right: 5px;
-   	} 
    	
+   	/* 헤더 */
    	
-   	#button-addon1 {
-	   	background-color: #f1aeae;
+	#mymatching {
+		color: #f1acac;
+	}   
+	
+	
+	/* 매칭버튼 */
+	
+	#button-addon1 {
+	  	background-color: #f1aeae;
 	   	color: white;
 	   	outline: none !important;
 	   	font-family: 'NanumBarunGothic';
@@ -148,11 +152,48 @@
 	   	outline: none !important;
 	   	font-family: 'NanumBarunGothic';
 	   	border: 1px solid #f1aeae;
+	   	margin-left: 5px;
    }
+	 	
+
    
+   /* 검색, 페이지바 */
     
-   #search-box {
-   		border: 1px solid black;
+    .search-paging {
+    	border: 1px solid black;
+    	width: 800px;
+    	height: 200px;
+    	padding: 20px 0px; 
+    }
+    
+    .paging {
+  		border: 1px solid blue;
+  		width: 100%;
+  		height: 75px;
+  		padding: 0px 170px;
+   	}
+    
+    .pagination > li > .page-a {
+		color: #202020;
+	
+	}
+    
+    .pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
+	}
+	
+    
+    .btn {
+   		background-color: #f1aeae;
+   		color: white;
+   		outline: none !important;
+   		font-family: 'NanumBarunGothic';
+   	} 
+    
+    #search-box {
+   		/* border: 1px solid black; */
    		width: 390px;
    		height: 60px;
    		margin: 10px 200px;
@@ -163,31 +204,18 @@
    		width: 300px;
    		outline: 0;
    		display: inline;
+   		margin-right: 10px;
    
    }
+    
    
    .temp {
 	   	min-height: 35px;
-	   	border: 1px solid black;
+	   	/* border: 1px solid black; */
 	   	padding: 5px;
    
    }
-   
-   .paging {
-  		border: 1px solid blue;
-  		width: 810px;
-  		height: 80px;
-  		padding: 5px 250px;
-
-   }
-
-	
-	.pagination > li > .page-a {
-		color: #202020;
-	
-	}
-    
-    
+   	
     
 
 </style>
@@ -211,8 +239,8 @@
 		 	<div class="board-name">매칭매물관리</div>
 		 	
 		 	<div class="matching-option">
-		 			<a>나에게 들어온 매칭</a>
-		 			<a>내가 신청한 매칭</a>		 		 			
+		 			<a href="mypage-matching1.do">나에게 들어온 매칭</a>
+		 			<a href="mypage-matching2.do">내가 신청한 매칭</a>		 		 			
 		 	</div>
                 
           
@@ -327,29 +355,34 @@
 	            
 	           
 	        </table>
-       
-       
-       		<div class="paging">
-       			<ul class="pagination">
-				    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
-				    <li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-       		</div>
-       		
        		
        		</div>
-       		
-       		<div id="search-box">		
-				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
-			</div>
        	
+       		<!-- 검색, 페이지바 -->
+       		<div class="search-paging">
+	       		<div class="paging">
+	       			<ul class="pagination">
+					    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					    <li><a class="page-link page-a" href="">다음</a></li>
+					</ul>       		
+	       		</div>
+	       		
+	       		
+	       		<div id="search-box">		
+					<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
+					<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
+				</div>
+       		</div>
        	
        	</form>
        
