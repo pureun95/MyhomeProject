@@ -1,4 +1,4 @@
-package com.myhome.admin2.contract;
+package com.myhome.admin2.report;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin2/contract/view.do")
-public class View extends HttpServlet {
+@WebServlet("/admin2/report/list.do")
+public class List extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2contract/view.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2report/list.jsp");
 		dispatcher.forward(req, resp);
 
 	}

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::청약안내</title>
+<title>Myhome::공지사항</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -100,6 +100,8 @@ body, html {
 	}
 	
 	/*타이틀 태그 */
+
+	/*타이틀 태그 */
 	#boardtitle {
 	font-size: 24px;
 	margin: 30px 10px;
@@ -113,18 +115,24 @@ body, html {
 	margin-left: 0px;
 }
 
-/* 삭제 글 태그*/
-						
-	.boardalert{
-	width:940px
+
+	.boardtext{
+		margin-top:10px;
 	}
 	
-	.alert-danger{
-		display:block;	
+	.boardfile > input{
+		background-color: #f1aeae;
+		width:400px;
+		height:40px;
+		margin-left:20px;
     	text-align:center;
-    	width:800px;
+    	color:white;	
+    	outline: none;
+    	border: 0;
+    	
 	}
-
+	
+	
 </style>
 </head>
 <body>
@@ -147,66 +155,57 @@ body, html {
 				
 						</td>
 
-						<!--삭제입니다.-->
+						<!-- 상세 보기 입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">청약안내게시판</div>
+							<div id="boardtitle" class="">공지사항</div>
 							
 							<div class="boardcover">
 								<table id="board"
 									class="table table-hover table-striped table-condensed">
-
+										<!--  ?는 데이터 직접 넣기  -->
 									<tr class="headtr">
-										<th class="firtd boardtd">번호</th>
-										<th class="sectd boardtd">제목</th>
+										<th class="firtd boardtd">글번호 : ?</th>
+										<th class="sectd boardtd">진짜제목 ?</th>
 										<th class="thitd boardtd">작성자(닉네임)</th>
 										<th class="fortd boardtd">작성일</th>
 										<th class="fiftd boardtd">조회수</th>
 									</tr>
 
 									<tr class="boardtr">
-										<td class="firtd boardtd">1</td>
-										<td class="sectd boardtd">
-											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic. <span
-													class="boardspan footspan">[댓글수]</span>
-											</div>
-
+										<td class="firtd boardtd" colspan="5">
+											<textarea class="form-control col-sm-5 boardtext"  
+											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
 										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+
 									</tr>
 
 
 								</table>
 							</div>
 
- 						<!-- 삭제 항목 글 -->
- 							<div class="boardalert">				
-								<div class="alert alert-danger" role="alert">
-								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-								  <span class="sr-only">경고!</span>
-								  위의 항목(들)을 삭제하시겠습니까?삭제하시려면 아래의 delete 항목을 눌러 주세요.
-								</div>
-							</div>	
+
+ 						<!-- 첨부파일  -->
+							<div class="boardfile">
+							  <input type="file" class="form-control " id="inputGroupFile02" disabled>
+							  <label class="" for="inputGroupFile02"></label>
+							</div>
 						<!-- 버튼 -->
 						
+						<!-- 지금은 삭제? 아니면 안보이게? -->
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/list.do';">
-									목록</button>
+									id="button-addon2" onclick="location.href='/Myhome-project/admin2/notice/deleteok.do';">
+									Insert</button>
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/deleteok.do';">
-									삭제</button>
+									id="button-addon2" onclick="location.href='/Myhome-project/admin2/notice/list.do';">
+									List</button>
 							</div>
 
-
-						</td>
- 					</tr>
 		
+					<tr>
+						<td></td>
+					</tr>
 				</table>
 			</form>
 
