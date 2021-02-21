@@ -26,7 +26,7 @@
     	<div class="header-wrap">
         <div class="header-ul">
             <div class="header-img"></div>
-                <ul class="header-ul2">
+                <ul class="header-ul2 header-ul3">
                     <li class="header-li li-list">방찾기</li>
                     <li class="header-li li-list">방올리기</li>
                     <li class="header-li li-list">게시판</li>
@@ -46,7 +46,7 @@
     	<div class="header-wrap">
         <div class="header-ul">
             <div class="header-img"></div>
-                <ul class="header-ul2">
+                <ul class="header-ul2" id="header-ul-id">
                     <li class="header-li li-list">방찾기</li>
                     <li class="header-li li-list">방올리기</li>
                     <li class="header-li li-list">커뮤니티</li>
