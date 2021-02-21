@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::청약안내</title>
+<title>Myhome::공지사항</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -176,7 +176,7 @@ body, html {
 						<!---->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">청약안내게시판</div>
+							<div id="boardtitle" class="">공지사항</div>
 
 							<div class="boardcover">
 								<table id="board"
@@ -199,12 +199,11 @@ body, html {
 										<td class="sectd boardtd">
 											<div class="Boardtdtitle">
 												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/admin2/application/view.do;">화이팅.. Lorem
+												<a href="/Myhome_project/admin2/application/list.do;">화이팅.. Lorem
 												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic.</a>
-												
+												minus culpa? Officia dolorum ducimus hic.</a>	
 												<span class="boardspan footspan">[댓글수]</span>
-																						</div>
+											</div>
 
 										</td>
 										<td class="thitd boardtd">길도이(닉네임)</td>
@@ -221,11 +220,11 @@ body, html {
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/application/write.do';">
+									onclick="location.href='/Myhome_project/admin2/notice/write.do';">
 									쓰기</button>
 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/application/delete.do';">삭제</button>
+									onclick="location.href='/Myhome_project/admin2/notice/delete.do';">삭제</button>
 							</div> <!-- 검색, 페이지바 -->
 							<div class="search-paging">
 								<div class="paging">

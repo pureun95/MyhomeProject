@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::청약안내</title>
+<title>Myhome::QnA</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -84,7 +84,7 @@ body, html {
 	height: 1000px;
 	width: 100%;
 	margin: 0px;
-	margin-top:-20px;
+	margin-top: -20px;
 }
 
 #navboardtbl .navboardtd:first-child {
@@ -152,6 +152,59 @@ body, html {
 	display: inline;
 	margin-right: 10px;
 }
+
+
+/* 셀렉트 버트 수정입니다. */
+.boardwork>select {
+	width:100px;
+	font-size:16px;
+	height: 34px;
+	border: 0px solid #000;
+	background-color: #F1AEAE;
+    color: white;
+    border-radius:20px;
+
+    
+}
+
+.boardwork>select option{
+	text-align:center;
+}
+.boardtr {
+	display: none;
+	
+}
+
+.Boardtdtitle a{
+	text-overflow:ellipsis;
+}
+
+
+/* 토글 버튼 설정 모르겠다...
+
+#boardstate{
+	width:150px;
+    float: right;
+    margin-right: 200px;
+    display: inline;
+	border: 0px solid #000;
+	background-color: #F1AEAE;
+    color: white;
+    border-radius:20px;
+	font-size:16px;
+	height: 30px;
+	
+}
+
+
+#boardstate:after{
+        content: "";
+        display: block;
+        clear: both;
+	}
+*/
+
+
 </style>
 </head>
 <body>
@@ -176,40 +229,47 @@ body, html {
 						<!---->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">청약안내게시판</div>
+							<div id="boardtitle" class="">QnA</div>
 
 							<div class="boardcover">
 								<table id="board"
 									class="table table-hover table-striped table-condensed">
 
 									<tr class="headtr">
-										<th class="sixtd boardtd">선택</th>
+										<!--  <th class="sixtd boardtd">선택</th> -->
+										
 										<th class="firtd boardtd">번호</th>
 										<th class="sectd boardtd">제목</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
+										<th class="thitd boardtd">작성자</th>
+										<!-- 답변이 있으면 완료 없으면 처리 중  -->
+										<th class="fiftd boardtd">처리상태</th>
 										<th class="fortd boardtd">작성일</th>
-										<th class="fiftd boardtd">조회수</th>
+									</tr>
 
+
+									<tr class="boardoption">
+										<td colspan="5" style="text-align: center;">아래의 카테고리를 선택해
+											주세요</td>
 									</tr>
 
 									<tr class="boardtr">
-										<td class="sixtd boardtd"><input type="checkbox"
-											name="seq" id="seq"></td>
+										<!-- 					<td class="sixtd boardtd"><input type="checkbox" name="seq" id="seq"></td>  -->
 										<td class="firtd boardtd">1</td>
 										<td class="sectd boardtd">
 											<div class="Boardtdtitle">
 												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/admin2/application/view.do;">화이팅.. Lorem
+												<a href="/Myhome_project/admin2/qna/view.do;">화이팅.. Lorem
 												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
 												minus culpa? Officia dolorum ducimus hic.</a>
 												
 												<span class="boardspan footspan">[댓글수]</span>
-																						</div>
+											</div>
 
 										</td>
 										<td class="thitd boardtd">길도이(닉네임)</td>
+										<td class="fiftd boardtd">미처리</td>
 										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+
 
 									</tr>
 
@@ -218,15 +278,26 @@ body, html {
 								</table>
 							</div>
 
+	
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/application/write.do';">
-									쓰기</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/application/delete.do';">삭제</button>
-							</div> <!-- 검색, 페이지바 -->
+							<!-- 전체 혹은 미처리 내역을 선택하기  모르겠음..
+									<button id="boardstate">이거버튼</button>
+							text-overflow: ellipsis;
+							-->
+								  <select class="form-select boardworksel"
+									aria-label="Default select example">
+									<option selected value="0"> 카테고리</option>
+									<option value="1"> 매물</option>
+									<option value="2"> 중고장터</option>
+									<option value="3"> 커뮤니티</option>
+									<option value="4"> 전자계약</option>
+									<option value="5"> 기타</option>
+								</select>
+							</div> 
+						
+
+							
+							<!-- 검색, 페이지바 -->
 							<div class="search-paging">
 								<div class="paging">
 									<ul class="pagination">
@@ -252,6 +323,7 @@ body, html {
 									<button class="btn btn-outline-secondary" type="button"
 										id="button-addon1">검색</button>
 								</div>
+								
 								<!-- search-paging -->
 							</div>
 						</td>
@@ -271,6 +343,21 @@ body, html {
 
 	<script>
 		
+	/*boardtr*/
+    $(".boardwork").click(function(){
+        if( $(".boardworksel option:selected").val()==0){
+            
+            $(".boardtr").css("display","none");
+            $(".boardoption").css("display","table-row");         
+        }else{
+            console.log(1213);
+            $(".boardtr").css("display","table-row");    
+            $(".boardoption").css("display","none");    
+        
+        }
+
+    });
+
 	</script>
 
 

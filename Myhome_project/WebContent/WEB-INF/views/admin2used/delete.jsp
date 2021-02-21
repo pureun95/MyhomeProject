@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::청약안내</title>
+<title>Myhome::중고거래</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -150,7 +150,7 @@ body, html {
 						<!--삭제입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">청약안내게시판</div>
+							<div id="boardtitle" class="">중고거래</div>
 							
 							<div class="boardcover">
 								<table id="board"

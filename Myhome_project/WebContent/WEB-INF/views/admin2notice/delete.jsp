@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::청약안내</title>
+<title>Myhome::공지사항</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -150,7 +150,7 @@ body, html {
 						<!--삭제입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">청약안내게시판</div>
+							<div id="boardtitle" class="">공지사항</div>
 							
 							<div class="boardcover">
 								<table id="board"
@@ -196,10 +196,10 @@ body, html {
 						
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/list.do';">
+									id="button-addon2" onclick="location.href='/Myhome_project/admin2/notice/list.do';">
 									목록</button>
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/deleteok.do';">
+									id="button-addon2" onclick="location.href='/Myhome_project/admin2/notice/deleteok.do';">
 									삭제</button>
 							</div>
 
