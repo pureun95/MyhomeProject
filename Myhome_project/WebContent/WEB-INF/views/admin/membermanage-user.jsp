@@ -82,25 +82,7 @@
 		outline: none;
 	}
 
-	.page, .search {
-		text-align: center;
-		margin: 10px 0px;
-	}
-	
-	.page {
-		text-align: left;
-		margin: 10px;
-	}
-	
-	.pagebar {
-		float: left;
-		text-align: center;
-	}
-	
-	.page input, .pagebar{
-		margin-top : 30px;
-		text-align : center;
-	}
+
 	
 	#member {
 		margin: 10px;
@@ -125,58 +107,7 @@
 	}
 
 
-/* a {
-	color:#202020;
-	cursor: pointer;
-} */
 
-.pagebar {
-		margin: 10px auto;
-		float: right;
-		text-align: right;
-
-	}
-	
-	.pagination>.active>a, .pagination>li>a:hover{
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-		color: white;
-	}
-	
-	/* .pagination>.active>a:hover {
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-	} */
-	
-	/* .pagination>li>a:hover {
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-		color: white;
-	} */
-	
-	.pagination>li>a {
-		color: #202020;
-	}
-
-	.paging_number {
-		display: inline-block;
-	}
-	
-	.paging_number>li>a, #member > a {
-		position: relative;
-		/* float: left; */
-		text-decoration: none;
-	}
-	
-	
-	.paging_number > .active > a, .paging_number > .active > a:hover, #member > .active{
-		color: #F1AEAE;
-		font-weight: bold;
-	}
-	.paging_number>li>a:hover, ..paging_number>li>span:hover, ..paging_number>li>a:focus, .paging_number>li>span:focus {
-		color: #F1AEAE;
-	}
-	
 	ul {
 		padding: 0;
 		margin: 0px 5px;
@@ -186,6 +117,20 @@
 	
 	li {
 		float: left;
+	}
+	
+	.paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
 	}
 
     
@@ -208,7 +153,6 @@
 
 	.search {
 		text-align:center;
-		margin : 20px auto;
 	   	padding: 10px;
 	}
 	
@@ -366,12 +310,23 @@
 			</div>
 			
 			<!-- 페이징 -->
-			<nav class="pagebar">
-	            <ul class="pagination">
-	                ${pagebar}
-	            </ul>
-            </nav>
-            <div style="clear:both;"></div>
+			<div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
 			
 			<!-- 검색 -->
 			<div class="search">
