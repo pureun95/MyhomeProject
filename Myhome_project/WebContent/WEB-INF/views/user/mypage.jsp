@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 마이페이지 첫화면</title>
+<title>Myhome::마이페이지</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -138,7 +138,7 @@
 					내가 쓴 글 보기
 					<div class="explain">내가 작성한 모든 글을 확인 할 수 있어요.</div>
 				</div>
-				<div class="menu" onclick="location.href='/Myhome_project/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypageorderlist.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-align-justify"></span>
@@ -147,7 +147,7 @@
 					매물 거래 내역
 					<div class="explain">나의 매물 거래 내역을 조회 할 수 있어요.</div>
 				</div>
-				<div class="menu" onclick="location.href='/Myhome_project/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypagematching.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-resize-small"></span>
@@ -157,7 +157,7 @@
 					<div class="explain">모든 매물 매칭 상황을 확인할 수 있어요.</div>
 				</div>
 				
-				<div class="menu" onclick="location.href='/Myhome_project/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypagecontract.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-list-alt"></span>
@@ -167,7 +167,7 @@
 					<div class="explain">전자계약서 승인 및 취소를 할 수 있어요.</div>
 				</div>
 				
-				<div class="menu" onclick="location.href='/Myhome_project/user/mypageinfo.do';">
+				<div class="menu" onclick="location.href='/Myhome_project/user/mypagereservation.do';">
 				
 					<div class="image">
 						<span class="glyphicon glyphicon-calendar"></span>
