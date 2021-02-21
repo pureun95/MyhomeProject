@@ -38,7 +38,7 @@
 		font-size: 20px;
 		font-weight: bold;
 		color: #202020;
-		width: 270px;
+		width: 280px;
 		height: 60px;
 		background-color: #f1aeae; 
 		padding-left: 10px;
@@ -75,14 +75,15 @@
 	
 	#chat-out {
 		/* border: 1px solid black; */
-		width: 20px;
-		height: 20px;
+		width: 16px;
+		height: 16px;
 		float: left; 
 		margin-top: 20px;
 		margin-left: 55px;
 		background-image: url('../image/out_white.png');
 		background-size: cover;
     	background-position: 50% 50%;
+    	cursor: pointer;
 		
 	}
 	
@@ -94,7 +95,7 @@
 	
 	.chat-list {
 		border-bottom: 1px solid #e6e5e5;
-		width: 245px;
+		width: 275px;
 		height: 65px;
 		background-color: white;
 		margin-top: 10px;
@@ -133,7 +134,7 @@
 	
 	#chat-box {
 		/* border: 1px solid black; */
-		width: 250px;
+		width: 255px;
 		height: 220px;
 		margin: 10px;
 		padding: 5px;
@@ -191,15 +192,15 @@
 		width: 280px;
 		height: 100px;
 		position: relative;
-		top: 80px;
+		top: 105px;
 		visibility: hidden;
 	}
 	
 	#chat-reply {
 		border: 1px solid #afafaf;
-		width: 180px;
+		width: 190px;
 		height: 65px;
-		margin: 0px 10px;
+		margin: 5px 10px;
 		border-radius: 0px 0px 0px 10px;
 		background-color: white;
 		font-family: 'NanumBarunGothic', sans-serif;
@@ -213,7 +214,7 @@
 		/* border: 1px solid black; */
 		border: none;
 		width: 53px;
-		height: 77px;
+		height: 65px;
 		padding: 5px;
 		border-radius: 0px 0px 10px 0px;
 		outline: none;
