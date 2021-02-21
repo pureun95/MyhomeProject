@@ -363,52 +363,48 @@
 			<div class="board-name">회원정보수정</div>
 		 	
 		 	
-  		 <form method="post" id="form1" action="/Myhome_project/member/mypage-infook.do">
+  		<form method="post" id="form1" action="/Myhome_project/contractor/infoedit.do">
    		
    		<!-- 시작 -->
         <div class="start">
         	       	
-        
 	       <span>아이디</span>
-	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id"> 
-			<!-- <span>이름</span>
-			<input type="text" class="form-control form-weight readonly" id="" readonly>		 -->
-			<!-- <span>닉네임</span> 			
-			<input type="text" class="form-control form-weight" id="nickname">
-			<span class="desc">닉네임이 중복입니다.</span>  -->
+	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id" name="id"> 
+			
 			<span>공인중개소명</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소">
+			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소" name="businessName">
+			
 			<span>사업자번호</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544">		
-      		<!-- <span>주민번호</span> 
-			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 readonly placeholder="900101"> -
-			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 readonly placeholder="1234567"> -->
+			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544" name="businessNum">		
+			
 			<span>비밀번호</span> 
-	       <input type="password" class="form-control form-weight" id="">
+	       	<input type="password" class="form-control form-weight" id="" name="password">
+			
+			<!-- 비밀번호 확인 제약 스크립트 만들기 -->
 			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="search-text">
+			<input type="password" class="form-control form-weight" id="search-text" name="repassword">
 			
 			<span>주소</span>
-			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동">
+			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동" name="address">
 			
 			<span>전화번호</span> 
-			<input type="text" class="form-control tel" id="tel1" maxlength=3>-
-			<input type="text" class="form-control tel" id="" maxlength=4>-
-			<input type="text" class="form-control tel" id="" maxlength=4>
+			<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1">-
+			<input type="text" class="form-control tel" id="" maxlength=4 name="tel2">-
+			<input type="text" class="form-control tel" id="" maxlength=4 name="tel3">
 			
 			<span>이메일</span>
-			<input type="text" class="form-control" id="search-text">
+			<input type="text" class="form-control" id="search-text" name="email">
 			
 			
-			<span>관심매물</span>
+			<!-- <span>관심매물</span>
 			<select class="form-control multiple">
 				<option>원룸</option>
 				<option>투룸</option>
 				<option>오피스텔</option>
-			</select>
+			</select> -->
 			
 			
-			<span><label for="siCode2">관심지역</label></span>
+			<%-- <span><label for="siCode2">관심지역</label></span>
 			<select title="시/도 선택" id="frontsel" name="frontsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="frontsel" style="width:250px">
 				<c:forEach var="front" items="${front}" varStatus="status">
 					<option value="${front.location}">${front.location}</option>
@@ -427,15 +423,16 @@
 				<c:forEach var="front" items="${front}" varStatus="status">
 					<option value="${front.location}">${front.location}</option>
 				</c:forEach>
-			</select>
+			</select> --%>
 			
-			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
-			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
+			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-edit" value="수정하기">
+			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-out" value="회원탈퇴">
+       		
+       		<!-- 회원번호 -->
+       		<input type="hidden" name="seq" value="${dto.seq}">
        		
        	</div>
        		
-       		
-       	
        	</form>
        
         
