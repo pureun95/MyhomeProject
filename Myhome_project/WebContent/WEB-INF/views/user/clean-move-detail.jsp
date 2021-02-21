@@ -248,8 +248,7 @@ li.header-li.li-list.header-li-scroll {
                     <li class="header-li li-list">마이페이지</li>
                     <li class="header-li li-list">고객센터</li>
 
-                    <li id="login" class="li-login li-list">로그인</li>
-                    <li id="signup" class="li-login li-list">회원가입</li>
+                    <li id="logout" class="li-login li-list">로그아웃</li>
                 </ul>
             </div>
             </div>

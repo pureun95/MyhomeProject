@@ -24,8 +24,8 @@ body, html {
 
 .container {
 	border: 0px;
-	
 }
+
 #header {
 	background-color: white;
 }
@@ -42,14 +42,15 @@ body, html {
 .tbl {
 	text-align: center;
 	width: 800px;
-	margin:auto;
+	margin: auto;
 }
+
 .tbl th {
 	text-align: center;
 	border-top: 1px solid #d4d4d4;
 }
 
-.tbl tr{
+.tbl tr {
 	border-bottom: 1px solid #d4d4d4;
 	height: 35px;
 }
@@ -62,7 +63,7 @@ body, html {
 	cursor: pointer;
 	background-color: #ffe1e1;
 	font-weight: bold;
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .section1 {
@@ -75,7 +76,7 @@ body, html {
 }
 
 #btnpost {
-	background-color: #c3d9ff; 
+	background-color: #c3d9ff;
 }
 
 #btncomment {
@@ -85,7 +86,13 @@ body, html {
 #tbl2 {
 	position: relative;
 	top: -351px;
-	visibility : hidden;
+	visibility: hidden;
+}
+
+#tbl3 {
+   position: relative;
+   top: -701px;
+   visibility : hidden;
 }
 
 #maintitle {
@@ -97,31 +104,35 @@ body, html {
 	display: inline;
 	left: 100px;
 	top: 100px;
-	text-align:left;
+	text-align: left;
 }
-
 </style>
 </head>
 <body>
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
+			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
 
 			<div class="container">
-				
+
 				<!-- nav -->
 				<%@include file="/WEB-INF/views/user/nav.jsp"%>
-				
+
 				<div id="maintitle">내가 쓴 글 보기</div>
 				<div class="section1">
-					<div style="margin-top: 50px; color: #ccc; text-align: right;"><span class="glyphicon glyphicon-triangle-bottom"></span>   글 종류를 선택하세요.</div>
+					<div style="margin-top: 50px; color: #ccc; text-align: right;">
+						<span class="glyphicon glyphicon-triangle-bottom"></span> 글 종류를
+						선택하세요.
+					</div>
 					<div style="text-align: right; margin: 19px;">
 						<button type="button" class="btn btn-default" id="btnpost">글</button>
-						<button type="button" class="btn btn-default" id="btncomment">댓글 & 후기</button>
+						<button type="button" class="btn btn-default" id="btncomment">댓글
+							& 후기</button>
+						<button type="button" class="btn btn-default" id="btnreport">신고</button>
 					</div>
-					
-					
+
+
 					<div class="box1">
 						<table class="tbl" id="tbl1">
 							<tr>
@@ -259,12 +270,85 @@ body, html {
 								<td>2021-01-20</td>
 							</tr>
 						</table>
-					
+
 					</div>
-				
-										
+					<div class="box3">
+						<table class="tbl" id="tbl3">
+							<tr>
+								<th>게시판</th>
+								<th>글번호</th>
+								<th>신고사유</th>
+								<th>신고일</th>
+								<th>처리상태</th>
+							</tr>
+							<tr>
+								<td>중고장터</td>
+								<td>000002</td>
+								<td>상습 사기꾼이에요</td>
+								<td>2021-01-31</td>
+								<td>완료</td>
+							</tr>
+							<tr>
+								<td>방찾기</td>
+								<td>000013</td>
+								<td>아 중개사 완전 사기꾼이에요!!</td>
+								<td>2021-01-28</td>
+								<td>처리중</td>
+							</tr>
+							<tr>
+								<td>커뮤니티</td>
+								<td>000011</td>
+								<td>홍보글을 도배합니다.</td>
+								<td>2021-01-20</td>
+								<td>완료</td>
+							</tr>
+							<tr>
+								<td>중고장터</td>
+								<td>000002</td>
+								<td>돈 입금 안해요;;</td>
+								<td>2021-01-31</td>
+								<td>완료</td>
+							</tr>
+							<tr>
+								<td>방찾기</td>
+								<td>000013</td>
+								<td>허위매물이에요</td>
+								<td>2021-01-28</td>
+								<td>처리중</td>
+							</tr>
+							<tr>
+								<td>커뮤니티</td>
+								<td>000011</td>
+								<td>글에 욕설 가득해서 신고요</td>
+								<td>2021-01-20</td>
+								<td>완료</td>
+							</tr>
+							<tr>
+								<td>중고장터</td>
+								<td>000002</td>
+								<td>돈만 받고 물건을 안보내요</td>
+								<td>2021-01-31</td>
+								<td>처리중</td>
+							</tr>
+							<tr>
+								<td>방찾기</td>
+								<td>000013</td>
+								<td>직접 가봤더니 완전 다른 매물</td>
+								<td>2021-01-28</td>
+								<td>처리중</td>
+							</tr>
+							<tr>
+								<td>커뮤니티</td>
+								<td>000011</td>
+								<td>허위정보 유포하네요</td>
+								<td>2021-01-20</td>
+								<td>완료</td>
+							</tr>
+						</table>
+					</div>
+
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -272,15 +356,16 @@ body, html {
 		<!-- footer -->
 		<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 	</div>
-	
+
 	<script>
-		
 		var btnpost = document.getElementById("btnpost");
 		var btncomment = document.getElementById("btncomment");
-		
+		var btnreport = document.getElementById("btnreport");
+
 		btnpost.onclick = function() {
 			document.getElementById("tbl1").style.visibility = 'visible';
 			document.getElementById("tbl2").style.visibility = 'hidden';
+			document.getElementById("tbl3").style.visibility = 'hidden';
 			btnpost.style.backgroundColor = 'cornflowerblue';
 			btncomment.style.backgroundColor = 'white';
 		};
@@ -288,13 +373,23 @@ body, html {
 		btncomment.onclick = function() {
 			document.getElementById("tbl1").style.visibility = 'hidden';
 			document.getElementById("tbl2").style.visibility = 'visible';
+			document.getElementById("tbl3").style.visibility = 'hidden';
 			btnpost.style.backgroundColor = 'white';
 			btncomment.style.backgroundColor = 'cornflowerblue';
+			btnreport.style.backgroundColor = 'white';
+			btnreport.style.backgroundColor = 'white';
 		};
-	
-	
+
+		btnreport.onclick = function() {
+			document.getElementById("tbl1").style.visibility = 'hidden';
+			document.getElementById("tbl2").style.visibility = 'hidden';
+			document.getElementById("tbl3").style.visibility = 'visible';
+			btnpost.style.backgroundColor = 'white';
+			btncomment.style.backgroundColor = 'white';
+			btnreport.style.backgroundColor = '#F1AEAE';
+		};
 	</script>
-	
-	
+
+
 </body>
 </html>
