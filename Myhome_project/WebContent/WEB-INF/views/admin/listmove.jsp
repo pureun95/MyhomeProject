@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyHome::이사업체관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
@@ -142,10 +142,22 @@
     	margin : 5px 0px;
     }
     
+	.paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		
+    }
     
-    .search{
+    .search {
 		text-align:center;
-		margin : 20px auto;
 	   	padding: 10px;
 	}
 	
@@ -272,8 +284,27 @@
             	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
+            
+            <div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
+	       	
            	<div class="search">
-            	<input type="text" class="form-control" placeholder="청소업체명" id="txt">
+            	<input type="text" class="form-control" placeholder="이사업체명" id="txt">
             	<input type="button" class="btn" value="검색" id="serch">
            	</div>
 		

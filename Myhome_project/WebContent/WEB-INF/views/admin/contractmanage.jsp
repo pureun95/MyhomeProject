@@ -49,7 +49,8 @@
 	#title {
 		font-size: 24px;
 		font-family: 'MaplestoryOTFLight';
-		border-left: 5px solid #F1AEAE;
+		border-bottom: 1px solid #eaecef;
+		padding-bottom: 10px;
 		margin: 30px 10px;
 		padding : 0px 10px;
 	}
@@ -68,6 +69,20 @@
 	#tbl1 th, #tbl1 td {
 		font-family: 'NanumBarunGothic';
 		text-align: center;
+	}
+	
+	.paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
 	}
 	
 	
@@ -96,7 +111,6 @@
 
 	.search {
 		text-align:center;
-		margin : 20px auto;
 	   	padding: 10px;
 	}
 	
@@ -224,21 +238,36 @@
                     <td class="list"></td>
                     <td class="list"></td>
                 </tr>
-                
             </table>
             
             <div class="delete">
             	<input type="button" class="btn" value="선택한 거래 삭제" id="delete">
             </div>
+             
+            <div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
+            
             <div class="search">
 	            	<input type="text" class="form-control" placeholder="매물번호/중개인/임대인/임차인" id="txt">
 	            	<input type="button" class="btn" value="검색" id="serch">
             </div>
             
             
-            <div>
-            	페이징
-            </div>
 			
 
 	</div>
