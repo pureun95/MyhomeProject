@@ -40,7 +40,7 @@
     	height: 50px;
     	padding-bottom: 10px;
     	font-size: 24px;
-    	font-family: 'NanumBarunGothic';
+    	font-family: 'MaplestoryOTFLight';
     	color: #202020;
     	margin-bottom: 20px;
     	

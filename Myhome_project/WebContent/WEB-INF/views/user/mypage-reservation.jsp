@@ -140,7 +140,7 @@ label {
 						<button type="submit" class="btn btn-success" id="btnsearch">검색하기</button>
 					</div>
 	
-					<a href='http://localhost:8090/Myhome_project/user/reservationlist.do' id="list-link">내 예약목록으로 이동하기</a>
+					<a href='/Myhome_project/user/reservationlist.do' id="list-link">내 예약목록으로 이동하기</a>
 
 					<div id="pagebox">
 						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>

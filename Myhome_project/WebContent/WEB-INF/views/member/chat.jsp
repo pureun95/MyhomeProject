@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::채팅</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
