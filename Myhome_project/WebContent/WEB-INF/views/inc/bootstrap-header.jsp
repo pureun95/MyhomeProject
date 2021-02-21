@@ -27,7 +27,7 @@
                 <ul class="header-ul2">
                     <li class="header-li li-list">방찾기</li>
                     <li class="header-li li-list">방올리기</li>
-                    <li class="header-li li-list">커뮤니티</li>
+                    <li class="header-li li-list">게시판</li>
                     <li class="header-li li-list">중고장터</li>
                     <li class="header-li li-list">마이페이지</li>
                     <li class="header-li li-list">고객센터</li>

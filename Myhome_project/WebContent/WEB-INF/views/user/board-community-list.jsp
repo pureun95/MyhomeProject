@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::커뮤니티</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
@@ -21,8 +21,154 @@
 
 <style>
 
+.container {
+		border-color: transparent;
+		font-family: 'NanumBarunGothic', sans-serif;
+		font-size: 16px;
+		position: relative;
+	}
+	
+	.boardwrap{
+	    height: auto;
+	    min-height: 100%;
+	}
+	
+	.boardcover {
+		float: left;
+/* 		width: 900px; */
+		width: 75%;
+
+		
+	}
+
+
+
+	 #maintitle {
+	   border-bottom: 1px solid #ccc;
+	   font-size: 24px;
+	   font-family: 'MaplestoryOTFLight';
+	   /* padding-right: 50px; */
+	   padding-bottom: 7px;
+	   position: relative;
+	   display: inline;
+	   text-align:left;
+		color: #202020;
+		top: 100px;
+		left: 100px;
+		
+	} 
+	
+	.table {
+		position: relative;
+		top: 160px;
+		left: 100px;
+	}
+	
+	
+	.table thead tr th {
+		text-align: center;
+	}
+	
+	.table td:nth-child(1) {
+		text-align: center;
+		width: 90px;
+	}
+	
+	.table td:nth-child(2) {
+		text-align: left;
+		width: auto;
+	}
+	
+	.table td:nth-child(3) {
+		text-align: center;
+		width: 130px;
+	}
+	
+	.table td:nth-child(4) {
+		text-align: center;
+		width: 130px;
+	}
+	
+	.table td:nth-child(5) {
+		text-align: center;
+		width: 90px;
+	}
+	
+	
+	.table tr {
+		height: 40px;
+	}
+	
+	.table>tbody>tr>td {
+		vertical-align: middle !important;
+	}
+	
+	#basic-addon1 {
+		background-color: #f1aeae;
+        color: white;
+        outline: none;
+        
+        position: relative;
+		float: left;
+		left: 35px;
+		top: 640px;
+	}
+	
+	#basic-addon2 {
+		background-color: #f1aeae;
+        color: white;
+        outline: none;
+
+	}
+	
+	.search {
+		margin: 20px auto;
+		width: 430px;
+		positioin: relative;
+		float: left;
+		top: -340px;
+		left: 500px;
+		
+	}
+
+
+	.pagebar {
+		margin: 0px auto;
+		margin-bottom: 70px;
+		float: left;
+		text-align: center;
+		position : relative;
+		top: -250px;
+		left: 500px;
+	}
+	
+	#page_bar>.active>a, #page_bar>li>a:hover {
+		background-color: #f1aeae;
+		border-color : #f1aeae;
+		color: white;
+	}
+	
+	#page_bar>li>a {
+		color: #202020;
+	}
+
+	
+	#titlename {
+		color: #202020;
+	}
+
+
+
+
+
+
+
+
+
+/* 
 	.container {
 		border-color: transparent;
+		font-family: 'NanumBarunGothic', sans-serif;
 	}
 	
 	.boardwrap{
@@ -32,11 +178,9 @@
 	
 	.boardTitle {
 		font-size: 24px;
-		/* font-family: 'MaplestoryOTFLight'; */
-		font-family: 'NanumBarunGothic', sans-serif;
-		font-weight: bold;
+		font-family: 'MaplestoryOTFLight';
 		color: #202020;
-		border-left : 3px solid #F1AEAE;
+		border-left : 5px solid #F1AEAE;
 		margin: 30px 7px;
 		padding-left: 10px;
 	}
@@ -52,7 +196,6 @@
 	
 	.table td:nth-child(2) {
 		text-align: left;
-/* 		width: 400px; */
 		width: auto;
 	}
 	
@@ -106,27 +249,14 @@
 		border-color : #f1aeae;
 		color: white;
 	}
-	
-	/* .pagination>.active>a:hover {
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-	} */
-	
-	/* .pagination>li>a:hover {
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-		color: white;
-	} */
-	
+
 	.pagination>li>a {
 		color: #202020;
 	}
-	
 
-	
 	#titlename {
 		color: #202020;
-	}
+	} */
 	
 </style>
 
@@ -141,18 +271,12 @@
  
      <div class="container">
      
-     <div class="boardTitle">커뮤니티</div>
+     <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
+     
+     <div id="maintitle">커뮤니티</div>
      
      
-     <div class="btns btn-group">
-   
-        <!-- 로그인을 해야지만 글쓰기 버튼 출력하기 -->
-        <%-- <c:if test="${not empty id}"> --%>
-        <button type="button" class="btn btn-default" id="basic-addon2" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylwrite.do';">글쓰기</button>
-        <%-- </c:if> --%>
-        
-    </div>
-    <div style="clear:both;"></div>
+     
      
      
      
@@ -244,24 +368,35 @@
             </table>
             </div>
             
-             <nav class="pagebar">
-                <ul class="pagination">
-                    ${pagebar}
-                </ul>
-            </nav>
-            <div style="clear:both;"></div>
+        <div class="btns btn-group" id="btnpost">
+   
+	        <!-- 로그인을 해야지만 글쓰기 버튼 출력하기 -->
+	        <%-- <c:if test="${not empty id}"> --%>
+	        <button type="button" class="btn btn-default" id="basic-addon1" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylwrite.do';">글쓰기</button>
+	        <%-- </c:if> --%>
+	        
+	    </div>
+	    <div style="clear:both;"></div>
             
             
-            <form id="searchForm" method="GET" action="/Myhome_project/Myhome/user/boardcommunitylist.do">
-	     		<div class="input-group search">
-	     
-		         	<input type="text" class="form-control" placeholder="제목, 내용, 작성자를 입력해주세요." aria-describedby="basic-addon2" id="search" name="search" required value="${search}">
-		         
-		         	<span class="input-group-addon" id="basic-addon2" onclick="$('#searchForm').submit();"><span>검색</span></span>
-		         <!-- stype="cursor:pointer;" -->
-	     		</div>
-     		</form>
-     		<div style="clear:both;"></div>
+        <nav class="pagebar">
+           <ul class="pagination" id="page_bar">
+               ${pagebar}
+           </ul>
+       </nav>
+       <div style="clear:both;"></div>
+       
+       
+       <form id="searchForm" method="GET" action="/Myhome_project/Myhome/user/boardcommunitylist.do">
+	 		<div class="input-group search">
+	 
+	      	<input type="text" class="form-control" placeholder="제목, 내용, 작성자를 입력해주세요." aria-describedby="basic-addon2" id="search" name="search" required value="${search}">
+	      
+	      	<span class="input-group-addon" id="basic-addon2" onclick="$('#searchForm').submit();"><span>검색</span></span>
+	      <!-- stype="cursor:pointer;" -->
+	 		</div>
+		</form>
+		<div style="clear:both;"></div>
             
             
             
