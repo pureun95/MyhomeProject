@@ -89,7 +89,8 @@ input, select {
 
 .search{
 	text-align:center;
-	margin : 20px;
+	margin : 20px auto;
+   	padding: 10px;
 }
 
 #txt{
@@ -100,6 +101,11 @@ input, select {
 
 .btns {
 	text-align : right;
+}
+
+.search #txt {
+	width: 200px;
+	display: inline;
 }
 
 
@@ -217,7 +223,7 @@ input, select {
             	<input type="button" class="btn" value="수정" id="update">
             	<input type="button" class="btn" value="삭제" id="delete">
             	<div class="search">
-	            	<input type="text" placeholder="제목/내용" id="txt">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
 	            	<input type="button" class="btn" value="검색" id="serch">
             	</div>
             </div>

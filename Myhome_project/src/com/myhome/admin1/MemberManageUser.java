@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/Myhome/admin/membermanage.do")
-public class MemberManage extends HttpServlet{
+@WebServlet("/Myhome/admin/membermanage-user.do")
+public class MemberManageUser extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 					
 			
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/membermanage.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/membermanage-user.jsp");
 		dispatcher.forward(request, response);
 		
 		

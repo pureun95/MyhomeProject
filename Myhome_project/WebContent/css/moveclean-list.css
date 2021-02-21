@@ -24,16 +24,15 @@
     	margin-bottom: 30px;
     }
     
-    .btns input{
-    	margin-right : 10px;
-    	padding : 6px 12px;
-    	background-color: #F1AEAE;
-    	border-radius: 4px;
-    	/* outline: none; */
-    	border : none;
-    	color: aliceblue;
-	
-    }
+    .btn {
+	    background-color: #f1aeae;
+	    color: aliceblue;
+	    display: inline;
+	    width: 70px;
+	    margin-right: 10px;
+	    outline: none !important;
+	    
+	}  
     
 /*     .list {
     	border : 5px solid black;
@@ -64,7 +63,7 @@
     }   
     
     
-    .listbox1, .listbox2 {
+    .listbox1 {
     	float: left;
     	margin : 10px 20px;
     }
@@ -99,3 +98,19 @@
         background-size: cover;
         margin: 0px 10px;
     }
+    
+    .search{
+		text-align:center;
+		margin : 20px auto;
+	   	padding: 10px;
+	}
+	
+	.btns {
+		text-align : right;
+		
+	}
+	
+	.search #txt {
+		width: 100px;
+		display: inline;
+	}
