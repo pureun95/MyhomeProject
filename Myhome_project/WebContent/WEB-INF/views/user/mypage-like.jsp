@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::찜목록관리</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -89,7 +89,7 @@ body, html {
 }
 
 .innerbox {
-	cursor: pointer;
+	opacity: .7;
 }
 .wrapbutton {
 	display: inline;
@@ -101,21 +101,58 @@ body, html {
 #btn-use {
 	margin-left: 50px;
 }
-#title {
-
-	font-family: 'MaplestoryOTFLight';
-	border-bottom: 1px dashed #ccc;
-	font-size: 24px;
-	margin-bottom: 30px;
-	width: 200px;
-	position: relative;
-	left: 150px;
-	top: -300px;
-	float: left;
-}
 .tblinfo th {
 	width : 70px;
 }
+.innerbox:hover {
+	cursor: pointer;
+	opacity: 1;
+}
+
+#maintitle {
+	border-bottom: 1px solid #ccc;
+	font-size: 24px;
+	font-family: 'MaplestoryOTFLight';
+	padding-right: 50px;
+	position: relative;
+	display: inline;
+	left: 100px;
+	top: 100px;
+	text-align:left;
+}
+
+#info {
+	font-size: 16px;
+	font-family: 'NanumBarunGothic';
+	display: inline;
+	position: relative;
+	left: 160px;
+	top: 100px;
+}
+
+#pagebox1 {
+	display:inline;
+	position: relative;
+	left: 800px;
+	top: -170px;
+}
+#pagebox2 {
+	position: relative;
+	display: inline;
+	left: 1000px;
+	top: -170px;
+}
+#pagebox1 .pagebtn, #pagebox2 .pagebtn {
+	border: 1px solid #888888;
+	border-radius: 3px;
+	background-color: white;
+	width: 30px;
+	outline: none;
+}
+#pagebox1 .pagebtn:hover, #pagebox2 .pagebtn:hover {
+	background-color: #f6afb3;
+}
+
 
 </style>
 </head>
@@ -123,18 +160,102 @@ body, html {
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/inc/header.jsp"%>
+			<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
 			<div class="container">
 			
 
 				<!-- nav -->
 				<%@include file="/WEB-INF/views/user/nav.jsp"%>
-
+				
+				<div id="maintitle">찜 목록 관리</div>
+				<div id="info" style="color: #aaa;"><span class="glyphicon glyphicon-triangle-bottom"> 매물정보 클릭시 매물페이지로 이동합니다.</div>
+				
 				<div class="likebox" id="property">
 					<div style="background-color: white">매물 찜 목록</div>
 					<div class="innerbox">
 						<div class="like likeimg" id="propertyimg1"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info1">
+								<tr>
+									<th>매물가격</th>
+									<td>월 40 / 보증금 600</td>
+								</tr>
+								<tr>
+									<th>매물종류</th>
+									<td>원룸</td>
+								</tr>
+								<tr>
+									<th>위치</th>
+									<td>서울시 강남구 대치동</td>
+								</tr>
+								<tr>
+									<th>크기</th>
+									<td>11평</td>
+								</tr>
+								<tr>
+									<th>층수</th>
+									<td>2/5층</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="propertyimg2"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info1">
+								<tr>
+									<th>매물가격</th>
+									<td>월 40 / 보증금 600</td>
+								</tr>
+								<tr>
+									<th>매물종류</th>
+									<td>원룸</td>
+								</tr>
+								<tr>
+									<th>위치</th>
+									<td>서울시 강남구 대치동</td>
+								</tr>
+								<tr>
+									<th>크기</th>
+									<td>11평</td>
+								</tr>
+								<tr>
+									<th>층수</th>
+									<td>2/5층</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="propertyimg2"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info1">
+								<tr>
+									<th>매물가격</th>
+									<td>월 40 / 보증금 600</td>
+								</tr>
+								<tr>
+									<th>매물종류</th>
+									<td>원룸</td>
+								</tr>
+								<tr>
+									<th>위치</th>
+									<td>서울시 강남구 대치동</td>
+								</tr>
+								<tr>
+									<th>크기</th>
+									<td>11평</td>
+								</tr>
+								<tr>
+									<th>층수</th>
+									<td>2/5층</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="propertyimg2"></div>
 						<div class="like likeinfo">
 							<table class="tblinfo" id="info1">
 								<tr>
@@ -242,11 +363,83 @@ body, html {
 							</table>
 						</div>
 					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="usedimg1"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info2">
+								<tr>
+									<th>글제목</th>
+									<td>겨울옷 팝니다.</td>
+								</tr>
+								<tr>
+									<th>가격</th>
+									<td>5만원</td>
+								</tr>
+								<tr>
+									<th>거래방식</th>
+									<td>직거래</td>
+								</tr>
+								<tr>
+									<th>작성일</th>
+									<td>2021-01-31</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="usedimg2"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info2">
+								<tr>
+									<th>글제목</th>
+									<td>아이폰 s20 팝니다.</td>
+								</tr>
+								<tr>
+									<th>가격</th>
+									<td>70만원</td>
+								</tr>
+								<tr>
+									<th>거래방식</th>
+									<td>직거래</td>
+								</tr>
+								<tr>
+									<th>작성일</th>
+									<td>2021-01-31</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="innerbox">
+						<div class="like likeimg" id="usedimg2"></div>
+						<div class="like likeinfo">
+							<table class="tblinfo" id="info2">
+								<tr>
+									<th>글제목</th>
+									<td>아이폰 s20 팝니다.</td>
+								</tr>
+								<tr>
+									<th>가격</th>
+									<td>70만원</td>
+								</tr>
+								<tr>
+									<th>거래방식</th>
+									<td>직거래</td>
+								</tr>
+								<tr>
+									<th>작성일</th>
+									<td>2021-01-31</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 
 					<div style="clear: both;"></div>
 				</div>
+				
 
-				<div class="wrapbutton">
+				
+
+				<!-- <div class="wrapbutton">
 					<button type="button" class="btn btn-default" id="btn-pro">
 						<span class="glyphicon glyphicon-plus"></span> 매물 찜목록 더보기
 					</button>
@@ -254,13 +447,30 @@ body, html {
 					<button type="button" class="btn btn-default" id="btn-use">
 						<span class="glyphicon glyphicon-plus"></span> 중고물품 찜목록 더보기
 					</button>
-				</div>
+				</div> -->
 
 
 
 			</div>
-
-
+			
+				<div id="pagebox1">
+						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>
+						<button class="pagebtn">1</button>
+						<button class="pagebtn">2</button>
+						<button class="pagebtn">3</button>
+						<button class="pagebtn">4</button>
+						<button class="pagebtn">5</button>
+						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-right"></span></button>
+				</div>
+				<div id="pagebox2">
+						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>
+						<button class="pagebtn">1</button>
+						<button class="pagebtn">2</button>
+						<button class="pagebtn">3</button>
+						<button class="pagebtn">4</button>
+						<button class="pagebtn">5</button>
+						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-right"></span></button>
+				</div>
 
 		</div>
 

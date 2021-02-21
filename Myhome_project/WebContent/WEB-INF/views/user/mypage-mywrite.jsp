@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::내가쓴글보기</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -42,19 +42,27 @@ body, html {
 .tbl {
 	text-align: center;
 	width: 800px;
+	margin:auto;
 }
 .tbl th {
 	text-align: center;
-	background-color: #e2e2e2;
+	border-top: 1px solid #d4d4d4;
 }
 
 .tbl tr{
-	border: 1px solid black;
+	border-bottom: 1px solid #d4d4d4;
+	height: 35px;
+}
+
+.tbl tr:nth-child(odd) {
+	background-color: #F9F9F9;
 }
 
 .tbl tr:hover {
 	cursor: pointer;
 	background-color: #ffe1e1;
+	font-weight: bold;
+	text-decoration:underline;
 }
 
 .section1 {
@@ -67,21 +75,29 @@ body, html {
 }
 
 #btnpost {
-	background-color: cornflowerblue; 
+	background-color: #c3d9ff; 
 }
 
 #btncomment {
 	background-color: white;
 }
 
-.tbl {
-	position: absolute;
-	left: 266px;
-	top: 147px;
+#tbl2 {
+	position: relative;
+	top: -351px;
+	visibility : hidden;
 }
 
-#tbl2 {
-	visibility : hidden;
+#maintitle {
+	border-bottom: 1px solid #ccc;
+	font-size: 24px;
+	font-family: 'MaplestoryOTFLight';
+	padding-right: 50px;
+	position: relative;
+	display: inline;
+	left: 100px;
+	top: 100px;
+	text-align:left;
 }
 
 </style>
@@ -90,16 +106,17 @@ body, html {
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/inc/header.jsp"%>
+			<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
 			<div class="container">
 				
 				<!-- nav -->
 				<%@include file="/WEB-INF/views/user/nav.jsp"%>
 				
+				<div id="maintitle">내가 쓴 글 보기</div>
 				<div class="section1">
-					<div style="margin-top: 50px; color: gray; text-align: right;"><span class="glyphicon glyphicon-triangle-bottom"></span>   글 종류를 선택하세요.</div>
-					<div style="text-align: right; margin: 20px;">
+					<div style="margin-top: 50px; color: #ccc; text-align: right;"><span class="glyphicon glyphicon-triangle-bottom"></span>   글 종류를 선택하세요.</div>
+					<div style="text-align: right; margin: 19px;">
 						<button type="button" class="btn btn-default" id="btnpost">글</button>
 						<button type="button" class="btn btn-default" id="btncomment">댓글 & 후기</button>
 					</div>

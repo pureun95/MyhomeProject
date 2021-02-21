@@ -138,7 +138,13 @@
       			<span>계약완료</span>
       			<div class="cbox">220</div>
       		</div>
-      </div>
+     	</div>
+     	
+     	
+     	
+     	<div class="search-room">
+     	
+     	</div>
         
 	
 	<!-- container -->
