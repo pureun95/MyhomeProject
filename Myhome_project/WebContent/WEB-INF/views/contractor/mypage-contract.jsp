@@ -91,6 +91,7 @@
     	/* border: 1px solid blue; */
     	width: 820px;
     	height: 550px;
+    	margin-top: 50px;
     }
     
     #board {
@@ -258,7 +259,7 @@
 	            </tr>
 	            
 	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-detail.do';">
-	                <td class="firtd boardtd "><div class="temp">01010201</div></td>
+	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
 	                <td class="sectd boardtd boardtext align-middle"><div class="temp">박지현</div></td>
 	                <td class="thitd boardtd align-middle"><div class="temp">노푸른</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
@@ -269,7 +270,7 @@
 	            
 	            
 	              <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">01010202</div></td>
+	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
 	                <td class="sectd boardtd boardtext align-middle"><div class="temp">이준오</div></td>
 	                <td class="thitd boardtd align-middle"><div class="temp">이대홍</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
@@ -280,7 +281,7 @@
 	            
 	            
 	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">01010203</div></td>
+	                <td class="firtd boardtd "><a class="contract-num">1022929</a></td>
 	                <td class="sectd boardtd boardtext align-middle"><div class="temp">윤지현</div></td>
 	                <td class="thitd boardtd align-middle"><div class="temp">장진영</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>

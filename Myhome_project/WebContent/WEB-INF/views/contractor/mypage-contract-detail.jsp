@@ -35,14 +35,15 @@
     }
     
     .board-name {
-    	border-bottom: 1px solid #eaecef;
-    	width: 810px;
-    	height: 50px;
-    	padding-bottom: 10px;
-    	font-size: 24px;
-    	font-family: 'MaplestoryOTFLight';
-    	color: #202020;
-    	margin-bottom: 60px;
+    	border-left: 5px solid #f1aeae;
+	    width: 810px;
+	    /* height: 50px; */
+	    padding-left: 10px;
+	    font-size: 24px;
+	    font-family: 'MaplestoryOTFLight';
+	    color: #202020;
+	    margin-bottom: 50px;
+    	
     	
     }
     
@@ -148,7 +149,7 @@
    		width: 850px;
    		height: 50px;
    		padding: 10px 330px;
-   		margin-top: 70px;
+   		margin-left: 590px;
    		float: left;
    }
    
@@ -158,7 +159,6 @@
 	   	outline: none !important;
 	   	font-family: 'NanumBarunGothic';
 	   	border: 1px solid #f1aeae;
-	   	margin-right: 15px;
    }
    
    
@@ -183,10 +183,10 @@
             
 		 
 		 <!-- 리스트 -->
-		 <div class="property-box">
+		 <div class="property-box">	
 		 	<div class="board-name">전자계약조회</div>		 	
          	 
-        <form action="" id="form1">
+       
    
    		<!-- 전자계약서 -->
         <div class="matching-board">
@@ -194,22 +194,13 @@
         	
 			<div class="boardcover">
 			
-			<!-- 전세, 월세 라디오 버튼 -->
-			<div class="radio">				
-				<label class="custom-control-label" for="rd1">
-					<input type="radio" name="rd1" id="rd1" class="">
-					전세
-				</label>
-				
-				<label class="custom-control-label" for="rd2">
-					<input type="radio" name="rd1" id="rd2" class="">
-					월세
-				</label>
-			<!-- radio 끝 -->
+			
 			</div>
 				
-				
-				
+			
+			<!-- form 태그 -->	
+			<form action="" id="form1">
+			
 			<table id="adcontracttbl" class="table table-condensed">					
 				<tr class="headtr">
 					<th class="adcontacttd title-color">계약번호</th>
@@ -231,9 +222,11 @@
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">금액</th>
-					<td class="adcontacttd" colspan="4" >1,100,000,000 원</td>
+					<td class="adcontacttd" colspan="3" >1,100,000,000 원</td>
 					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="4" >100,000,000 원</td>
+					<td class="adcontacttd" colspan="3" >100,000,000 원</td>
+					<th class="adcontacttd title-color">계약종류</th>
+					<td class="adcontacttd">매매</td>
 				</tr>
 				
 				
@@ -274,6 +267,7 @@
 										
 					</td>
 				</tr>
+
 
 				
 				<!-- 임차인 정보 -->
@@ -378,7 +372,7 @@
 				</tr>		
 				
 			</table>
-							
+			</form>				
 				
        		<!-- boardcover  -->
        		</div>
@@ -391,8 +385,9 @@
        			<input type="button" class="btn btn-contract1" value="계약하기">
        			<input type="button" class="btn btn-contract1" value="폐기하기">
        		</div>
+       	
        		
-       	</form>
+       
       
 
           <!-- property-box -->
@@ -410,7 +405,7 @@
    </div>
            
             
-</div>
+
 
 
  

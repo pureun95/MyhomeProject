@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::중개인 방올리기</title>
+<title>MyHome::임대인 방올리기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
@@ -537,7 +537,8 @@ li.header-li.li-list.header-li-scroll {
 			</div>
 		</div>
  
- <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+ 
+<%@include file="/WEB-INF/views/inc/footer.jsp" %>
 
  <script>
  	
