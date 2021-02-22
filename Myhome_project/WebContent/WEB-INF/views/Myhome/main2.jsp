@@ -37,6 +37,7 @@
 	.container {
 		height: 1100px;
 	}
+	
 	/* main */
 	
 	.main-box1 {
@@ -99,7 +100,7 @@
 		border: 1px solid #9c9c9c;
 		width: 850px;
 		height: 350px;
-		margin: 60px 140px;
+		margin: 60px auto;
 		padding: 50px 60px;
 		border-radius: 10px;
 	}	

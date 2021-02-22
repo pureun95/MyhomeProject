@@ -38,15 +38,13 @@
     /* 게시판 이름 */
     
     .board-name {
-    	border-bottom: 1px solid #eaecef;
-    	width: 810px;
-    	height: 50px;
-    	padding-bottom: 10px;
-    	font-size: 24px;
-    	font-family: 'MaplestoryOTFLight';
-    	color: #202020;
-    	margin-bottom: 20px;
-    	
+    	border-left: 5px solid #f1aeae;
+	    width: 810px;
+	    /* height: 50px; */
+	    padding-left: 10px;
+	    font-size: 24px;
+	    font-family: 'MaplestoryOTFLight';
+	    color: #202020;
     }
     
     /* 네비 활성화 */

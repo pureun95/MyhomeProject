@@ -318,7 +318,137 @@
         font-family: 'InfinitySans-RegularA1';
         line-height: 24px;
     }
+    
+    
+    
+    /* 카운트 박스 */
+    
+    
+	.count-box {
+		float: left;
+		padding: 0px 23px;
+		text-align: center;
+	}
 	
+	#count-sbox1, #count-sbox2 {
+		border: 1px solid blue;
+		width: 250px;
+		height: 270px;
+		margin-right: 50px;
+		font-family: 'MaplestoryOTFLight';
+
+	}
+	
+	#count-sbox3 {
+		border: 1px solid blue;
+		width: 250px;
+		height: 270px;
+		margin-right: 0px;
+		font-family: 'MaplestoryOTFLight';
+	}
+	
+	.count-box > span {
+		font-size: 30px;
+		font-family: 'MaplestoryOTFLight';
+	}
+	
+	.cbox {
+		/* border: 1px solid blue; */
+		width: 200px;
+		height: 200px;
+		margin-top: 10px;
+		border-radius: 20px;
+		background-color: hsla(0, 71%, 81%, 0.4);
+		padding: 45px;
+		font-size: 5em;
+		color: white;
+		text-align: center;
+	
+	}
+	
+	
+	/* 매물 검색 창  */
+	.search-room {
+		border: 1px solid #9c9c9c;
+		width: 850px;
+		height: 350px;
+		margin: 100px auto;
+		padding: 50px 60px;
+		border-radius: 10px;
+	}	
+
+	.search-title {
+		font-size: 28px;
+		color: white;
+		font-family: 'MaplestoryOTFLight';
+		text-align: center;
+	}
+	
+	.search-box1 {
+		border: 1px solid white;
+		width: 750px;
+		height: 70px;
+		margin-top: 20px;
+		
+	}
+	
+	.search-box2 {
+		/* border: 1px solid white; */
+		width: 340px;
+		height: 50px;
+		/* background-color: white; */
+		float: left;
+	}
+	
+	.search-box2 > div {
+		border-right: 1px solid #e0e0e0;
+		float: left;
+		width: 106px;
+		height: 50px;
+		font-size: 20px;
+		/* background-color: pink; */
+		text-align: center;
+		padding: 10px 0px;
+		font-size: 20px;
+		font-family: 'NanumBarunGothic';
+	}
+	
+	.search-box2 > .search-last {
+		border-right: 0px;
+	}
+	
+	.search-box2:nth-child(2) {
+		margin-left: 60px;
+	}
+	
+	.form-control {
+		width: 610px;
+		height: 50px;
+		float: left;
+	}
+	
+	.btn {
+		background-color: #f1aeae;
+   		color: white;
+   		outline: none !important;
+   		font-family: 'NanumBarunGothic';
+   		margin-right: 5px;
+   		height: 50px;
+   		font-size: 20px;
+   		width: 106px;
+   		/* margin-left: 20px; */
+	}
+	
+	
+	/* 첫 페이지에서 원룸, 월세만 빼고 버튼 하얀색 */
+	#btn2, #btn3, #btn5, #btn6 {
+		background-color: white;
+		color: #202020;
+	}
+	
+	#btn-search {
+		margin-left: 10px;
+	}
 	
 	
 	
@@ -336,22 +466,22 @@
          
          <!-- 매물 카운트 박스 -->
         <div class="box2">
-            <div class="sbox1">
-                실시간매물
-                <div class="xsbox1">35</div>
-            </div>
-            <div class="sbox1">
-                전체매물
-                <div class="xsbox1">250</div>
-            </div>
-            <div class="sbox1">
-                계약완료
-                <div class="xsbox1" id="xsbox1">130</div>
-            </div>
+           <div class="count-box" id="count-sbox1">
+      			<span>실시간 매물</span>
+      			<div class="cbox">20</div>
+      		</div>
+      		<div class="count-box" id="count-sbox2">
+      			<span>전체 매물</span>
+      			<div class="cbox">320</div>
+      		</div>
+      		<div class="count-box" id="count-sbox3">
+      			<span>계약완료</span>
+      			<div class="cbox">220</div>
+      		</div>
         </div> 
 
-        <!-- 검색 박스 -->
-       <div class="search">
+    <!-- 검색 박스 -->
+     <!--  <div class="search">
             <div id="search-title"><span class="glyphicon glyphicon-search"></span><span>원하는 방을 검색해보세요.</span></div>
             <div class="category-room category">
                 <input type="button" value="원룸" class="btn2">
@@ -367,7 +497,42 @@
                 <input class="txt_btn1 txt1" type="text" value="지역, 지하철역을 검색해주세요.">
                 <input class="txt_btn1 btn1" id="btn1" type="submit" value="검색">
             </div>
-        </div>
+        </div> -->
+        
+        
+        
+        
+        <!-- 검색창 -->
+     	<div class="search-room">
+     		<div class="search-title"><span class="glyphicon glyphicon-search"></span> 원하는 방을 검색해보세요.</div>
+     		
+     		<!-- 원룸, 투룸, 전세, 월세 -->
+     		<div class="search-box1">
+     		
+     			<div class="search-box2">
+     				<div class="btn btn-big" id="btn1">원룸</div>
+     				<div class="btn btn-big" id="btn2">투룸</div>
+     				<div class="btn btn-big" id="btn3">오피스텔</div>
+     			</div>
+     			
+     			<div class="search-box2">
+     				<div class="btn btn-big2" id="btn4">월세</div>
+     				<div class="btn btn-big2" id="btn5">전세</div>
+     				<div class="btn btn-big2" id="btn6">매매</div>
+     			</div>
+     			
+     		</div>
+     		
+     		
+     		<!-- 지하철역 검색 -->
+     		<div class="search-box1">
+     			<input type="text" class="form-control" placeholder="지역, 지하철역을 검색해주세요.">
+     			<button class="btn btn-outline-secondary" type="button" id="btn-search">검색하기</button>
+     		</div>
+     	</div>
+     	
+     	
+     	
     
     </div>
             
