@@ -46,8 +46,7 @@
 	#title {
 		font-size: 24px;
 		font-family: 'MaplestoryOTFLight';
-		border-bottom: 1px solid #eaecef;
-		padding-bottom: 10px;		
+		border-left: 5px solid #F1AEAE;		
 		margin: 30px 10px;
 		padding : 0px 10px;
 		
