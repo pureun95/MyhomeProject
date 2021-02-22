@@ -28,25 +28,6 @@ public class MypageInfo extends HttpServlet{
 		ArrayList<ContractorDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
 		
 				
-		//데이터 조작 -> 서블릿 담당
-		//데이터 출력 -> JSP 담당
-				
-		//1.5 데이터 조작
-		for (ContractorDTO dto : list) {
-					
-			dto.setSeq(dto.getSeq());
-			dto.setId(dto.getId());
-			dto.setCompanyname(dto.getCompanyname());
-			dto.setBusinessnum(dto.getBusinessnum());
-			dto.setName(dto.getName());
-			dto.setEmail(dto.getEmail());
-			dto.setAddress(dto.getAddress());
-			dto.setPassword(dto.getPassword());
-			dto.setTel1(dto.getTel1());
-			dto.setTel2(dto.getTel2());
-			dto.setTel3(dto.getTel3());
-			
-		}
 		
 		//내 정보 보내기
 		req.setAttribute("list", list);
