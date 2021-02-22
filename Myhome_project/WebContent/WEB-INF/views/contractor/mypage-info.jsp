@@ -36,14 +36,13 @@
     }
     
     .board-name {
-    	border-bottom: 1px solid #eaecef;
-    	width: 810px;
-    	height: 50px;
-    	padding-bottom: 10px;
-    	font-size: 24px;
-    	font-family: 'NanumBarunGothic';
-    	color: #202020;
-    	margin-bottom: 20px;
+    	border-left: 5px solid #f1aeae;
+	    width: 810px;
+	    /* height: 50px; */
+	    padding-left: 10px;
+	    font-size: 24px;
+	    font-family: 'MaplestoryOTFLight';
+	    color: #202020;
     	
     }
     
@@ -300,142 +299,56 @@
         <div class="boardcover">
             
     
-    <!-- 관심지역 script -->        
-	<script>
-	
- 			var midArray = [];
-			<c:forEach var="middle" items="${middle}">
-			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
-			</c:forEach>
-			
-			var endArray = [];
-			<c:forEach var="end" items="${end}">
-				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
-			</c:forEach> 
-			
-			
-			$(function() {
-			   $("#frontsel").change(function(e) {
-			      var frontsel = $(this).val();
-			      midCreate(frontsel);
-			   });
-			   midCreate($("#frontsel").val());
-			});
-			
-			function midCreate(frontsel) {
-				$("#middlesel").children().remove();
-				var html = "";
-				$(midArray).each(function(i, elem) {
-					//console.log(frontsel + " == " + elem.mseq);
-					if(frontsel == elem.mLocation) {
-				         html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
-				      }
-					});
-				$("#middlesel").html(html);
-				endCreate($("#middlesel").val());
-			}
-			
-			$(function() {
-				$("#middlesel").change(function(e) {
-					var middlesel = $(this).val();
-					endCreate(middlesel);
-				});
-				endCreate($("#middlesel").val());
-			});
-				
-			function endCreate(middlesel) {
-				$("#endsel").children().remove();
-				var html = "";
-				$(endArray).each(function(i, elem) {
-					if(middlesel == elem.mLocation) {
-						html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
-					}
-				});
-				$("#endsel").html(html);
-			} 
-			
-		</script>
-
-
-				 
 		<!-- 리스트 -->
 		<div class="property-box">
 			<div class="board-name">회원정보수정</div>
 		 	
 		 	
-  		 <form method="post" id="form1" action="/Myhome_project/member/mypage-infook.do">
+  		<form method="post" id="form1" action="/Myhome_project/contractor/editcontractorok.do">
    		
    		<!-- 시작 -->
         <div class="start">
-        	       	
         
-	       <span>아이디</span>
-	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id"> 
-			<!-- <span>이름</span>
-			<input type="text" class="form-control form-weight readonly" id="" readonly>		 -->
-			<!-- <span>닉네임</span> 			
-			<input type="text" class="form-control form-weight" id="nickname">
-			<span class="desc">닉네임이 중복입니다.</span>  -->
-			<span>공인중개소명</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소">
-			<span>사업자번호</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544">		
-      		<!-- <span>주민번호</span> 
-			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 readonly placeholder="900101"> -
-			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 readonly placeholder="1234567"> -->
-			<span>비밀번호</span> 
-	       <input type="password" class="form-control form-weight" id="">
-			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="search-text">
+        	<c:forEach items="${list}" var="dto">
+		       <span>아이디</span>
+		       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.id}" name="id"> 
+				
+				<span>이름</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.name}" name="name">
+				
+				<span>공인중개소명</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.companyname}" name="companyname">
+				
+				<span>사업자번호</span> 			
+				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.businessnum}" name="businessnum">		
+				
+				<span>비밀번호</span> 
+		       	<input type="password" class="form-control form-weight" id="" name="password" ${dto.password}>
+				
+				<!-- 비밀번호 확인 제약 스크립트 만들기 -->
+				<span>비밀번호확인</span>
+				<input type="password" class="form-control form-weight" id="search-text" name="repassword">
+				
+				<span>주소</span>
+				<input type="text" class="form-control" id="search-text" placeholder="${dto.address}" name="address">
+				
+				<span>전화번호</span> 
+				<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1" placeholder="${dto.tel1}">-
+				<input type="text" class="form-control tel" id="tel2" maxlength=4 name="tel2" placeholder="${dto.tel2}">-
+				<input type="text" class="form-control tel" id="tel3" maxlength=4 name="tel3" placeholder="${dto.tel3}">
+				
+				<span>이메일</span>
+				<input type="text" class="form-control" id="search-text" name="email" placeholder="${dto.email}">
+			</c:forEach>
 			
-			<span>주소</span>
-			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동">
-			
-			<span>전화번호</span> 
-			<input type="text" class="form-control tel" id="tel1" maxlength=3>-
-			<input type="text" class="form-control tel" id="" maxlength=4>-
-			<input type="text" class="form-control tel" id="" maxlength=4>
-			
-			<span>이메일</span>
-			<input type="text" class="form-control" id="search-text">
-			
-			
-			<span>관심매물</span>
-			<select class="form-control multiple">
-				<option>원룸</option>
-				<option>투룸</option>
-				<option>오피스텔</option>
-			</select>
-			
-			
-			<span><label for="siCode2">관심지역</label></span>
-			<select title="시/도 선택" id="frontsel" name="frontsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="frontsel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select>		
-			
-			
-			<select title="시/군/구 선택"  name="middlesel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="middlesel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select>		
-			
-			
-			<select title="동/읍/면 선택"  name="endsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="endsel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select>
-			
-			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
-			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
+			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-edit" value="수정하기">
+			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-out" value="회원탈퇴">
+       		
+       		<!-- 회원번호 -->
+       		<!-- <input type="hidden" name="seq" value="81"> -->
        		
        	</div>
        		
-       		
-       	
        	</form>
        
         

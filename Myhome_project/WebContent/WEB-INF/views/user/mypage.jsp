@@ -286,7 +286,11 @@
 <div class="boardwrap">
  
  <!-- header -->
+<<<<<<< HEAD
 <%@include file="/WEB-INF/views/user/bootstrap-header.jsp" %>
+=======
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+>>>>>>> master
  
      <div class="container">
      
