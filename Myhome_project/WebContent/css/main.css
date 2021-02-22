@@ -44,7 +44,7 @@
 
     .box2 {
         border: 1px solid rgb(255, 255, 255);
-        width: 820px;
+        width: 900px !important;
         height: 300px;
         margin: 0 auto;
         margin-top: 250px;
@@ -61,26 +61,23 @@
         float: left;
         margin: 10px;
         text-align: center;
-        font-size: 2.2em;
+        font-size: 24px;
     }
 
     .xsbox1 {
         /* border: 1px solid #F1AEAE; */
         background-color: hsla(0, 71%, 81%, 0.4) ; 
         width: 200px;
-        height: 135px;
+        height: 200px;
         padding: 20px;
         padding-top: 60px;
         border-radius: 30px;
-        font-size: 2em;
+        font-size: 2.5em;
         text-align: center;
         margin: 0 auto;
         margin-top: 10px;
     }
 
-    #xsbox1 {
-        margin-right: 0px;
-    }
 
     .search {
         border: 1px solid white;
@@ -228,6 +225,7 @@
         color: rgb(63, 62, 62);
         position: relative;
         border: 1px solid #DBDCE0;
+        font-size: 16px;
     }
 
    
@@ -237,6 +235,11 @@
         color: #F1AEAE;
         font-family: 'MaplestoryOTFLight';
     }
+    
+    a:hover {
+    	text-decoration: none !important; 
+    	color: #F1AEAE !important;
+    }
 
     .section1-content2 {
         margin-top: 30px;
@@ -244,17 +247,17 @@
     
     #content1 {
         font-family: 'NEXON Lv2 Gothic';
-        line-height: 25px;        
+        line-height: 24px;        
     }
 
     #content2 {
         font-family: 'NanumBarunGothic', sans-serif;
-        line-height: 25px;        
+        line-height: 24px;        
     }
 
     #content3 {
         font-family: 'InfinitySans-RegularA1';
-        line-height: 25px;
+        line-height: 24px;
     }
 
 

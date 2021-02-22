@@ -15,7 +15,7 @@ public class AdminMenu extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminAllMenu/adminmenu.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/adminmenu.jsp");
 		dispatcher.forward(req, resp);
 
 	}

@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%
 	
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
 
 <style>
 body, html {
+
 	height: 100%;
 	margin: 0 auto;
 	padding: 0;
@@ -87,7 +89,6 @@ body, html {
 	position: relative;
 	top: -351px;
 	visibility: hidden;
-}
 
 #tbl3 {
    position: relative;
@@ -96,6 +97,7 @@ body, html {
 }
 
 #maintitle {
+
 	border-bottom: 1px solid #ccc;
 	font-size: 24px;
 	font-family: 'MaplestoryOTFLight';
@@ -105,10 +107,12 @@ body, html {
 	left: 100px;
 	top: 100px;
 	text-align: left;
+
 }
 </style>
 </head>
 <body>
+
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->

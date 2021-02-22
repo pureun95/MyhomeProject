@@ -289,6 +289,61 @@
 </head>
 <body>
  
+ <!-- 선호 지역 스크립트 -->
+ <script>
+ 			var midArray = [];
+			<c:forEach var="middle" items="${middle}">
+			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
+			</c:forEach>
+			
+			var endArray = [];
+			<c:forEach var="end" items="${end}">
+				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
+			</c:forEach> 
+			
+			
+			$(function() {
+			   $("#frontsel").change(function(e) {
+			      var frontsel = $(this).val();
+			      midCreate(frontsel);
+			   });
+			   midCreate($("#frontsel").val());
+			});
+			
+			function midCreate(frontsel) {
+				$("#middlesel").children().remove();
+				var html = "";
+				$(midArray).each(function(i, elem) {
+					//console.log(frontsel + " == " + elem.mseq);
+					if(frontsel == elem.mLocation) {
+				         html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+				      }
+					});
+				$("#middlesel").html(html);
+				endCreate($("#middlesel").val());
+			}
+			
+			$(function() {
+				$("#middlesel").change(function(e) {
+					var middlesel = $(this).val();
+					endCreate(middlesel);
+				});
+				endCreate($("#middlesel").val());
+			});
+				
+			function endCreate(middlesel) {
+				$("#endsel").children().remove();
+				var html = "";
+				$(endArray).each(function(i, elem) {
+					if(middlesel == elem.mLocation) {
+						html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+					}
+				});
+				$("#endsel").html(html);
+			} 
+			
+</script>
+		
 <div class="boardwrap">
  
  <!-- header -->
@@ -310,23 +365,23 @@
         <div class="start">
         	
 	       <span>아이디</span>
-	       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="your id"> 
+	       <input type="text" class="form-control form-weight" id="id" name="id"> 
 			<span>이름</span>
-			<input type="text" class="form-control form-weight readonly" id="" readonly>
+			<input type="text" class="form-control form-weight" id="name" name="name">
+			
 			<span>닉네임</span> 			
-			<input type="text" class="form-control form-weight" id="nickname">
+			<input type="text" class="form-control form-weight" id="nickname" name="nickname">
 			<span class="desc">닉네임이 중복입니다.</span>
-			<!-- <span>공인중개소명</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="쌍용공인중개소">
-			<span>사업자번호</span> 			
-			<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="210-123-4544"> -->		
+      		
       		<span>주민번호</span> 
-			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 readonly placeholder="900101"> -
-			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 readonly placeholder="1234567"> 
+			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6> -
+			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7> 
+			
 			<span>비밀번호</span> 
-	       <input type="password" class="form-control form-weight" id="">
+	       <input type="password" class="form-control form-weight" id="password">
+			
 			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="search-text">
+			<input type="password" class="form-control form-weight" id="repassword">
 			
 			<span>주소</span>
 			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동">
@@ -348,51 +403,21 @@
 			
 			
 			<span><label for="siCode2">관심지역</label></span>
-			<select title="시/도 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>시/도 선택</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
-				<option value="45" title="전라북도" >전라북도</option>
-				<option value="44" title="충청남도" >충청남도</option>
-				<option value="43" title="충청북도" >충청북도</option>
-				<option value="29" title="광주광역시" >광주광역시</option>
-				<option value="27" title="대구광역시" >대구광역시</option>
-				<option value="30" title="대전광역시" >대전광역시</option>
-				<option value="26" title="부산광역시" >부산광역시</option>
-				<option value="31" title="울산광역시" >울산광역시</option>
-				<option value="28" title="인천광역시" >인천광역시</option>
-				<option value="36" title="세종특별자치시" >세종특별자치시</option>
-				<option value="50" title="제주특별자치도" >제주특별자치도</option>
+			<select title="시/도 선택" id="frontsel" name="frontsel" class="form-control multiple" style="width: 250px">
+		 		<c:forEach var="front" items="${front}" varStatus="status">
+					<option value="${front.location }">${front.location }</option>
+				</c:forEach> 
 			</select>		
 			
-			임시
-			<select title="시/군/구 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>시/군/구</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
-			</select>		
 			
-			임시
-			<select title="동/읍/면 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
-				<option>동/읍/면</option>
-				<option value="11" title="서울특별시" >서울특별시</option>
-				<option value="42" title="강원도" >강원도</option>
-				<option value="41" title="경기도">경기도</option>
-				<option value="48" title="경상남도" >경상남도</option>
-				<option value="47" title="경상북도" >경상북도</option>
-				<option value="46" title="전라남도" >전라남도</option>
+			<select title="시/군/구 선택"  name="midsel" class="form-control multiple" id="midsel" style="width:250px">
+			</select>		
+		
+		
+			<select title="동/읍/면 선택"  name="endsel" class="form-control multiple" id="endsel style="width:250px">
 			</select>
 			
-			<button class="btn btn-outline-secondary" type="button" id="btn-edit">수정하기</button>
-			<button class="btn btn-outline-secondary" type="button" id="btn-out">회원탈퇴</button>
+			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-register" value="회원가입">
        		
        	</div>
        		
