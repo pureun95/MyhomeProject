@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.myhome.member.LocationDTO;
-import com.myhome.member.MemberDAO;
-
 
 @WebServlet("/contractor/mypage-info.do")
 public class MypageInfo extends HttpServlet{

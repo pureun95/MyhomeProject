@@ -67,7 +67,7 @@
 		margin-left: 85px;
 		padding: 80px 100px;
 		width: 1000px;
-		height: 400px;
+		height: 480px;
 		background-color: rgb(245, 245, 245, .6);
 		/* border-radius: 30px; */
 	
@@ -79,6 +79,7 @@
 	
 	}
 	
+	/* 배경 투명도 조절할 것 */
 	.boardwrap {
 		background-image: url('../image/6.jpg');
 		display: 
@@ -91,7 +92,7 @@
 		height: 120px;
 		float: left;	
 		font-family: 'NanumBarunGothic';
-		margin-top: 30px;
+		margin-top: 65px;
 		background-color: white;
 		cursor: pointer;
 	}
@@ -102,21 +103,14 @@
 	}
 	
 	.mypage-title {
-		font-size: 32px;
+		font-size: 36px;
 		color: #202020;
 		text-align: center;
 		font-family: 'MaplestoryOTFLight';
 		/* border-bottom: 5px solid #f1aeae; */
+		z-index: 1;
 	}
 	
-	.shadowbox {
-		background-color: #f1aeae;
-		width: 100px;
-		height: 20px;
-		position: relative;
-		left: 80px;
-		top: -40px;
-	}
 	
 	.mypage-type {
 		font-size: 24px;
@@ -188,15 +182,14 @@
         	<div class="start">
         		
         		<div class="mypage-title">마이홈 회원가입</div>
-        		<div class="shadowbox"></div>
         		<div class="mypage-type"><span>가입을 원하는 유형을 선택해주세요.</span></div>
         		
-	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/myproperty.do';">
+	       			<div class="mypage-box" id='box1' onClick="location.href='/Myhome_project/member/RegisterUser.do'">
 	       				<div class="icon glyphicon glyphicon-font" id="icon1"></div>
-	       				<div class="desc">일반회원</div>
+	       				<div class="desc" >일반회원</div>
 	       				<div class="desc2">중개인을 통하여 방을 올릴 수 있어요.</div>
 	       			</div>
-       				<div class="mypage-box" id='box2' onclick="location.href='/Myhome_project/contractor/mypage-matching1.do';">
+       				<div class="mypage-box" id='box2' onClick="location.href='/Myhome_project/member/RegisterContractor.do'">
        					<div class="icon glyphicon glyphicon-bold" id="icon2"></div>
        					<div class="desc">중개인</div>
        					<div class="desc2">직접 매물 올리기, 임대인에게 매칭 신청을 할 수 있어요.</div>
