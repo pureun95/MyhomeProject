@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::중개인 회원가입</title>
+<title>Myhome::일반회원 회원가입</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -143,7 +143,7 @@
 		margin: 0px 10px;
 	}
 	
-	#tel1, #businessnum1 {
+	#userTel1 {
 		margin-left: 0px;
 	}
 	
@@ -192,6 +192,63 @@
 </head>
 <body>
  
+ 
+ <!-- 관심지역 스크립트 -->
+  <script>
+          var midArray = [];
+         <c:forEach var="middle" items="${middle}">
+            midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
+         </c:forEach>
+         
+         var endArray = [];
+         <c:forEach var="end" items="${end}">
+            endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
+         </c:forEach> 
+         
+         
+         $(function() {
+            $("#frontsel").change(function(e) {
+               var frontsel = $(this).val();
+               midCreate(frontsel);
+            });
+            midCreate($("#frontsel").val());
+         });
+         
+         function midCreate(frontsel) {
+            $("#middlesel").children().remove();
+            var html = "";
+            $(midArray).each(function(i, elem) {
+               //console.log(frontsel + " == " + elem.mseq);
+               if(frontsel == elem.mLocation) {
+                     html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+                  }
+               });
+            $("#middlesel").html(html);
+            endCreate($("#middlesel").val());
+         }
+         
+         $(function() {
+            $("#middlesel").change(function(e) {
+               var middlesel = $(this).val();
+               endCreate(middlesel);
+            });
+            endCreate($("#middlesel").val());
+         });
+            
+         function endCreate(middlesel) {
+            $("#endsel").children().remove();
+            var html = "";
+            $(endArray).each(function(i, elem) {
+               if(middlesel == elem.mLocation) {
+                  html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
+               }
+            });
+            $("#endsel").html(html);
+         } 
+         
+      </script>
+		
+		
 <div class="boardwrap">
  
  <!-- header -->
@@ -210,37 +267,71 @@
    		
    		<!-- 시작 -->
  		
-        <div class="start">     
-		       <span>아이디</span>
-		       <input type="text" class="form-control form-weight readonly" id="id" name="id"> 
+        <div class="start">  
+           
+			<span>아이디</span>
+	       <input type="text" class="form-control form-weight readonly" id="userid" name="id"> 
+			
+			<span>이름</span>
+			<input type="text" class="form-control form-weight readonly" id="username" name="name">
+			
+			<span>닉네임</span> 			
+			<input type="text" class="form-control form-weight" id="nickname" name="nickname">
+			<span class="desc">닉네임이 중복입니다.</span>
+			
+		
+      		<span>주민번호</span> 
+			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6 name="ssn"> -
+			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7 name="ssn"> 
+			
+			<span>비밀번호</span> 
+	       <input type="password" class="form-control form-weight" id="" name="password">
+			
+			<span>비밀번호확인</span>
+			<input type="password" class="form-control form-weight" id="search-text" "repassword">
+			
+			<span>주소</span>
+			<input type="text" class="form-control search-text" name="address">
+			
+			<span>전화번호</span> 
+			<input type="text" class="form-control tel" id="userTel1" maxlength=3 name="tel1">-
+			<input type="text" class="form-control tel" id="userTel2" maxlength=4 name="tel2">-
+			<input type="text" class="form-control tel" id="userTel3" maxlength=4 name="tel3">
+			
+			<span>이메일</span>
+			<input type="text" class="form-control search-text" name="email">
+			
+			 <span>관심매물</span>
+         	<select class="form-control multiple">
+            	<option val="1">원룸</option>
+           		<option val="2">투룸</option>
+            	<option val="3">오피스텔</option>
+         	</select>
+			
+			
+			<span><label for="siCode2">관심지역</label></span>
+			<select title="시/도 선택"  id="frontsel" name="frontsel" class="form-control multiple" id="from" style="width:250px">
+				<c:forEach var="front" items="${front }" varStatus="status">
+					<option value="${front.location }">${front.location }</option>
+				</c:forEach> 
+			</select>		
+			
+			<select title="시/군/구 선택"  id="middlesel" name="middlesel" class="form-control multiple" id="middle" style="width:250px">
 				
-				<span>이름</span> 			
-				<input type="text" class="form-control form-weight readonly" id="name" name="name">
-				
-				<span>공인중개소</span>
-				<input type="text" class="form-control form-weight readonly" id="companyname" name="companyname">
-				
-				<span>사업자등록번호</span> 			
-				<input type="text" class="form-control tel" id="businessnum1" maxlength=3 name="businessnum1">-
-				<input type="text" class="form-control tel" id="businessnum2" maxlength=2 name="businessnum2">-
-				<input type="text" class="form-control tel" id="businessnum3" maxlength=5 name="businessnum3">
-				
-				<span>비밀번호</span> 
-		       	<input type="password" class="form-control form-weight" id="password" name="password">
-				
-				<span>비밀번호확인</span>
-				<input type="password" class="form-control form-weight search-text"" id="repassword" name="repassword">
-				
-				<span>주소</span>
-				<input type="text" class="form-control search-text" id="address" name="address">
-				
-				<span>전화번호</span> 
-				<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1">-
-				<input type="text" class="form-control tel" id="tel2" maxlength=4 name="tel2">-
-				<input type="text" class="form-control tel" id="tel3" maxlength=4 name="tel3">
-				
-				<span>이메일</span>
-				<input type="text" class="form-control search-text"" id=" name="email">
+			</select>		
+			
+			<select title="동/읍/면 선택"  id="endsel" name="endsel" class="form-control multiple" id="end" style="width:250px">
+			
+			</select>
+       		
+       		
+       		
+			<span>알람</span>
+			 <select class="form-control multiple">
+            	<option val="1">On</option>
+            	<option val="0">Off</option>
+         	</select>
+			
 			
 			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-register" value="회원가입">
        		
