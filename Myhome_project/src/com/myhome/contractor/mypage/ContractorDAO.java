@@ -57,7 +57,10 @@ public class ContractorDAO {
 				dto.setSeq(rs.getString("seq"));
 				dto.setId(rs.getString("id"));
 				dto.setAddress(rs.getString("address"));
-				dto.setBusinessnum(rs.getString("companynumber"));
+				//split으로 하기
+				dto.setBusinessNum1(rs.getString("companynumber"));
+				dto.setBusinessNum2(rs.getString("companynumber"));
+				dto.setBusinessNum3(rs.getString("companynumber"));
 				dto.setEmail(rs.getString("email"));
 				dto.setPassword(rs.getString("password"));
 				dto.setCompanyname(rs.getString("companyname"));
