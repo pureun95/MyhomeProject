@@ -48,7 +48,15 @@
     	
     }
     
-    
+    .property-list {
+    	border-bottom: 1px solid rgb(185, 183, 183);
+    	width: 860px;
+    	height: 240px;
+    	padding: 30px 0px;
+    	font-family: 'NanumBarunGothic';
+    	color: #424242;
+	}
+
     .matching-option {
     	/* border: 1px solid blue; */
     	width: 400px;
@@ -91,7 +99,7 @@
     }
     
     .matching-board {
-    	border: 1px solid blue;
+    	/* border: 1px solid blue; */
     	width: 820px;
     	height: 600px;
     	margin-right: 50px;
@@ -135,7 +143,7 @@
    	/* 전체 property list 박스 property.css 덮어쓰기 */
    	
    	.property-box {
-   		border: 1px solid blue; */
+   		/* border: 1px solid blue; */ */
 	    float: left;
 	    width: 900px;
 	    height: auto;
@@ -147,7 +155,7 @@
    	}
    	
    	.img-property {
-        border: 1px solid black;
+       /*  border: 1px solid black; */
        	width: 280px;
         height: 180px;
         float: left;
@@ -155,6 +163,7 @@
         background-position: 0% 0px; 
         background-size: cover;
         cursor: pointer;
+        margin-left: 15px;
      }
    	
    	
@@ -192,7 +201,7 @@
    /* 검색, 페이지바 */
     
     .search-paging {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
@@ -200,7 +209,7 @@
     }
     
     .paging {
-  		border: 1px solid blue;
+  		/* border: 1px solid blue; */
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
@@ -230,7 +239,7 @@
    	}
    	
    	.btn:hover {
-   		color: white;
+   		color: white !important;
    	}
     
     #search-box {
@@ -256,25 +265,47 @@
 	   	padding: 5px;
    
    }
-   
-   .ckbox {
+  
+  	ck {
+  		float: left;
+  	} 
+  	
+  /*  .ckbox {
    		width: 18px;
    		height: 18px;
    		position: relative;
    		left: 0px;
    		top: -4px;
    		
-   }
+   } */
    
-   .nickname {
+  /*  .nickname {
    		position: relative;
    		top: -30px;
-   }
+   } */
    
    /* 방올리기 버튼 */
    #btn-upload {
    		margin-left: 380px;
    		margin-top: 20px;
+   }
+   
+   /* 매물리스트 체크박스 */
+   
+   .checkbox {
+   		/* border: 1px solid black; */
+   		float: left;
+   		width: 16px;
+   		height: 16px;
+   		margin-top: 0px;
+   	
+   }
+   
+   #ck {
+   		margin-left: 0px;
+   		width: 16px;
+   		height: 16px;
+   		margin-top: 0px;
    }
    
    	
@@ -310,9 +341,9 @@
 		 
 		 <!-- form -->
 		 <form action="POST">
-                <div class="property-list">                		      
-                    <div class="img-property">
-                    	<input type="checkbox" class="ckbox">
+                <div class="property-list">
+                	<div class="checkbox"><input type="checkbox" id="ck"></div>    		      
+                    <div class="img-property">               
                     	<div class="state nickname">닉네임</div>
                     </div>
                     <div class="property-list2">
@@ -350,8 +381,8 @@
                 
                 
                 <div class="property-list">
-                    <div class="img-property">
-                    	<input type="checkbox" class="ckbox">
+                <div class="checkbox"><input type="checkbox" id="ck"></div>    		
+                    <div class="img-property">           
                     	<div class="state nickname">닉네임</div>
                     </div>
                     <div class="property-list2">
@@ -388,8 +419,8 @@
                 
                 
                 <div class="property-list">
+                <div class="checkbox"><input type="checkbox" id="ck"></div>    		
                     <div class="img-property">
-                    	<input type="checkbox" class="ckbox">
                     	<div class="state nickname">닉네임</div>
                     </div>
                     <div class="property-list2">

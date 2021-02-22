@@ -91,7 +91,7 @@
     .matching-board {
     	/* border: 1px solid blue; */
     	width: 820px;
-    	height: 600px;
+    	height: 550px;
     }
     
     #board {
@@ -157,7 +157,7 @@
    	
 
    
-   /* 검색, 페이지바 */
+  /* 검색, 페이지바 */
     
     .search-paging {
     	border: 1px solid black;
@@ -208,7 +208,6 @@
    
    }
     
-    
    
    .temp {
 	   	min-height: 35px;
@@ -216,7 +215,6 @@
 	   	padding: 5px;
    
    }
-
 
 	
 	
@@ -358,33 +356,33 @@
 	            
 	           
 	        </table>
-       
+       </div>
        		
        		<!-- 검색, 페이지바 -->
-       		<div class="paging">
-       			<ul class="pagination">
-				    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
-				    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-				    <li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
+       		<div class="search-paging">
+	       		<div class="paging">
+	       			<ul class="pagination">
+					    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+						<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					    <li><a class="page-link page-a" href="">다음</a></li>
+					</ul>       		
+	       		</div>
+	       		
+	       		
+	       		<div id="search-box">		
+					<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
+					<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
+				</div>
        		</div>
-       		
-       		
-       		</div>
-       		
-       		<div id="search-box">		
-				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
-			</div>
        	
        	
        	</form>
