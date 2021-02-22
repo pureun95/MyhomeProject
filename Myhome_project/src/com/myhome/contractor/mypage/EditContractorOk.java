@@ -38,6 +38,7 @@ public class EditContractorOk extends HttpServlet {
 		//String seq = req.getParameter("seq");	//회원번호 
 		String seq = session.getAttribute("seqAllUser").toString();
 		String password = req.getParameter("password");
+		String address = req.getParameter("address");
 		String email = req.getParameter("email"); 
 		String tel1 = req.getParameter("tel1");
 		String tel2 = req.getParameter("tel2");	
@@ -60,6 +61,11 @@ public class EditContractorOk extends HttpServlet {
 			dto.setEmail(list.get(0).getEmail());
 		else
 			dto.setEmail(email);
+		//주소
+		if(address.equals(""))
+			dto.setAddress(list.get(0).getAddress());
+		else
+			dto.setAddress(address);
 		//전화번호1
 		if(tel1.equals(""))
 			dto.setTel1(list.get(0).getTel1());
