@@ -16,7 +16,7 @@ public class EditMove extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/editmove.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/adminmoveclean/editmove.jsp");
 		dispatcher.forward(request, response);
 		
 	}

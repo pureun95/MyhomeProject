@@ -19,7 +19,7 @@ public class MemberManageContractor extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 					
 			
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/membermanage-contractor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/adminmembermanage/membermanage-contractor.jsp");
 		dispatcher.forward(request, response);
 		
 		

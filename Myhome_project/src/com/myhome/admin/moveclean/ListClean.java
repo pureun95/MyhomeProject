@@ -15,7 +15,7 @@ public class ListClean extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/listclean.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmoveclean/listclean.jsp");
 		dispatcher.forward(req, resp);
 
 	}

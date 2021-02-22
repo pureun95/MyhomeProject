@@ -15,7 +15,7 @@ public class ViewContractorInfo extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/viewcontractorinfo.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmembermanage/viewcontractorinfo.jsp");
 		dispatcher.forward(req, resp);
 		
 	}

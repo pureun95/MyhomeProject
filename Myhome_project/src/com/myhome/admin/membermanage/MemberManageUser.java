@@ -19,7 +19,7 @@ public class MemberManageUser extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 					
 			
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/membermanage-user.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/adminmembermanage/membermanage-user.jsp");
 		dispatcher.forward(request, response);
 		
 		

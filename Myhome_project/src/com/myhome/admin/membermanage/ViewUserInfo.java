@@ -15,7 +15,7 @@ public class ViewUserInfo extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/viewuserinfo.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmembermanage/viewuserinfo.jsp");
 		dispatcher.forward(req, resp);
 		
 	}

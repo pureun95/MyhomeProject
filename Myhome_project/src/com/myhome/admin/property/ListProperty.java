@@ -15,7 +15,7 @@ public class ListProperty extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/listproperty.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminproperty/listproperty.jsp");
 		dispatcher.forward(req, resp);
 
 	}
