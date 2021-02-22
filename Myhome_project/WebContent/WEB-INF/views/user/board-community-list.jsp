@@ -44,11 +44,11 @@
 
 
 	 #maintitle {
-	   border-bottom: 1px solid #ccc;
+	   /* border-bottom: 1px solid #ccc; */
 	   font-size: 24px;
 	   font-family: 'MaplestoryOTFLight';
-	   /* padding-right: 50px; */
-	   padding-bottom: 7px;
+	   padding:0 10px;
+	   border-left: 5px solid #f1aeae;
 	   position: relative;
 	   display: inline;
 	   text-align:left;

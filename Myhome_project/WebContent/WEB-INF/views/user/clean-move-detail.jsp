@@ -12,7 +12,8 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Myhome_project/css/nav.css">
 
 
 <link rel="stylesheet" href="/Myhome_project/css/jquery-ui.css">
@@ -23,6 +24,7 @@
 	.container {
 		font-size : 16px;
 		font-family: 'NanumBarunGothic';
+		border: 0px;
 	}
 	.boardwrap{
 	    height: auto;
@@ -43,7 +45,6 @@
 	}
 	.img {
 		width: 80%;
-		
 		border: 1px solid #ccc;
 	}
 	.tag {
@@ -224,6 +225,9 @@ li.header-li.li-list.header-li-scroll {
         background-position: 50% 50%;
     }
     
+	.nav1-box1 {
+		border: 0px;
+	}
 	
 	
 </style>
@@ -242,10 +246,10 @@ li.header-li.li-list.header-li-scroll {
             <div class="header-img"></div>
                 <ul class="header-ul2">
                     <li class="header-li li-list">방찾기</li>
-                    <li class="header-li li-list">방올리기</li>
+                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
                     <li class="header-li li-list">커뮤니티</li>
-                    <li class="header-li li-list">중고장터</li>
-                    <li class="header-li li-list">마이페이지</li>
+                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
+                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/mypage.do';">마이페이지</li>
                     <li class="header-li li-list">고객센터</li>
 
                     <li id="logout" class="li-login li-list">로그아웃</li>
@@ -255,7 +259,42 @@ li.header-li.li-list.header-li-scroll {
     </header> 
  
     <div class="container">
-
+		
+		
+				<!-- nav -->
+		<nav class="nav1">
+	    	<div id="mypage-title">마이페이지</div>
+	           <div class="nav1-box1">
+	               <div class="nav1-content" id="nav1-content5">
+	                   <div class="nav1-box1-img glyphicon glyphicon-user"></div>
+	                   <div class="nav1-box1-content"><a id="myinfo" href="/Myhome_project/user/mypageinfo.do" class="nav-list">회원정보수정</a></div>
+	               </div>
+	               <div class="nav1-content" id="nav1-content6">
+	                   <div class="nav1-box1-img glyphicon glyphicon-bookmark"></div>
+	                   <div class="nav1-box1-content"><a id="mylike" href="/Myhome_project/user/mypagelike.do" class="nav-list">찜목록관리</a></div>
+	               </div>
+	               <div class="nav1-content" id="nav1-content7">
+	                   <div class="nav1-box1-img glyphicon glyphicon-pencil"></div>
+	                   <div class="nav1-box1-content"><a id="mywrite" href="/Myhome_project/user/mypagemywrite.do" class="nav-list">내가쓴글보기</a></div>
+	               </div>
+	                   <div class="nav1-content" id="nav1-content8">
+	                   <div class="nav1-box1-img glyphicon glyphicon-align-justify"></div>
+	                   <div class="nav1-box1-content"><a id="myorderlist" href="/Myhome_project/user/mypageorderlist.do" class="nav-list">매물거래내역</a></div>
+	               </div>
+	               <div class="nav1-content" id="nav1-content9">
+	                   <div class="nav1-box1-img glyphicon glyphicon-resize-small"></div>
+	                   <div class="nav1-box1-content"><a id="mymatching" href="/Myhome_project/user/mypagematching.do" class="nav-list">매칭매물관리</a></div>
+	               </div>
+	               <div class="nav1-content" id="nav1-content10">
+	                   <div class="nav1-box1-img glyphicon glyphicon-list-alt"></div>
+	                   <div class="nav1-box1-content"><a id="mycontract" href="/Myhome_project/user/mypagecontract.do" class="nav-list">전자계약관리</a></div>
+	               </div>
+	                   <div class="nav1-content" id="nav1-content11">
+	                   <div class="nav1-box1-img glyphicon glyphicon-calendar"></div>
+	                   <div class="nav1-box1-content"><a id="myreservation" href="/Myhome_project/user/mypagereservation.do" class="nav-list">이사청소예약</a></div>
+	               </div>
+	         </div>
+	    </nav>
 		<div id="infobox">
 			<table class="tbl" id="tbl1">
 				<tr>
@@ -349,7 +388,7 @@ li.header-li.li-list.header-li-scroll {
 
  	<script>
  		$('#datepicker').datepicker({
- 			dateFormat: "yy-mm-dd",
+ 			dateFormat: "yyyy-mm-dd",
             minDate: "+1",
             maxDate: "+1M"
  		});

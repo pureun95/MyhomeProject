@@ -21,7 +21,9 @@ body, html {
 	margin: 0 auto;
 	padding: 0;
 }
-
+.container {
+	border: 0px;
+}
 #header {
 	background-color: white;
 }

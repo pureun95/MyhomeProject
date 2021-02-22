@@ -31,15 +31,13 @@
 	    position: relative;
 	}
 	
-	.boardTitle {
-		font-size: 24px;
-		/* font-family: 'MaplestoryOTFLight'; */
-		font-family: 'NanumBarunGothic', sans-serif;
-		font-weight: bold;
-		color: #202020;
-		border-left : 3px solid #F1AEAE;
+	#maintitle {
+
 		margin: 30px 7px;
-		padding-left: 10px;
+	   font-size: 24px;
+	   font-family: 'MaplestoryOTFLight';
+	   padding:0 10px;
+	   border-left: 5px solid #f1aeae;
 	}
 	
 	.table {
@@ -175,19 +173,7 @@
 	   font-family: 'NanumBarunGothic';
 	}
 	
-	
-	
-	#maintitle {
-	   border-bottom: 1px solid #ccc;
-	   font-size: 24px;
-	   font-family: 'MaplestoryOTFLight';
-	   padding-right: 50px;
-	   position: relative;
-	   display: inline;
-	   left: 100px;
-	   top: 100px;
-	   text-align:left;
-	}
+
 	
 	
 </style>
@@ -205,7 +191,7 @@
  
      <div class="container">
      
-     <div class="boardTitle">Q&A</div>
+     <div id="maintitle">Q&A</div>
             
             <!-- <div class="section1">    -->   
              <form action="" id="form1">         

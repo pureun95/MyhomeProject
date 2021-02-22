@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::정보공유커뮤니티</title>
+
+<title>Myhome::중고장터</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
