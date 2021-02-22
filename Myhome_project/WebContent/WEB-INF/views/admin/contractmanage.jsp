@@ -70,6 +70,10 @@
 		text-align: center;
 	}
 	
+	.boardtr{
+		cursor:pointer;
+	}
+	
 	.paging {
 		text-align : center;
 	}
@@ -146,9 +150,9 @@
                     <th class="list">거래상태</th>
                 </tr>
                 
-                <tr class="boardtr" id="item" name="item">
+                <tr class="boardtr" id="item" >
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">111111</td>
+                    <td class="list">11111</td>
                     <td class="list">2021-02-19</td>
                     <td class="list">임대인</td>
                     <td class="list">중개인(공인중개사무소)</td>
@@ -278,12 +282,15 @@
 
 	<script>
 	
-		var item = window.document.all.item;
+		//var item = window.document.all.item;
 		
-		item.onclick = function(){
-	        window.open("/Myhome_project/Myhome/admin/viewcontract.do", "contract", "width=1000, height= 1200");
-	    }
-	
+		//item.onclick = function(){
+	    //    window.open("/Myhome_project/Myhome/admin/viewcontract.do", "contract", "width=1000, height= 1200");
+	    //}
+
+		$(".boardtr").click(function() {
+			 window.open("/Myhome_project/Myhome/admin/viewcontract.do", "contract", "width=1000, height= 1200");
+		});
 	
 	</script>
  
