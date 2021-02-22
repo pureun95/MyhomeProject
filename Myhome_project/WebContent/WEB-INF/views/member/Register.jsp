@@ -62,14 +62,13 @@
 	/* mypage css */
 	
 	.start {
-		/* border: 1px solid black; */
+		border: 1px solid #d8d4d4;
 		margin-top: 200px;
 		margin-left: 85px;
 		padding: 80px 100px;
 		width: 1000px;
 		height: 480px;
-		background-color: rgb(245, 245, 245, .6);
-		/* border-radius: 30px; */
+		border-radius: 30px;
 	
 	}
 	
@@ -79,12 +78,7 @@
 	
 	}
 	
-	/* 배경 투명도 조절할 것 */
-	.boardwrap {
-		background-image: url('../image/6.jpg');
-		display: 
-	}
-	
+
 	.mypage-box {
 		/* border: 1px solid black; */
 		border-radius: 30px;
@@ -92,19 +86,21 @@
 		height: 120px;
 		float: left;	
 		font-family: 'NanumBarunGothic';
-		margin-top: 65px;
-		background-color: white;
+		margin-top: 30px;
+		background-color: #f1aeae;
 		cursor: pointer;
+		color: white;
 	}
 	
 	.mypage-box:hover {
-		background-color: #f1aeae;
-		color: white;
+		background-color: white;
+		border: 1px solid #f1aeae;
+		color: #202020;
 	}
 	
 	.mypage-title {
 		font-size: 36px;
-		color: #202020;
+		color: #f1aeae;
 		text-align: center;
 		font-family: 'MaplestoryOTFLight';
 		/* border-bottom: 5px solid #f1aeae; */
@@ -116,7 +112,8 @@
 		font-size: 24px;
 		color: #202020;
 		text-align: center;
-		font-family: 'MaplestoryOTFLight';
+		font-family: 'NanumBarunGothic';
+		margin-top: 60px;
 	}
 	
 	#box1, #box3 {
@@ -133,7 +130,7 @@
 		width: 70px;
 		height: 70px;
 		font-size: 4.5em;
-		color: #f1aeae;
+		color: white;
 		margin-top: 20px;
 		margin-left: 20px;
 		float: left;
@@ -221,17 +218,18 @@
 
 <script>
 	$("#box1").hover(function() {
-		$("#icon1").css("color", "white");
-		}, function() {
 		$("#icon1").css("color", "#f1aeae");
+		}, function() {
+		$("#icon1").css("color", "white");
 	});
 	
 	$("#box2").hover(function() {
-		$("#icon2").css("color", "white");
-		}, function() {
 		$("#icon2").css("color", "#f1aeae");
+		}, function() {
+		$("#icon2").css("color", "white");
 	});
 
+	
 	
 
 </script>
