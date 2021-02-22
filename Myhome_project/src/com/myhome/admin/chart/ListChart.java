@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.chart;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/listclean.do")
-public class ListClean extends HttpServlet {
+@WebServlet("/admin/chart/listchart.do")
+public class ListChart extends HttpServlet {
 
-	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/listclean.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminchart/listchart.jsp");
 		dispatcher.forward(req, resp);
 
 	}

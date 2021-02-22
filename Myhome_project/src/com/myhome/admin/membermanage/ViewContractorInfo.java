@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.membermanage;
 
 import java.io.IOException;
 
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/listproperty.do")
-public class ListProperty extends HttpServlet {
+@WebServlet("/admin/membermanage/viewcontractorinfo.do")
+public class ViewContractorInfo extends HttpServlet{
 
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/listproperty.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmembermanage/viewcontractorinfo.jsp");
 		dispatcher.forward(req, resp);
-
+		
 	}
-
+	
 }
