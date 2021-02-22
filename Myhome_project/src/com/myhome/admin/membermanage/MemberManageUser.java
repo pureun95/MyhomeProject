@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.membermanage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/Myhome/admin/membermanage-user.do")
+@WebServlet("/admin/membermanage/membermanage-user.do")
 public class MemberManageUser extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

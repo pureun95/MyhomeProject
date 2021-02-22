@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.board;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/addchecklist.do")
-public class AddCheckList extends HttpServlet {
+@WebServlet("/admin/board/listpolicy.do")
+public class ListPolicy extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/addchecklist.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminboard/listpolicy.jsp");
 		dispatcher.forward(req, resp);
 
 	}

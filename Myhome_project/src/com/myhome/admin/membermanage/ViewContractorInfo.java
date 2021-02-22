@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.membermanage;
 
 import java.io.IOException;
 
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/editpolicy.do")
-public class EditPolicy extends HttpServlet {
+@WebServlet("/admin/membermanage/viewcontractorinfo.do")
+public class ViewContractorInfo extends HttpServlet{
 
-	@Override
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/editpolicy.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/viewcontractorinfo.jsp");
 		dispatcher.forward(req, resp);
-
+		
 	}
-
+	
 }
