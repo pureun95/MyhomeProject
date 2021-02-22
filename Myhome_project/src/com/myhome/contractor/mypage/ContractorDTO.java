@@ -7,9 +7,9 @@ public class ContractorDTO {
 	private String companyname; //공인중개소명
 	private String name; //이름
 	private String password;	//비밀번호
-	private String businessnum1; //사업자 번호1
-	private String businessnum2; //사업자 번호2
-	private String businessnum3; //사업자 번호3
+	private String businessNum1; //사업자 번호1
+	private String businessNum2; //사업자 번호2
+	private String businessNum3; //사업자 번호3
 	private String email;	//이메일
 	private String tel1;	//전화번호1
 	private String tel2;	//전화번호1
@@ -42,23 +42,23 @@ public class ContractorDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getBusinessnum1() {
-		return businessnum1;
+	public String getBusinessNum1() {
+		return businessNum1;
 	}
-	public void setBusinessnum1(String businessnum1) {
-		this.businessnum1 = businessnum1;
+	public void setBusinessNum1(String businessNum1) {
+		this.businessNum1 = businessNum1;
 	}
-	public String getBusinessnum2() {
-		return businessnum2;
+	public String getBusinessNum2() {
+		return businessNum2;
 	}
-	public void setBusinessnum2(String businessnum2) {
-		this.businessnum2 = businessnum2;
+	public void setBusinessNum2(String businessNum2) {
+		this.businessNum2 = businessNum2;
 	}
-	public String getBusinessnum3() {
-		return businessnum3;
+	public String getBusinessNum3() {
+		return businessNum3;
 	}
-	public void setBusinessnum3(String businessnum3) {
-		this.businessnum3 = businessnum3;
+	public void setBusinessNum3(String businessNum3) {
+		this.businessNum3 = businessNum3;
 	}
 	public String getEmail() {
 		return email;
