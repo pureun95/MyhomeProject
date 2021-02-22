@@ -70,6 +70,20 @@
 		text-align: center;
 	}
 	
+	.paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
+	}
+	
 	
 	
 	input, select {
@@ -96,7 +110,6 @@
 
 	.search {
 		text-align:center;
-		margin : 20px auto;
 	   	padding: 10px;
 	}
 	
@@ -133,7 +146,7 @@
                     <th class="list">거래상태</th>
                 </tr>
                 
-                <tr class="boardtr">
+                <tr class="boardtr" id="item" name="item">
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
                     <td class="list">111111</td>
                     <td class="list">2021-02-19</td>
@@ -224,21 +237,36 @@
                     <td class="list"></td>
                     <td class="list"></td>
                 </tr>
-                
             </table>
             
             <div class="delete">
             	<input type="button" class="btn" value="선택한 거래 삭제" id="delete">
             </div>
+             
+            <div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
+            
             <div class="search">
 	            	<input type="text" class="form-control" placeholder="매물번호/중개인/임대인/임차인" id="txt">
 	            	<input type="button" class="btn" value="검색" id="serch">
             </div>
             
             
-            <div>
-            	페이징
-            </div>
 			
 
 	</div>
@@ -247,6 +275,17 @@
 	
 	<!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+
+	<script>
+	
+		var item = window.document.all.item;
+		
+		item.onclick = function(){
+	        window.open("/Myhome_project/Myhome/admin/viewcontract.do", "contract", "width=1000, height= 1200");
+	    }
+	
+	
+	</script>
  
 </body>
 </html>

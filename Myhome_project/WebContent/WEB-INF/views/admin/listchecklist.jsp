@@ -19,94 +19,106 @@
 
 <style>
 
-style>body, html {
-	/* width: 100%; */
-	height: 100%;
-	margin: 0 auto;
-	padding: 0;
-}
+	style>body, html {
+		/* width: 100%; */
+		height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.container {
+		border: 1px solid green;
+		width: 1190px;
+		margin: 0px auto;
+		margin-top: 100px;
+		position: relative;
+		height: 1200px;
+	}
+	
+	/* ------------------------------------------- */
+	
+	
+	.boardcover{
+	/* 	border: 1px solid tomato; */
+		float: left;
+		width:900px;
+		height: auto;
+		margin-left: 20px; 
+	}
+	
+	#title {
+		font-size: 24px;
+		font-family: 'MaplestoryOTFLight';
+		border-left: 5px solid #F1AEAE;
+		margin: 30px 10px;
+		padding : 0px 10px;
+	}
+	#tbl {
+		width:920px;
+	}
+	
+	.list:nth-child(1) { width: 60px; }
+	.list:nth-child(2) { width: 100px; }
+	.list:nth-child(3) { width: 400px; }
+	.list:nth-child(4) { width: 150px; }
+	.list:nth-child(5) { width: 100px; }
+	.list:nth-child(6) { width: 100px; }
+	
+	#tbl1 th, #tbl1 td {
+		font-family: 'NanumBarunGothic';
+		text-align: center;
+	}
+	
+	
+	
+	input, select {
+		font-family: 'JSDongkang-Regular';
+		outline: none;
+	}
 
-.container {
-	border: 1px solid green;
-	width: 1190px;
-	margin: 0px auto;
-	margin-top: 100px;
-	position: relative;
-	height: 1200px;
-}
+    .paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
+	}
 
-/* ------------------------------------------- */
-
-
-.boardcover{
-/* 	border: 1px solid tomato; */
-	float: left;
-	width:900px;
-	height: auto;
-	margin-left: 20px; 
-}
-
-#title {
-	font-size: 24px;
-	font-family: 'MaplestoryOTFLight';
-	border-bottom: 1px solid #eaecef;
-	padding-bottom: 10px;
-	margin: 30px 10px;
-	padding : 0px 10px;
-}
-#tbl {
-	width:920px;
-}
-
-.list:nth-child(1) { width: 60px; }
-.list:nth-child(2) { width: 100px; }
-.list:nth-child(3) { width: 400px; }
-.list:nth-child(4) { width: 150px; }
-.list:nth-child(5) { width: 100px; }
-.list:nth-child(6) { width: 100px; }
-
-#tbl1 th, #tbl1 td {
-	font-family: 'NanumBarunGothic';
-	text-align: center;
-}
-
-
-
-input, select {
-	font-family: 'JSDongkang-Regular';
-	outline: none;
-}
-
-.btn {
-    background-color: #f1aeae;
-    color: aliceblue;
-    display: inline;
-    width: 70px;
-    margin-right: 10px;
-    outline: none !important;
-    
-}  
-
-.search{
-	text-align:center;
-	margin : 20px auto;
-   	padding: 10px;
-}
-
-#txt{
-	margin-right: 10px;
-	size: 100px;
-}
-
-
-.btns {
-	text-align : right;
-}
-
-.search #txt {
-	width: 200px;
-	display: inline;
-}
+	.btn {
+	    background-color: #f1aeae;
+	    color: aliceblue;
+	    display: inline;
+	    width: 70px;
+	    margin-right: 10px;
+	    outline: none !important;
+	    
+	}  
+	
+	.search{
+		text-align:center;
+	   	padding: 10px;
+	}
+	
+	#txt{
+		margin-right: 10px;
+		size: 100px;
+	}
+	
+	
+	.btns {
+		text-align : right;
+	}
+	
+	.search #txt {
+		width: 200px;
+		display: inline;
+	}
 
 
 </style>
@@ -222,15 +234,31 @@ input, select {
             	<input type="button" class="btn" value="등록" id="add">
             	<input type="button" class="btn" value="수정" id="update">
             	<input type="button" class="btn" value="삭제" id="delete">
-            	<div class="search">
-	            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
-	            	<input type="button" class="btn" value="검색" id="serch">
-            	</div>
             </div>
             
-            <div>
-            	페이징
+            <div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
+            
+            <div class="search">
+            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
+            	<input type="button" class="btn" value="검색" id="serch">
             </div>
+            
 			
 
 	</div>

@@ -30,11 +30,26 @@
 		background-color: white;
 	}
 	
+	.register {
+		margin-left: 300px;
+		margin-top: 100px;
+		width: 800px;
+		height: 500px;
+	}
+	
 	.user, .contractor {
 		border: 1px solid black;
-		width: 250px;
-		height: 250px;
+		border-radius: 2em;
+		background-color: #F6AFB3;
+		width: 150px;
+		height: 150px;
 		display: inline-block;
+		padding-left: 110px;
+		padding-top: 120px;
+	}
+	
+	.contractor {
+		margin-left: 30px;
 	}
 
 </style>
@@ -45,11 +60,13 @@
 			<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 			<div class="container">
-				<div class="user" onClick="location.href='/Myhome_project/member/RegisterUser.do'">
-					일반회원
-				</div>
-				<div class="contractor" onClick="location.href='/Myhome_project/member/RegisterContractor.do'">
-					중개인
+				<div class="register">
+					<div class="user" onClick="location.href='/Myhome_project/member/RegisterUser.do'">
+						일반회원
+					</div>
+					<div class="contractor" onClick="location.href='/Myhome_project/member/RegisterContractor.do'">
+						중개인
+					</div>
 				</div>
 			</div>		
 		</div>

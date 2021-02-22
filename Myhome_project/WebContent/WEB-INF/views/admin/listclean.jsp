@@ -42,8 +42,7 @@
 	#title {
 		font-size: 24px;
 		font-family: 'MaplestoryOTFLight';
-		border-bottom: 1px solid #eaecef;
-		padding-bottom: 10px;
+		border-left: 5px solid #F1AEAE;
 		margin: 30px 10px;
 		padding : 0px 10px;
 	}
@@ -142,12 +141,23 @@
     	margin : 5px 0px;
     }
     
+    .paging {
+		text-align : center;
+	}
+	
+	.pagination > li > .page-a {
+		color: #202020;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae !important;
+		border-color : #f1aeae !important;
+		color: white !important;
+	}
     
-
     
     .search{
 		text-align:center;
-		margin : 20px auto;
 	   	padding: 10px;
 	}
 	
@@ -269,11 +279,31 @@
 				</div>
 			</div>
 			
+			
 			<div class="btns">
             	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/Myhome/admin/addclean.do';">
             	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
+            
+            <div class="search-paging">
+	   		<div class="paging">
+	       		<ul class="pagination">
+					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
+					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
+					<li><a class="page-link page-a" href="">다음</a></li>
+				</ul>       		
+	       	</div>
+            
            	<div class="search">
             	<input type="text" class="form-control" placeholder="청소업체명" id="txt">
             	<input type="button" class="btn" value="검색" id="serch">
