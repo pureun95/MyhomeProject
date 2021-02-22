@@ -80,17 +80,11 @@ public class ContractorDAO {
 			return null;
 		}
 	
-
-	
 	public int edit(ContractorDTO dto) {
 		
 		try {
 			
-			String sql = "update tblAllUser set password = ?, "
-					+ "                email = ?, "
-					+ "                phoneNumber = ?, "
-					+ "                address= ?"
-					+ " where seqAllUser = ?";
+			String sql = "update tblAllUser set password = ?, email=?, phoneNumber=?, address=? where seqAllUser = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			

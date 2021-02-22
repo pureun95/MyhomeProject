@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/contractor/infoedit.do")
-public class EditOk extends HttpServlet {
+@WebServlet("/contractor/editcontractorok.do")
+public class EditContractorOk extends HttpServlet {
 		
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/infoedit.jsp");
+
 			
 		//1. 데이터 가져오기(seq, 비밀번호, 주소, 전화번호, 이메일)
 		//2. DB 작업 -> update
@@ -29,17 +28,16 @@ public class EditOk extends HttpServlet {
 		//1. 
 		req.setCharacterEncoding("UTF-8");
 			
-		String seq = req.getParameter("seq");	//회원번호 
-		String id = req.getParameter("id");
+		//String seq = req.getParameter("seq");	//회원번호 
+		String seq = session.getAttribute("seqAllUser").toString();
 		String password = req.getParameter("password");
-		String name = req.getParameter("name");
-		String businessnum = req.getParameter("businessnum");
-		String companyname = req.getParameter("companyname");
 		String email = req.getParameter("email"); 
-		String address = req.getParameter("address");
 		String tel1 = req.getParameter("tel1");
 		String tel2 = req.getParameter("tel2");	
 		String tel3 = req.getParameter("tel3");
+		
+		//확인용
+		//System.out.println(seq + " " + password + " " + email + " " + tel1 + " " + tel2 + " " + tel3);
 		
 		//2.
 		ContractorDAO dao = new ContractorDAO();
@@ -47,23 +45,18 @@ public class EditOk extends HttpServlet {
 		
 		//가져온거 쓰기
 		dto.setSeq(seq); //회원번호
-		dto.setId(id);
-		dto.setBusinessnum(businessnum);
-		dto.setCompanyname(companyname); //공인중개소명
-		dto.setName(name);
 		dto.setPassword(password);
 		dto.setEmail(email);
-		dto.setAddress(address);
 		dto.setTel1(tel1);
 		dto.setTel2(tel2);
 		dto.setTel3(tel3);
 			
-		//글수정하기
+		//회원정보수정
 		int result = dao.edit(dto); 
 			
 		if (result == 1) {
 			//회원정보수정 성공 -> 수정성공 팝업
-			resp.sendRedirect("/myhome_project/contractor/mypage-info.do");
+			resp.sendRedirect("/Myhome_project/contractor/mypage-info.do");
 				
 				
 		} else {

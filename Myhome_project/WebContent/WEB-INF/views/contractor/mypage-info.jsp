@@ -299,70 +299,12 @@
         <div class="boardcover">
             
     
-    <!-- 관심지역 script -->        
-	<script>
-	
- 			var midArray = [];
-			<c:forEach var="middle" items="${middle}">
-			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
-			</c:forEach>
-			
-			var endArray = [];
-			<c:forEach var="end" items="${end}">
-				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
-			</c:forEach> 
-			
-			
-			$(function() {
-			   $("#frontsel").change(function(e) {
-			      var frontsel = $(this).val();
-			      midCreate(frontsel);
-			   });
-			   midCreate($("#frontsel").val());
-			});
-			
-			function midCreate(frontsel) {
-				$("#middlesel").children().remove();
-				var html = "";
-				$(midArray).each(function(i, elem) {
-					//console.log(frontsel + " == " + elem.mseq);
-					if(frontsel == elem.mLocation) {
-				         html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
-				      }
-					});
-				$("#middlesel").html(html);
-				endCreate($("#middlesel").val());
-			}
-			
-			$(function() {
-				$("#middlesel").change(function(e) {
-					var middlesel = $(this).val();
-					endCreate(middlesel);
-				});
-				endCreate($("#middlesel").val());
-			});
-				
-			function endCreate(middlesel) {
-				$("#endsel").children().remove();
-				var html = "";
-				$(endArray).each(function(i, elem) {
-					if(middlesel == elem.mLocation) {
-						html += "<option value='" + elem.location + "'>" + elem.location + "</option>";
-					}
-				});
-				$("#endsel").html(html);
-			} 
-			
-		</script>
-
-
-				 
 		<!-- 리스트 -->
 		<div class="property-box">
 			<div class="board-name">회원정보수정</div>
 		 	
 		 	
-  		<form method="post" id="form1" action="/Myhome_project/contractor/infoedit.do">
+  		<form method="post" id="form1" action="/Myhome_project/contractor/editcontractorok.do">
    		
    		<!-- 시작 -->
         <div class="start">
@@ -392,47 +334,18 @@
 				
 				<span>전화번호</span> 
 				<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1" placeholder="${dto.tel1}">-
-				<input type="text" class="form-control tel" id="" maxlength=4 name="tel2" placeholder="${dto.tel2}">-
-				<input type="text" class="form-control tel" id="" maxlength=4 name="tel3" placeholder="${dto.tel3}">
+				<input type="text" class="form-control tel" id="tel2" maxlength=4 name="tel2" placeholder="${dto.tel2}">-
+				<input type="text" class="form-control tel" id="tel3" maxlength=4 name="tel3" placeholder="${dto.tel3}">
 				
 				<span>이메일</span>
 				<input type="text" class="form-control" id="search-text" name="email" placeholder="${dto.email}">
 			</c:forEach>
 			
-			<!-- <span>관심매물</span>
-			<select class="form-control multiple">
-				<option>원룸</option>
-				<option>투룸</option>
-				<option>오피스텔</option>
-			</select> -->
-			
-			
-			<%-- <span><label for="siCode2">관심지역</label></span>
-			<select title="시/도 선택" id="frontsel" name="frontsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="frontsel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select>		
-			
-			
-			<select title="시/군/구 선택"  name="middlesel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="middlesel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select>		
-			
-			
-			<select title="동/읍/면 선택"  name="endsel" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="endsel" style="width:250px">
-				<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location}">${front.location}</option>
-				</c:forEach>
-			</select> --%>
-			
 			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-edit" value="수정하기">
 			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-out" value="회원탈퇴">
        		
        		<!-- 회원번호 -->
-       		<input type="hidden" name="seq" value="81">
+       		<!-- <input type="hidden" name="seq" value="81"> -->
        		
        	</div>
        		
