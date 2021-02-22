@@ -21,7 +21,9 @@ body, html {
 	margin: 0 auto;
 	padding: 0;
 }
-
+.container {
+	border: 0px;
+}
 #header {
 	background-color: white;
 }
@@ -121,7 +123,7 @@ label {
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
+			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
 
 			<div class="container">
 
@@ -140,7 +142,7 @@ label {
 						<button type="submit" class="btn btn-success" id="btnsearch">검색하기</button>
 					</div>
 	
-					<a href='http://localhost:8090/Myhome_project/user/reservationlist.do' id="list-link">내 예약목록으로 이동하기</a>
+					<a href='/Myhome_project/user/reservationlist.do' id="list-link">내 예약목록으로 이동하기</a>
 
 					<div id="pagebox">
 						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>
