@@ -1,4 +1,4 @@
-package com.myhome.admin1;
+package com.myhome.admin.moveclean;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Myhome/admin/listmove.do")
+@WebServlet("/admin/moveclean/listmove.do")
 public class ListMove extends HttpServlet {
 
 	
