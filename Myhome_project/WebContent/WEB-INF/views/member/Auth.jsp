@@ -102,7 +102,7 @@
 	
     
     .login-title {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
 	    width: 300px;
 	    height: 60px;
 	    margin-bottom: 30px;
@@ -141,7 +141,7 @@
     }
     
     .logo {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
     	width: 50px;
     	height: 50px;
     	float: left;
