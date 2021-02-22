@@ -1,48 +1,328 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-
-
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::임대인방찾기</title>
+<title>Myhome::임대인 방찾기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
-
+<link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
+<!-- <link rel="stylesheet" href="/Myhome_project/css/boarduserver.css"> -->
 
 
+<!-- 부트스트랩 사용가능한 템플릿 -->
 
 <style>
-	.header {
-		background-color : white;
+	.container {
+		border-color: transparent;
+		
+		margin: 0 auto;
+	    letter-spacing: -.2px;
+	    min-height: 100%;
+	    padding-bottom: 100px;
+	    border: 1px solid green;
+	    margin-top: 100px;
+	    
+		}
+	
+	.header-containerwrap{
+	    height: auto;
+	    min-height: 100%;
+	    position: relative;
 	}
 	
-	/* myproperty.css 덮어쓰기 */
-	.container {
-        width: 1190px;
-        margin: 0 auto;
-        letter-spacing: -.2px;
-        min-height:100%;
-		padding-bottom:100px;
-		border: 1px solid green;
-		margin-top: 100px;
-		padding: 100px 200px;
-		z-index: -1;
-    }
-    
-    .board-name {
+	
+	
+/* 	#basic-addon1 {
+		background-color: #f1aeae;
+        color: white;
+        outline: none;
+        
+        position: relative;
+		float: left;
+		left: 1060px;
+		top: 10px;
+	}
+	
+	.search {
+		margin: 20px auto;
+		width: 430px;
+		positioin: relative;
+		float: left;
+		top: -70px;
+		left: 390px;
+		
+	}
+	
+	.pagebar {
+		margin: 0px auto;
+		margin-bottom: 70px;
+		float: left;
+		text-align: center;
+		position : relative;
+		top: 20px;
+		left: 400px;
+	}
+	
+	.pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae;
+		border-color : #f1aeae;
+		color: white;
+	}
+	
+	.pagination>li>a {
+		color: #202020;
+	} */
+	
+	
+	#titlename {
+		color: #202020;
+	}
+	
+	.box1 {
+		padding-left: 50px;
+	   font-size: 16px;
+	   font-family: 'NanumBarunGothic';
+	}
+	
+	
+	
+	#maintitle {
+	   /* margin: 30px 7px; */
+	   font-size: 24px;
+	   font-family: 'MaplestoryOTFLight';
+	   padding:0 10px;
+	   border-left: 5px solid #f1aeae;
+   
+		text-align: left;	    
+	    float: left;
+	    
+	    margin-left: 100px;
+	    margin-top: 96px;
+	}
+	
+	
+	
+	
+	
+	
+	.search-textbox {
+            width: 100%;            
+            border: none;
+            outline: none;
+            box-shadow: none;
+            margin: 50px 0;
+            position: relative;
+            text-align: center;
+            
+            font-size: 14px;
+            color: #202020;
+        }
+        #search1 {
+            height: 40px;
+            width: 500px;
+            text-align: left;
+            padding-left: 20px;
+            border-radius: 30px;
+            outline: none;
+            border:solid 2px #F1AEAE;
+            
+            font-size: 14px;
+            color: #ccc;
+            
+            left: 30px;
+    		position: relative;
+        }
+        .btn-search {
+            font-size: 14px;
+            width: 90px;
+            height: 40px;
+            border-radius: 30px;
+            text-align: center;
+            padding: 13px 0;
+            cursor: pointer;
+            outline: none;
+            border: 0px;
+            background-color: #F1AEAE;
+            color: white;
+            
+            position: relative;
+            left: -60px;
+            top: 3px;
+        } 
+        
+        
+    /*     .search {
+        	margin: 20px auto;
+ 			width: 500px;
+			width: 100%;
+			positioin: relative;
+			float: left;
+			top: 50px;
+			left: 200px;
+			
+			
+			text-align: center;
+			outline: none;
+			
+			border-radius: 30px;
+			border: solid 2px #F1AEAE;
+        } */
+        
+        /* #search {
+        	border-radius: 30px;
+			border: solid 2px #F1AEAE;
+			height: 45px;
+			width: 500px;
+			
+			margin: 20px auto;
+        } */
+        
+        #basic-addon2 {
+			background-color: #f1aeae;
+	        color: white;
+	        outline: none;
+	        border-radius: 30px;
+			border: solid 2px #F1AEAE;
+			
+			position: relative;
+			left: -400px;
+			width: 90px;
+			height: 20px;
+			
+			z-index: 2;
+		}
+        
+        
+        
+        
+        .filter {
+            height: 33px;
+            width: 110px;
+            font-size: 14px;
+            text-align: center;
+            padding-left: 5px;
+            /* margin: 0px 3px; */
+            margin-right: 25px;
+            outline: none;
+            
+            float: left;
+            position: relative;
+            top: 4px;
+            
+        }
+        
+        .filtername {
+        	float: left;
+        	position: relative;
+        	margin-right: 8px;
+        	
+        	top: 10px;
+        }
+        .filterlist {
+            margin: 0px auto;
+            text-align: center;
+            
+            padding: 0 100px;
+           
+        }
+        .filterlist span {
+            font-size: 14px;
+            float: left;
+            position: relative;
+            height: 40px;
+        }
+        .option1 {
+            /* margin: 10px auto; */
+            font-size: 14px;
+            text-align: center;
+            /* padding-left: 148px; */
+            
+            position: relative;
+            /* left: -60px; */
+            float: left;
+            
+            margin: 0px auto;
+            margin-top: 10px; 
+            
+            
+            padding: 0 100px;
+        }
+        
+        .option1 label {
+        	margin-right: 30px;
+        	font-size: 14px;
+        	font-weight: normal;
+        }
+        
+        .optionbox {
+        	position: relative;
+        	float: left;
+        	top: 8px;
+        }
+        
+        .filter_type {
+        	margin-right: 20px;
+        	border: 0;
+        	background-color: #F1AEAE;
+        	border-radius: 30px;
+        	color: white;
+        	padding: 13px 10px;
+        	vertical-align: middle;
+        	
+        	font-size: 14px;
+            width: 90px;
+            height: 40px;
+            float: left;
+            position: relative;
+            
+        	
+        }
+        
+        /* .map {
+        	text-align: center;
+        	margin-top: 50px;
+        } */
+        
+        .temppicture {
+        	width: 100%;
+        	height: 600px; /*나중엔 오토로 바꾸기 */
+        	background-color: #ccc;
+        	float: left;
+        	margin: 30px auto;
+        	text-align: center;
+        	position: relative;
+        	/* left: 25px; */
+        }
+        
+        .section3 {
+			padding: 0 100px;
+   		}
+        
+        hr {
+        	margin-top: 20px;
+		    margin-bottom: 20px;
+		    border: 0;
+		    border-top: 1px solid #eee;
+		    height: 0;
+        }
+        
+        
+        /* 팀장님 소스 */
+        
+        .board-name {
     	border-left: 3px solid #f1acac;
     	width: 810px;
     	height: 32px;
     	padding-left: 20px;
     	font-size: 24px;
-    	font-family: 'MaplestoryOTFLight';
+    	font-family: 'NanumBarunGothic';
     	color: #202020;
     	margin-bottom: 20px;
     	
@@ -74,7 +354,7 @@
     	text-decoration: none;
     }
     
-    .matching-option > a:nth-child(1) {
+    .matching-option > a:nth-child(2) {
     	color: #f1acac;
     	display: inline;
     	border-bottom: 2px solid #f1acac;
@@ -137,12 +417,19 @@
    	.property-box {
    		border: 1px solid blue; */
 	    float: left;
-	    width: 900px;
+/* 	    width: 900px; */
+	    width: 100%;
 	    height: auto;
 	    margin-bottom: 50px;
 	    margin-left: 0px;
-	    padding-left: 0px;
-	    padding-top: 0px;
+	    /* padding-left: 0px;
+	    padding-top: 0px; */
+	    
+	    padding: 0 100px;
+	    position: relative;
+	    margin: 20px auto;
+	    
+	    
    	
    	}
    	
@@ -156,6 +443,8 @@
         background-size: cover;
         cursor: pointer;
      }
+   	
+   	
    	
    	
    	/* 헤더 */
@@ -184,7 +473,6 @@
 	   	margin-left: 5px;
    }
 	 	
-
    
    /* 검색, 페이지바 */
     
@@ -245,35 +533,129 @@
 	   	padding: 5px;
    
    }
-   	
-    
-
+   
+   .desc {
+   		display: block;
+   		margin-left: 100px;
+   		font-family: 'NanumBarunGothic';
+   		font-size: 16px;
+   }
+   
+   
+	
+	
 </style>
 
 
 </head>
 <body>
  
-<div class="boardwrap">
+
+<!-- <div class="wrap"> -->
+<div class="header-containerwrap">
  
  <!-- header -->
 <%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
  
      <div class="container">
-        <div class="boardcover">
+     
+     <div id="maintitle">방찾기</div>
+     <div style="clear:both;"></div>
+     
+     <hr>
+     <span class="desc">임대인이 올린 방리스트입니다.</span>
             
-		 
-		 
-		 <!--상단 게시판 타이틀 -->
-		 <div class="board-name">방찾기</div>
-		 	
-		 	<div class="matching-option">
-		 		<a href="search-lessor.do">임대인이 올린 매물</a>
-		 		<a href="search-contractor.do">중개인이 올린 매물</a>		 		 			
-		 	</div>
+            <!-- <div class="section1">    -->   
+        <form action="" id="form1">     
+                 
+            <div class="section2">
+            <div class="search-textbox">
+                <input type="text" placeholder="지역, 지하철역 검색" id="search1">
+                <input class="btn-search" type="submit" value="검색">
+            </div>
+            
+             <!-- <form id="searchForm" method="GET" action="">
+	     		<div class="input-group search">
+	     
+		         	<input type="text" class="form-control" placeholder="지역, 지하철역을 입력해주세요." aria-describedby="basic-addon2" id="search" name="search" required value="">
+		         
+		         	<span class="input-group-addon" id="basic-addon2" onclick="$('#searchForm').submit();"><span>검색</span></span> -->
+		         <!-- stype="cursor:pointer;" -->
+	     		</div>
+     		</form>
+     		<div style="clear:both;"></div>
+            
+            
+            <div class="filterlist">
+	            <div class="filter_type">필터 옵션</div>
+                <span class="filtername">매물유형</span>
+                <select name="roomtype" class="filter">
+                    <option>원룸</option>
+                    <option>투룸</option>
+                    <option>오피스텔</option>
+                </select>
+
+                <span class="filtername">거래유형</span>
+                <select name="propertytype" class="filter">
+                    <option>월세</option>
+                    <option>전세</option>
+                    <option>매매</option>
+                </select>
+
+                <span class="filtername">관리비</span>
+                <select name="maintenance" class="filter">
+                    <option>~5만원</option>
+                    <option>~10만원</option>
+                    <option>10만원 이상</option>
+                </select>
                 
-         <!-- 리스트 -->
-		 <div class="property-box">	
+                <span class="filtername">보증금</span>
+                <select name="maintenance" class="filter">
+                    <option>~500만원</option>
+                    <option>~1천만원</option>
+                    <option>~5천만원</option>
+                    <option>~1억원</option>
+                    <option>2.5억원 이상</option>
+                </select>
+                
+            </div>
+            <div style="clear:both;"></div>
+            
+
+            <div class="option1">
+            	<span class="filter_type">건물 옵션</span>
+            	<div class="optionbox">
+	                <input type="checkbox" name="건물옵션" id="op1">
+	                <label for="op1">주차가능</label>
+	                <input type="checkbox" name="건물옵션" id="op2">
+	                <label for="op2">반려동물</label>
+	                <input type="checkbox" name="건물옵션" id="op3">
+	                <label for="op3">베란다/발코니</label>
+	                <input type="checkbox" name="건물옵션" id="op4">
+	                <label for="op4">엘리베이터</label>
+                </div>
+				<div style="clear:both;"></div>
+            </div>
+            
+            
+            <div class = "section3">
+            	<div class = "map">
+            		<div class="temppicture"></div>
+             		<!-- <img src="/Myhome_project/Myhome/image/location.png" width="1190px"> -->
+            		<!-- <img src="\Myhome_project\WebContent\image\map_1.png" width="1190px"> -->
+            	</div>
+            </div>
+            <div style="clear:both;"></div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="property-box">		 	
 		 
 		 <!-- form -->
 		 <form action="POST">
@@ -404,10 +786,7 @@
 	       	</div>
 	       		
 	       		
-	    	<div id="search-box">		
-				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
-			</div>
+	    	
        	<!-- search-paging -->
        	</div>         
 
@@ -417,26 +796,28 @@
                 
         <!-- property-box -->
         </div>
-        
-        
-        
-        
-    
-             
-    <!-- container -->        
-	</div>  
-   
-    
-  
-   </div>
-           
-            
-</div>
+        <div style="clear:both;"></div>
+            	
 
+
+        </div>
+               
+       
+
+             <nav class="pagebar">
+                <ul class="pagination" id="page_bar">
+                    ${pagebar}
+                </ul>
+            </nav>
+            <div style="clear:both;"></div>
+
+        </div>
+
+      <!-- </div> -->
+      <!-- footer -->
+      <%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
  
-     <!-- footer -->
-<%@include file="/WEB-INF/views/inc/footer.jsp" %>
  
 </body>
 </html>
