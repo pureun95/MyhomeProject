@@ -220,7 +220,7 @@
 			
 			<div class="btns">		
 				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">삭제</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/membermanage-contractor.do';">목록</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome/admin/contractmanage.do';">목록</button>
 			</div>
 
 		</div>

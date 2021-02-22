@@ -375,9 +375,9 @@
        	</div>
        		
        		
-       		<!-- 계약하기 버튼 -->
+       		
        		<div class="btn-contract">
-       			<input type="button" class="btn btn-contract1" value="닫기">
+       			<input type="button" class="btn btn-contract1" value="닫기" onclick="location.href='/Myhome_project/Myhome/admin/contractmanage.do';">
        		</div>
        		
        	</form>
