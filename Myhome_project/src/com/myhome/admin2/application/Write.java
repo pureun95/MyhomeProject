@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/admin2/application/write.do")
 public class Write extends HttpServlet {
@@ -15,6 +16,8 @@ public class Write extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2application/write.jsp");
 		dispatcher.forward(req, resp);
 
