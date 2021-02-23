@@ -3,14 +3,14 @@
 	pageEncoding="UTF-8"%>
 <%
 	
-
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Myhome::내가쓴글보기</title>
 
-<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
+<!-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> -->
 
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
