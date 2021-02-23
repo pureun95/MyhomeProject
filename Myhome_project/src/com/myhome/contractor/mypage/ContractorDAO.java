@@ -8,6 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import com.myhome.DBUtil;
 
+/**
+ * 중개인 회원정보 목록, 수정, 탈퇴 DAO
+ * @author 박지현
+ */
 public class ContractorDAO {
 
 	private Connection conn;
@@ -57,17 +61,26 @@ public class ContractorDAO {
 				dto.setSeq(rs.getString("seq"));
 				dto.setId(rs.getString("id"));
 				dto.setAddress(rs.getString("address"));
-				//split으로 하기
-				dto.setBusinessNum1(rs.getString("companynumber"));
-				dto.setBusinessNum2(rs.getString("companynumber"));
-				dto.setBusinessNum3(rs.getString("companynumber"));
+				
+				//사업자번호
+				System.out.println(rs.getString("companynumber"));
+				String[] businessNum = rs.getString("companynumber").split("-");
+				dto.setBusinessNum(businessNum[0] + "-" + businessNum[1] + "-" + businessNum[2]);
+				
+				
+				//전화번호
+				System.out.println(rs.getString("tel"));
+				String[] tel = rs.getString("tel").split("-");
+				dto.setTel1(tel[0]);
+				dto.setTel2(tel[1]);
+				dto.setTel3(tel[2]);
+				
 				dto.setEmail(rs.getString("email"));
 				dto.setPassword(rs.getString("password"));
-				dto.setCompanyname(rs.getString("companyname"));
+				dto.setCompanyName(rs.getString("companyName"));
 				dto.setName(rs.getString("name"));
-				dto.setTel1(rs.getString("tel").substring(0, 3));
-				dto.setTel2(rs.getString("tel").substring(4, 8));
-				dto.setTel3(rs.getString("tel").substring(9, 13));
+				
+				
 
 				list.add(dto);				
 			}
@@ -75,17 +88,19 @@ public class ContractorDAO {
 			return list; 
 
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("list: " + e);
 		}
 
 		return null;
 	}
 
+	
+	//회원정보 수정
 	public int edit(ContractorDTO dto) {
 
 		try {
 
-			String sql = "update tblAllUser set password = ?, email=?, phoneNumber=?, address=? where seqAllUser = ?";
+			String sql = "update tblAllUser set password = ?, email = ?, phoneNumber = ?, address = ? where seqAllUser = ?";
 
 			pstat = conn.prepareStatement(sql);
 
@@ -97,7 +112,7 @@ public class ContractorDAO {
 
 
 			return pstat.executeUpdate();
-
+			
 
 		} catch (Exception e) {
 			System.out.println("EditContractorOk.edit()" + e);
