@@ -1,5 +1,9 @@
 package com.myhome.contractor.upload;
 
+/*
+ * 중개인 본인 매물 올리기 DTO
+ * 
+ * */
 public class UploadContractorDTO {
 	
 	//1. 방옵션

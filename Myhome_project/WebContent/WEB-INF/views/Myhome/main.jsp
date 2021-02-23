@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::당신이 찾는 모든방</title>
                                                  
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
