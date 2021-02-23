@@ -49,15 +49,22 @@
 
 
 	 #maintitle {
-	   /* border-bottom: 1px solid #ccc; */
+	   border-bottom: 1px solid #ccc;
 	   font-size: 24px;
 	   font-family: 'MaplestoryOTFLight';
-	   padding:0 10px;
-	   border-left: 5px solid #f1aeae;
+	   /* padding-right: 50px; */
+	   padding-bottom: 7px;
 	   position: relative;
 	   display: inline;
+	/*    left: 100px;
+	   top: 100px; */
 	   text-align:left;
+	
+		/* font-weight: bold; */
 		color: #202020;
+		
+		/* margin: 10px 7px; */
+		/* padding-left: 10px; */
 		top: 100px;
 		left: 100px;
 		
