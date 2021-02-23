@@ -47,7 +47,7 @@ public class CompanyDAO {
 			String sql = "select * from (select a.*, rownum as rnum from (select * from " + table + ""
 					+ " where location like '%" + location + "%') a) where rnum between ? and ?";
 			
-			System.out.println(sql);
+			//System.out.println(sql);
 			
 			pstat = conn.prepareStatement(sql);
 
@@ -114,5 +114,5 @@ public class CompanyDAO {
 		
 		return 0;
 	}
-
 }
+

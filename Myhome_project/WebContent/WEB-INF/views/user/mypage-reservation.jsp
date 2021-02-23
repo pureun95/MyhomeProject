@@ -165,7 +165,7 @@ label {
 							<table class="tbl" id="tbl1">
 								<c:forEach var="dto" items="${dto }" varStatus="status">
 									<tr>
-										<td><img src="${dto.imagePath }" style="width: 200px;"></td>
+										<td><img src='${dto.imagePath }' style="width: 200px;"></td>
 										<td>
 											<div class="info" style="border: 1px solid green;">
 												<div style="font-weight: bold">${dto.name }</div>
