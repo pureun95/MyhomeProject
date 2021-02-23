@@ -10,32 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/admin/board/addpolicyok.do")
-public class AddPolicyOk extends HttpServlet {
-
+@WebServlet("/admin/board/editpolicyok.do")
+public class EditPolicyOk extends HttpServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
-		//1. 데이터 가져오기 (subject, content)
-		//2. DB작업 > insert
-		//3. 결과 처리
+		//1. 데이터 가져오기 (seq, title, content)
+		//2. DB작업 -> update
+		//3. 결과 처리 -> 알림
 		
 		HttpSession session = req.getSession();
-		
-		
 		
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
+		String seq = req.getParameter("seq"); //수정할 글번호
 		
-		//로그인한 관리자번호
-		String seqadmin = (String)session.getAttribute("seqadmin");
-		
-	
 		
 		//2.
 		PolicyDAO dao = new PolicyDAO();
@@ -43,16 +36,18 @@ public class AddPolicyOk extends HttpServlet {
 		
 		dto.setTitle(title);
 		dto.setContent(content);
-		dto.setSeqadmin(seqadmin);
+		dto.setSeq(seq);
 		
-		int result = dao.addpolicy(dto);
+		int result = dao.editpolicy(dto); //수정하기
 		
 		if (result == 1) {
-			//글쓰기 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/admin/board/listpolicy.do");
+	
+			//글수정 성공 -> 글보기로 이동 (view.do)
+			
+			resp.sendRedirect("/admin/board/viewpolicy.do?seq=" + seq);
 			
 		} else {
-			//글쓰기 실패 -> 경고 + 뒤로가기
+			//글수정 실패 -> 경고 + 뒤로가기
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
@@ -65,14 +60,7 @@ public class AddPolicyOk extends HttpServlet {
 			writer.close();
 		}
 		
-		
 
 	}
 
 }
-
-
-
-
-
-

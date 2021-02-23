@@ -108,8 +108,9 @@ style>body, html {
 				<div class="section1">
 					<div id="title">관리자게시판</div>
 					<div class="section2">
+					
 						<div class="menu"
-							onclick="location.href='/Myhome_project/admin2/application/list.do';">
+							onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-user"></span>
@@ -118,7 +119,7 @@ style>body, html {
 							<div class="explain">회원정보수정+거래정보관리</div>
 						</div>
 
-						<div class="menu" onclick="location.href=' ';">
+						<div class="menu" onclick="location.href='/Myhome_project/admin/moveclean/listmove.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-bookmark"></span>
@@ -129,7 +130,7 @@ style>body, html {
 						</div>
 
 						<div class="menu"
-							onclick="location.href=' ';">
+							onclick="location.href='/Myhome_project/admin/chart/listchart.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-pencil"></span>
@@ -160,7 +161,7 @@ style>body, html {
 						</div>
 
 						<div class="menu"
-							onclick="location.href='/Myhome_project/admin2/application/list.do';">
+							onclick="location.href='/Myhome_project/admin/board/listpolicy.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-list-alt"></span>

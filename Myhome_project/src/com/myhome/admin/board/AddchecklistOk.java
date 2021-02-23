@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/admin/board/addpolicyok.do")
-public class AddPolicyOk extends HttpServlet {
+@WebServlet("/admin/board/addchecklistok.do")
+public class AddchecklistOk extends HttpServlet {
 
 
 	@Override
@@ -38,18 +38,18 @@ public class AddPolicyOk extends HttpServlet {
 	
 		
 		//2.
-		PolicyDAO dao = new PolicyDAO();
-		PolicyDTO dto = new PolicyDTO();
+		ChecklistDAO dao = new ChecklistDAO();
+		ChecklistDTO dto = new ChecklistDTO();
 		
 		dto.setTitle(title);
 		dto.setContent(content);
 		dto.setSeqadmin(seqadmin);
 		
-		int result = dao.addpolicy(dto);
+		int result = dao.addchecklist(dto);
 		
 		if (result == 1) {
 			//글쓰기 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/admin/board/listpolicy.do");
+			resp.sendRedirect("/admin/board/listchecklist.do");
 			
 		} else {
 			//글쓰기 실패 -> 경고 + 뒤로가기

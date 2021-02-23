@@ -181,7 +181,9 @@
 		display: inline;
 	}
 
-
+	#menu1{
+		color : #f1aeae;
+	}
 
 
 
@@ -201,7 +203,7 @@
 			<div id="title">회원 정보 관리</div>
 
 			<div id="member">
-				<input type="button" id="user" value="일반회원" onclick="location.href='/Myhome_project/Myhome/admin/membermanage-user.do';">
+				<input type="button" id="user" value="일반회원" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
 				<span class="bar"> ┃ </span> 
 				<input type="button" id="contractor" value="중개인">
 			</div>

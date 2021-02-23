@@ -131,14 +131,14 @@
 			</div>
 			        
             <div class="btns">
-                    <button type="button" class="btn" onclick="">
+                    <button type="submit" class="btn">
                         등록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listpolicy.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';">
                         취소
                     </button>
               </div>
-            
+           </form> 
 			
 
 	</div>
