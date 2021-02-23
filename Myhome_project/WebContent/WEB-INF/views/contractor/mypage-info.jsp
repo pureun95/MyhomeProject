@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
 <link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 
 
 
@@ -162,8 +163,8 @@
    		padding: 10px;
    }
    
-   #search-text {
-   		width: 300px;
+   .search-text {
+   		width: 300px !important;
    		outline: 0;
    		display: inline;
    
@@ -283,12 +284,52 @@
     	color: #f1acac;
     }
     
+    
+    /* alert 창 */
+    
+    .boardalert{
+		width:940px;
+		position: relative;
+  		bottom: 200px;
+  		opacity: 0;
+	}
+	
+	.boardalert-ani {
+		position: relative;
+  		bottom: 200px;
+		opacity: .7;
+	}
+	
+	.alert-danger{
+		display:block;	
+    	text-align:center;
+    	width:800px;
+	}
+	
+	  @keyframes key2 {
+             0% {
+                 opacity: .5;
+             }      
+             25% {
+                 opacity: .7;
+             }
+             50% {
+                 opacity: 1;
+             }
+             75% {
+                opacity: .5;
+             }
+             100% {
+                 opacity: 0;
+             }
+        }
+    
 </style>
 
 
 </head>
 <body>
- 
+
 <div class="boardwrap">
  
  <!-- header -->
@@ -311,26 +352,26 @@
         
         	<c:forEach items="${list}" var="dto">
 		       <span>아이디</span>
-		       <input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.id}" name="id"> 
+		       <input type="text" class="form-control form-weight readonly" id="id" readonly placeholder="${dto.id}" name="id"> 
 				
 				<span>이름</span> 			
-				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.name}" name="name">
+				<input type="text" class="form-control form-weight readonly" id="name" readonly placeholder="${dto.name}" name="name">
 				
 				<span>공인중개소명</span> 			
-				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.companyname}" name="companyname">
+				<input type="text" class="form-control form-weight readonly" id="companyName" readonly placeholder="${dto.companyName}" name="companyName">
 				
 				<span>사업자번호</span> 			
-				<input type="text" class="form-control form-weight readonly" id="" readonly placeholder="${dto.businessnum}" name="businessnum">		
+				<input type="text" class="form-control form-weight readonly" id="businessNum" readonly placeholder="${dto.businessNum}" name="businessNum">		
 				
 				<span>비밀번호</span> 
-		       	<input type="password" class="form-control form-weight" id="" name="password" ${dto.password}>
+		       	<input type="password" class="form-control form-weight" id="password" name="password" ${dto.password}>
 				
 				<!-- 비밀번호 확인 제약 스크립트 만들기 -->
 				<span>비밀번호확인</span>
-				<input type="password" class="form-control form-weight" id="search-text" name="repassword">
+				<input type="password" class="form-control form-weight search-text" id="repassword" name="repassword">
 				
 				<span>주소</span>
-				<input type="text" class="form-control" id="search-text" placeholder="${dto.address}" name="address">
+				<input type="text" class="form-control search-text" id="address" placeholder="${dto.address}" name="address">
 				
 				<span>전화번호</span> 
 				<input type="text" class="form-control tel" id="tel1" maxlength=3 name="tel1" placeholder="${dto.tel1}">-
@@ -338,23 +379,39 @@
 				<input type="text" class="form-control tel" id="tel3" maxlength=4 name="tel3" placeholder="${dto.tel3}">
 				
 				<span>이메일</span>
-				<input type="text" class="form-control" id="search-text" name="email" placeholder="${dto.email}">
-			</c:forEach>
-			
-			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-edit" value="수정하기">
+				<input type="text" class="form-control search-text" name="email" placeholder="${dto.email}">
+		
+			<input type="submit" class="btn btn-outline-secondary btn-toggle" type="button" id="btn-edit" value="수정하기">
 			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-out" value="회원탈퇴">
        		
        		<!-- 회원번호 -->
-       		<!-- <input type="hidden" name="seq" value="81"> -->
+       		<input type="hidden" name="seq" value="${dto.seq}">
        		
+       		</c:forEach>
        	</div>
        		
        	</form>
+       	
        
-        
+       
+       <div class="boardalert">				
+		<div class="alert alert-danger" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">경고!</span>
+			수정되었습니다.
+		</div>
+		</div>	 
        
 		
-        
+<script>
+
+	/* 수정하기 버튼 클릭 시 팝업 */
+	/* 폼태그 때문인지 자꾸 사라짐 */
+	$("#btn-edit").click(function() {
+		$(".boardalert").addClass("boardalert-ani");
+	});
+	
+</script>        
         
     
          
