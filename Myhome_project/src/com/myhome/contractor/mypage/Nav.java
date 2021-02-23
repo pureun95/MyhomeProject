@@ -19,5 +19,6 @@ public class Nav extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/nav.jsp");
 		dispatcher.forward(request, response);
 		
+		//중개인은 중고장터, 커뮤니티 접근권한이 없음
 	}
 }

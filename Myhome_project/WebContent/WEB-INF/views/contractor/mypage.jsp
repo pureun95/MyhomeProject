@@ -286,7 +286,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/contractor/header.jsp" %>
  
      <div class="container">
      
@@ -302,7 +302,7 @@
         	<div class="start">
         		
         		<div class="mypage-title">마이페이지</div>
-	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/myproperty.do';">
+	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/mypage-myproperty.do';">
 	       				<div class="icon glyphicon glyphicon-upload" id="icon1"></div>
 	       				<div class="desc">올린매물관리</div>
 	       				<div class="desc2">내가 올린 매물을 확인할 수 있어요.</div>

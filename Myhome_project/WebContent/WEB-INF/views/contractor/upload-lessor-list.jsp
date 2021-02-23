@@ -320,7 +320,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/contractor/header.jsp" %>
  
  <!-- 임대인과 매칭된 매물 리스트만 보여주기 + 체크박스 > 방올리기 페이지 이동 -->
  
