@@ -123,9 +123,10 @@
 		
 		<div id ="subtitle">부동산 정책 게시판 등록</div>
 		
+		<form method="POST" action="/Myhome/admin/listpolicyok.do" enctype="multipart/form-data">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="부동산 정책 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="부동산 정책 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="부동산 정책 제목입니다." required> 
+	            <textarea class="form-control" name="content" id="content" placeholder="부동산 정책 내용입니다." required></textarea>
 				<input type="file"  id="file">
 			</div>
 			        
