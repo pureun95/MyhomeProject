@@ -28,6 +28,7 @@ public class BoardCommunityEditOk extends HttpServlet {
 //		String seqCommunity = req.getParameter("seqCommunity");
 		String seqCommunity = req.getParameter("seqCommunity");
 		
+		
 		String seqAllUser = String.valueOf(session.getAttribute("seqAllUser"));
 		
 		
