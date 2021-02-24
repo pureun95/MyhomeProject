@@ -11,6 +11,7 @@
 <title>Myhome::올린매물관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
@@ -34,6 +35,22 @@
 		margin-top: 100px;
 		z-index: -1;
     }
+    
+    
+     /* css 붙여넣기 */
+     .property-list {
+    	border-bottom: 1px solid rgb(185, 183, 183);
+    	width: 830px;
+    	height: 240px;
+    	padding: 30px 0px;
+    	font-family: 'NanumBarunGothic';
+    	color: #424242;
+	}
+	
+	.property-list2 {
+		margin-left: 40px;
+	}
+    
     
     /* 게시판 이름 */
     
@@ -61,6 +78,7 @@
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
+    	margin-top: 20px;
     }
     
     .paging {
@@ -88,6 +106,17 @@
    		outline: none !important;
    		font-family: 'NanumBarunGothic';
    	} 
+   	
+   	.btn:hover {
+   		color: white; 
+   	}
+   	
+   	.btn-contract {
+   		position: relative;
+	    top: 0px;
+	    left: 700px;
+	    margin-top: 20px;
+   	}
     
     #search-box {
    		/* border: 1px solid black; */
@@ -104,7 +133,26 @@
    		margin-right: 10px;
    
    }
-    
+   
+   
+    /* 매물리스트 체크박스 */
+   
+   .checkbox {
+   		/* border: 1px solid black; */
+   		float: left;
+   		width: 16px;
+   		height: 16px;
+   		margin-top: 0px;
+   		margin-right: 10px;
+   	
+   }
+   
+   #ck {
+   		margin-left: 0px;
+   		width: 16px;
+   		height: 16px;
+   		margin-top: 0px;
+   }
 
     
     
@@ -119,7 +167,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/contractor/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -129,40 +177,76 @@
 		 <!-- 리스트 -->
 		 <div class="property-box">
 		 	<div class="board-name">올린매물관리</div>
-		 
+		 		
+		 		<c:forEach items="${list }" var="dto">
                 <div class="property-list">
-                    <div class="img-property"><div class="state">입주가능</div></div>
+                
+                	<!-- 전자계약 체크박스 -->
+                	<div class="checkbox"><input type="checkbox" id="ck"></div>    		     
+                    
+                    <div class="img-property">
+                    
+	                    <!-- available 0: 입주가능 1: 계약완료 -->
+	                    <c:if test="${dto.available == 0 }">
+	                    <div class="state">입주가능</div>             
+	                    </c:if>
+	                     
+	                    <c:if test="${dto.available == 1 }">
+	                    <div class="state">계약완료</div>             
+	                    </c:if>
+                    
+                    </div>
+                    
                     <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
+                        <div class="property-num">${dto.seqProperty }</div>
+                        <div class="property-title">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
-                            <div class="property-content2">원룸</div>
+                            <div class="property-content2">${dto.roomType }</div>
                         </div>
                         
                         <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
+                            <span></span>
+                            <div class="property-content2">${dto.floor }</div>
                         </div>
                         
                         <div class="property-content" id="contract">
                             <span>계약유형</span>
-                            <div class="property-content2">월세</div>
+                            <div class="property-content2">${dto.contractType }</div>
                         </div>
                         
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
+                        <c:if test="${dto.contractType eq '월세'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.monthlyPay }월(${dto.period })</div>
+	                        </div>
+                        </c:if>
+                        
+                        <c:if test="${dto.contractType eq '전세'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.deposit }</div>
+	                        </div>
+                        </c:if>
+                        
+                         <c:if test="${dto.contractType eq '매매'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.dealing }</div>
+	                        </div>
+                        </c:if>
+                        
                         
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
+                            <div class="location-detail">${dto.location }</div>
                         </div>
                         
                     </div>
                 </div>
-                
+                </c:forEach>
+                                          
+                <input type="submit" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
                 
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
@@ -190,6 +274,7 @@
 			</div>
        	<!-- search-paging -->
        	</div>         
+              
                 
         <!-- property-box -->
         </div>

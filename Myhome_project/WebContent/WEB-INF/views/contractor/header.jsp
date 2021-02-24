@@ -26,7 +26,7 @@
             <div class="header-img" onclick="location.href='/Myhome_project/Myhome/main.do';"></div>
                 <ul class="header-ul2 header-ul3">
                     <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/search-contractor.do';">방찾기</li>             
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/upload-proprety.do';">방올리기</li>
+                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/upload-main.do';">방올리기</li>
                     <li class="header-li li-list">게시판</li>
                     <li class="header-li li-list">중고장터</li>
                     <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/mypage.do';">마이페이지</li>

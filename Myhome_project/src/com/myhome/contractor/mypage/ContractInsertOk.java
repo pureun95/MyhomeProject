@@ -11,27 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/contractor/mypage-contract-view.do")
-public class MypageContractView extends HttpServlet{
+/**
+ * 
+ * @author 박지현
+ * 전자계약 암호 입력 완료되는 페이지
+ *
+ */
+
+
+@WebServlet("/contractor/mypage-contract-insertok.do")
+public class ContractInsertOk extends HttpServlet{
 
 	
-	//http://localhost:8090/Myhome_project/contractor/mypage-contract-view.do
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+
 		//1. 전자계약 정보
-			//ContractDAO dao = new ContractDAO();
+		ContractDAO dao = new ContractDAO();
 						
 		//2. session 받기
-			//HttpSession session = req.getSession();
-				
+		HttpSession session = req.getSession();
+						
 		//3. 중개인 seq 쿼리에 보내기
-			//ArrayList<ContractDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
+		ArrayList<ContractDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
 						
 		//4. 전자계약 정보 보내기
-			//req.setAttribute("list", list);
-				
-				
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract-view.jsp");
+		req.setAttribute("list", list);
+		
+
+		//http://localhost:8090/Myhome_project/contractor/mypage-contractok.do
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract-insertok.jsp");
 		dispatcher.forward(req, resp);
 		
 	}
