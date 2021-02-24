@@ -2,8 +2,8 @@ package com.myhome.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,52 +11,61 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/user/boarduseddelete.do")
-public class BoardUsedDelete extends HttpServlet {
-
+@WebServlet("/user/removeuserok.do")
+public class RemoveUserOk extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		//1. 받아온 게시글번호 확인, 회원번호
-		//2. DB작업. 글 지우기 
-		//3. 글지운결과 1, 0 전송.. 1 : 성공 , 0 : 실패
+		
+		req.setCharacterEncoding("UTF-8");
+		//1. 탈퇴하는 회원번호 받아오기
+		//2. DB작업 -> update
+		//3. 결과 반환..
 		
 		//1.
-		int seqUsed = Integer.parseInt(req.getParameter("seq").toString());
-		
 		HttpSession session = req.getSession();
-		int seqUser = Integer.parseInt(session.getAttribute("seqAllUser").toString());
+		
+		//탈퇴하는 회원번호 seq에 저장
+		int seq = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 		
 		//2.
-		BoardUsedDAO dao = new BoardUsedDAO();
-		
-		int result = dao.deleteUsed(seqUsed, seqUser);
-		
-		if (result==1) {
-
-			PrintWriter writer = resp.getWriter();
-			
-			writer.print("<html><body>");
-			writer.print("<script>");
-			writer.print("alert('delete Success');");
-			writer.print(String.format("location.href='/Myhome_project/user/boardusedlist.do'"));
-			writer.print("</script>");
-			writer.print("</body></html>");
-			
-		} else {
-
-			PrintWriter writer = resp.getWriter();
-			
-			writer.print("<html><body>");
-			writer.print("<script>");
-			writer.print("alert('delete Failed');");
-			writer.print(String.format("location.href='/Myhome_project/user/boardusedlist.do'"));
-			writer.print("</script>");
-			writer.print("</body></html>");
-			
+		UserDAO dao = new UserDAO();
+		int result=0;
+		try {
+			result = dao.removeUser(seq);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
-
+		if (result==1) {
+			PrintWriter writer = resp.getWriter();
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('success.');");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+			
+			resp.sendRedirect("/Myhome_project/member/logout.do");
+			
+		} else {
+			PrintWriter writer = resp.getWriter();
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('failed.');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+		}
+		
+		
 	}
-
+	
 }
