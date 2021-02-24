@@ -1,6 +1,6 @@
 package com.myhome.admin.moveclean;
 
-public class CleanDTO {
+public class MoveDTO {
 	
 	private String seq;
 	private String location;
