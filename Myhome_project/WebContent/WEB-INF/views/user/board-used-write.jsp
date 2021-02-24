@@ -221,7 +221,7 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/inc/header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
 		<div class="container">
 
