@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%
 
 
@@ -8,20 +9,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Myhome::커뮤니티</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="/Myhome_project/css/boarduserver.css"> -->
 
 
-<!-- 부트스트랩 사용가능한 템플릿 -->
+<!-- board-community-view.jsp -->
 
 <style>
-
-	 
-
+	
 	.boardwrap{
 	    height: auto;
 	    min-height: 100%;
@@ -116,15 +114,10 @@
 	    height: auto;
 	    min-height: 100%;
 	}
-	
-
-	
 </style>
-
-
 </head>
 <body>
- 
+	
 <div class="boardwrap">
  
  <!-- header -->
@@ -140,17 +133,17 @@
 				<div id="maintitle">커뮤니티</div>
 				
 				
-				<form method="POST" action="/Myhome_project/Myhome/user/boardcommunitylwriteok.do">
+				<form method="POST" action="/Myhome_project/Myhome/user/boardcommunityeditok.do">
                 <div id="box1">
                 <table class="table write">
                     <tr>
                         <td>
-                            <input type="text" class="form-control" placeholder="제목" id="title" name="title" required>
+                            <input type="text" class="form-control" placeholder="제목" id="title" name="title" required value="${dto.title}">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="content" placeholder="내용" name="content" required></textarea>
+                            <textarea class="form-control" id="content" placeholder="내용" name="content" required>${dto.content}</textarea>
                         </td>
                     </tr>                   
                 </table>
@@ -161,13 +154,16 @@
 
                 <div class="btns">
                     <button type="submit" class="btn" id="btn1">글쓰기</button>
-                    <button type="button" class="btn" id="btn1" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">뒤로가기</button>
+                    <button type="button" class="btn" id="btn2" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">뒤로가기</button>
                 </div>
+                
+				<input type="hidden" name="seqCommunity" value="${dto.seqCommunity}">
+                
                 </form>
                 <div style="clear:both;"></div>
                 
          </div>
-	
+		
        
    </div>
 
@@ -176,6 +172,6 @@
 </div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
- 
+	
 </body>
 </html>
