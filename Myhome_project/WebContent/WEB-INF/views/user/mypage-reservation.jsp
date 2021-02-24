@@ -141,14 +141,40 @@ label {
 						선택 > 지역 입력 > 검색하기 클릭.
 					</div>
 					<div style="text-align: right; margin: 19px;">
-						<form method="get"
-							action="/Myhome_project/user/mypagereservation.do">
-							<input type="radio" name="sel1" id="rdmove" value="move" checked><label
-								for="btnmove">이사</label> <input type="radio" name="sel1"
-								id="rdclean" value="clean"><label for="btnclean">청소</label>
-							<input type="text" name="location"
-								placeholder="지역(구)을 입력하세요. ex) 강남구 " style="width: 300px;">
-							<button type="submit" class="btn btn-success" id="btnsearch">검색하기</button>
+						<form method="get" action="/Myhome_project/user/mypagereservation.do">
+						<c:set var="sel1" value='${sel1 }' />
+							<c:choose>
+								<c:when test=" ${sel1 == 'move' }">
+									<input type="radio" name="sel1" id="rdmove" class="sel1" value="move" checked="checked">
+									<label for="btnmove">이사</label>
+									<input type="radio" name="sel1" id="rdclean" class="sel1" value="clean">
+									<label for="btnclean">청소</label>
+								</c:when>
+								<c:when test="${sel1 == 'clean' }">
+									<input type="radio" name="sel1" id="rdmove" class="sel1" value="move" >
+									<label for="btnmove">이사</label>
+									<input type="radio" name="sel1" id="rdclean" class="sel1" value="clean" checked="checked">
+									<label for="btnclean">청소</label>
+								</c:when>
+								<c:otherwise>
+									<input type="radio" name="sel1" id="rdmove" class="sel1" value="move" checked="checked" >
+									<label for="btnmove">이사</label>
+									<input type="radio" name="sel1" id="rdclean" class="sel1" value="clean">
+									<label for="btnclean">청소</label>
+								</c:otherwise>
+							
+							</c:choose>
+							<c:set var="location" value='${location }' />
+								<c:choose>
+									<c:when test=" ${empty location }" >
+										<input type="text" name="location" placeholder="지역(구)을 입력하세요. ex) 강남구 " style="width: 300px;" value="">
+										<button type="submit" class="btn btn-success" id="btnsearch">검색하기</button>
+									</c:when>
+									<c:otherwise>
+										<input type="text" name="location" placeholder="지역(구)을 입력하세요. ex) 강남구 " style="width: 300px;" value=" ${location }">
+										<button type="submit" class="btn btn-success" id="btnsearch">검색하기</button>
+									</c:otherwise>
+								</c:choose>
 						</form>
 					</div>
 
@@ -164,7 +190,7 @@ label {
 						<div class="box" id="boxmove">
 							<table class="tbl" id="tbl1">
 								<c:forEach var="dto" items="${dto }" varStatus="status">
-									<tr>
+									<tr id="${dto.seq}" value="${dto.seq}">
 										<td><img src='${dto.imagePath }' style="width: 200px;"></td>
 										<td>
 											<div class="info" style="border: 1px solid green;">
@@ -194,30 +220,23 @@ label {
 	</div>
 
 	<script>
-		var tbl1 = document.getElementById("tbl1");
-		var boxclean = document.getElementById("boxclean");
-
-		var rdmove = document.getElementById("rdmove");
-		var rdclean = document.getElementById("rdclean");
-
+	
 		var company = document.getElementsByTagName("tr")
-
+		var sel1;
+		var seq;
+		
 		for (var i = 0; i < company.length; i++) {
 			company[i].onclick = function() {
-				location.href = '/Myhome_project/user/cleanmovedetail.do';
+				
+				sel1 = $("input[name='sel1']:checked").val();
+				seq = $(this).attr("value")
+				
+				
+				//console.log(sel1 + " " + seq)
+				location.href = '/Myhome_project/user/cleanmovedetail.do?sel1='+sel1+'&seq='+seq;
 			}
 		}
 
-		/* 		rdmove.onclick = function () {
-		 tbl1.style.visibility = 'visible';
-		 boxclean.style.visibility = 'hidden';
-		 }
-		
-		 rdclean.onclick = function () {
-		 tbl1.style.visibility = 'hidden';
-		 boxclean.style.visibility = 'visible';
-		 }
-		 */
 	</script>
 </body>
 </html>

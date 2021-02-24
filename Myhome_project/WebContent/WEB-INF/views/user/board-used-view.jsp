@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::정보공유커뮤니티</title>
+<title>Myhome::중고장터</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -221,7 +221,7 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 		<div class="container">
 
@@ -246,52 +246,24 @@ body, html {
 									<!--  ?는 데이터 직접 넣기  -->
 									<tr class="headtr">
 										<th class=" boardtd">제목</th>
-										<td class=" boardtd" colspan="3" style="text-align:left;">
-										<!-- <input type="text" placeholder="제목을 입력해주세요" id="usedtitle"> -->
-										중고장터 test제목입니다.
-										</td>
+										<td class=" boardtd" colspan="3" style="text-align:left;">${dto.title}</td>
 									</tr>
 									<tr class="headtr">
 										<th class="boardtd">판매자</th>
-										<td class="boardtd"> 이름</td>
+										<td class="boardtd">${dto.name}</td>
 										<th class="boardtd">거래방법</th>
-										<td class="boardtd">
-										<!-- <select name="selcate" id="selcate">
-												<option value="dil">택배</option>
-												<option value="meet">직거래</option>
-										</select> -->
-										택배
-										</td>
+										<td class="boardtd">${dto.tradeMode}</td>
 									</tr>
 									<tr class="headtr">
 										<th class=" boardtd">카테고리</th>
-										<td class="boardtd">
-										<!-- <select name="selcate"
-											id="selusedcate">
-												<option value="furniture">가구</option>
-												<option value="beauty">뷰티</option>
-												<option value="shoes">신발</option>
-												<option value="cloth">의류</option>
-												<option value="digit">디지털/가전</option>
-												<option value="daily">생활용품</option>
-												<option value="sport">스포츠</option>
-												<option value="food">식품</option>
-												<option value="book">도서</option>
-												<option value="endso">기타</option>
-										</select> -->
-										가구
-										</td>
+										<td class="boardtd">${dto.category}</td>
 										<th class=" boardtd">금액</th>
-										<td class=" boardtd">
-											<!-- <input type="number" step="100" name="price"
-											id="price"> -->50000원
-										</td>
+										<td class=" boardtd">${dto.price}원</td>
 									</tr>
 
 									<tr class="boardtr">
-										<td class=" boardtd" colspan="4"><textarea
-												class="form-control col-sm-5 boardtext"
-												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>중고장터 본문 내용 테스트입니다.</textarea>
+										<td class=" boardtd" colspan="4">
+											<textarea class="form-control col-sm-5 boardtext" rows="15" disabled>${dto.content}</textarea>
 										</td>
 
 									</tr>
@@ -303,12 +275,22 @@ body, html {
 								<button id="usedlist"
 									onclick="history.back();">
 									목록보기</button>
-								<button id="likebtn"
-									onclick="alert('찜목록 추가 완료')">
-									찜하기</button>
-								<!-- <button id="communitydel"
-									onclick="location.href='/Myhome-project/admin2/community/delete.do';">
-									삭제</button> -->
+									
+								<!-- 본인이 작성한 글이 아닐때만 찜버튼 보여줌 / 찜 등록 전-->
+								<c:if test="${seqAllUser!=dto.seqUser && result==0}">
+									<button id="likebtn">찜하기</button>
+								</c:if>
+								<!-- 본인이 작성한 글이 아닐때만 찜버튼 보여줌 / 찜 등록 후-->
+								<c:if test="${seqAllUser!=dto.seqUser && result!=0}">
+									<button id="likebtn">찜삭제</button>
+								</c:if>
+								
+								
+								<!-- 본인이 작성한 글에서만 삭제버튼 보여줌 -->
+								<c:if test="${seqAllUser==dto.seqUser}">
+								<button id="communitydel">삭제</button>
+								</c:if>
+								
 								<!-- <button id="checkerr"
 									onclick="location.href='/Myhome-project/admin2/community/check.do';">
 									검열</button> -->
@@ -318,17 +300,38 @@ body, html {
 							<div class="myhomecomment">
 								<!-- 여기 행을 움직이자-->
 								<div class="MyhomeCommentRow">
+									<c:if test="${clist.size()==0}">
+											<div class="commentinfo">
+												<input type="text" id="commentname" readonly value="">
+												<textarea name="" id="" cols="40" rows="2" readonly >댓글이 없습니다.</textarea>
+											</div>
+									</c:if>
+									<c:forEach items="${clist}" var="cdto" varStatus="status">
+									<form method="POST" id="form${status.index+1}" action="/Myhome_project/user/usedcommentdelete.do">
 									<div class="commentinfo">
-										<input type="text" id="commentname" value="닉네임하하">
-										<textarea name="" id="" cols="40" rows="2">까지등록할수할수까몇글자까지등록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지등까지등록</textarea>
+										<input type="text" id="commentname" readonly value="${cdto.nickname}">
+										<textarea name="" id="" cols="40" rows="2" readonly >${cdto.content}</textarea>
 										<div class="subinfo">
-											<span class="commentdate">2020-12-12</span>
-											<button>삭제</button>
+											<span class="commentdate">${cdto.writeDate}</span>
+											<input type="hidden" id="ucseqhidden" name="ucseqhidden" value="${cdto.seqUsedComment}" >
+											<input type="hidden" id="ucseqhidden2" name="ucseqhidden2" value="${seqUsed}" >
+											<c:if test="${cdto.seqUser==seqAllUser||seqAllUser==dto.seqUser}">
+												<button type="submit">삭제</button>
+											</c:if>
+											
 										</div>
 
 									</div>
-
+									</form>
+									</c:forEach>
 								</div>
+								<form method="POST" id="cform" action="/Myhome_project/user/usedcommentwrite.do">
+								<div id="commentwrite">
+									<input type="text" class="form-control" id="commenttxt" name="commenttxt" placeholder="댓글 본문을 입력하세요." style="width: 600px;" required>
+									<input type="hidden" id="hiddenseq" name="hiddenseq" value="${dto.seqUsed}">
+									<button type="submit">작성하기</button>
+								</div>
+								</form>
 							</div> <!-- 첨부파일  
 							<div class="boardfile">
 							  <input type="file" class="form-control " id="inputGroupFile02" disabled>
@@ -355,7 +358,14 @@ body, html {
 
 
 	<script>
+	$("#communitydel").click(function () {
+		location.href="/Myhome_project/user/boarduseddelete.do?seq="+${dto.seqUsed}
 		
+	});
+	$("#likebtn").click(function () {
+		location.href="/Myhome_project/user/boardusedinsertlike.do?seq="+${dto.seqUsed};
+		
+	});
 	</script>
 
 

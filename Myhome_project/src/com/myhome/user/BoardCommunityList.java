@@ -84,15 +84,19 @@ public class BoardCommunityList extends HttpServlet {
 		BoardCommunityDAO dao = new BoardCommunityDAO();
 		ArrayList<BoardCommunityDTO> list = dao.list(map);
 		
+		//System.out.println(list.size());
+		
 		//1.5
 		for (BoardCommunityDTO dto : list) {
 			//날짜에서 년월일만 잘라내기
 			dto.setWriteDate(dto.getWriteDate().substring(0,10));
 			
 			//제목이 너무 긴 경우 자르기 30자로?
-			if (dto.getTitle().length() > 30) {
+			if (dto.getTitle().length() > 30) { 
 				dto.setTitle(dto.getTitle().substring(0,30) + "...");
 			}
+			
+			dto.setTitle(dto.getTitle());
 		}
 		
 		totalCount = dao.getTotalCount(map);

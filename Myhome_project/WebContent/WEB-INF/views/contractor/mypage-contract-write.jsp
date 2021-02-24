@@ -212,15 +212,17 @@
 			
 			<!-- 계약서 세부정보 -->
 	        
-			<table id="adcontracttbl" class="table table-condensed">		
+			<table id="adcontracttbl" class="table table-condensed">	
+				
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">계약번호</th>
-					<td class="adcontacttd" colspan="2">전송 전까지 빈칸</td>
+					<td class="adcontacttd" colspan="2"></td>
 					<th class="adcontacttd">계약일자</th>
-					<td class="adcontacttd" colspan="3">계약확정되면 sysdate</td>
+					<td class="adcontacttd" colspan="3"></td>
 					<th class="adcontacttd">계약상태</th>
-					<td class="adcontacttd" colspan="2">암호입력 다 되면 완료</td>
+					<!-- view에서 셋 다 암호입력하면 계약완료 -->
+						<td class="adcontacttd" colspan="2"></td>
 				</tr>
 
 				<tr class="headtr">
@@ -229,25 +231,16 @@
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">매물주소</th>
-						<td class="adcontacttd" colspan="9" >매물주소 가져오기</td>
+					<td class="adcontacttd" colspan="9" ><input type="text" class="example" onfocus="this.value=''" value="매물 주소를 입력해주세요."></td>
 				</tr>
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">금액</th>
 					<td class="adcontacttd" colspan="3" ><input type="text" class="example" onfocus="this.value=''" value="숫자만 입력주세요."></td>
 					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="3" ><input type="text" class="example"onfocus="this.value=''" value="숫자만 입력주세요."></td>
+					<td class="adcontacttd" colspan="2" ><input type="text" class="example"onfocus="this.value=''" value="숫자만 입력주세요."></td>
 					<th class="adcontacttd title-color">계약종류</th>
-					
-					<!-- 월세가 null이면 매매 -->
-					<c:if test="${empty dto.monthlyRent }">
-					<td class="adcontacttd">매매</td>
-					</c:if>
-					
-					<!-- 월세가 null이 아니면 월세 -->
-					<c:if test="${not empty dto.monthlyRent }">
-					<td class="adcontacttd">월세</td>
-					</c:if>
+					<td class="adcontacttd"  colspan="2"><input type="text" class="example" onfocus="this.value=''"></td>
 				</tr>
 				
 				<tr>
@@ -295,10 +288,10 @@
 				
 				<!-- 임차인 정보 -->
 				<tr>
-					<th class="adcontacttd info-color" colspan="10">임차인 정보 </th>
+					<th class="adcontacttd info-color" colspan="10">임차인 정보</th>
 				</tr>
 
-
+				
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
 					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" name="nameT"></td>
@@ -309,21 +302,25 @@
 				</tr>
 
 							
-					
-				<tr class="headtr">
-					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressT"></td>
-					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateT" disabled></td>
-				</tr>		
+				
+				
+				
+					<tr class="headtr">
+						<th class="adcontacttd" colspan="1">주소</th>
+						<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressT"></td>
+						<th class="adcontacttd" colspan="2">암호입력상태</th>														
+						<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+					</tr>		
+				
+				
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
 					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요." name="passwordT"></td>
-					<!-- 암호입력되면 입력완료로 바뀐다. -->
-				</tr>		
 					
+				</tr>		
+				
 					
 									
 
@@ -348,17 +345,14 @@
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
 					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressL"></td>
-					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateL" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
-					<!-- 암호입력되면 입력완료로 바뀐다. -->
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
 				</tr>		
 				
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="password" onfocus="this.value=''"></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="password"></td>
 				</tr>		
 									
 									
@@ -383,18 +377,18 @@
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
 					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressC"></td>
-					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateC" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
-					<!-- 암호입력되면 입력완료로 바뀐다. -->
+					<th class="adcontacttd" colspan="2">암호입력상태</th>			
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
 				</tr>							
 
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">				
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordC" onfocus="this.value=''"></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordC"></td>
 				</tr>		
+				
+				
 				
 			</table>
 			
@@ -436,9 +430,14 @@
 <!-- 3명의 암호 입력이 완성되면 readonly -->           
 <script>
 	
+	//텍스트박스 클릭 시 글자색 변경
 	$(".example").click(function() {
 		$(this).css("color", "#202020");
-	})
+	});
+	
+	
+	
+	
 
 </script>
 

@@ -158,105 +158,6 @@
 	}
 
 
-
-
-
-
-
-
-
-/* 
-	.container {
-		border-color: transparent;
-		font-family: 'NanumBarunGothic', sans-serif;
-	}
-	
-	.boardwrap{
-	    height: auto;
-	    min-height: 100%;
-	}
-	
-	.boardTitle {
-		font-size: 24px;
-		font-family: 'MaplestoryOTFLight';
-		color: #202020;
-		border-left : 5px solid #F1AEAE;
-		margin: 30px 7px;
-		padding-left: 10px;
-	}
-	
-	.table thead tr th {
-		text-align: center;
-	}
-	
-	.table td:nth-child(1) {
-		text-align: center;
-		width: 140px;
-	}
-	
-	.table td:nth-child(2) {
-		text-align: left;
-		width: auto;
-	}
-	
-	.table td:nth-child(3) {
-		text-align: center;
-		width: 200px;
-	}
-	
-	.table td:nth-child(4) {
-		text-align: center;
-		width: 200px;
-	}
-	
-	.table td:nth-child(5) {
-		text-align: center;
-		width: 140px;
-	}
-	
-	
-	.table tr {
-		height: 40px;
-	}
-	
-	.table>tbody>tr>td {
-		vertical-align: middle;
-	}
-	
-	
-	
-	#basic-addon2 {
-		background-color: #f1aeae;
-        color: white;
-        outline: none;
-	}
-	
-	.search {
-		margin: 20px auto;
-		width: 400px;
-		
-	}
-	
-	.pagebar {
-		margin: 10px auto;
-		float: right;
-		text-align: right;
-
-	}
-	
-	.pagination>.active>a, .pagination>li>a:hover{
-		background-color: #f1aeae;
-		border-color : #f1aeae;
-		color: white;
-	}
-
-	.pagination>li>a {
-		color: #202020;
-	}
-
-	#titlename {
-		color: #202020;
-	} */
 	
 </style>
 
@@ -274,12 +175,6 @@
      <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
      
      <div id="maintitle">커뮤니티</div>
-     
-     
-     
-     
-     
-     
      
      
      
@@ -349,21 +244,6 @@
                   	
                   	
                 </tbody>
-                
-                <!-- <tr class="boardtr">
-                    <td class="firtd boardtd">1</td>
-                    <td class="sectd boardtd"><span class="boardspan headspan">[카테고리?]</span> 화이팅..<span class="boardspan footspan">[댓글수]</span></td>
-                    <td class="thitd boardtd">길도이(닉네임)</td>
-                    <td class="fortd boardtd">2020-01-22</td>
-                    <td class="fiftd boardtd">11111</td>
-                </tr>
-                <tr class="boardtr">
-                    <td class="firtd boardtd">2</td>
-                    <td class="sectd boardtd"><span class="boardspan headspan">[카테고리?]</span> 화이팅..<span class="boardspan footspan">[댓글수]</span></td>
-                    <td class="thitd boardtd">길도이(닉네임)</td>
-                    <td class="fortd boardtd">2020-01-22</td>
-                    <td class="fiftd boardtd">11111</td>
-                </tr> -->
            
             </table>
             </div>
@@ -371,9 +251,10 @@
         <div class="btns btn-group" id="btnpost">
    
 	        <!-- 로그인을 해야지만 글쓰기 버튼 출력하기 -->
-	        <%-- <c:if test="${not empty id}"> --%>
-	        <button type="button" class="btn btn-default" id="basic-addon1" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylwrite.do';">글쓰기</button>
-	        <%-- </c:if> --%>
+ 	        <c:if test="${not empty name}">
+<%-- 	        <c:if test="${not empty id}"> --%>
+	        	<button type="button" class="btn btn-default" id="basic-addon1" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylwrite.do';">글쓰기</button>
+	        </c:if>
 	        
 	    </div>
 	    <div style="clear:both;"></div>

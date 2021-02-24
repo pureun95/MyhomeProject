@@ -20,36 +20,104 @@
 
 <style>
 
-	.container {
-		border-color: transparent;
-	}
-	
+	 
+
 	.boardwrap{
 	    height: auto;
 	    min-height: 100%;
 	}
 	
-	.boardTitle {
-		font-size: 24px;
-		/* font-family: 'MaplestoryOTFLight'; */
+	.container {
+		border-color: transparent;
 		font-family: 'NanumBarunGothic', sans-serif;
-		font-weight: bold;
-		color: #202020;
-		border-left : 3px solid #F1AEAE;
-		margin: 30px 7px;
-		padding-left: 10px;
+		font-size: 16px;
+		position: relative;
 	}
+	
+	.boardcover {
+		float: left;
+		width: 100%; 
+
+	}
+	
+	 #maintitle {
+
+	   font-size: 24px;
+	   font-family: 'MaplestoryOTFLight';
+	   padding:0 10px;
+	   border-left: 5px solid #f1aeae;
+	   position: relative;
+	   display: inline;
+	   text-align:left;
+		color: #202020;
+		top: 100px;
+		left: 100px;
+		
+		float: left;
+		
+	} 
+	
+	 .table {
+		position: relative;
+
+		
+		border-top: solid 1px #ccc;
+		border-bottom: solid 1px #ccc;
+	
+		top: -820px;
+	    left: 280px;
+	    float: left;
+	
+		
+		
+	
+	}
+	
+
+	
+	#content {
+		padding: 15px 15px;
+		height: 300px;
+		overflow: auto;
+		outline: none !important;
+		
+	}
+	
+	#title {
+		outline: none !important;
+	}
+	
+	
 	
 	.btn {
 		background-color: #f1aeae;
         color: white;
         outline: none;
+        
+        
+        left: 950px;
+	    background-color: #f1aeae;
+	    color: white;
+	    outline: none;
+	    position: relative;
+	    top: -820px;
 	}
 	
 	.btn:hover {
 		background-color: #f1aeae;
 		color: white;
 	}
+	
+	
+	
+	
+	
+		.boardwrap{
+	    height: auto;
+	    min-height: 100%;
+	}
+	
+
 	
 </style>
 
@@ -63,11 +131,17 @@
 <%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
  
      <div class="container">
-
-        <div>
-				<div class="boardTitle">커뮤니티</div>
-                
+     
+     <div class="content col-sm-12 col-md-9">
+     
+     <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
+    
+		<div>
+				<div id="maintitle">커뮤니티</div>
+				
+				
 				<form method="POST" action="/Myhome_project/Myhome/user/boardcommunitylwriteok.do">
+                <div id="box1">
                 <table class="table write">
                     <tr>
                         <td>
@@ -80,22 +154,26 @@
                         </td>
                     </tr>                   
                 </table>
+                </div>
 
 
                 <div style="clear:both;"></div>
 
-                <div class="btns btn-group">
-                    <button type="button" class="btn btn-default" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">뒤로가기</button>
-                    <button type="submit" class="btn btn-default">글쓰기</button>
+                <div class="btns">
+                    <button type="submit" class="btn" id="btn1">글쓰기</button>
+                    <button type="button" class="btn" id="btn1" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">뒤로가기</button>
                 </div>
                 </form>
                 <div style="clear:both;"></div>
-			</div>
+                
+         </div>
+	
        
-    </div>
-
+   </div>
 
 </div> 
+
+</div>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
  

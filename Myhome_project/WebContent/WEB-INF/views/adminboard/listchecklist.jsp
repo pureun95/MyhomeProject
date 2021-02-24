@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <%
 
 
@@ -59,10 +61,14 @@
 	
 	.list:nth-child(1) { width: 60px; }
 	.list:nth-child(2) { width: 100px; }
-	.list:nth-child(3) { width: 400px; }
+	.list:nth-child(3) { width: 400px;  text-align : left !important;}
 	.list:nth-child(4) { width: 150px; }
 	.list:nth-child(5) { width: 100px; }
 	.list:nth-child(6) { width: 100px; }
+	
+	#checklisttitle {
+		cursor : pointer;
+	}
 	
 	#tbl1 th, #tbl1 td {
 		font-family: 'NanumBarunGothic';
@@ -119,6 +125,10 @@
 		width: 200px;
 		display: inline;
 	}
+	
+	.boardtr:hover{
+		color : #f1aeae;
+	}
 
 
 </style>
@@ -146,94 +156,25 @@
                     <th class="list">조회수</th>
                 </tr>
                 
-                <tr class="boardtr">
+                <c:forEach items="${listchecklist}" var="dto">
+                <tr class="boardtr" >
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0001</td>
-                    <td class="list">체크리스트 게시판 제목</td>
-                    <td class="list">관리자1</td>
-                    <td class="list">2021-02-18</td>
-                    <td class="list">123</td>
+                    <td class="list">${dto.seq}</td>
+                    <td class="list" id="checklisttitle" onclick="location.href='/Myhome_project/admin/board/viewchecklist.do?seq=${dto.seq}';">${dto.title}</td>
+                    <td class="list">${dto.id}</td>
+                    <td class="list">${dto.writedate}</td>
+                    <td class="list">${dto.viewcount}</td>
                     
                 </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0002</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0003</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0004</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0005</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0006</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0007</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0008</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0009</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0010</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
+                </c:forEach>
+                
                 
             </table>
             
             <div class="btns">
-            	<input type="button" class="btn" value="등록" id="add">
-            	<input type="button" class="btn" value="수정" id="update">
-            	<input type="button" class="btn" value="삭제" id="delete">
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addchecklist.do';">
+            	<input type="button" class="btn" value="수정" id="edit" onclick="location.href='/Myhome_project/admin/board/editchecklist.do';">
+            	<input type="button" class="btn" value="삭제" id="delete"  onclick="location.href='/Myhome_project/admin/board/deletechecklist.do';">
             </div>
             
             <div class="search-paging">
@@ -254,10 +195,12 @@
 				</ul>       		
 	       	</div>
             
-            <div class="search">
-            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
-            </div>
+            <form id="searchForm" method="GET" action="/admin/board/listpchecklist.do">
+	            <div class="search">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
+	            	<input type="button" class="btn" value="검색" id="serch">
+	            </div>
+            </form>
             
 			
 

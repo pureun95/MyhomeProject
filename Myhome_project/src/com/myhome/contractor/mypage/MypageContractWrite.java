@@ -11,33 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  * 
- * @author 박지현
- * 전자계약 작성하는 페이지입니다.
+ * @author 박지현 전자계약 작성하는 페이지입니다.
  *
  */
 @WebServlet("/contractor/mypage-contract-write.do")
-public class MypageContractWrite extends HttpServlet{
+public class MypageContractWrite extends HttpServlet {
 
-	
-	//http://localhost:8090/Myhome_project/contractor/mypage-contract-write.do
+	// http://localhost:8090/Myhome_project/contractor/mypage-contract-write.do
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		
-		/*
-		 * //1. 전자계약 정보 ContractDAO dao = new ContractDAO();
-		 * 
-		 * //2. session 받기 HttpSession session = req.getSession();
-		 * 
-		 * //3. 중개인 seq 쿼리에 보내기 ArrayList<ContractDTO> list =
-		 * dao.list(session.getAttribute("seqAllUser").toString());
-		 * 
-		 * //4. 전자계약 정보 보내기 req.setAttribute("list", list);
-		 */
-				
+		//작성하기를 누른다 -> 매칭 매물 리스트가 
+		
+		//1. 전자계약 정보 
+		//ContractDAO dao = new ContractDAO();
+		  
+		//2. session 받기 
+		//HttpSession session = req.getSession();
+		  
+		//3. 중개인 seq 쿼리에 보내기 ArrayList<ContractDTO> list =
+		//ArrayList<ContractDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
+		  
+		//4. 전자계약 정보 보내기 
+		//req.setAttribute("list", list);
+		 
+		
+		
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract-write.jsp");
 		dispatcher.forward(req, resp);
-		
+
 	}
 }

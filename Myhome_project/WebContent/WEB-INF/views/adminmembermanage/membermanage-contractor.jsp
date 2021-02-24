@@ -70,12 +70,11 @@
 	.clist:nth-child(2) { width: 60px; }
 	.clist:nth-child(3) { width: 60px; }
 	.clist:nth-child(4) { width: 60px; }
-	.clist:nth-child(5) { width: 80px; }
-	.clist:nth-child(6) { width: 100px; }
-	.clist:nth-child(7) { width: 110px; }
-	.clist:nth-child(8) { width: 120px; }
-	.clist:nth-child(9) { width: 190px; }
-	.clist:nth-child(10) { width: 130px; }
+	.clist:nth-child(5) { width: 160px; }
+	.clist:nth-child(6) { width: 110px; }
+	.clist:nth-child(7) { width: 120px; }
+	.clist:nth-child(8) { width: 210px; text-align :left !important}
+	.clist:nth-child(9) { width: 120px; }
 
 
 	input, select {
@@ -181,7 +180,17 @@
 		display: inline;
 	}
 
-
+	#menu1{
+		color : #f1aeae;
+	}
+	
+	#name, #id{
+		cursor : pointer;
+	}
+	
+	.boardtr:hover {
+		color : #f1aeae;
+	}
 
 
 
@@ -201,7 +210,7 @@
 			<div id="title">회원 정보 관리</div>
 
 			<div id="member">
-				<input type="button" id="user" value="일반회원" onclick="location.href='/Myhome_project/Myhome/admin/membermanage-user.do';">
+				<input type="button" id="user" value="일반회원" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
 				<span class="bar"> ┃ </span> 
 				<input type="button" id="contractor" value="중개인">
 			</div>
@@ -212,133 +221,27 @@
 					<th class="clist">회원번호</th>
 					<th class="clist">아이디</th>
 					<th class="clist">이름</th>
-					<th class="clist">생년월일</th>
 					<th class="clist">공인중개소명</th>
 					<th class="clist">사업자등록번호</th>
 					<th class="clist">전화번호</th>
 					<th class="clist">주소</th>
 					<th class="clist">신고횟수(신고사항)</th>
 				</tr>
-				<tr>
+				
+				<c:forEach items="${list}" var="dto">
+				<tr class="boardtr">
 					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0001</td>
-					<td class="clist">아이디</td>
-					<td class="clist">홍길동</td>
-					<td class="clist">111111</td>
-					<td class="clist">햇살공인중개사</td>
-					<td class="clist">사업자등록번호</td>
-					<td class="clist">010-1234-5678</td>
-					<td class="clist">서울시 강남구 역삼동</td>
-					<td class="clist">1회(허위매물)</td>
+					<td class="clist">${dto.seq}</td>
+					<td class="clist" id="id" onclick="location.href='/Myhome_project/admin/membermanage/viewcontractorinfo.do?seq=${dto.seq}';">${dto.id}</td>
+					<td class="clist" id="name" onclick="location.href='/Myhome_project/admin/membermanage/viewcontractorinfo.do?seq=${dto.seq}';">${dto.name}</td>
+					<td class="clist">${dto.contractorname}</td>
+					<td class="clist">${dto.companynumber}</td>
+					<td class="clist">${dto.tel1}-${dto.tel2}-${dto.tel3}</td>
+					<td class="clist">${dto.address}</td>
+					<td class="clist">${dto.reportcount}</td>
 				</tr>	
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0002</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>	
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0003</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0004</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0005</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0006</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0007</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0008</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0009</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>
-				<tr>
-					<td class="clist"><input type="checkbox"></td>
-					<td class="clist">0010</td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-					<td class="clist"></td>
-				</tr>		
+				</c:forEach>
+				
 			</table>
 
 

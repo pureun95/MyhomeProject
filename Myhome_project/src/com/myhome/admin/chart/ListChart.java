@@ -15,6 +15,12 @@ public class ListChart extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		//1. DB작업 -> select
+		//2. 결과 + JSP 호출
+		
+		
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminchart/listchart.jsp");
 		dispatcher.forward(req, resp);
 
