@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/*import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+*/
 
-@WebServlet("/Myhome/user/boardcommunitylwriteok.do")
+@WebServlet("/Myhome/user/boardcommunitywriteok.do")
 public class BoardCommunityWriteOk extends HttpServlet {
 	
 	@Override
@@ -22,11 +25,14 @@ public class BoardCommunityWriteOk extends HttpServlet {
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
-		String title = "";
-		String content = "";
-		String seqUser = (String)session.getAttribute("seq"); //오류나면 이부분 수정하기*****
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
+//		String seqUser = (String)session.getAttribute("seq"); //오류나면 이부분 수정하기*****
+//		String seqAllUser = (String)session.getAttribute("seqAllUser"); //오류나면 이부분 수정하기*****
+		String seqAllUser = String.valueOf(session.getAttribute("seqAllUser")); //오류나면 이부분 수정하기*****
 		
 		try {
+
 			
 			//첨부파일 코드 부분!!! 오류나면 여기 수정하기*****
 			
@@ -42,7 +48,11 @@ public class BoardCommunityWriteOk extends HttpServlet {
 		
 		dto.setTitle(title);
 		dto.setContent(content);
-		dto.setSeqUser(seqUser);
+//		dto.setSeqUser(seqUser);
+		//수정하기**
+		dto.setSeqAllUser(seqAllUser);
+		
+		
 		
 		int result = dao.write(dto);
 		
@@ -55,7 +65,7 @@ public class BoardCommunityWriteOk extends HttpServlet {
 			
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('로그인이 필요합니다.');");
+			writer.print("alert('failed');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");

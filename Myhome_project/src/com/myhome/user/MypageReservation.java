@@ -126,6 +126,8 @@ public class MypageReservation extends HttpServlet {
 		}
 		
 		//4. 정보 내보내기
+		req.setAttribute("sel1", sel1);
+		req.setAttribute("location", location);
 		req.setAttribute("dto", dto);
 		req.setAttribute("pagebar", pagebar);
 		req.setAttribute("nowPage", nowPage);

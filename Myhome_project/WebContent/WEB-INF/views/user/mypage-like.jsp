@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	
 %>
@@ -23,9 +24,11 @@ body, html {
 	margin: 0 auto;
 	padding: 0;
 }
+
 .container {
 	border: 0px;
 }
+
 #header {
 	background-color: white;
 }
@@ -65,22 +68,6 @@ body, html {
 	background-size: cover;
 }
 
-#propertyimg1 {
-	background-image: url('/Myhome_project/image/3.jpg');
-}
-
-#propertyimg2 {
-	background-image: url('/Myhome_project/image/4.jpg');
-}
-
-#usedimg1 {
-	background-image: url('/Myhome_project/image/used/used01.jpg');
-}
-
-#usedimg2 {
-	background-image: url('/Myhome_project/image/used/used02.jpg');
-}
-
 .likeinfo {
 	background-color: #ffdfdf;
 	padding-left: 30px;
@@ -91,6 +78,7 @@ body, html {
 .innerbox {
 	opacity: .7;
 }
+
 .wrapbutton {
 	display: inline;
 	position: relative;
@@ -98,12 +86,15 @@ body, html {
 	top: 100px;
 	margin-left: 220px;
 }
+
 #btn-use {
 	margin-left: 50px;
 }
+
 .tblinfo th {
-	width : 70px;
+	width: 70px;
 }
+
 .innerbox:hover {
 	cursor: pointer;
 	opacity: 1;
@@ -118,7 +109,8 @@ body, html {
 	display: inline;
 	left: 100px;
 	top: 100px;
-	text-align:left;
+	text-align: left;
+	left: 100px;
 }
 
 #info {
@@ -131,17 +123,19 @@ body, html {
 }
 
 #pagebox1 {
-	display:inline;
+	display: inline;
 	position: relative;
 	left: 800px;
 	top: -170px;
 }
+
 #pagebox2 {
 	position: relative;
 	display: inline;
 	left: 1000px;
 	top: -170px;
 }
+
 #pagebox1 .pagebtn, #pagebox2 .pagebtn {
 	border: 1px solid #888888;
 	border-radius: 3px;
@@ -149,335 +143,131 @@ body, html {
 	width: 30px;
 	outline: none;
 }
+
 #pagebox1 .pagebtn:hover, #pagebox2 .pagebtn:hover {
 	background-color: #f6afb3;
 }
-
-
 </style>
+
 </head>
 <body>
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+			<%@include file="/WEB-INF/views/inc/header.jsp"%>
+
 
 			<div class="container">
-			
+
 
 				<!-- nav -->
 				<%@include file="/WEB-INF/views/user/nav.jsp"%>
-				
-				<div id="maintitle">찜 목록 관리</div>
-				<div id="info" style="color: #aaa;"><span class="glyphicon glyphicon-triangle-bottom"> 매물정보 클릭시 매물페이지로 이동합니다.</div>
-				
+				<div>
+					<div id="maintitle">찜 목록 관리</div>
+					<div id="info" style="color: #aaa;">
+						<span class="glyphicon glyphicon-triangle-bottom"> 목록 클릭시 매물페이지로 이동합니다. </span>
+					</div>
+				</div>
+
+
 				<div class="likebox" id="property">
 					<div style="background-color: white">매물 찜 목록</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="propertyimg1"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info1">
-								<tr>
-									<th>매물가격</th>
-									<td>월 40 / 보증금 600</td>
-								</tr>
-								<tr>
-									<th>매물종류</th>
-									<td>원룸</td>
-								</tr>
-								<tr>
-									<th>위치</th>
-									<td>서울시 강남구 대치동</td>
-								</tr>
-								<tr>
-									<th>크기</th>
-									<td>11평</td>
-								</tr>
-								<tr>
-									<th>층수</th>
-									<td>2/5층</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="propertyimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info1">
-								<tr>
-									<th>매물가격</th>
-									<td>월 40 / 보증금 600</td>
-								</tr>
-								<tr>
-									<th>매물종류</th>
-									<td>원룸</td>
-								</tr>
-								<tr>
-									<th>위치</th>
-									<td>서울시 강남구 대치동</td>
-								</tr>
-								<tr>
-									<th>크기</th>
-									<td>11평</td>
-								</tr>
-								<tr>
-									<th>층수</th>
-									<td>2/5층</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="propertyimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info1">
-								<tr>
-									<th>매물가격</th>
-									<td>월 40 / 보증금 600</td>
-								</tr>
-								<tr>
-									<th>매물종류</th>
-									<td>원룸</td>
-								</tr>
-								<tr>
-									<th>위치</th>
-									<td>서울시 강남구 대치동</td>
-								</tr>
-								<tr>
-									<th>크기</th>
-									<td>11평</td>
-								</tr>
-								<tr>
-									<th>층수</th>
-									<td>2/5층</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="propertyimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info1">
-								<tr>
-									<th>매물가격</th>
-									<td>월 40 / 보증금 600</td>
-								</tr>
-								<tr>
-									<th>매물종류</th>
-									<td>원룸</td>
-								</tr>
-								<tr>
-									<th>위치</th>
-									<td>서울시 강남구 대치동</td>
-								</tr>
-								<tr>
-									<th>크기</th>
-									<td>11평</td>
-								</tr>
-								<tr>
-									<th>층수</th>
-									<td>2/5층</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="propertyimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info1">
-								<tr>
-									<th>매물가격</th>
-									<td>월 40 / 보증금 600</td>
-								</tr>
-								<tr>
-									<th>매물종류</th>
-									<td>원룸</td>
-								</tr>
-								<tr>
-									<th>위치</th>
-									<td>서울시 강남구 대치동</td>
-								</tr>
-								<tr>
-									<th>크기</th>
-									<td>11평</td>
-								</tr>
-								<tr>
-									<th>층수</th>
-									<td>2/5층</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div style="clear: both;"></div>
 
+					<c:forEach items="${plist}" var="pdto" varStatus="status">
+						<div class="innerbox" onclick="location.href='/Myhome/user/searchpropertydetaillist.do?seq=${pdto.seqContractorProperty}'">	
+							<div class="like likeimg" id="propertyimg2">
+								<img src="/Myhome_project/image/1${status.index+1}.jpg"
+									style="width: 150px; height: 150px;">
+							</div>
+							<div class="like likeinfo">
+								<table class="tblinfo" id="info1">
+
+
+									<tr>
+										<th>매물가격</th>
+										<c:if test="${pdto.dealing==0}">
+											<c:if test="${pdto.monthlyRent!=0}">
+												<td>[월세] ${pdto.monthlyRent/10000} / 보증금
+													${pdto.deposit/10000}만원</td>
+											</c:if>
+											<c:if test="${pdto.monthlyRent==0}">
+												<td>[전세] ${pdto.deposit/10000}만원</td>
+											</c:if>
+										</c:if>
+										<c:if test="${pdto.dealing!=0}">
+											<td>[매매] ${pdto.dealing/10000}만원</td>
+										</c:if>
+									</tr>
+									<tr>
+										<th>매물종류</th>
+										<td>${pdto.roomtype}</td>
+									</tr>
+									<tr>
+										<th>위치</th>
+										<td>${pdto.location}</td>
+									</tr>
+									<tr>
+										<th>크기</th>
+										<td>${pdto.spacing}평</td>
+									</tr>
+									<tr>
+										<th>층수</th>
+										<td>${pdto.floor} [해당층수/전체층수]</td>
+									</tr>
+
+								</table>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
-				
+
+
 
 
 				<div class="likebox" id="used">
 					<div style="background-color: white">중고물품 찜 목록</div>
 
-					<div class="innerbox">
-						<div class="like likeimg" id="usedimg1"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info2">
-								<tr>
-									<th>글제목</th>
-									<td>겨울옷 팝니다.</td>
-								</tr>
-								<tr>
-									<th>가격</th>
-									<td>5만원</td>
-								</tr>
-								<tr>
-									<th>거래방식</th>
-									<td>직거래</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td>2021-01-31</td>
-								</tr>
-							</table>
+					<c:forEach items="${ulist}" var="udto" varStatus="status">
+						<div class="innerbox" onclick="location.href='/Myhome_project/user/boardusedview.do?seq=${udto.seqUsed}'">
+							<div class="like likeimg" id="usedimg1">
+								<img src="/Myhome_project/image/used/used0${status.index+1}.jpg"
+									style="width: 150px; height: 150px;">
+							</div>
+							<div class="like likeinfo">
+								<table class="tblinfo" id="info2">
+									<tr>
+										<th>글제목</th>
+										<td>${udto.title}</td>
+									</tr>
+									<tr>
+										<th>가격</th>
+										<td>${udto.price}</td>
+									</tr>
+									<tr>
+										<th>거래방식</th>
+										<td>${udto.tradeMode}</td>
+									</tr>
+									<tr>
+										<th>작성일</th>
+										<td>${udto.writeDate}</td>
+									</tr>
+								</table>
+							</div>
 						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="usedimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info2">
-								<tr>
-									<th>글제목</th>
-									<td>아이폰 s20 팝니다.</td>
-								</tr>
-								<tr>
-									<th>가격</th>
-									<td>70만원</td>
-								</tr>
-								<tr>
-									<th>거래방식</th>
-									<td>직거래</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td>2021-01-31</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="usedimg1"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info2">
-								<tr>
-									<th>글제목</th>
-									<td>겨울옷 팝니다.</td>
-								</tr>
-								<tr>
-									<th>가격</th>
-									<td>5만원</td>
-								</tr>
-								<tr>
-									<th>거래방식</th>
-									<td>직거래</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td>2021-01-31</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="usedimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info2">
-								<tr>
-									<th>글제목</th>
-									<td>아이폰 s20 팝니다.</td>
-								</tr>
-								<tr>
-									<th>가격</th>
-									<td>70만원</td>
-								</tr>
-								<tr>
-									<th>거래방식</th>
-									<td>직거래</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td>2021-01-31</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="innerbox">
-						<div class="like likeimg" id="usedimg2"></div>
-						<div class="like likeinfo">
-							<table class="tblinfo" id="info2">
-								<tr>
-									<th>글제목</th>
-									<td>아이폰 s20 팝니다.</td>
-								</tr>
-								<tr>
-									<th>가격</th>
-									<td>70만원</td>
-								</tr>
-								<tr>
-									<th>거래방식</th>
-									<td>직거래</td>
-								</tr>
-								<tr>
-									<th>작성일</th>
-									<td>2021-01-31</td>
-								</tr>
-							</table>
-						</div>
-					</div>
+					</c:forEach>
+
 
 					<div style="clear: both;"></div>
 				</div>
-				
-
-				
-
-				<!-- <div class="wrapbutton">
-					<button type="button" class="btn btn-default" id="btn-pro">
-						<span class="glyphicon glyphicon-plus"></span> 매물 찜목록 더보기
-					</button>
-
-					<button type="button" class="btn btn-default" id="btn-use">
-						<span class="glyphicon glyphicon-plus"></span> 중고물품 찜목록 더보기
-					</button>
-				</div> -->
-
 
 
 			</div>
-			
-				<div id="pagebox1">
-						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>
-						<button class="pagebtn">1</button>
-						<button class="pagebtn">2</button>
-						<button class="pagebtn">3</button>
-						<button class="pagebtn">4</button>
-						<button class="pagebtn">5</button>
-						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-right"></span></button>
-				</div>
-				<div id="pagebox2">
-						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-left"></span></button>
-						<button class="pagebtn">1</button>
-						<button class="pagebtn">2</button>
-						<button class="pagebtn">3</button>
-						<button class="pagebtn">4</button>
-						<button class="pagebtn">5</button>
-						<button class="pagebtn"><span class="glyphicon glyphicon-chevron-right"></span></button>
-				</div>
 
+
+
+			<!-- footer -->
+			<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 		</div>
-
-
-
-		<!-- footer -->
-		<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 	</div>
 </body>
 </html>

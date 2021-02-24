@@ -31,8 +31,8 @@ public class Login extends HttpServlet {
 		MemberDTO dto = new MemberDTO();
 		
 		//관리자 추가 02/22
-		AdminDAO adDao = new AdminDAO();
-		AdminDTO adDto = new AdminDTO();
+//		AdminDAO adDao = new AdminDAO();
+//		AdminDTO adDto = new AdminDTO();
 		
 		
 		dto.setId(id);
@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
 		int seqAllUser = dao.login(dto); // 0 or 0이상
 		
 		
-		String seqAdmin = adDao.login(id,password); // 관리자 추가 
+		//String seqAdmin = adDao.login(id,password); // 관리자 추가 
 		
 		
 		
@@ -60,16 +60,22 @@ public class Login extends HttpServlet {
 			session.setAttribute("seqAllUser", seqAllUser); 
 			session.setAttribute("name", mdto.getName());
 			
+			//노푸른임시추가한부분
+			session.setAttribute("id", id);
+			
 			//시작 페이지로 이동
 			resp.sendRedirect("/Myhome_project/Myhome/main.do");			
 			
+		/*	
 		} else if( seqAdmin != null ) {
-			HttpSession session = req.getSession();
+	         HttpSession session = req.getSession();
+	         
+	         session.setAttribute("SeqAdmin", seqAdmin );
+	         //관리자 페이지로 이동
+	         System.out.println("관리자가 로그인 했습니다.");
+	         resp.sendRedirect("/Myhome_project/admin/adminmenu.do");   
+		*/
 			
-			session.setAttribute("SeqAdmin", seqAdmin );
-			//관리자 페이지로 이동
-			System.out.println("관리자가 로그인 했습니다.");
-			resp.sendRedirect("/Myhome_project/admin/adminmenu.do");			
 			
 		} else {
 			//로그인 실패

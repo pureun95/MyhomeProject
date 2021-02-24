@@ -7,11 +7,18 @@ public class BoardCommunityDTO {
 	private String content; //내용
 	private String writeDate; //작성일
 	private int viewCount; //조회수
-	private String seqUser; //회원 번호
+//	private String seqUser; //회원 번호
+	private String seqAllUser; //회원 번호
 	
 	private int gap; //최신글
 	private String nickName; //회원 닉네임
 	
+	private String id;
+	private String name;
+	
+	private String ccount; //현재 글에 달린 댓글 갯수
+	
+
 	
 	public String getSeqCommunity() {
 		return seqCommunity;
@@ -43,12 +50,12 @@ public class BoardCommunityDTO {
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-	public String getSeqUser() {
-		return seqUser;
-	}
-	public void setSeqUser(String seqUser) {
-		this.seqUser = seqUser;
-	}
+//	public String getSeqUser() {
+//		return seqUser;
+//	}
+//	public void setSeqUser(String seqUser) {
+//		this.seqUser = seqUser;
+//	}
 	public int getGap() {
 		return gap;
 	}
@@ -61,6 +68,31 @@ public class BoardCommunityDTO {
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
+	public String getCcount() {
+		return ccount;
+	}
+	public void setCcount(String ccount) {
+		this.ccount = ccount;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getSeqAllUser() {
+		return seqAllUser;
+	}
+	public void setSeqAllUser(String seqAllUser) {
+		this.seqAllUser = seqAllUser;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	
 	
 

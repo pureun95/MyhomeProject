@@ -122,13 +122,14 @@ body, html {
 	padding: 0px 170px;
 }
 
-.pagination>li>.page-a {
+#pagination>li>.page-a {
 	color: #202020;
 }
 
-.pagination>.active>a, .pagination>li>a:hover {
+#pagination>.active>a, .pagination>li>a:hover {
 	background-color: #f1aeae;
 	color: white !important;
+	outline:0;
 }
 
 .btn {
@@ -146,11 +147,14 @@ body, html {
 	padding: 10px;
 }
 
-#search-text {
+#search {
 	width: 300px;
 	outline: 0;
 	display: inline;
 	margin-right: 10px;
+}
+#btnbox {
+	margin-top:30px;
 }
 </style>
 </head>
@@ -158,12 +162,12 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 		<div class="container">
 
-			-
-			<form action="" id="form1">
+			
+			<form method="GET" action="/Myhome_project/user/boardusedlist.do" id="form1">
 
 				<table id="navboardtbl">
 
@@ -173,14 +177,13 @@ body, html {
 
 						</td>
 
-						<!---->
-
+						
+						<!--게시판이름-->
 						<td class="navboardtd">
 							<div id="boardtitle" class="">중고장터</div>
 
 							<div class="boardcover">
-								<table id="board"
-									class="table table-hover table-striped table-condensed">
+								<table id="board" class="table table-hover table-striped table-condensed">
 
 									<tr class="headtr">
 										<th class="sixtd boardtd">선택</th>
@@ -188,36 +191,39 @@ body, html {
 										<th class="sectd boardtd">제목</th>
 										<th class="thitd boardtd">작성자(닉네임)</th>
 										<th class="fortd boardtd">작성일</th>
-										<th class="fiftd boardtd">조회수</th>
 
 									</tr>
 
-									<tr class="boardtr">
-										<td class="sixtd boardtd"><input type="checkbox"
-											name="seq" id="seq"></td>
-										<td class="firtd boardtd">1</td>
-										<td class="sectd boardtd">
-											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/user/boardusedview.do">화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic.</a>
-												
-												<span class="boardspan footspan">[댓글수]</span>
-																						</div>
-										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+									<!-- tr당 글 1개 -->
+									<c:if test="${list.size()==0}">
+										<tr>
+											<td colspan="5" style="text-align: center">존재하는 게시글이 없습니다.</td>
+										</tr>
+									</c:if>
+									<c:forEach items="${list}" var="dto" >
+										<tr class="boardtr">
 
-									</tr>
+											<td class="sixtd boardtd">
+											<input type="checkbox" name="seq" id="seq"<c:if test="${seqAllUser!=dto.seqUser}"> disabled </c:if>>
+											</td>
 
-
+											<td class="firtd boardtd">${dto.seqUsed}</td>
+											<td class="sectd boardtd">
+												<div class="Boardtdtitle">
+													<span class="boardspan headspan">[${dto.category}]</span> 
+													<a href="/Myhome_project/user/boardusedview.do?seq=${dto.seqUsed}">${dto.title}</a>
+													<span class="boardspan footspan">[${dto.commentCount}]</span>
+												</div>
+											</td>
+											<td class="thitd boardtd">${dto.name}(${dto.nickname})</td>
+											<td class="fortd boardtd">${dto.writeDate}</td>
+										</tr>
+									</c:forEach>
 
 								</table>
 							</div>
 
-							<div class="boardwork d-grid gap-2 d-md-block btn-group">
+							<div id="btnbox"class="boardwork d-grid gap-2 d-md-block btn-group">
 <!-- 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2"
 									onclick="location.href='/Myhome_project/admin2/community/write.do';">
@@ -232,27 +238,15 @@ body, html {
 							<!-- 검색, 페이지바 -->
 							<div class="search-paging">
 								<div class="paging">
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-										<li><a class="page-link page-a" href="">다음</a></li>
-									</ul>
+									<ul class="pagination" id="pagination">
+										${pagebar}
 								</div>
 
 
 								<div id="search-box">
-									<input type="text" class="form-control" id="search-text"
-										placeholder="닉네임, 매물번호를 입력해주세요.">
-									<button class="btn btn-outline-secondary" type="button"
+									<input type="text" class="form-control" id="search" name="search"
+										placeholder="이름, 닉네임, 제목을 입력해주세요.">
+									<button class="btn btn-outline-secondary" type="submit"
 										id="button-addon1">검색</button>
 								</div>
 								<!-- search-paging -->
