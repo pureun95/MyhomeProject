@@ -9,10 +9,19 @@ public class CompanyDTO {
     private String imagePath;	//회사사진주소
     private int price;			//이용금액
     private int avgRating;		//평점
+    
 	private String tel;			//전화번호
     private String introduce;	//소개
     
-    public String getTel() {
+    private String businessnum; //사업자번호
+    
+    public String getBusinessnum() {
+		return businessnum;
+	}
+	public void setBusinessnum(String businessnum) {
+		this.businessnum = businessnum;
+	}
+	public String getTel() {
 		return tel;
 	}
 	public void setTel(String tel) {

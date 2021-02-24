@@ -16,8 +16,6 @@
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
 <link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
 
-
-
 <style>
 	.header {
 		background-color : white;
