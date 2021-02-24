@@ -67,6 +67,9 @@ public class PropertyDAO {
 			dto.setSeqProperty(rs.getString("seqProperty_lp"));
 			dto.setSeqLessorProperty(rs.getString("seqLessorProperty"));
 			
+			//중개인 seq
+			dto.setSeqContractor(rs.getString("seqContractor"));
+			
 			//1. 방옵션
 			dto.setRoomType(rs.getString("roomType"));
 			dto.setSpacing(rs.getString("spacing"));
@@ -126,7 +129,7 @@ public class PropertyDAO {
 			dto.setLocation(rs.getString("location"));
 			
 			//7. 이미지
-			dto.setPath(rs.getString("path"));
+			dto.setPath(rs.getString("imagePath"));
 			
 			
 			
