@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/*
+ * 중개인 본인 매물 올리기 DAO
+ * 
+ * */
 public class UploadContractorDAO {
 	
 	private Connection conn;

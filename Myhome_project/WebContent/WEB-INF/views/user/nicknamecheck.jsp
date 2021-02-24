@@ -34,33 +34,23 @@
 </style>
 </head>
 <body>
-	<form method="POST" action="/Myhome_project/user/mypageinfo.do"></form>
-	<div id="container">
-		<div id="box1">
-			<input type="text" value="" id="nicktxt" onchange="check_nick()"> 
-			<button type="submit" id="btn-use" class="btn btn-primary">사용하기</button>
-			<span id="check"></span>
-		</div>
-	</div>
+	
+	<input type="hidden" id="hdn" value="${result}">
+	
 	<script>
-		function check_nick() {
-			var nicktxt = document.getElementById('nicktxt').value;
-
-			if (document.getElementById('nicktxt').value != '') {
-				document.getElementById('check').innerHTML = '사용 가능한 닉네임입니다.'
-				document.getElementById('check').style.color = 'blue';
+		window.onload = function () {
+			if ($("#hdn").val()==0){
+				opener.document.getElementById('desc').style.display = 'block';
+				opener.document.getElementById('desc').style.color = 'blue';
+				opener.document.getElementById('desc').innerText = '사용 가능한 닉네임 입니다.';
+				window.close();
 			} else {
-				document.getElementById('check').innerHTML = '중복된 닉네임 입니다.';
-				document.getElementById('check').style.color = 'red';
+				opener.document.getElementById('desc').style.display = 'block';
+				opener.document.getElementById('desc').style.color = 'red';
+				opener.document.getElementById('desc').innerText = '중복된 닉네임 입니다.';
+				window.close();
 			}
-		}
-		
-		var btn = document.getElementById('btn-use');
-		
-		btn.onclick = function () {
-			window.close();
 		};
-		
 		
 	</script>
 	

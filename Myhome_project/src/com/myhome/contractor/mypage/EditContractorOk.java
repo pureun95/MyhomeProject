@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +36,8 @@ public class EditContractorOk extends HttpServlet {
 
 		//String seq = req.getParameter("seq");	//회원번호 
 		String seq = session.getAttribute("seqAllUser").toString();
+		
+		String cseq = req.getParameter("seq");
 		String password = req.getParameter("password");
 		String address = req.getParameter("address");
 		String email = req.getParameter("email"); 
@@ -61,11 +62,13 @@ public class EditContractorOk extends HttpServlet {
 			dto.setEmail(list.get(0).getEmail());
 		else
 			dto.setEmail(email);
+		
 		//주소
 		if(address.equals(""))
 			dto.setAddress(list.get(0).getAddress());
 		else
 			dto.setAddress(address);
+		
 		//전화번호1
 		if(tel1.equals(""))
 			dto.setTel1(list.get(0).getTel1());
@@ -82,15 +85,15 @@ public class EditContractorOk extends HttpServlet {
 		else
 			dto.setTel3(tel3);
 	
-
+		
 		//회원정보수정
 		int result = dao.edit(dto); 
-
+	
+		
 		if (result == 1) {
-			//회원정보수정 성공 -> 수정성공 팝업
-			resp.sendRedirect("/Myhome_project/contractor/mypage-info.do");
-
-
+			//회원정보수정 성공 -> 페이지에서 성공 팝업
+			resp.sendRedirect("/Myhome_project/contractor/mypage-info.do?seqAllUser=" + cseq);
+			
 		} else {
 			//글수정 실패 -> 경고 + 뒤로 가기
 			PrintWriter writer = resp.getWriter();

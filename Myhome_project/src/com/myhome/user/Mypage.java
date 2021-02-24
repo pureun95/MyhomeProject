@@ -18,10 +18,10 @@ public class Mypage extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		
-	/*//로그인 안한 사람이 접근하면 내쫒기
+		//로그인 안한 사람이 접근하면 내쫒기
 		HttpSession session = req.getSession();
 		
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("seqAllUser") == null) {
 			
 			//1. 내쫒기
 			//response.sendRedirect("/codestudy/board/list.do");
@@ -32,8 +32,8 @@ public class Mypage extends HttpServlet {
 			
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('failed');");
-			writer.print("location.href='/codestudy/board/list.do';");
+			writer.print("alert('Please Do Login');");
+			writer.print("location.href='/Myhome_project/Myhome/main.do';");
 			writer.print("</script>");
 			writer.print("</body></html>");
 			
@@ -41,7 +41,7 @@ public class Mypage extends HttpServlet {
 			
 			return;			
 			
-		}*/
+		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage.jsp");
 		dispatcher.forward(req, resp);

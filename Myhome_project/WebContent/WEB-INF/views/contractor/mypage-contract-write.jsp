@@ -8,9 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::전자계약관리</title>
+<title>Myhome::전자계약서 작성</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
@@ -85,6 +85,10 @@
     	background-color: #ececec !important;
     }
     
+    .example {
+    	color:  #a2a2a2;
+    }
+    
     
     /*.adcontacttd>*/
     input[type="text"]{
@@ -93,6 +97,13 @@
         margin: 0px;
         padding: 0px;
         outline: none;
+        display: inline;
+        width: 200px;
+    }
+    
+    .month {
+    	margin: 0px;
+    	width: 150px;
     }
     
     #adcontracttbl td{
@@ -175,7 +186,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/contractor/header.jsp" %>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -184,31 +195,32 @@
 		 
 		 <!-- 리스트 -->
 		 <div class="property-box">	
-		 	<div class="board-name">전자계약조회</div>		 	
+		 	<div class="board-name">전자계약서 작성</div>		 	
          	 
        
    
    		<!-- 전자계약서 -->
         <div class="matching-board">
         
-        	
-			<div class="boardcover">
-			
+        	<div class="boardcover">
 			
 			</div>
 				
 			
 			<!-- form 태그 -->	
-			<form action="" id="form1">
+			<form method="POST" action="/myhome_project/mypage-contractok.do" id="form1">   
 			
-			<table id="adcontracttbl" class="table table-condensed">					
+			<!-- 계약서 세부정보 -->
+	        
+			<table id="adcontracttbl" class="table table-condensed">		
+				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">계약번호</th>
-					<td class="adcontacttd" colspan="2">123456</td>
+					<td class="adcontacttd" colspan="2">전송 전까지 빈칸</td>
 					<th class="adcontacttd">계약일자</th>
-					<td class="adcontacttd" colspan="3">2020-12-31</td>
+					<td class="adcontacttd" colspan="3">계약확정되면 sysdate</td>
 					<th class="adcontacttd">계약상태</th>
-					<td class="adcontacttd" colspan="2">계약완료</td>
+					<td class="adcontacttd" colspan="2">암호입력 다 되면 완료</td>
 				</tr>
 
 				<tr class="headtr">
@@ -216,19 +228,27 @@
 				</tr>
 				
 				<tr class="headtr">
-					<th class="adcontacttd title-color">주소</th>
-						<td class="adcontacttd" colspan="9" >서울특별시 강남구 역산동 테레란로 1324-1 1234호</td>
+					<th class="adcontacttd title-color">매물주소</th>
+						<td class="adcontacttd" colspan="9" >매물주소 가져오기</td>
 				</tr>
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">금액</th>
-					<td class="adcontacttd" colspan="3" >1,100,000,000 원</td>
+					<td class="adcontacttd" colspan="3" ><input type="text" class="example" onfocus="this.value=''" value="숫자만 입력주세요."></td>
 					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="3" >100,000,000 원</td>
+					<td class="adcontacttd" colspan="3" ><input type="text" class="example"onfocus="this.value=''" value="숫자만 입력주세요."></td>
 					<th class="adcontacttd title-color">계약종류</th>
+					
+					<!-- 월세가 null이면 매매 -->
+					<c:if test="${empty dto.monthlyRent }">
 					<td class="adcontacttd">매매</td>
+					</c:if>
+					
+					<!-- 월세가 null이 아니면 월세 -->
+					<c:if test="${not empty dto.monthlyRent }">
+					<td class="adcontacttd">월세</td>
+					</c:if>
 				</tr>
-				
 				
 				<tr>
 					<td class="adcontacttd" colspan="10">
@@ -236,8 +256,11 @@
 						<!-- 법률 -->
 						<div class="low">
 											
-						<span class="low-title">제 2조 (존속기간)</span> 임대인은 위 부동산을 임대차 목적대로 사용 수익할 수 있는 상태로 <span>2021년 00월 00일</span>
-						까지 임차인에게 인도하며, 임대차 기간은 인도일로부터 <span class="underline">2021년 00월 00일</span>까지로 한다.<span class="underline">(00개월)</span>
+						<!--  -->					
+						<span class="low-title">제 2조 (존속기간)</span> 임대인은 위 부동산을 임대차 목적대로 사용 수익할 수 있는 상태로
+						<input type="text" class="form-control" placeholder="년-월-일로 입력해주세요." onfocus="this.value=''">까지 임차인에게 인도하며, 임대차 기간은 인도일로부터 
+						<input type="text" class="form-control" placeholder="년-월-일로 입력해주세요." onfocus="this.value=''">까지로 한다.
+						<input type="text" class="form-control month" placeholder="숫자만 입력해주세요." onfocus="this.value=''">(개월)
 						<br><br>
 						<span class="low-title">제 3조 (용도변경 및 전대 등)</span> 임차인은 임대인의 동의없이 위 부동산의 용도나 구조를 변경하거나 전대 임차원 양도
 						또는 담보 제공을 하지 못하게 하며 임대차 목적 이외의 용도로 사용할 수 없다.
@@ -258,7 +281,7 @@
 						개업공인중개사는 임대인과 임차인이 본 계약을 불이행함으로 인한 책임을 지지 않는다. 또한, 중개보수는 본 계약체결과 동시에
 						계약 당사자 쌍방이 각각 지불하며, 개업공인중개사 고의나 과실없이 본 계약이 무효·취소 또는 해제되어도 중개보수는 지급한다.
 						공동중개인 경우에 임대인과 임차인은 자신이 중개 의뢰한 개업공인중개사에게 각각 중개보수를 지급한다.
-						(중개보수는 거래가액의<span class="underline">00%로</span> 한다.)
+						(중개보수는 거래가액의<input type="text" class="form-control month" placeholder="숫자만 입력해주세요." onfocus="this.value=''">%로 한다.)
 						<br><br>
 						<span class="low-title">제 9조 (중개대상물확인·설명서 교부 등)</span> 
 						개업공인중개사는 중개대상물 확인·설명서를 작성하고 업무보증관계증서(공제증서 등) 사본을 첨부하여 계약체결과 동시에
@@ -278,27 +301,27 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" name="nameT"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" class="example" style="width: 140px;" value="ex) 010-1234-5678" onfocus="this.value=''" name="telT"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" class="example" style="width: 140px;" value="ex) 800901-1234567" onfocus="this.value=''" name="idNumberT"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressT"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateT" disabled></td>
 				</tr>		
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요." name="passwordT"></td>
+					<!-- 암호입력되면 입력완료로 바뀐다. -->
 				</tr>		
 					
 					
@@ -313,28 +336,29 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" class="example" style="width: 200px;" name="nameL"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 010-1234-5678" onfocus="this.value=''" name="telL"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 800901-1234567" onfocus="this.value=''" name="idNumberL"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressL"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateL" disabled></td>
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<!-- 암호입력되면 입력완료로 바뀐다. -->
 				</tr>		
 				
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="password" onfocus="this.value=''"></td>
 				</tr>		
 									
 									
@@ -347,33 +371,37 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" class="example" value="ex) 공인중개사사무소명" onfocus="this.value=''" name="nameC"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 010-1234-5678" onfocus="this.value=''" name="telC"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 800901-1234567" onfocus="this.value=''" name="businessNum"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressC"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" name="passwordStateC" disabled></td>
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<!-- 암호입력되면 입력완료로 바뀐다. -->
 				</tr>							
 
 				
 				<!-- 암호입력 -->
 				<tr class="headtr">				
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordC" onfocus="this.value=''"></td>
 				</tr>		
 				
 			</table>
+			
+		
 			</form>				
 				
+			
        		<!-- boardcover  -->
        		</div>
        		
@@ -382,8 +410,8 @@
        		
        		<!-- 계약하기 버튼 -->
        		<div class="btn-contract">
-       			<input type="button" class="btn btn-contract1" value="계약하기">
-       			<input type="button" class="btn btn-contract1" value="폐기하기">
+       			<input type="submit" class="btn btn-contract1" value="계약하기">
+       			<input type="submit" class="btn btn-contract1" value="폐기하기">
        		</div>
        	
        		
@@ -404,8 +432,15 @@
   
    </div>
            
-            
 
+<!-- 3명의 암호 입력이 완성되면 readonly -->           
+<script>
+	
+	$(".example").click(function() {
+		$(this).css("color", "#202020");
+	})
+
+</script>
 
 
  

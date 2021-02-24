@@ -1,4 +1,4 @@
-package com.myhome.contractor.mypage;
+package com.myhome.user;
 
 import java.io.IOException;
 
@@ -9,15 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/contractor/mypage-contract-detail.do")
-public class MypageContractDetail extends HttpServlet{
+//파일명 바꿨더니 기존 파일명으로 사이트가 열려서 오류남.. 이 주소로 열 것
+//http://localhost:8090/Myhome_project/Myhome/user/boardcommunity.do
+@WebServlet("/Myhome/user/boardcommunity.do")
+public class BoardCommunity extends HttpServlet {
 
-	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//http://localhost:8090/Myhome_project/contractor/mypage-contract-detail.do
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract-detail.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/board.jsp");
 		dispatcher.forward(request, response);
 		
 	}
+	
 }

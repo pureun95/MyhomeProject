@@ -114,20 +114,24 @@
              
 		<div id="title">부동산 정책 게시판 수정</div>
 		
+		<form method="POST" action="/admin/board/editpolicyok.do">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="수정전 부동산 정책 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="수정전 부동산 정책 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" required value="${dto.title}"> 
+	            <textarea class="form-control" name="content" id="content" required>${dto.content}</textarea>
 				<input type="file"  id="file">
 			</div>
 			        
             <div class="btns">
-                    <button type="button" class="btn" onclick="">
+                    <button type="submit" class="btn">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/viewpolicy.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/viewpolicy.do?seq=${dto.seq}';">
                         취소
                     </button>
               </div>
+              <!-- 어떤 글인지 알아야하니까 form 끝나기 전에 seq를 넘겨준다 -->
+              <input type="hidden" name="seq" value="${dto.seq}">
+              </form>
             
 			
 

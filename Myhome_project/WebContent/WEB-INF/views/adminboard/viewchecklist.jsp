@@ -64,16 +64,16 @@ style>body, html {
 
 
 
-#tbl .name, #tbl .date, #tbl .count  {
+#tbl .id, #tbl .writedate, #tbl .viewcount  {
 	float : right;
 	margin : 5px 10px;
 }
 
-#tbl .subject {
+#tbl .titletr {
 	font-weight : bold;
 }
 
-#tbl .seq, #tbl .subject{
+#tbl .seq, #tbl .title{
 	float: left;
 	margin : 5px 10px;
 }
@@ -134,31 +134,30 @@ input, select {
 		
 		<table id="tbl" class="table table-striped table-condensed">
     
-                <tr class="title">
+                <tr class="titletr">
                 	<td>
-	                	<span class="seq">001</span>
-	                    <span class="subject">부동산 체크리스트 게시판 제목</span>
-	                    <span class="count">123</span>
-	                    <span class="date">2021-02-20 12:12:12</span>
-	                    <span class="name">관리자1</span>
+	                	<span class="seq">${dto.seq}</span>
+	                    <span class="title">${dto.title}</span>
+	                    <span class="viewcount">${dto.viewcount}</span>
+	                    <span class="writedate">${dto.writedate}</span>
+	                    <span class="id">${dto.id}</span>
                     </td>
                  </tr>
                  <tr>
                  	<td class="content" id="content">
-                 		부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 부동산 체크리스트 내용입니다. 
-                 
+                 		${dto.content}
                  </tr>
           	
             </table>
             
             <div class="btns">
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';">
                         목록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/editchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/editchecklist.do';">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href=''">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/deletechecklist.do'">
                         삭제
                     </button>
               </div>

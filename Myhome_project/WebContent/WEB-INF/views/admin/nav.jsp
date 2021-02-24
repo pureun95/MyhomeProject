@@ -105,7 +105,7 @@ margin-top:-5px;
 				<div class="nav1-box1-img glyphicon glyphicon-user"></div>
 				<div class="nav1-content" id="nav1-content1">
 					<div class="nav1-box1-content nav-list" >
-					<input type="button" id="menu1" onclick="location.href='/Myhome_project/admin2/contract/list.do'">
+					<input type="button" id="menu1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
 					<label for="menu1">회원정보관리</label>
 					</div>
 				</div>
@@ -114,14 +114,13 @@ margin-top:-5px;
 
 			<div class="nav1-content" id="nav1-content1">
 				<div class="nav1-box1-img glyphicon glyphicon-briefcase"></div>
-
 				<div class="nav1-box1-content cleanmovemanage nav-list">
 
 					<input type="checkbox" id="menu2" name="menupage" checked>
 					<label for="menu2">제휴업체관리</label>
 					<div class="navsub">
-						<a id="" href="" class="nav-list move  ">이사업체</a> <a id="" href=""
-							class="nav-list clean ">청소업체</a>
+						<a id="move" onclick="location.href='/Myhome_project/admin/moveclean/listmove.do';" class="nav-list move  " >이사업체</a> 
+						<a id="clean" onclick="location.href='/Myhome_project/admin/moveclean/listclean.do';" class="nav-list clean ">청소업체</a>
 					</div>
 
 
@@ -134,11 +133,11 @@ margin-top:-5px;
 				<div class="nav1-box1-content nav-list propertymanage nav-list">
 
 					<input type="checkbox" id="menu3" name="menupage" checked>
-					<label for="menu3">메물관리</label>
+					<label for="menu3">매물관리</label>
 					<div class="navsub">
-						<a id="" href="" class="nav-list payment  ">가격변회</a> <a id=""
-							href="" class="nav-list property ">매물관리</a> <a id="" href=""
-							class="nav-list adminalert ">알림서비스</a>
+						<a id="chart" onclick="location.href='/Myhome_project/admin/chart/listchart.do';" class="nav-list payment  ">가격변화</a> 
+						<a id="" href="" class="nav-list property ">매물관리</a> 
+						<a id="" href="" class="nav-list adminalert ">알림서비스</a>
 					</div>
 
 
@@ -157,11 +156,11 @@ margin-top:-5px;
 					<input type="checkbox" id="menu4" name="menupage" checked>
 					<label for="menu4">게시판관리</label>
 					<div class="navsub">
-						<a id="" href="" class="nav-list adpolicy">부동산정책</a> <a id=""
-							href="" class="nav-list adchecklist ">체크리스트</a> <a id="" href=""
-							class="nav-list adapplication ">청약안내</a> <a id="" href=""
-							class="nav-list adcommunity ">정보공유커뮤니티</a> <a id="" href=""
-							class="nav-list adused ">중고물품게시판관리</a>
+						<a id="" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';" class="nav-list adpolicy">부동산정책</a> 
+						<a id="" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';" class="nav-list adchecklist ">체크리스트</a> 
+						<a id="" href="" class="nav-list adapplication ">청약안내</a> 
+						<a id="" href="" class="nav-list adcommunity ">정보공유커뮤니티</a> 
+						<a id="" href="" class="nav-list adused ">중고물품게시판관리</a>
 
 
 					</div>
@@ -190,9 +189,9 @@ margin-top:-5px;
 					<input type="checkbox" id="menu6" name="menupage" checked>
 					<label for="menu6">고객센터</label>
 					<div class="navsub">
-						<a id="" href="" class="nav-list adnotice">공지사항</a> <a id=""
-							href="" class="nav-list adqna">QnA</a> <a id="" href=""
-							class="nav-list adreport">신고관리</a>
+						<a id="" href="" class="nav-list adnotice">공지사항</a> 
+						<a id="" href="" class="nav-list adqna">QnA</a> 
+						<a id="" href="" class="nav-list adreport">신고관리</a>
 
 					</div>
 				</div>

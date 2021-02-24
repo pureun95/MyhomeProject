@@ -135,7 +135,7 @@ body, html {
 
 		<div class="container">
 
-			<form action="" id="form1">
+			<form action="/Myhome_project/admin2/application/deleteok.do" method="POST" id="form1">
 				
 				<table id="navboardtbl">
 
@@ -164,21 +164,26 @@ body, html {
 										<th class="fiftd boardtd">조회수</th>
 									</tr>
 
-									<tr class="boardtr">
-										<td class="firtd boardtd">1</td>
-										<td class="sectd boardtd">
-											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic. <span
-													class="boardspan footspan">[댓글수]</span>
-											</div>
+									<c:forEach items="${list}" var="dto">
+										<input type="hidden" name ="seq" value="${dto.seqApplication}">
+										
+										<tr class="boardtr">
+											<td class="firtd boardtd" >${dto.seqApplication}</td>
+											<td class="sectd boardtd">
+												<div class="Boardtdtitle">
+													<span class="boardspan headspan"></span> <a
+														href="/Myhome_project/admin2/application/view.do?seqAdmin=${dto.seqApplication}">
+														${dto.title}</a> <span class="boardspan footspan">[댓글수]</span>
+												</div>
 
-										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
-									</tr>
+											</td>
+											<td class="thitd boardtd">Admin${dto.seqAdmin}</td>
+											<td class="fortd boardtd">${dto.writedate}</td>
+											<td class="fiftd boardtd">${dto.viewcount}</td>
+
+										</tr>
+									</c:forEach>
+
 
 
 								</table>
@@ -189,7 +194,7 @@ body, html {
 								<div class="alert alert-danger" role="alert">
 								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 								  <span class="sr-only">경고!</span>
-								  위의 항목(들)을 삭제하시겠습니까?삭제하시려면 아래의 delete 항목을 눌러 주세요.
+								  위의 항목(들)을 삭제하시겠습니까? 삭제하시려면 아래의 삭제 버튼을 눌러 주세요.
 								</div>
 							</div>	
 						<!-- 버튼 -->
@@ -198,8 +203,8 @@ body, html {
 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/list.do';">
 									목록</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/deleteok.do';">
+								<button class="btn btn-outline-secondary " type="submit"
+									id="delete">
 									삭제</button>
 							</div>
 

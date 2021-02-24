@@ -8,8 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title>Myhome::중고장터</title>
+<title>Myhome::정보공유커뮤니티</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -53,14 +52,14 @@ body, html {
 	top: 100px;
 	float: left;
 }
-
+/*
 #title {
 	border-bottom: 1px dashed #ccc;
 	font-size: 24px;
 	margin-bottom: 30px;
 	width: 200px;
 }
-
+*/
 #tbl1 {
 	font-size: 16px;
 	color: #202020;
@@ -206,12 +205,12 @@ body, html {
 }
 
 /*  테이블 크기 조절*/
-#usedtitle{
+#title{
 	width:550px;
 	outline: none;
     border: 0px solid #000;
 }
-#selcate, #selusedcate, #price{
+.selcate, #selusedcate, #price{
 	width:150px;
     outline: none;
     border: 0px solid #000;
@@ -222,11 +221,11 @@ body, html {
 	<div class="wrap">
 
 		<!-- header -->
-		<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 		<div class="container">
 
-			<!-- <form action="" id="form1"> -->
+			<form method="POST" action="/Myhome_project/user/boardusedwriteok.do" id="form" name="form">
 
 				<table id="navboardtbl">
 
@@ -248,48 +247,45 @@ body, html {
 									<tr class="headtr">
 										<th class=" boardtd">제목</th>
 										<td class=" boardtd" colspan="3">
-										<input type="text" placeholder="제목을 입력해주세요" id="usedtitle">
+										<input type="text" placeholder="제목을 입력해주세요" id="title" name="title" required>
 										</td>
 									</tr>
 									<tr class="headtr">
 										<th class="boardtd">판매자</th>
-										<td class="boardtd"> 이름</td>
+										<td class="boardtd">${dto.name}</td>
 										<th class="boardtd">거래방법</th>
 										<td class="boardtd">
-										<select name="selcate" id="selcate">
-												<option value="dil">택배</option>
-												<option value="meet">직거래</option>
+										<select name="tradeMode" id="tradeMode" class="selcate" required>
+												<option value="택배">택배</option>
+												<option value="직거래">직거래</option>
 										</select>
 										</td>
 									</tr>
 									<tr class="headtr">
 										<th class=" boardtd">카테고리</th>
 										<td class="boardtd">
-										<select name="selcate"
-											id="selusedcate">
-												<option value="furniture">가구</option>
-												<option value="beauty">뷰티</option>
-												<option value="shoes">신발</option>
-												<option value="cloth">의류</option>
-												<option value="digit">디지털/가전</option>
-												<option value="daily">생활용품</option>
-												<option value="sport">스포츠</option>
-												<option value="food">식품</option>
-												<option value="book">도서</option>
-												<option value="endso">기타</option>
+										<select name="category" id="category" class="selcate" required>
+												<option value="1">가구</option>
+												<option value="2">뷰티</option>
+												<option value="3">신발</option>
+												<option value="4">의류</option>
+												<option value="5">디지털/가전</option>
+												<option value="6">생활용품</option>
+												<option value="7">스포츠</option>
+												<option value="8">식품</option>
+												<option value="9">도서</option>
+												<option value="10">기타</option>
 										</select>
 										</td>
 										<th class=" boardtd">금액</th>
 										<td class=" boardtd">
-											<input type="number" step="100" name="price"
-											id="price">원
+											<input type="number" step="100" name="price" id="price" required>원
 										</td>
 									</tr>
 
 									<tr class="boardtr">
-										<td class=" boardtd" colspan="4"><textarea
-												class="form-control col-sm-5 boardtext"
-												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
+										<td class=" boardtd" colspan="4">
+											<textarea id="content" name="content" class="form-control col-sm-5 boardtext" placeholder="여기에 게시글을 작성해주세요" rows="15" required></textarea>
 										</td>
 
 									</tr>
@@ -298,21 +294,11 @@ body, html {
 								</table>
 							</div> <!-- 버튼 -->
 							<div class="boardbutton">
-							<button type="submit" id="usedlist" onclick="history.back();">등록하기</button>
-								<!-- <button id="usedlist"
-									onclick="history.back();">
-									목록보기</button>
-								<button id="likebtn"
-									onclick="alert('찜목록 추가 완료')">
-									찜하기</button> -->
-								<!-- <button id="communitydel"
-									onclick="location.href='/Myhome-project/admin2/community/delete.do';">
-									삭제</button> -->
-								<!-- <button id="checkerr"
-									onclick="location.href='/Myhome-project/admin2/community/check.do';">
-									검열</button> -->
+								<button type="button" id="back" onclick="history.back();">목록보기</button>
+								<button type="submit" id="usedlist" name="usedlist">등록하기</button>
+							</div> 
 
-							</div> <!--  댓글  -->
+							<!--  댓글  -->
 
 							<!-- <div class="myhomecomment">
 								여기 행을 움직이자
@@ -341,7 +327,7 @@ body, html {
 						</td>
 					</tr>
 				</table>
-			<!-- </form> -->
+			</form>
 
 
 

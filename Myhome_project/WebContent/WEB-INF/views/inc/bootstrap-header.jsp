@@ -28,9 +28,9 @@
     <header id="header">
     	<div class="header-wrap">
         <div class="header-ul">
-            <div class="header-img"></div>
+            <div class="header-img" onclick="location.href='/Myhome_project/Myhome/main.do';"></div>
                 <ul class="header-ul2 header-ul3">
-                    <li class="header-li li-list">방찾기</li>
+                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/search-contractor.do';">방찾기</li>             
                     <li class="header-li li-list">방올리기</li>
                     <li class="header-li li-list"><a href="/Myhome_project/Myhome/user/boardcommunitylist.do">게시판</a></li>
                     <li class="header-li li-list">중고장터</li>

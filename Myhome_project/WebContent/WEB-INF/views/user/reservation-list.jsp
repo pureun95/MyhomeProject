@@ -24,9 +24,7 @@
 	    min-height: 100%;
 	    font-size: 16px;
 	}
-	.container {
-		border: 0px;
-	}
+	
 	
 #title {
 	text-align: left;
@@ -76,9 +74,6 @@ tr td:nth-last-child(1) {
 	text-align: right;
 	margin-bottom: 24px;
 }
-#cancelrv:hover {
-	background-color: #ffe1e1;
-}
 
 </style>
 
@@ -112,8 +107,8 @@ tr td:nth-last-child(1) {
 						<th>가격</th>
 						<th>후기작성</th>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
+					<tr>
+						<td><input type="checkbox" name="" value=""></td>
 						<td>00021</td>
 						<td>영구24</td>
 						<td>2020.02.18</td>
@@ -122,8 +117,8 @@ tr td:nth-last-child(1) {
 						<td><button type="button" class="btn btn-default" id="btn-pro">작성하기</button>
 						</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
+					<tr>
+						<td><input type="checkbox" name="" value=""></td>
 						<td>00009</td>
 						<td>영구크린</td>
 						<td>2020.02.18</td>
@@ -133,8 +128,8 @@ tr td:nth-last-child(1) {
 							<button type="button" class="btn btn-default" id="btn-pro">작성하기</button>
 						</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
+					<tr>
+						<td><input type="checkbox" name="" value=""></td>
 						<td>00007</td>
 						<td>조아24</td>
 						<td>2020.02.18</td>
@@ -142,8 +137,8 @@ tr td:nth-last-child(1) {
 						<td>80,000원</td>
 						<td>후기작성 완료</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
+					<tr>
+						<td><input type="checkbox" name="" value=""></td>
 						<td>00002</td>
 						<td>경규이삿짐센터</td>
 						<td>2020.02.18</td>
@@ -154,10 +149,6 @@ tr td:nth-last-child(1) {
 					
 				</table>
 				<div style="clear: both;"></div>
-				
-				<div class="wrapbtn" style="text-align: right; margin-top: 20px;">
-					<button type="button" class="btn btn-default" id="cancelrv">예약취소</button>
-				</div>
 			</div>
 
 		</div>
@@ -168,12 +159,6 @@ tr td:nth-last-child(1) {
 </div> 
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
- 		
- 	
- 	<script>
- 	
- 	</script>
- 
  
 </body>
 </html>

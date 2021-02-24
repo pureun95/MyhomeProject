@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Myhome::전자계약관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
@@ -220,6 +220,14 @@
 	   	padding: 5px;
    
    }
+   
+   /* 전자계약이 존재하지 않는 경우 */
+   
+   .empty {
+   		font-size: 16px;
+   		font-family: 'MaplestoryOTFLight';
+	    color: #202020;
+   }
    	
     
 
@@ -232,7 +240,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/contractor/header.jsp" %>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -243,13 +251,13 @@
 		 <div class="property-box">
 		 	<div class="board-name">전자계약관리</div>		 	
          	 
-        <form action="" id="form1">
+        
    
    		<!-- 게시판 -->
         <div class="matching-board">
         
 	        <table id="board" class="table table-hover table-striped table-condensed">
-	
+		
 	            <tr class="headtr">
 	                <th class="firtd boardtd">계약번호</th>
 	                <th class="sectd boardtd">임대인</th>
@@ -258,45 +266,45 @@
 	                <th class="fortd boardtd">계약상태</th>
 	            </tr>
 	            
+	            <!-- 매물계약 리스트 -->
+	            <c:forEach items="${list }" var="dto">
+	      
+	            <!-- 중개인의 전자계약이 없는 경우 -->
+	            <c:if test="${empty dto.seqUserL }">
+                    	<tr>
+                    		<td colspan="5" style="text-align:center;">전자계약이 존재하지 않아요.</td>
+                    	</tr>                
+	            </c:if>
+	            <c:if test="${not empty dto.seqUserL }">
 	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-detail.do';">
-	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">박지현</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">노푸른</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
+	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">${dto.seqContract }</a></div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">${dto.nameL}</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">${dto.nameT }</div></td>
+	                <td class="fortd boardtd align-middle"><div class="temp">${dto.nameC }</div></td>
 	                <td class="fiftd boardtd">
-	                	<div class="temp">진행중</div>            	
+	                	<div class="temp">
+	                	${dto.state }
+	                	<!-- 계약완료인 경우만 날짜 나오기 --> 
+	                	<c:set var="state" value="완료"/>
+	            
+	                	<c:if test="${state eq '완료'}" var="var1">
+	                		(${dto.contractDate })
+	                	</c:if>
+	                	
+	                	</div>            	
 	       			</td>
 	            </tr>
-	            
-	            
-	              <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">이준오</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">이대홍</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
-	                <td class="fiftd boardtd">
-	                	<div class="temp">진행중</div>    	
-	       			</td>
-	            </tr>
-	            
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><a class="contract-num">1022929</a></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">윤지현</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">장진영</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
-	                <td class="fiftd boardtd">
-	                	<div class="temp">계약완료(2020-01-01)</div>	            	
-	       			</td>
-	            </tr>
-	            
+	             </c:if>	  
+	            </c:forEach>
+	                      	            	            
 	           
 	        </table>
+	        
+	        
+	     </div>
        		
-       		</div>
        		
-       		
-       	
+
        		<!-- 검색, 페이지바 -->
        		<div class="search-paging">
 	       		<div class="paging">
@@ -324,29 +332,11 @@
 	       		
 	       	</div>
 	       		
-	       		
-       		
-       	
-       	</form>
-       
-        
-       
-		
-        
-        
-    
-         
-              
-          
-          
-          
+
           
           <!-- property-box -->
           </div>
-             
-             
-             
-             
+     
              
     <!-- container -->        
 	</div>  

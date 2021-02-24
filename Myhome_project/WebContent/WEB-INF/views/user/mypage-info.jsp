@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%
 
 
@@ -15,8 +16,6 @@
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
 <link rel="stylesheet" href="/Myhome_project/css/myproperty.css">
-
-
 
 <style>
 	.header {
@@ -289,8 +288,54 @@
 </head>
 <body>
  
- <!-- 선호 지역 스크립트 -->
- <script>
+<div class="boardwrap">
+ 
+ <!-- header -->
+<%@include file="/WEB-INF/views/inc/header.jsp" %>
+ 	
+ 	<!-- 관심지역 select > option 넣기 -->
+ 	
+ 	<script>
+ 		$(document).ready(function(){
+ 			$("#nickname").change(function () {
+ 	 			var nick = $("#nickname").val();
+ 	 			window.open("/Myhome_project/user/nicknamecheck.do?nickname="+nick, "중복검사","width = 500, height = 500")
+ 	 			
+ 	 		});
+ 	 		
+ 	 		$("#password1").change(function () {
+ 	 			$("#password2").attr("readonly",false)
+ 	 		})
+ 	 		
+ 	 		$("#password2").change(function () {
+ 	 			if ($("#password2").val()!=$("#password1").val()) {
+ 	 				alert("비밀번호가 일치하지 않습니다.");
+ 	 				$("#password1").val('');
+ 	 				$("#password2").val('');
+ 	 				$("#password2").attr("readonly",true)
+ 	 				$("#password1").focus();
+ 	 			} else {
+ 	 				alert("비밀번호가 일치합니다!");
+ 	 			}
+ 	 		});
+ 	 		
+ 	 		 $("#frontsel").change(function(e) {
+			      var frontsel = $(this).val();
+			      midCreate(frontsel);
+			   });
+			   //midCreate($("#frontsel").val());
+			   
+		   $("#middlesel").change(function(e) {
+				var middlesel = $(this).val();
+				endCreate(middlesel);
+				
+			});
+			//endCreate($("#middlesel").val());
+		   midCreate($("#frontsel").val());
+		   endCreate($("#middlesel").val());
+ 		});
+ 	
+ 	
  			var midArray = [];
 			<c:forEach var="middle" items="${middle}">
 			   midArray.push({"seq":"${middle.seq}", "mLocation":"${middle.mLocation}", "location":"${middle.location}"});
@@ -300,15 +345,6 @@
 			<c:forEach var="end" items="${end}">
 				endArray.push({"seq":"${end.seq}", "mLocation":"${end.mLocation}", "location":"${end.location}"});
 			</c:forEach> 
-			
-			
-			$(function() {
-			   $("#frontsel").change(function(e) {
-			      var frontsel = $(this).val();
-			      midCreate(frontsel);
-			   });
-			   midCreate($("#frontsel").val());
-			});
 			
 			function midCreate(frontsel) {
 				$("#middlesel").children().remove();
@@ -323,13 +359,6 @@
 				endCreate($("#middlesel").val());
 			}
 			
-			$(function() {
-				$("#middlesel").change(function(e) {
-					var middlesel = $(this).val();
-					endCreate(middlesel);
-				});
-				endCreate($("#middlesel").val());
-			});
 				
 			function endCreate(middlesel) {
 				$("#endsel").children().remove();
@@ -342,13 +371,14 @@
 				$("#endsel").html(html);
 			} 
 			
-</script>
+ 		
+ 		
+ 		
+ 		
+ 		
+ 	</script>
 		
-<div class="boardwrap">
- 
- <!-- header -->
-<%@include file="/WEB-INF/views/user/bootstrap-header.jsp" %>
- 
+ 	
      <div class="container">
      <%@include file="/WEB-INF/views/user/nav.jsp" %>
         <div class="boardcover">
@@ -359,65 +389,143 @@
 		 	<div class="board-name">회원정보수정</div>
 		 	
 		 	
-       <form action="" id="form1">
+       <form method="POST" action="/Myhome_project/user/mypageinfo.do" id="form1">
    
    		<!-- 시작 -->
         <div class="start">
         	
-	       <span>아이디</span>
-	       <input type="text" class="form-control form-weight" id="id" name="id"> 
+	       	<span>아이디</span>
+	       	<input type="text" class="form-control form-weight readonly" id="id" name="id" readonly value="${dto.id}"> 
+			
 			<span>이름</span>
-			<input type="text" class="form-control form-weight" id="name" name="name">
+			<input type="text" class="form-control form-weight readonly" id="name" name="name" readonly value="${dto.name}">
 			
 			<span>닉네임</span> 			
-			<input type="text" class="form-control form-weight" id="nickname" name="nickname">
-			<span class="desc">닉네임이 중복입니다.</span>
-      		
+			<input type="text" class="form-control form-weight" id="nickname" name="nickname" value="${dto.nickname}">
+			
+			<span class="desc" id="desc" style="display: none;"></span>
+			
+					
       		<span>주민번호</span> 
-			<input type="text" class="form-control ssn readonly" id="ssn1" maxlength=6> -
-			<input type="text" class="form-control ssn readonly" id="ssn2" maxlength=7> 
+			<input type="text" class="form-control ssn readonly" id="ssn1" name="ssn1" maxlength=6 readonly value="${idnumber[0]}"> -
+			<input type="text" class="form-control ssn readonly" id="ssn2" name="ssn2" maxlength=7 readonly value="${idnumber[1]}"> 
 			
 			<span>비밀번호</span> 
-	       <input type="password" class="form-control form-weight" id="password">
+	       	<input type="password" class="form-control form-weight" id="password1" name="password1" required>
 			
 			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="repassword">
+			<input type="password" class="form-control form-weight" id="password2" name="password2" required readonly>
 			
 			<span>주소</span>
-			<input type="text" class="form-control" id="search-text" placeholder="서울시 동작구 상도동">
+			<input type="text" class="form-control" id="address" name="address" value="${dto.address}" required>
 			
 			<span>전화번호</span> 
-			<input type="text" class="form-control tel" id="tel1" maxlength=3>-
-			<input type="text" class="form-control tel" id="" maxlength=4>-
-			<input type="text" class="form-control tel" id="" maxlength=4>
+			<input type="text" class="form-control tel" id="phonenumber1" name="phonenumber1" maxlength=3 value="${phonenumber[0]}" required>-
+			<input type="text" class="form-control tel" id="phonenumber2" name="phonenumber2" maxlength=4 value="${phonenumber[1]}" required>-
+			<input type="text" class="form-control tel" id="phonenumber3" name="phonenumber3" maxlength=4 value="${phonenumber[2]}" required>
 			
 			<span>이메일</span>
-			<input type="text" class="form-control" id="search-text">
+			<input type="email" class="form-control" id="email" name="email" value="${dto.email}" required>
 			
 			 <span>관심매물</span>
-			<select class="form-control multiple">
-				<option>원룸</option>
-				<option>투룸</option>
-				<option>오피스텔</option>
+			<select class="form-control multiple" id="interestroomtype" name="interestroomtype">
+			<c:if test="${dto.interestroomtype eq '원룸'}">
+				<option val="1" selected>원룸</option>
+				<option val="2">투룸</option>
+				<option val="3">오피스텔</option>
+			</c:if>
+			<c:if test="${dto.interestroomtype eq '투룸'}">
+				<option val="1">원룸</option>
+				<option val="2" selected>투룸</option>
+				<option val="3">오피스텔</option>
+			</c:if>
+			<c:if test="${dto.interestroomtype eq '오피스텔'}">
+				<option val="1">원룸</option>
+				<option val="2">투룸</option>
+				<option val="3" selected>오피스텔</option>
+			</c:if>
 			</select>
 			
 			
 			<span><label for="siCode2">관심지역</label></span>
-			<select title="시/도 선택" id="frontsel" name="frontsel" class="form-control multiple" style="width: 250px">
-		 		<c:forEach var="front" items="${front}" varStatus="status">
-					<option value="${front.location }">${front.location }</option>
-				</c:forEach> 
+			<!-- <select title="시/도 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
+				<option>시/도 선택</option>
+				<option value="11" title="서울특별시" >서울특별시</option>
+				<option value="42" title="강원도" >강원도</option>
+				<option value="41" title="경기도">경기도</option>
+				<option value="48" title="경상남도" >경상남도</option>
+				<option value="47" title="경상북도" >경상북도</option>
+				<option value="46" title="전라남도" >전라남도</option>
+				<option value="45" title="전라북도" >전라북도</option>
+				<option value="44" title="충청남도" >충청남도</option>
+				<option value="43" title="충청북도" >충청북도</option>
+				<option value="29" title="광주광역시" >광주광역시</option>
+				<option value="27" title="대구광역시" >대구광역시</option>
+				<option value="30" title="대전광역시" >대전광역시</option>
+				<option value="26" title="부산광역시" >부산광역시</option>
+				<option value="31" title="울산광역시" >울산광역시</option>
+				<option value="28" title="인천광역시" >인천광역시</option>
+				<option value="36" title="세종특별자치시" >세종특별자치시</option>
+				<option value="50" title="제주특별자치도" >제주특별자치도</option>
 			</select>		
 			
-			
-			<select title="시/군/구 선택"  name="midsel" class="form-control multiple" id="midsel" style="width:250px">
+			임시
+			<select title="시/군/구 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
+				<option>시/군/구</option>
+				<option value="11" title="서울특별시" >서울특별시</option>
+				<option value="42" title="강원도" >강원도</option>
+				<option value="41" title="경기도">경기도</option>
+				<option value="48" title="경상남도" >경상남도</option>
+				<option value="47" title="경상북도" >경상북도</option>
+				<option value="46" title="전라남도" >전라남도</option>
 			</select>		
-		
-		
-			<select title="동/읍/면 선택"  name="endsel" class="form-control multiple" id="endsel style="width:250px">
-			</select>
 			
-			<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-register" value="회원가입">
+			임시
+			<select title="동/읍/면 선택"  name="city1" onchange="javascript:changeAreaList(1, this);" class="form-control multiple" id="city1" style="width:250px">
+				<option>동/읍/면</option>
+				<option value="11" title="서울특별시" >서울특별시</option>
+				<option value="42" title="강원도" >강원도</option>
+				<option value="41" title="경기도">경기도</option>
+				<option value="48" title="경상남도" >경상남도</option>
+				<option value="47" title="경상북도" >경상북도</option>
+				<option value="46" title="전라남도" >전라남도</option>
+			</select> -->
+			
+			선호하는 지역(시)<br>
+					<select id="frontsel" name="frontsel" class="form-control multiple" style="width:250px">
+	 					<c:forEach var="front" items="${front }" varStatus="status">
+							<c:if test="${interestlocation[0]!=front.location}">
+								<option value="${front.location }">${front.location }</option>
+							</c:if>
+							<c:if test="${interestlocation[0]==front.location}">
+								<option value="${front.location }" selected>${front.location }</option>
+							</c:if>
+						</c:forEach> 
+					</select>
+					<br>
+					선호하는 지역(구)<br>
+					<select id="middlesel" name="middlesel" class="form-control multiple" style="width:250px">
+					</select>
+					<br>
+					선호하는 지역(동)<br>
+					<select id="endsel" name="endsel" class="form-control multiple" style="width:250px">
+					</select>
+					
+			 <span>알람</span>
+				<select class="form-control multiple" id="alarm" name="alarm">
+					<c:if test="${dto.alarm==1}">
+							<option value="1" selected>On</option>
+							<option value="0">Off</option>
+					</c:if>
+					<c:if test="${dto.alarm==0}">
+							<option value="1">On</option>
+							<option value="0" selected>Off</option>
+					</c:if>
+				</select>
+			
+			
+			<button class="btn btn-outline-secondary" type="submit" id="btn-edit">수정하기</button>
+			<button class="btn btn-outline-secondary" type="button" id="btn-out" onclick="location.href='/Myhome_project/user/removeuser.do'">회원탈퇴</button>
        		
        	</div>
        		
@@ -458,6 +566,9 @@
  
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+ 
+ 	
+ 
  
 </body>
 </html>

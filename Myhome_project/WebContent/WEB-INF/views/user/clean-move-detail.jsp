@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 
 
@@ -12,8 +13,7 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Myhome_project/css/nav.css">
+
 
 
 <link rel="stylesheet" href="/Myhome_project/css/jquery-ui.css">
@@ -24,7 +24,6 @@
 	.container {
 		font-size : 16px;
 		font-family: 'NanumBarunGothic';
-		border: 0px;
 	}
 	.boardwrap{
 	    height: auto;
@@ -45,6 +44,7 @@
 	}
 	.img {
 		width: 80%;
+		
 		border: 1px solid #ccc;
 	}
 	.tag {
@@ -225,13 +225,9 @@ li.header-li.li-list.header-li-scroll {
         background-position: 50% 50%;
     }
     
-	.nav1-box1 {
-		border: 0px;
-	}
 	
 	
 </style>
-
 
 
 </head>
@@ -246,10 +242,10 @@ li.header-li.li-list.header-li-scroll {
             <div class="header-img"></div>
                 <ul class="header-ul2">
                     <li class="header-li li-list">방찾기</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
+                    <li class="header-li li-list">방올리기</li>
                     <li class="header-li li-list">커뮤니티</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/mypage.do';">마이페이지</li>
+                    <li class="header-li li-list">중고장터</li>
+                    <li class="header-li li-list">마이페이지</li>
                     <li class="header-li li-list">고객센터</li>
 
                     <li id="logout" class="li-login li-list">로그아웃</li>
@@ -259,100 +255,65 @@ li.header-li.li-list.header-li-scroll {
     </header> 
  
     <div class="container">
-		
-		
-				<!-- nav -->
-		<nav class="nav1">
-	    	<div id="mypage-title">마이페이지</div>
-	           <div class="nav1-box1">
-	               <div class="nav1-content" id="nav1-content5">
-	                   <div class="nav1-box1-img glyphicon glyphicon-user"></div>
-	                   <div class="nav1-box1-content"><a id="myinfo" href="/Myhome_project/user/mypageinfo.do" class="nav-list">회원정보수정</a></div>
-	               </div>
-	               <div class="nav1-content" id="nav1-content6">
-	                   <div class="nav1-box1-img glyphicon glyphicon-bookmark"></div>
-	                   <div class="nav1-box1-content"><a id="mylike" href="/Myhome_project/user/mypagelike.do" class="nav-list">찜목록관리</a></div>
-	               </div>
-	               <div class="nav1-content" id="nav1-content7">
-	                   <div class="nav1-box1-img glyphicon glyphicon-pencil"></div>
-	                   <div class="nav1-box1-content"><a id="mywrite" href="/Myhome_project/user/mypagemywrite.do" class="nav-list">내가쓴글보기</a></div>
-	               </div>
-	                   <div class="nav1-content" id="nav1-content8">
-	                   <div class="nav1-box1-img glyphicon glyphicon-align-justify"></div>
-	                   <div class="nav1-box1-content"><a id="myorderlist" href="/Myhome_project/user/mypageorderlist.do" class="nav-list">매물거래내역</a></div>
-	               </div>
-	               <div class="nav1-content" id="nav1-content9">
-	                   <div class="nav1-box1-img glyphicon glyphicon-resize-small"></div>
-	                   <div class="nav1-box1-content"><a id="mymatching" href="/Myhome_project/user/mypagematching.do" class="nav-list">매칭매물관리</a></div>
-	               </div>
-	               <div class="nav1-content" id="nav1-content10">
-	                   <div class="nav1-box1-img glyphicon glyphicon-list-alt"></div>
-	                   <div class="nav1-box1-content"><a id="mycontract" href="/Myhome_project/user/mypagecontract.do" class="nav-list">전자계약관리</a></div>
-	               </div>
-	                   <div class="nav1-content" id="nav1-content11">
-	                   <div class="nav1-box1-img glyphicon glyphicon-calendar"></div>
-	                   <div class="nav1-box1-content"><a id="myreservation" href="/Myhome_project/user/mypagereservation.do" class="nav-list">이사청소예약</a></div>
-	               </div>
-	         </div>
-	    </nav>
+
 		<div id="infobox">
 			<table class="tbl" id="tbl1">
-				<tr>
+				<tr id="sel1" value="${sel1 }">
 					<td colspan="2" style="font-size: 24px; font-family: 'MaplestoryOTFLight';">이사/청소 업체 상세 페이지</td>
 				</tr>
 				<tr>
-					<td rowspan="4"><img class="img" id="img1"src="../image/move_clean/3. 남목이사.jpg"></td>
+					<td rowspan="4"><img class="img" id="img1" src=' ${cdto.imagePath }'></td>
 					<td>
-						<div class="tag">업체명</div>
-						<div>남목24</div>
+						<div id="seq" class="tag" value="${cdto.seq }">업체명</div>
+						<div>${cdto.name}</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="tag">전화번호</div>
-						<div>02-234-5566</div>
+						<div>${cdto.tel}</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="tag">사업자등록번호</div>
-						<div>212-12-11515</div>
+						<div>${cdto.businessnum }</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="tag">가격</div>
-						<div>80000원</div>
+						<div>${cdto.price }</div>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<div class="tag">소개글</div>
-						<div>안녕하세요 남목이사입니다.</div>
+						<div>${cdto.introduce }</div>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<div class="tag">예약 가능일</div>
-						<div>당일 불가.. 한달 뒤 까지 예약이 가능합니다.</div>
+						<div class="tag">주소</div>
+						<div>${cdto.location }</div>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<div class="tag">캘린더</div>
-						<input type="text" style="width: 300px;" class="datepicker" id="datepicker" placeholder="박스를 클릭하여 날짜를 선택하세요.">
+						<div class="tag">예약가능한 날짜보기</div>
+						<input type="text" style="width: 300px;" class="datepicker" id="datepicker" placeholder="박스를 클릭하여 날짜를 선택하세요." value="">
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="tag">최근 후기 글</div>
-						<div>1번 후기글입니다.</div>
-						<div>2번 후기글입니다.</div>
-						<div>3번 후기글입니다.</div>
+						<c:forEach var="rdto" items="${rdto }">
+							<div>${rdto.userName}||${rdto.review }||${rdto.rating }</div>
+						</c:forEach>
 					</td>
 					<td>
 						<div class="tag">평점</div>
-						<div>2.5/5.0</div>
+						<div>${cdto.avgRating }/5.0</div>
 					</td>
 				</tr>
 			
@@ -388,15 +349,22 @@ li.header-li.li-list.header-li-scroll {
 
  	<script>
  		$('#datepicker').datepicker({
- 			dateFormat: "yyyy-mm-dd",
-            minDate: "+1",
-            maxDate: "+1M"
+ 			dateFormat: "yy-mm-dd",
+            minDate: "+1",	//시작날짜
+            maxDate: "+1M"	//넘길수있는 최대월
+            
+            //console.log($(this).val());
  		});
  		
  		var btn2 = document.getElementById("btn2");
  		
- 		btn2.onclick = function() {
- 			location.href = '/Myhome_project/user/reservationlist.do';
+ 		btn2.onclick = function() {//예약하기
+ 			var sel1 = $("#sel1").attr("value");
+ 			var seq = $("#seq").attr("value");
+ 			var date = $("#datepicker").val();
+ 			
+ 			//alert(sel1 + " " + seq + " " + date);
+ 			location.href = '/Myhome_project/user/cleanmovedetailok.do?sel1='+sel1+"&seq="+seq+"&date="+date;
  		};
  		
  	</script>

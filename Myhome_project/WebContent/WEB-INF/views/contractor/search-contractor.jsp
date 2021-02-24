@@ -548,7 +548,7 @@
 <div class="header-containerwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/contractor/header.jsp" %>
  
      <div class="container">
      
