@@ -1,27 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%
-
-
 
 %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyHome::체크리스트 게시판 관리</title>
+<title>MyHome::가격변화차트</title>
 
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/board.css">
-  
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-
 
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
@@ -72,41 +63,6 @@
 		margin : 30px !important;
 	}
 	
-/* ****************************************************************************** */	
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
-    max-width: 800px;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-	font-family: 'NanumBarunGothic';
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-/* ****************************************************************************** */
 
 	.btn {
 	    cursor: pointer;
@@ -159,21 +115,15 @@
 		
 		<div class="chartbox">
 			<input type="checkbox" class="check" style="zoom:1.5;">
-			<figure class="highcharts-figure">
-			    <div id="container"></div>
-			</figure>
+			<div id="chart1"></div>
 		</div>
 		
 		<div class="chartbox">
 			<input type="checkbox" class="check" style="zoom:1.5;">
-			<figure class="highcharts-figure">
-			    <div id="container2"></div>
-			</figure>
+			<div id="chart2"></div>
 		</div>
 		
-		
-            
-            <div class="search">
+        <div class="search">
             	<input type="button" class="btn" value="선택한 차트 수정" id="serch">
             </div>
             
@@ -186,164 +136,144 @@
 	<!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 
-<script type="text/javascript">
-			
+<script src="/Myhome_project//js/highcharts.js"></script>			
+<script>
 	
-Highcharts.chart('container', {
-
-    title: {
-        text: '매물종류별'
-    },
-
-    subtitle: {
-        text: '(월세, 전세, 매매)'
-    },
-
-    yAxis: {
-        title: {
-            text:'가격 (원)' 
-        }
-    },
-
-    xAxis: {
-        accessibility: {
-            rangeDescription: 'Range: 01 to 12'
-        }
-    },
-
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 01
-        }
-    },
-
-    series: [
-    
-/*     <c:forEach>
-    {
-        name: '월세',
-        data: [
-        	<c:forEach>
-        	43934,
-        	</c:forEach>52503, 57177, 69658, 97031, 119931, 137133, 154175]
-    }
-    
-    </c:foreach>, { */
-    	{
-            name: '월세',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 133144, 199999, 97031, 97031]
-        }, {
-        name: '전세',
-        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 32323, 33333, 32490, 32490]
-    }, {
-        name: '매매',
-        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 44444, 33333, 20185, 20185]
-    }/* , {
-        name: 'Project Development',
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-    }, {
-        name: 'Other',
-        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-    } */],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    }
-
-});
-
-
-
-Highcharts.chart('container2', {
+	Highcharts.chart('chart1', {
+		
+	    title: {
+	        text: '매물종류별'
+	    },
 	
-    title: {
-        text: '방별'
-    },
-
-    subtitle: {
-        text: '(원룸, 투룸, 오피스텔)'
-    },
-
-    yAxis: {
-        title: {
-            text: '가격 (원)'
-        }
-    },
-
-    xAxis: {
-        accessibility: {
-            rangeDescription: 'Range: 01 to 12'
-        }
-    },
-
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
-    },
-
-    plotOptions: {
-        series: {
-            label: {
-                connectorAllowed: false
-            },
-            pointStart: 01
-        }
-    },
-
-    series: [{
-        name: '원룸',
-        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 123745, 122345, 137133, 137133 ]
-    }, {
-        name: '투룸',
-        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 33333, 22222, 30282, 30282]
-    }, {
-        name: '오피스텔',
-        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 12345, 65432, 24377, 24377]
-    }/* , {
-        name: 'Project Development',
-        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-    }, {
-        name: 'Other',
-        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-    } */],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 500
-            },
-            chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    }
-
-});
+	    subtitle: {
+	        text: '(월세, 전세, 매매)'
+	    },
+	
+	    yAxis: {
+	        title: {
+	            text:'가격 (원)' 
+	        }
+	    },
+	
+	    xAxis: {
+	        accessibility: {
+	            rangeDescription: 'Range: 01월 to 12월'
+	        },
+	    	title: {
+	    		text:'월'
+	    	}
+	    },
+	
+	    legend: {
+	        layout: 'vertical',
+	        align: 'right',
+	        verticalAlign: 'middle'
+	    },
+	
+	    plotOptions: {
+	        series: {
+	            label: {
+	                connectorAllowed: false
+	            },
+	            pointStart: 01
+	        }
+	    },
+	
+	    series: [
+	    	{
+	            name: '월세',
+	            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 133144, 199999, 97031, 97031]
+	        }, {
+	        name: '전세',
+	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 32323, 33333, 32490, 32490]
+	    }, {
+	        name: '매매',
+	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 44444, 33333, 20185, 20185]
+	    }],
+	
+	    responsive: {
+	        rules: [{
+	            condition: {
+	                maxWidth: 500
+	            },
+	            chartOptions: {
+	                legend: {
+	                    layout: 'horizontal',
+	                    align: 'center',
+	                    verticalAlign: 'bottom'
+	                }
+	            }
+	        }]
+	    }
+	
+	});
+	
+	
+	
+	Highcharts.chart('chart2', {
+		
+	    title: {
+	        text: '방별'
+	    },
+	
+	    subtitle: {
+	        text: '(원룸, 투룸, 오피스텔)'
+	    },
+	
+	    yAxis: {
+	        title: {
+	            text: '가격 (원)'
+	        }
+	    },
+	
+	    xAxis: {
+	        accessibility: {
+	            rangeDescription: 'Range: 01 to 12'
+	        }
+	    },
+	
+	    legend: {
+	        layout: 'vertical',
+	        align: 'right',
+	        verticalAlign: 'middle'
+	    },
+	
+	    plotOptions: {
+	        series: {
+	            label: {
+	                connectorAllowed: false
+	            },
+	            pointStart: 01
+	        }
+	    },
+	
+	    series: [{
+	        name: '원룸',
+	        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 123745, 122345, 137133, 137133 ]
+	    }, {
+	        name: '투룸',
+	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 33333, 22222, 30282, 30282]
+	    }, {
+	        name: '오피스텔',
+	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 12345, 65432, 24377, 24377]
+	    }],
+	
+	    responsive: {
+	        rules: [{
+	            condition: {
+	                maxWidth: 500
+	            },
+	            chartOptions: {
+	                legend: {
+	                    layout: 'horizontal',
+	                    align: 'center',
+	                    verticalAlign: 'bottom'
+	                }
+	            }
+	        }]
+	    }
+	
+	});
 </script>
  
 </body>

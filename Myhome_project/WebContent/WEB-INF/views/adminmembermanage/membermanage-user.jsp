@@ -182,7 +182,7 @@
 			<div id="member">
 				<input type="button" id="user" value="일반회원" >
 				<span class="bar"> ┃ </span> 
-				<input type="button" id="contractor" value="중개인" onclick="location.href='/Myhome_project/Myhome/admin/membermanage-contractor.do';">
+				<input type="button" id="contractor" value="중개인" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-contractor.do';">
 			</div>
 			
 				<table id="tbl1" class="table table-hover table-striped table-condensed">

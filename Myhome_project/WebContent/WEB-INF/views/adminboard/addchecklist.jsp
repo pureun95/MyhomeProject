@@ -120,6 +120,7 @@
 			
 			<div id ="subtitle">체크리스트 등록</div>
 		
+			<form method="POST" action="/Myhome/admin/listchecklistok.do" enctype="multipart/form-data">
 			<div class="txt">
 	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="체크리스트 제목입니다."> 
 	            <textarea class="form-control" name="content" id="content" placeholder="체크리스트 내용입니다."></textarea>
@@ -134,7 +135,7 @@
                         취소
                     </button>
               </div>
-            
+            </form>
 			
 
 	</div>
