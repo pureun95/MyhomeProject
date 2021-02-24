@@ -1,6 +1,7 @@
 package com.myhome.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,13 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Myhome/user/boardcommunitylview.do")
+@WebServlet("/Myhome/user/boardcommunityview.do")
 public class BoardCommunityView extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
+		//System.out.println(session.getAttribute("id"));
+		//System.out.println(session.getAttribute("name"));
 		
 		//1.
 //		String seqCommunity = request.getParameter("seqCommunity"); //오류나면 여기 수정하기*****
@@ -35,6 +38,13 @@ public class BoardCommunityView extends HttpServlet {
 		
 		BoardCommunityDTO dto = dao.get(seq);
 		
+		
+		
+		//ArrayList<CommentCommunityDTO> clist = dao.listComment(seq);
+		
+		
+		
+		
 		dao.close();
 		
 		dto.setContent(dto.getContent().replace("\r\n", "<br>"));
@@ -43,6 +53,8 @@ public class BoardCommunityView extends HttpServlet {
 		request.setAttribute("dto", dto);
 		request.setAttribute("search", search);
 		request.setAttribute("page", page);
+		
+		//request.setAttribute("clist", clist);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/board-community-view.jsp");
 		dispatcher.forward(request, response);
