@@ -44,10 +44,9 @@ public class MemberDAO {
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getId());
 			pstat.setString(2, dto.getPassword());
-			
+
 			//실행
 			rs = pstat.executeQuery();
-			
 			
 			MemberDTO mdto = new MemberDTO();
 			
@@ -61,7 +60,7 @@ public class MemberDAO {
 			}
 
 		} catch (Exception e) {
-			System.out.println("MemberDAO.login()" + e);
+			System.out.println("MemberDAO.login()");
 		}
 
 		return 0;

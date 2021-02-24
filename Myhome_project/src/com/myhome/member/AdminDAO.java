@@ -26,6 +26,8 @@ public class AdminDAO {
 	}
 	
 	public String login(String id,String password) {
+		// TODO Auto-generated method stub
+		
 		try {
 			String sql = "select seqadmin from tbladmin where id = ? "
 					+ "and password = ?";
