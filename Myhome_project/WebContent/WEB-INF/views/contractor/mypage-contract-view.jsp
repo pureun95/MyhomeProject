@@ -175,7 +175,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/contractor/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -307,17 +307,21 @@
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
 				</tr>		
 				
-				<!-- 암호입력 -->
-				<tr class="headtr">
-					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
-				</tr>		
+				<!-- 암호입력되면 '입력완료'로 바뀐다. -->				
+				<c:if test="${not empty dto.lSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" pstyle="width: 80px; background-color: transarent;" value="입력완료" name="passwordStateT" disabled></td>
+				</c:if>
+						
+				<!-- 암호입력이 안되면 '입력요청' -->				
+				<c:if test="${empty dto.lSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+				</c:if>
 					
 					
 									
 
 
-			<!-- 임대인 정보 -->
+				<!-- 임대인 정보 -->
 				<tr>
 					<th class="adcontacttd info-color" colspan="10">임대인 정보 </th>
 				</tr>
@@ -343,11 +347,16 @@
 				</tr>		
 				
 				
-				<!-- 암호입력 -->
-				<tr class="headtr">
-					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
-				</tr>		
+				<!-- 암호입력되면 입력완료로 바뀐다. -->				
+				<c:if test="${not empty dto.lSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력완료" name="passwordStateT" disabled></td>
+				</c:if>
+						
+				<!-- 암호입력이 안되면 입력요청 -->				
+				<c:if test="${empty dto.lSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+				</c:if>
+									
 									
 									
 									
@@ -377,11 +386,15 @@
 				</tr>							
 
 				
-				<!-- 암호입력 -->
-				<tr class="headtr">				
-					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
-				</tr>		
+				<!-- 암호입력되면 '입력완료'로 바뀐다. -->				
+				<c:if test="${not empty dto.cSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력완료" name="passwordStateT" disabled></td>
+				</c:if>
+						
+				<!-- 암호입력이 안되면 '입력요청' -->				
+				<c:if test="${empty dto.cSign }">
+					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+				</c:if>
 				
 			</table>
 			

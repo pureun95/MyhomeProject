@@ -28,7 +28,7 @@ public class UploadContractorOk extends HttpServlet {
 		//1. 
 		req.setCharacterEncoding("UTF-8");
 				
-		int roomType = "";
+//		int roomType = "";
 		String content = "";
 		String filename = "";
 		String orgfilename = "";
