@@ -172,6 +172,11 @@ public class PolicyDAO {
 		return 0;
 	}
 
+	public ArrayList<PolicyDTO> membermanagecontractor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 
