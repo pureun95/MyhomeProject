@@ -350,7 +350,7 @@ li.header-li.li-list.header-li-scroll {
         <div class="header-ul">
             <div class="header-img"></div>
                 <ul class="header-ul2">
-                    <li class="header-li li-list">방찾기</li>
+                    <li class="header-li li-list" >방찾기</li>
                     <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
                     <li class="header-li li-list">커뮤니티</li>
                     <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>

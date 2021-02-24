@@ -25,7 +25,7 @@ public class DBUtil {
 			return conn;
 
 		} catch (Exception e) {
-			System.out.println("DBUtil.open()");
+			System.out.println("DBUtil.open()" + e);
 			e.printStackTrace();
 		}
 		
@@ -46,7 +46,7 @@ public class DBUtil {
 			return conn;
 
 		} catch (Exception e) {
-			System.out.println("DBUtil.open()");
+			System.out.println("DBUtil.open()" + e);
 			e.printStackTrace();
 		}
 		

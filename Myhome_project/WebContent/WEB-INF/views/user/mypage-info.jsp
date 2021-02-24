@@ -291,7 +291,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  	
  	<!-- 관심지역 select > option 넣기 -->
  	
