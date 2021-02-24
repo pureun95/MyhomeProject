@@ -59,6 +59,7 @@ public class Login extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("seqAllUser", seqAllUser); 
 			session.setAttribute("name", mdto.getName());
+			session.setAttribute("nickname", mdto.getNickname());
 			
 			//시작 페이지로 이동
 			resp.sendRedirect("/Myhome_project/Myhome/main.do");			

@@ -45,8 +45,6 @@ public class AdminDAO {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
-		
 			System.out.println("admin login : "+e);
 		}
 		

@@ -22,44 +22,44 @@
 <body>
 
 	<c:if test="${empty name}">
-    <header id="header">
-    	<div class="header-wrap">
-        <div class="header-ul">
-            <div class="header-img"></div>
-                <ul class="header-ul2 header-ul3">
-                    <li class="header-li li-list">방찾기</li>
-                    <li class="header-li li-list">방올리기</li>
-                    <li class="header-li li-list">게시판</li>
-                    <li class="header-li li-list">중고장터</li>
-                    <li class="header-li li-list">마이페이지</li>
-                    <li class="header-li li-list">고객센터</li>
-
-                    <li id="login" class="li-login li-list"><a href="/Myhome_project/member/Auth.do">로그인</a></li>
-                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/Register.do">회원가입</a></li>
-                </ul>
-            </div>
-            </div>
-    </header> 
+	    <header id="header">
+	    	<div class="header-wrap">
+	        <div class="header-ul">
+	            <div class="header-img"></div>
+	                <ul class="header-ul2 header-ul3">
+	                    <li class="header-li li-list">방찾기</li>
+	                    <li class="header-li li-list">방올리기</li>
+	                    <li class="header-li li-list">게시판</li>
+	                    <li class="header-li li-list">중고장터</li>
+	                    <li class="header-li li-list">마이페이지</li>
+	                    <li class="header-li li-list">고객센터</li>
+	
+	                    <li id="login" class="li-login li-list"><a href="/Myhome_project/member/Auth.do">로그인</a></li>
+	                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/Register.do">회원가입</a></li>
+	                </ul>
+	            </div>
+	            </div>
+	    </header> 
     </c:if>
     <c:if test="${not empty name}">
-    <header id="header">
-    	<div class="header-wrap">
-        <div class="header-ul">
-            <div class="header-img"></div>
-                <ul class="header-ul2" id="header-ul-id">
-                    <li class="header-li li-list">방찾기</li>
-                    <li class="header-li li-list">방올리기</li>
-                    <li class="header-li li-list">커뮤니티</li>
-                    <li class="header-li li-list">중고장터</li>
-                    <li class="header-li li-list">마이페이지</li>
-                    <li class="header-li li-list">고객센터</li>
-
-                    <li id="login" class="li-login li-list">${name}님 환영합니다</li>
-                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/logout.do">로그아웃</a></li>
-                </ul>
-            </div>
-            </div>
-    </header> 
+	    <header id="header">
+	    	<div class="header-wrap">
+	        <div class="header-ul">
+	            <div class="header-img"></div>
+	                <ul class="header-ul2" id="header-ul-id">
+	                    <li class="header-li li-list">방찾기</li>
+	                    <li class="header-li li-list">방올리기</li>
+	                    <li class="header-li li-list">커뮤니티</li>
+	                    <li class="header-li li-list">중고장터</li>
+	                    <li class="header-li li-list">마이페이지</li>
+	                    <li class="header-li li-list">고객센터</li>
+	
+	                    <li id="login" class="li-login li-list">${name}님 환영합니다</li>
+	                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/logout.do">로그아웃</a></li>
+	                </ul>
+	            </div>
+	            </div>
+	    </header> 
     </c:if>
     
     <script>

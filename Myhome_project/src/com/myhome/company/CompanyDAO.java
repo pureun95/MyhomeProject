@@ -243,8 +243,8 @@ public class CompanyDAO {
 			pstat.setInt(2, seqContract);
 			pstat.setString(3, date);
 			
-			System.out.println(sql);
-			System.out.println(seqCompany + " " + seqContract + " " + date);
+			//System.out.println(sql);
+			//System.out.println(seqCompany + " " + seqContract + " " + date);
 			
 			return pstat.executeUpdate();
 			
