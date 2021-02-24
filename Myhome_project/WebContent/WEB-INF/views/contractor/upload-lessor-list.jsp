@@ -24,6 +24,20 @@
 	}
 	
 	/* myproperty.css 덮어쓰기 */
+	
+	.property-box {
+       	/* border: 1px solid blue; */
+        float: left;            
+        margin-left: 50px;
+        width: 900px;
+        height: auto;
+        margin-bottom: 50px;
+        /* padding-right: 150px; */
+        padding-left: 50px;
+            
+    }
+        
+        
 	.container {
         width: 1190px;
         margin: 0 auto;
@@ -320,7 +334,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/contractor/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
  <!-- 임대인과 매칭된 매물 리스트만 보여주기 + 체크박스 > 방올리기 페이지 이동 -->
  

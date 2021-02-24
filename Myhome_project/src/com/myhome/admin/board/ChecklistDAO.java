@@ -70,6 +70,7 @@ public class ChecklistDAO {
 		return 0;
 	}
 
+	//ViewChecklist 서블릿 -> 글 1개 반환 요청
 	public ChecklistDTO getchecklist(String seq) {
 
 		try {
@@ -100,6 +101,25 @@ public class ChecklistDAO {
 		} 
 		
 		return null;
+	}
+
+	public int editchecklist(ChecklistDTO dto) {
+
+		try {
+			
+			String sql = "update tblCheacklist set title =?, content =? where seq = ?";
+		
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getTitle());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getSeq()); //글번호
+			
+			return pstat.executeUpdate(); //1 or 0
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
 	}
 
 }

@@ -154,10 +154,10 @@ input, select {
                     <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';">
                         목록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/editchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/editchecklist.do?seq=${dto.seq}';">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/deletechecklist.do'">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/deletechecklist.do?seq=${dto.seq}'">
                         삭제
                     </button>
               </div>

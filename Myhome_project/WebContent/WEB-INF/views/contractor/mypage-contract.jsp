@@ -240,7 +240,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/contractor/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>

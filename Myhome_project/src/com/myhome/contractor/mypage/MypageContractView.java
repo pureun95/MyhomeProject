@@ -19,16 +19,16 @@ public class MypageContractView extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//1. 전자계약 정보
-			ContractDAO dao = new ContractDAO();
+			//ContractDAO dao = new ContractDAO();
 						
 		//2. session 받기
-			HttpSession session = req.getSession();
-						
+			//HttpSession session = req.getSession();
+				
 		//3. 중개인 seq 쿼리에 보내기
-			ArrayList<ContractDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
+			//ArrayList<ContractDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
 						
 		//4. 전자계약 정보 보내기
-			req.setAttribute("list", list);
+			//req.setAttribute("list", list);
 				
 				
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-contract-view.jsp");

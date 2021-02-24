@@ -159,8 +159,14 @@
 		width: 200px;
 		display: inline;
 	}
+	
+	#name, #id{
+		cursor : pointer;
+	}
 
-
+	.boardtr:hover {
+		color : #f1aeae;
+	}
 
 
 
@@ -198,107 +204,18 @@
                     <th class="mlist">신고횟수(신고사항)</th>
                 </tr>
                 
+                <c:forEach items="${list}" var="dto">
                 <tr class="boardtr">
                 	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0001</td>
-                    <td class="mlist">아이디</td>
-                    <td class="mlist">홍길동</td>
-                    <td class="mlist">111111</td>
-                    <td class="mlist">010-1234-5678</td>
-                    <td class="mlist">서울시 강남구 역삼동</td>
-                    <td class="mlist">1회(허위매물)</td>
+                    <td class="mlist">${dto.seq}</td>
+                    <td class="mlist" id="id" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}';">${dto.id}</td>
+                    <td class="mlist" id="name" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}';">${dto.name}</td>
+                    <td class="mlist">${dto.jumin1}</td>
+                    <td class="mlist">${dto.tel1}-${dto.tel2}-${dto.tel3}</td>
+                    <td class="mlist">${dto.address}</td>
+                    <td class="mlist">${dto.reportcount}</td>
                 </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0002</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0003</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0004</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0005</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0006</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0007</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0008</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0009</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="mlist">0010</td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                    <td class="mlist"></td>
-                </tr>
-                
+            	</c:forEach>
                 
             </table>
 

@@ -66,7 +66,7 @@
 	.list:nth-child(5) { width: 100px; }
 	.list:nth-child(6) { width: 100px; }
 	
-	.boardtr {
+	#checklisttitle {
 		cursor : pointer;
 	}
 	
@@ -125,6 +125,10 @@
 		width: 200px;
 		display: inline;
 	}
+	
+	.boardtr:hover{
+		color : #f1aeae;
+	}
 
 
 </style>
@@ -153,10 +157,10 @@
                 </tr>
                 
                 <c:forEach items="${listchecklist}" var="dto">
-                <tr class="boardtr" onclick="location.href='/Myhome_project/admin/board/viewchecklist.do?seq=${dto.seq}';">
+                <tr class="boardtr" >
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
                     <td class="list">${dto.seq}</td>
-                    <td class="list">${dto.title}</td>
+                    <td class="list" id="checklisttitle" onclick="location.href='/Myhome_project/admin/board/viewchecklist.do?seq=${dto.seq}';">${dto.title}</td>
                     <td class="list">${dto.id}</td>
                     <td class="list">${dto.writedate}</td>
                     <td class="list">${dto.viewcount}</td>

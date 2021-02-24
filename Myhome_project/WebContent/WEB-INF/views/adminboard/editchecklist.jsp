@@ -111,20 +111,23 @@
              
 		<div id="title">부동산 체크리스트 게시판 관리</div>
 		
+		<form method="POST" action="/admin/board/editchecklistok.do">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="수정전 체크리스트 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="수정전 체크리스트 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" required value="${dto.title}"> 
+	            <textarea class="form-control" name="content" id="content" required>${dto.content}</textarea>
 				<input type="file"  id="file">
 			</div>
 			        
             <div class="btns">
-                    <button type="button" class="btn" onclick="">
+                    <button type="submit" class="btn" onclick="">
                         수정
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/viewchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/viewchecklist.do?seq=${dto.seq}';">
                         취소
                     </button>
               </div>
+              <input type="hidden" name="seq" value="${dto.seq}">
+              </form>
             
 			
 

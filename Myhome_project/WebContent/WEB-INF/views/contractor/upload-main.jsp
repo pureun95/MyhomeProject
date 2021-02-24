@@ -303,12 +303,12 @@
         	<div class="start">
         		
         		<div class="mypage-title">방올리기</div>
-	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/myproperty.do';">
+	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/upload-contractor.do';">
 	       				<div class="icon glyphicon glyphicon-upload" id="icon1"></div>
 	       				<div class="desc">내 매물 올리기</div>
 	       				<div class="desc2">내가 가진 매물을 올릴 수 있어요.</div>
 	       			</div>
-       				<div class="mypage-box" id='box2' onclick="location.href='/Myhome_project/contractor/mypage-matching1.do';">
+       				<div class="mypage-box" id='box2' onclick="location.href='/Myhome_project/contractor/upload-lessor-list.do';">
        					<div class="icon glyphicon glyphicon-resize-small" id="icon2"></div>
        					<div class="desc">임대인 매물 올리기</div>
        					<div class="desc2">매칭된 매물을 올릴 수 있어요.</div>

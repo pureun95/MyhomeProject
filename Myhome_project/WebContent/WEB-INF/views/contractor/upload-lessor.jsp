@@ -307,7 +307,7 @@ li.header-li.li-list.header-li-scroll {
 
 <div class="boardwrap">
 
- <%@include file="/WEB-INF/views/contractor/header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
      <div class="container">
 
