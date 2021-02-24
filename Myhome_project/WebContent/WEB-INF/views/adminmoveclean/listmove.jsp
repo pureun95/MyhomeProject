@@ -279,8 +279,8 @@
 			</div>
 			
 			<div class="btns">
-            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/Myhome/admin/addclean.do';">
-            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/moveclean/addmove.do';">
+            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/admin/moveclean/editmove.do';">
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
             
