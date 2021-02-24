@@ -76,7 +76,7 @@ body, html {
 
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+			<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 			<div class="container">
 				<div class="section1">
@@ -116,7 +116,7 @@ body, html {
 			history.back();
 		}
 		removeuser2.onclick = function () { 
-			location.href = "/Myhome_project/user/mypage.do";
+			location.href = "/Myhome_project/user/removeuserok.do";
 		
 		} 
 	</script>
