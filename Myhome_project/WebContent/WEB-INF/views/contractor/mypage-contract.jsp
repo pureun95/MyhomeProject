@@ -285,9 +285,7 @@
 	                	<div class="temp">
 	                	${dto.state }
 	                	<!-- 계약완료인 경우만 날짜 나오기 --> 
-	                	<c:set var="state" value="완료"/>
-	            
-	                	<c:if test="${state eq '완료'}" var="var1">
+	                	<c:if test="${dto.state eq '완료'}" var="var1">
 	                		(${dto.contractDate })
 	                	</c:if>
 	                	
