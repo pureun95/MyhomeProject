@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 
 
@@ -74,7 +76,7 @@
     
     .listbox{
     	float: left;
-    	width: 200px;
+    	width: 300px;
     	height: 180px;
     	margin-left : 30px;
     }
@@ -129,7 +131,7 @@
     
     .name{
     	font-size: 20px;
-    	margin: 5px 0px;
+    	margin-bottom: 5px;
     	border-bottom: 1px solid #eaecef;
     }
     
@@ -138,7 +140,7 @@
     }
     
     .address, .tel, .price, .businessnum, .introduce{
-    	margin : 5px 0px;
+    	margin : 3px 0px;
     }
     
 	.paging {
@@ -188,6 +190,7 @@
         
 		<div id="title">이사업체관리</div>
 		
+			<c:forEach items="${list}" var="dto">
 			<div class="list">
 				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
 				<div class="imagelogo">
@@ -195,92 +198,22 @@
 					<span class="rating">3.0 / 5.0</span>					
 				</div>
 				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
+					<div class="name" style="font-weight:bold">${dto.name}</div>
 					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
+						<div class="tel">${dto.tel}</div>
+						<div class="address">${dto.address}</div>
+						<div class="businessnum">${dto.businessnum}</div>
+						<div class="price">${dto.price}</div>
+						<div class="introduce">${dto.introduce}</div>
 					</div>
 				</div>	
 			</div>
+			</c:forEach>
 			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
 			
 			<div class="btns">
-            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/Myhome/admin/addclean.do';">
-            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/moveclean/addmove.do';">
+            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/admin/moveclean/editmove.do';">
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
             

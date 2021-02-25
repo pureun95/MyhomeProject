@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
    
 %>
@@ -43,6 +44,9 @@ body, html {
    text-align: center;
    width: 800px;
    margin: auto;
+   position: absolute;
+   top: 278px;
+   left: 550px;
 }
 
 .tbl th {
@@ -84,14 +88,11 @@ body, html {
 }
 
 #tbl2 {
-   position: relative;
-   top: -351px;
+   
    visibility: hidden;
 }
 
 #tbl3 {
-   position: relative;
-   top: -702px;
    visibility : hidden;
 }
 
@@ -112,7 +113,7 @@ body, html {
    <div class="wrap">
       <div class="header-containerwrap">
          <!-- header -->
-         <%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
          <div class="container">
 
@@ -139,72 +140,46 @@ body, html {
                         <th>게시판</th>
                         <th>글번호</th>
                         <th>제목</th>
-                        <th>작성일</th>
+                        <th>작성일/판매상태</th>
                         <th>조회수</th>
                      </tr>
+                     
+                     <c:if test="${alist.size()==0&&blist.size()==0&&clist.size()==0}">
                      <tr>
-                        <td>중고장터</td>
-                        <td>000001</td>
-                        <td>1인용 쇼파 팝니다.</td>
-                        <td>2021-01-31</td>
-                        <td>1</td>
+                        <td colspan="5">작성한 게시물(글)이 없습니다.</td>
                      </tr>
+                     </c:if>
+                     
+                     <c:forEach items="${alist}" var="adto">
+                     <tr onclick="location.href='/Myhome_project/user/boardusedview.do?seq=${adto.seqUsed}'">
+                        <td>중고장터</td>
+                        <td>${adto.seqUsed}</td>
+                        <td>${adto.title}</td>
+                        <td>${adto.writeDate}</td>
+                        <td>${adto.count}</td>
+                     </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${blist}" var="bdto">
                      <tr>
                         <td>방올리기</td>
-                        <td>000012</td>
-                        <td>원룸 싸게 내놔요</td>
-                        <td>2021-01-28</td>
-                        <td>3</td>
+                        <td>${bdto.seqProperty}</td>
+                        <td>${bdto.title}</td>
+                        <td>${bdto.state}</td>
+                        <td>-</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${clist}" var="cdto">
                      <tr>
                         <td>커뮤니티</td>
-                        <td>000010</td>
-                        <td>층간소음 문제 어떡하죠?</td>
-                        <td>2021-01-20</td>
-                        <td>2</td>
+                        <td>${cdto.seqCommunity}</td>
+                        <td>${cdto.title}</td>
+                        <td>${cdto.writeDate}</td>
+                        <td>${cdto.viewCount}</td>
                      </tr>
-                     <tr>
-                        <td>중고장터</td>
-                        <td>000001</td>
-                        <td>1인용 쇼파 팝니다.</td>
-                        <td>2021-01-31</td>
-                        <td>1</td>
-                     </tr>
-                     <tr>
-                        <td>방올리기</td>
-                        <td>000012</td>
-                        <td>원룸 싸게 내놔요</td>
-                        <td>2021-01-28</td>
-                        <td>3</td>
-                     </tr>
-                     <tr>
-                        <td>커뮤니티</td>
-                        <td>000010</td>
-                        <td>층간소음 문제 어떡하죠?</td>
-                        <td>2021-01-20</td>
-                        <td>2</td>
-                     </tr>
-                     <tr>
-                        <td>중고장터</td>
-                        <td>000001</td>
-                        <td>1인용 쇼파 팝니다.</td>
-                        <td>2021-01-31</td>
-                        <td>1</td>
-                     </tr>
-                     <tr>
-                        <td>방올리기</td>
-                        <td>000012</td>
-                        <td>원룸 싸게 내놔요</td>
-                        <td>2021-01-28</td>
-                        <td>3</td>
-                     </tr>
-                     <tr>
-                        <td>커뮤니티</td>
-                        <td>000010</td>
-                        <td>층간소음 문제 어떡하죠?</td>
-                        <td>2021-01-20</td>
-                        <td>2</td>
-                     </tr>
+                     </c:forEach>
+                     
                   </table>
                </div>
                <div class="box2">
@@ -215,60 +190,67 @@ body, html {
                         <th>댓글</th>
                         <th>작성일</th>
                      </tr>
+                     
+                     <c:if test="${dlist.size()==0&&elist.size()==0&&flist.size()==0&&glist.size()==0&&hlist.size()==0&&ilist.size()==0}">
                      <tr>
+                        <td colspan="4">작성한 게시물(댓글)이 없습니다.</td>
+                     </tr>
+                     </c:if>
+                     
+                     <c:forEach items="${dlist}" var="ddto">
+                     <tr onclick="location.href='/Myhome_project/user/boardusedview.do?seq=${ddto.seqUsed}'">
                         <td>중고장터</td>
-                        <td>000002</td>
-                        <td>팔렸어요??</td>
-                        <td>2021-01-31</td>
+                        <td>${ddto.seqUsedComment}</td>
+                        <td>${ddto.content}</td>
+                        <td>${ddto.writeDate}</td>
                      </tr>
-                     <tr>
-                        <td>방찾기</td>
-                        <td>000013</td>
-                        <td>아 중개사 완전 사기꾼이에요!!</td>
-                        <td>2021-01-28</td>
-                     </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${elist}" var="edto">
                      <tr>
                         <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>그럴 때는 검색을 해보세요</td>
-                        <td>2021-01-20</td>
+                        <td>${edto.seqCommunityComment}</td>
+                        <td>${edto.content }</td>
+                        <td>-</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${flist}" var="fdto">
                      <tr>
-                        <td>중고장터</td>
-                        <td>000002</td>
-                        <td>팔렸어요??</td>
-                        <td>2021-01-31</td>
+                        <td>이사업체후기</td>
+                        <td>${fdto.seqMoveReview}</td>
+                        <td>[${fdto.name}]${fdto.title}</td>
+                        <td>${fdto.reservationDate}</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${glist}" var="gdto">
                      <tr>
-                        <td>방찾기</td>
-                        <td>000013</td>
-                        <td>아 중개사 완전 사기꾼이에요!!</td>
-                        <td>2021-01-28</td>
+                        <td>청소업체후기</td>
+                        <td>${gdto.seqCleanReview}</td>
+                        <td>[${gdto.name}]${gdto.title}</td>
+                        <td>${gdto.reservationDate}</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${hlist}" var="hdto">
                      <tr>
-                        <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>그럴 때는 검색을 해보세요</td>
-                        <td>2021-01-20</td>
+                        <td>중개인후기</td>
+                        <td>${hdto.seqContractorReview}</td>
+                        <td>[${hdto.contractorName}]${hdto.title}</td>
+                        <td>-</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${ilist}" var="idto">
                      <tr>
-                        <td>중고장터</td>
-                        <td>000002</td>
-                        <td>팔렸어요??</td>
-                        <td>2021-01-31</td>
+                        <td>매물후기</td>
+                        <td>${idto.seqPropertyReview}</td>
+                        <td>[${ptitle}]${idto.title}</td>
+                        <td>-</td>
                      </tr>
-                     <tr>
-                        <td>방찾기</td>
-                        <td>000013</td>
-                        <td>아 중개사 완전 사기꾼이에요!!</td>
-                        <td>2021-01-28</td>
-                     </tr>
-                     <tr>
-                        <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>그럴 때는 검색을 해보세요</td>
-                        <td>2021-01-20</td>
-                     </tr>
+                     </c:forEach>
+                     
                   </table>
 
                </div>
@@ -281,69 +263,43 @@ body, html {
                         <th>신고일</th>
                         <th>처리상태</th>
                      </tr>
+                     
+                     <c:if test="${jlist.size()==0&&klist.size()==0&&llist.size()==0}">
                      <tr>
-                        <td>중고장터</td>
-                        <td>000002</td>
-                        <td>상습 사기꾼이에요</td>
-                        <td>2021-01-31</td>
-                        <td>완료</td>
+                        <td colspan="5">작성한 게시물(신고)이 없습니다.</td>
                      </tr>
+                     </c:if>
+                     
+                     <c:forEach items="${jlist}" var="jdto">
+                     <tr onclick="location.href='/Myhome_project/user/boardusedview.do?seq=${jdto.seqUsed}'">
+                        <td>중고장터</td>
+                        <td>${jdto.seqUsedReport}</td>
+                        <td>${jdto.reason}</td>
+                        <td>-</td>
+                        <td>${jdto.reportState}</td>
+                     </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${klist}" var="kdto">
                      <tr>
                         <td>방찾기</td>
-                        <td>000013</td>
-                        <td>아 중개사 완전 사기꾼이에요!!</td>
-                        <td>2021-01-28</td>
-                        <td>처리중</td>
+                        <td>${kdto.seqPropertyContractReport}</td>
+                        <td>${kdto.reason}</td>
+                        <td>-</td>
+                        <td>${kdto.reportState}</td>
                      </tr>
+                     </c:forEach>
+                     
+                     <c:forEach items="${llist}" var="ldto">
                      <tr>
                         <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>홍보글을 도배합니다.</td>
-                        <td>2021-01-20</td>
-                        <td>완료</td>
+                        <td>${ldto.seqCommunityReport}</td>
+                        <td>${ldto.reason}</td>
+                        <td>${writeDate}</td>
+                        <td>-</td>
                      </tr>
-                     <tr>
-                        <td>중고장터</td>
-                        <td>000002</td>
-                        <td>돈 입금 안해요;;</td>
-                        <td>2021-01-31</td>
-                        <td>완료</td>
-                     </tr>
-                     <tr>
-                        <td>방찾기</td>
-                        <td>000013</td>
-                        <td>허위매물이에요</td>
-                        <td>2021-01-28</td>
-                        <td>처리중</td>
-                     </tr>
-                     <tr>
-                        <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>글에 욕설 가득해서 신고요</td>
-                        <td>2021-01-20</td>
-                        <td>완료</td>
-                     </tr>
-                     <tr>
-                        <td>중고장터</td>
-                        <td>000002</td>
-                        <td>돈만 받고 물건을 안보내요</td>
-                        <td>2021-01-31</td>
-                        <td>처리중</td>
-                     </tr>
-                     <tr>
-                        <td>방찾기</td>
-                        <td>000013</td>
-                        <td>직접 가봤더니 완전 다른 매물</td>
-                        <td>2021-01-28</td>
-                        <td>처리중</td>
-                     </tr>
-                     <tr>
-                        <td>커뮤니티</td>
-                        <td>000011</td>
-                        <td>허위정보 유포하네요</td>
-                        <td>2021-01-20</td>
-                        <td>완료</td>
-                     </tr>
+                     </c:forEach>
+                     
                   </table>
                </div>
 

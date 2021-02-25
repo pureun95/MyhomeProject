@@ -15,7 +15,7 @@ public class MypageMyWriteDTO {
 	
 	private int seqUsed;
 	private int seqCommunity;
-	private int seqContractorProperty;
+	private int seqProperty;
 	
 	private String title;
 	private String content;
@@ -31,6 +31,9 @@ public class MypageMyWriteDTO {
 		//후기
 	private int seqContractorReview;
 	private int seqPropertyReview;
+	private int seqMoveReview;
+	private int seqCleanReview;
+	
 	
 	private String contractorName;	//중개사이름
 	private String ptitle; 	//매물 글 제목
@@ -43,9 +46,13 @@ public class MypageMyWriteDTO {
 	//신고
 	private int seqCommunityReport;
 	private int seqUsedReport;
+	private int seqPropertyContractReport;
 	
 	private String reason;//신고사유
 	private String reportState;//신고처리상태
+	
+	//----------------------------------------------------------------//
+	
 	public int getSeqUser() {
 		return seqUser;
 	}
@@ -63,12 +70,6 @@ public class MypageMyWriteDTO {
 	}
 	public void setSeqCommunity(int seqCommunity) {
 		this.seqCommunity = seqCommunity;
-	}
-	public int getSeqContractorProperty() {
-		return seqContractorProperty;
-	}
-	public void setSeqContractorProperty(int seqContractorProperty) {
-		this.seqContractorProperty = seqContractorProperty;
 	}
 	public String getTitle() {
 		return title;
@@ -189,6 +190,30 @@ public class MypageMyWriteDTO {
 	}
 	public void setReportState(String reportState) {
 		this.reportState = reportState;
+	}
+	public int getSeqProperty() {
+		return seqProperty;
+	}
+	public void setSeqProperty(int seqProperty) {
+		this.seqProperty = seqProperty;
+	}
+	public int getSeqPropertyContractReport() {
+		return seqPropertyContractReport;
+	}
+	public void setSeqPropertyContractReport(int seqPropertyContractReport) {
+		this.seqPropertyContractReport = seqPropertyContractReport;
+	}
+	public int getSeqCleanReview() {
+		return seqCleanReview;
+	}
+	public void setSeqCleanReview(int seqCleanReview) {
+		this.seqCleanReview = seqCleanReview;
+	}
+	public int getSeqMoveReview() {
+		return seqMoveReview;
+	}
+	public void setSeqMoveReview(int seqMoveReview) {
+		this.seqMoveReview = seqMoveReview;
 	}
 	
 	
