@@ -47,6 +47,7 @@ body, html {
    position: absolute;
    top: 278px;
    left: 640px;
+
 }
 
 .tbl th {

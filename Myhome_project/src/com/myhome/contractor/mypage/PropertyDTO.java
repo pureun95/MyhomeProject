@@ -11,11 +11,13 @@ public class PropertyDTO {
 		//매물 seq
 		private String seqProperty; //모든 매물
 		private String seqLessorProperty; //임대인매물
+		private String seqContractorProperty; //중개인매물
 		
 		//중개인 정보
 		private String companyName;	//중개사무소명		
 		private String tel;	//전화번호
 		private String name;	//중개인명
+		
 		
 		
 		//1. 방옵션
@@ -93,6 +95,12 @@ public class PropertyDTO {
 			this.seqLessorProperty = seqLessorProperty;
 		}
 		
+		public String getSeqContractorProperty() {
+			return seqContractorProperty;
+		}
+		public void setSeqContractorProperty(String seqContractorProperty) {
+			this.seqContractorProperty = seqContractorProperty;
+		}
 		
 		//1. 방옵션
 		public String getRoomType() {
@@ -360,6 +368,7 @@ public class PropertyDTO {
 		public void setName(String name) {
 			this.name = name;
 		}
+		
 		
 		
 		

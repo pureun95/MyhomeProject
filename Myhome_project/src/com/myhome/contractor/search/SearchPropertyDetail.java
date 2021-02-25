@@ -28,14 +28,26 @@ public class SearchPropertyDetail extends HttpServlet{
 								
 		//2. session 받기
 			HttpSession session = req.getSession();
-								
-		//3. 중개인 seq 쿼리에 보내기
+			
+		//중개인, 일반회원 닉네임으로 구분
+		//session 형변환
+			String nickname = (String) session.getAttribute("nickname");
+			System.out.println(nickname);
+			
+		//3-1. 중개인 seq 쿼리에 보내기
 			ArrayList<PropertyDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
-								
-		//4. 올린매물리스트 보내기
-			req.setAttribute("list", list);
-				
+			
+			
+		//3-2. 일반회원 seq 쿼리에 보내기
+			ArrayList<PropertyDTO> lessorList = dao.LessorList(session.getAttribute("seqAllUser").toString());
 		
+			
+		//4-1. 올린매물리스트 보내기
+			req.setAttribute("list", list);
+			
+		//4-2. 일반회원 매물거래내역 리스트 보내기	
+			req.setAttribute("lessorList", lessorList);	
+			req.setAttribute("nickname", nickname);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-property-detail.jsp");

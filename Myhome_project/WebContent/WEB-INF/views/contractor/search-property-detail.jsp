@@ -415,6 +415,9 @@
 		 		<div class="btn" id="likecount">찜하기 <span class="glyphicon glyphicon-heart" style="color: red"></span></div>			 				 
 			</div>
 			
+			<!-- 중개인 올린매물관리 -->
+			<c:if test="${empty nickname }">
+			
 			<c:forEach items="${list }" var="dto">
 			
            	<div class="property-list">
@@ -653,7 +656,261 @@
                     <div style="clear:both;"></div>
                     
                     </c:forEach>
+                   </c:if>
+                   
+                   
+                   
+                   
+            <!-- 일반회원 마이페이지 매물거래내역 -->         
+                  
+			<c:if test="${not empty nickname }">
+			
+			<c:forEach items="${lessorList }" var="dto">
+			
+           	<div class="property-list">
+                <div class="img-box">
+	            	<div class="img-property">
+	            	<c:if test="${dto.available == 0 }">
+	            	<div class="state">입주가능</div>
+	            	</c:if>
+	            	
+	            	<c:if test="${dto.available == 1 }">
+	            	<div class="state">계약완료</div>
+	            	</c:if>
+	            	
+	            	</div>
+	            	<!-- 작은 이미지 박스 -->
+	            	<div class="imgsmall-property"></div>   
+	            	<div class="imgsmall-property"></div> 
+	            	<div class="imgsmall-property"></div>       
+	            	
+	            	<!-- 옵션 박스  -->
+	                <div class="option-detail">
+	                
+	                	<div class="option-building option" style="float: left">
+	                		<span>건물옵션</span>
+	                		
+	                		<c:if test="${dto.parking == 1 }">
+	                		<div class="option-box">주차장</div>
+	                		</c:if>
+	                		
+	                		<c:if test="${dto.elevator == 1 }">
+	                		<div class="option-box">엘리베이터</div>
+	                		</c:if>
+	                		
+	                		<c:if test="${dto.pet == 1 }">
+	                		<div class="option-box">반려동물</div>
+	                		</c:if>
+	                		
+	                		<c:if test="${dto.window == 1 }">
+	                		<div class="option-box">발코니</div>
+	                		</c:if>	                			                		
+	                		
+	                		
+	                	</div>
+	                	<div class="option-room option" style="float: left">
+	                		<span>방옵션</span>
+	                		
+	                		<c:if test="${dto.window == 1 }">
+	                		<div class="option-box">발코니</div>
+	                		</c:if>
+	                		
+	                		<c:if test="${dto.airconditional == 1 }">
+	                		<div class="option-box">에어컨</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.washer == 1 }">
+	                		<div class="option-box">욕조</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.bed == 1 }">
+	                		<div class="option-box">침대</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.desk == 1 }">
+	                		<div class="option-box">책상</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.closet == 1 }">
+	                		<div class="option-box">옷장</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.tv == 1 }">
+	                		<div class="option-box">TV</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.shoebox == 1 }">
+	                		<div class="option-box">신발장</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.refrigerator == 1 }">
+	                		<div class="option-box">냉장고</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.stove == 1 }">
+	                		<div class="option-box">가스레인지</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.induction == 1 }">
+	                		<div class="option-box">인덕션</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.microwave == 1 }">
+	                		<div class="option-box">전자레인지</div>
+	                		</c:if>	  	  
+	                		
+	                		<c:if test="${dto.bidet == 1 }">
+	                		<div class="option-box">비데</div>
+	                		</c:if>	  
+	                	</div>
+	                	
+	                	
+	                	
+	                	<div class="option-maintenance option">
+	                		<span>관리비옵션</span>
+	                		
+	                		<c:if test="${dto.internet == 1 }">
+	                		<div class="option-box">인터넷</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.cable == 1 }">
+	                		<div class="option-box">케이블TV</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.cleaning == 1 }">
+	                		<div class="option-box">청소</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.water == 1 }">
+	                		<div class="option-box">수도</div>
+	                		</c:if>	  
+	                		
+	                		<c:if test="${dto.gas == 1 }">
+	                		<div class="option-box">가스</div>
+	                		</c:if>	  	                
+	                		
+	                		<c:if test="${dto.electric == 1 }">
+	                		<div class="option-box">전기</div>
+	                		</c:if>	  		 
+	                		
+	                		
+	                	</div>
+	                	
+	                	<!-- 마지막 박스 끊기 -->
+	                	<div style="clear: both"></div>
+	                
+	                
+	                </div>         	           	                  	                   
+	             </div>
+            </div>
+                
+
+            <div class="property-list2">                
+	            <div class="property-title">${dto.title }</div>
+	                        
+	            <!-- 중개인 정보 -->
+	            <div class="contractor-desc">                   
+	            	<div class="contractor-name"><b>${dto.companyName }</b> <div class="btn btn-outline-secondary" id="btn-chat">채팅하기</div></div>
+	                <div class="contractor-name">${dto.name }</div>
+	                <div class="contractor-phone">Tel. ${dto.tel }</div>
+	            </div>
+                        
+                        
+	                    
+	            <div class="informcontent1">
+	            	<table class="table table-condensed">
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color no-line" colspan="1">주소</th>
+	            			<td class="adcontacttd title-color no-line" colspan="2">${dto.location }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">매물계약종류</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.contractTypeDetail}</td>
+	            		</tr>
+	            		
+	            		<c:if test="${dto.contractTypeDetail eq '월세' }">
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">월세</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.monthlyRent }</td>
+	            		</tr>
+	            		</c:if>
+	            		
+	            		<c:if test="${dto.contractTypeDetail eq '전세' }">
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">보증금</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.deposit }</td>
+	            		</tr>
+	            		</c:if>
+	            		
+	            		<c:if test="${dto.contractTypeDetail eq '매매' }">
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">매매가격</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.dealing }</td>
+	            		</tr>
+	            		</c:if>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">관리비</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.serviceCharge }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">계약기간</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.contractPeriod }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">층</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.floor }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">평수</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.spacing }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">구조</th>
+	            			<td class="adcontacttd title-color" colspan="2">${dto.roomType }</td>
+	            		</tr>
+	            		
+	            		<tr class="headtr">
+	            			<th class="adcontacttd title-color" colspan="1">입주가능일</th>
+	            			<c:if test="${empty dto.occupancyDate }">
+	            			<td class="adcontacttd title-color" colspan="2">즉시입주</td>
+	            			</c:if>
+	            			
+	            			<c:if test="${not empty dto.occupancyDate }">
+	            			<td class="adcontacttd title-color" colspan="2">${dto.occupancyDate }</td>
+	            			</c:if>
+	            		</tr>
+	            		
+	            	
+	            	</table>
+	                    	
+	                    	
+	               </div>
+	                    	                 
+	                    
+	                    <div class="informcontent2">
+	                    	<div class="inform2-1">상세설명</div>	                
+	                    	<div class="inform2-3">${dto.content }</div>
+	                    </div>
+                                                                      
+                        
+                    </div>
+                    <div style="clear:both;"></div>
                     
+                    </c:forEach>
+                   </c:if>
+                <!-- property-box -->    
+                </div>
+                   
+                   
+                   
+                   
+                   
                 <!-- property-box -->    
                 </div>
                 
