@@ -60,6 +60,9 @@ public class Login extends HttpServlet {
 			session.setAttribute("seqAllUser", seqAllUser); 
 			session.setAttribute("name", mdto.getName());
 			
+			//박지현 추가 충돌날 수도..
+			session.setAttribute("nickname", mdto.getNickname());
+			
 			//노푸른임시추가한부분
 			session.setAttribute("id", id);
 			

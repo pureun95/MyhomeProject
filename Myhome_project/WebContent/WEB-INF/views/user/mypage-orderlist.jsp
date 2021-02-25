@@ -126,7 +126,7 @@ tr td:nth-child(5) {
 							
 							<c:forEach items="${olist}" var="odto">
 							<tr>
-								<td>${odto.seqContractorProperty}</td>
+								<td onclick="location.href='/Myhome_project/contractor/search-property-detail.do';">${odto.seqContractorProperty}</td>
 								<td>${odto.title}</td>
 								<td>${odto.name}(${odto.contractorName})</td>
 								<td>${odto.contractDate}</td>
