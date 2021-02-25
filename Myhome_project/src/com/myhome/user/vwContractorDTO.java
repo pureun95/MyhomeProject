@@ -6,6 +6,7 @@ public class vwContractorDTO {
 	private String companyNumber;
 	private String address;
 	private String phoneNumber;
+	private String name;
 	private int reportCount;
 	
 	
@@ -44,6 +45,12 @@ public class vwContractorDTO {
 	}
 	public void setReportCount(int reportCount) {
 		this.reportCount = reportCount;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

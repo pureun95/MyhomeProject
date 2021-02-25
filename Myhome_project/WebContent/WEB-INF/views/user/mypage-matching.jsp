@@ -223,7 +223,7 @@ body, html {
 								
 								<c:if test="${slist.size()==0}">
 								<tr>
-									<td colspan="4">받은 매칭 목록이 존재하지 않습니다.</td>
+									<td colspan="4">보낸 매칭 목록이 존재하지 않습니다.</td>
 								</tr>
 								</c:if>
 								
@@ -241,12 +241,10 @@ body, html {
 											매칭완료
 										</c:when>
 										<c:otherwise>
-											매칭대기중 <button type="button" class="btn btn-default btncontr" id="btn${status.count}">중개사선택</button>
+											매칭대기중 <button type="button" class="btn btn-default btncontr" id="btn${status.count}" onclick="contractorlist('${sdto.location}', ${sdto.seqMatching});">중개사바꾸기</button>
 										</c:otherwise>
 										</c:choose>
-										
-									<input type="hidden" id="location" name="location" value="${sdto.location}">
-									
+																			
 									</td>
 								</tr>
 								
@@ -258,31 +256,18 @@ body, html {
 							<div id="whiteboard" style=" border: 1px solid black; border-radius:5px; box-shadow: 5px 5px 5px gray inset;">
 								<div id="title">중개사 목록  <span style=" font-size: 16px; color: #b7b7b7;">매칭을 보낼 중개사를 선택하세요.</span></div>
 								<table class="ctbl" id="tbl3">
-									<tr>
-										<th>중개사이름</th>
-										<th>사업자번호</th>
-										<th>전화번호</th>
-										<th>주소</th>
-									</tr>
-									<tr class="selcontractor">
-										<td>광진부동산</td>
-										<td>115-90-00111</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-									<tr class="selcontractor">
-										<td>쌍용부동산</td>
-										<td>115-90-00158</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-									<tr class="selcontractor">
-										<td>81111부동산</td>
-										<td>924-60-00020</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-
+									<thead>
+										<tr>
+											<th>중개사이름</th>
+											<th>사업자번호</th>
+											<th>전화번호</th>
+											<th>주소</th>
+										</tr>
+									</thead>
+									
+									<tbody id="tb">
+										
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -330,16 +315,52 @@ body, html {
 			btnsend.style.backgroundColor = '#c3d9ff';
 		};
 		
-		for (var i=0; i<btncontr.length; i++){
-			btncontr[i].onclick = function() {
-				document.getElementById("contractor").style.visibility = 'visible';
-			};
-		}
-		for (var i=0; i<btncontr.length; i++){
-			selcontractor[i].onclick = function() {
-				document.getElementById("contractor").style.visibility = 'hidden';
-			};
-		}
+		
+		function contractorlist(location, seqMatching){
+			
+			let num = seqMatching;
+			$("#contractor").css("visibility","visible");
+			
+			$.ajax({
+				type: "GET",
+				url: "/Myhome_project/user/vwcontractordata.do",
+				data:"location="+location,
+				success: function(llist){
+					
+					var body = '';
+					
+					console.log(llist);
+					llist = JSON.parse(llist);
+					
+					for (var i=0; i<llist.length; i++) {
+						
+
+						body += '<tr class="selcontractor" onclick="location.href='
+						body += '\'/Myhome_project/user/selectcontractor.do?seqContractor=';
+						body += llist[i].seqContractor;
+						body += '&seqMatching=';
+						body += num;
+						body += '\'">';
+						body += '<td>'+llist[i].contractorName+'</td>';
+						body += '<td>'+llist[i].companyNumber+'</td>';
+						body += '<td>'+llist[i].phoneNumber +'</td>';
+						body += '<td>'+llist[i].address+'</td>';
+						body += '</tr>';
+						
+						
+					}
+					
+				
+					$("#tb").html(body);
+					
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			})
+			
+		};
+		
 	
 	</script>
 	
