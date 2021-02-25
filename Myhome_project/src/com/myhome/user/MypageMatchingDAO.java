@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.myhome.DBUtil;
 
@@ -152,6 +154,72 @@ ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 		
 		return result;
 			
+	}
+
+	public ArrayList getContractorList(String location) {
+		
+		ArrayList list = new ArrayList();
+		
+		try {
+			
+			String sql = "select seqContractor, contractorName, companyNumber, address, phoneNumber, name, reportCount from vwContractor where address like '%' || ? || '%' ";
+			
+			System.out.println("여기 2번");
+			
+			pstat = conn.prepareStatement(sql);
+
+			
+			pstat.setString(1, location);
+			
+			rs = pstat.executeQuery();
+			
+			while (rs.next()) {
+				
+				Map dto = new HashMap();
+				
+				dto.put("seqContractor", rs.getInt("seqContractor"));
+				dto.put("contractorName", rs.getString("contractorName"));
+				dto.put("companyNumber", rs.getString("companyNumber"));
+				dto.put("address", rs.getString("address"));
+				dto.put("phoneNumber", rs.getString("phoneNumber"));
+				dto.put("name", rs.getString("name"));
+				dto.put("reportCount", rs.getInt("reportCount"));
+				
+				list.add(dto);
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}
+
+	//매칭 대기중 매물 중개사 선택해서 바꿔줌
+	public int updateMatching(int seqMatching, int seqContractor) {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = "update tblMatching set seqContractor = ? where seqMatching = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setInt(1, seqContractor);
+			pstat.setInt(2, seqMatching);
+			
+			result = pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	
 	}
 	
 	
