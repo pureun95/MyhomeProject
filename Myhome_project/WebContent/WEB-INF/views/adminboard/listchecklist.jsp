@@ -82,12 +82,13 @@
 		outline: none;
 	}
 
-    .paging {
+    .pagebar {
 		text-align : center;
 	}
 	
 	.pagination > li > .page-a {
 		color: #202020;
+		text-decoration: none;
 	}
 	
 	.pagination>.active>a, .pagination>li>a:hover{
@@ -177,23 +178,12 @@
             	<input type="button" class="btn" value="삭제" id="delete"  onclick="location.href='/Myhome_project/admin/board/deletechecklist.do';">
             </div>
             
-            <div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-	       	</div>
+	       	<!-- 페이징 -->
+	       	<nav class="pagebar">
+                <ul class="pagination">
+                    ${pagebar}
+                </ul>
+            </nav>
             
             <form id="searchForm" method="GET" action="/admin/board/listpchecklist.do">
 	            <div class="search">

@@ -72,7 +72,7 @@
 	.mlist:nth-child(4) { width: 90px; }
 	.mlist:nth-child(5) { width: 100px; }
 	.mlist:nth-child(6) { width: 140px; }
-	.mlist:nth-child(7) { width: 230px; }
+	.mlist:nth-child(7) { width: 230px; text-align : left !important}
 	.mlist:nth-child(8) { width: 160px; }
 	
 
@@ -118,12 +118,18 @@
 		float: left;
 	}
 	
-	.paging {
+	.pagebar {
 		text-align : center;
 	}
 	
 	.pagination > li > .page-a {
-		color: #202020;
+		color: #202020 !important;
+		text-decoration: none;
+	}
+	
+	.pagination > li > .page-a:active {
+		color: #202020 !important;
+		text-decoration: none;
 	}
 	
 	.pagination>.active>a, .pagination>li>a:hover{
@@ -185,6 +191,13 @@
 
 			<div id="title">회원 정보 관리</div>
 
+			<!-- 검색결과 -->
+			<c:if test="${not empty search}">
+	                <div class="message well well-sm">
+	                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	                </div>
+            </c:if>
+
 			<div id="member">
 				<input type="button" id="user" value="일반회원" >
 				<span class="bar"> ┃ </span> 
@@ -208,7 +221,7 @@
                 <tr class="boardtr">
                 	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
                     <td class="mlist">${dto.seq}</td>
-                    <td class="mlist" id="id" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}';">${dto.id}</td>
+                    <td class="mlist" id="id" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}&search=${search}&page=${nowPage}';">${dto.id}</td>
                     <td class="mlist" id="name" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}';">${dto.name}</td>
                     <td class="mlist">${dto.jumin1}</td>
                     <td class="mlist">${dto.tel1}-${dto.tel2}-${dto.tel3}</td>
@@ -225,31 +238,22 @@
 			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
 			</div>
 			
-			<!-- 페이징 -->
-			<div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-	       	</div>
+			
+	       	<!-- 페이징 -->
+	       	<nav class="pagebar">
+                <ul class="pagination">
+                    ${pagebar}
+                </ul>
+            </nav>
 			
 			<!-- 검색 -->
-			<div class="search">
-				<input type="text" class="form-control" placeholder="회원번호 / 아이디 / 이름" id="txt">
-				<input type="submit" class="btn" value="검색">
-			</div>
-
+			<form id="searchForm" method="GET" action="/Myhome_project/admin/membermanage/membermanage-user.do">
+				<div class="search">
+					<input type="text" class="form-control" placeholder="회원번호 / 아이디 / 이름" value="${search}" id="txt">
+					<input type="submit" class="btn" value="검색" onclick="$('#searchForm').submit();">
+				</div>
+			</form>
+			<div style="clear:both;"></div>
 
 
 

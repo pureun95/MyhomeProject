@@ -75,7 +75,7 @@
     
     .listbox{
     	float: left;
-    	width: 200px;
+    	width: 300px;
     	height: 180px;
     	margin-left : 30px;
     }

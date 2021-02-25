@@ -52,6 +52,7 @@ public class AddCheckList extends HttpServlet {
 					
 				} else {
 					//글쓰기 실패 -> 경고 + 뒤로가기
+					resp.setCharacterEncoding("UTF-8");
 					PrintWriter writer = resp.getWriter();
 					
 					writer.print("<html><body>");

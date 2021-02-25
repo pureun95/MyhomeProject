@@ -74,7 +74,7 @@
     /* 검색, 페이지바 */
     
     .search-paging {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
@@ -82,7 +82,7 @@
     }
     
     .paging {
-  		border: 1px solid blue;
+  		/* border: 1px solid blue; */
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
@@ -153,7 +153,6 @@
    		height: 16px;
    		margin-top: 0px;
    }
-
     
     
     
@@ -179,74 +178,83 @@
 		 	<div class="board-name">올린매물관리</div>
 		 		
 		 		<c:forEach items="${list }" var="dto">
-                <div class="property-list">
+                <div class="property-list" onclick="location.href='/Myhome_project/contractor/search-property-detail.do';">
                 
                 	<!-- 전자계약 체크박스 -->
-                	<div class="checkbox"><input type="checkbox" id="ck"></div>    		     
-                    
-                    <div class="img-property">
-                    
-	                    <!-- available 0: 입주가능 1: 계약완료 -->
-	                    <c:if test="${dto.available == 0 }">
+                	<div class="checkbox"><input type="checkbox" id="ck" value="${dto.seqProperty}"></div>    		     
+                     
+                    <div class="img-property">           
+                  	
+	                    <!--available 0: 입주가능 1: 계약완료 -->
+	                   <c:if test="${dto.available eq '0' }">	           
 	                    <div class="state">입주가능</div>             
 	                    </c:if>
 	                     
-	                    <c:if test="${dto.available == 1 }">
+	                    <c:if test="${dto.available eq '1' }">
 	                    <div class="state">계약완료</div>             
 	                    </c:if>
-                    
+                     
                     </div>
+                
                     
                     <div class="property-list2">
-                        <div class="property-num">${dto.seqProperty }</div>
+                    
+                        <div class="property-num">no. ${dto.seqProperty }</div>
                         <div class="property-title">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
                             <div class="property-content2">${dto.roomType }</div>
                         </div>
-                        
+                            
                         <div class="property-content" id="floor">
-                            <span></span>
+                            <span>층</span>
                             <div class="property-content2">${dto.floor }</div>
                         </div>
                         
                         <div class="property-content" id="contract">
                             <span>계약유형</span>
-                            <div class="property-content2">${dto.contractType }</div>
+                            <div class="property-content2">${dto.contractTypeDetail }</div>
                         </div>
-                        
-                        <c:if test="${dto.contractType eq '월세'}">
+                      
+                       
+                       
+                        <c:if test="${dto.contractTypeDetail eq '월세'}">
 	                        <div class="property-content" id="price">
 	                            <span>가격</span>
-	                            <div class="property-content2">${dto.monthlyPay }월(${dto.period })</div>
+	                            <div class="property-content2">${dto.monthlyRent }월(${dto.contractPeriod })</div>
 	                        </div>
                         </c:if>
                         
-                        <c:if test="${dto.contractType eq '전세'}">
+                        <c:if test="${dto.contractTypeDetail eq '전세'}">
 	                        <div class="property-content" id="price">
 	                            <span>가격</span>
 	                            <div class="property-content2">${dto.deposit }</div>
 	                        </div>
                         </c:if>
                         
-                         <c:if test="${dto.contractType eq '매매'}">
+                         <c:if test="${dto.contractTypeDetail eq '매매'}">
 	                        <div class="property-content" id="price">
 	                            <span>가격</span>
 	                            <div class="property-content2">${dto.dealing }</div>
 	                        </div>
                         </c:if>
-                        
-                        
+                     
+                       	
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
                             <div class="location-detail">${dto.location }</div>
                         </div>
-                        
-                    </div>
+               			 
+               			 <input type="hidden" value="${dto.seqProperty }">
+                    </div>  
+                    
+                   
                 </div>
-                </c:forEach>
+               
+                
                                           
                 <input type="submit" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
+                </c:forEach>      
                 
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
@@ -275,7 +283,7 @@
        	<!-- search-paging -->
        	</div>         
               
-                
+                        
         <!-- property-box -->
         </div>
              
@@ -291,7 +299,9 @@
 </div>
 
 
+ <script>
  
+ </script>
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
  
