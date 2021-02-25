@@ -12,6 +12,12 @@ public class PropertyDTO {
 		private String seqProperty; //모든 매물
 		private String seqLessorProperty; //임대인매물
 		
+		//중개인 정보
+		private String companyName;	//중개사무소명		
+		private String tel;	//전화번호
+		private String name;	//중개인명
+		
+		
 		//1. 방옵션
 		private String roomType; //1. 원룸 2. 투룸 3. 오피스텔
 		private String spacing;
@@ -30,7 +36,7 @@ public class PropertyDTO {
 		private int water;
 		private int gas;
 		private int electric;
-		private int serviceCharge;
+		private String serviceCharge;
 		
 		//4. 건물옵션
 		private int parking;
@@ -67,7 +73,7 @@ public class PropertyDTO {
 		
 		
 		//입주가능 or 계약완료
-		private int available;
+		private String available;
 		
 		
 		//getter & setter
@@ -171,10 +177,10 @@ public class PropertyDTO {
 		public void setElectric(int electric) {
 			this.electric = electric;
 		}
-		public int getServiceCharge() {
+		public String getServiceCharge() {
 			return serviceCharge;
 		}
-		public void setServiceCharge(int serviceCharge) {
+		public void setServiceCharge(String serviceCharge) {
 			this.serviceCharge = serviceCharge;
 		}
 		
@@ -327,15 +333,33 @@ public class PropertyDTO {
 		}
 		
 		//입주가능 or 계약완료
-		public int getAvailable() {
+		public String getAvailable() {
 			return available;
 		}
-		public void setAvailable(int available) {
+		public void setAvailable(String available) {
 			this.available = available;
 		}
 	
 		
-		
+		//중개인 정보
+		public String getCompanyName() {
+			return companyName;
+		}
+		public void setCompanyName(String companyName) {
+			this.companyName = companyName;
+		}
+		public String getTel() {
+			return tel;
+		}
+		public void setTel(String tel) {
+			this.tel = tel;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
 		
 		
 		

@@ -70,39 +70,72 @@ public class PropertyDAO {
 			//중개인 seq
 			dto.setSeqContractor(rs.getString("seqContractor"));
 			
+			
 			//1. 방옵션
 			dto.setRoomType(rs.getString("roomType"));
 			dto.setSpacing(rs.getString("spacing"));
 			
+			System.out.println(dto.getRoomType());
+			System.out.println(dto.getSpacing());
+			
 			//2. 계약형태
 			dto.setContractTypeDetail(rs.getString("contractType"));
+			System.out.println(dto.getContractTypeDetail());
 			
 			//보증금
-			String deposit = String.format("%d,.3" + "원", rs.getInt("deposit"));
+			String deposit = String.format("%,d" + "원", rs.getInt("deposit"));
 			dto.setDeposit(deposit);
+			System.out.println(dto.getDeposit());
+			
 			
 			//월세
-			String monthlyRent = String.format("%d,.3" + "원", rs.getInt("monthlyRent"));
+			String monthlyRent = String.format("%,d" + "원", rs.getInt("monthlyPay"));
 			dto.setMonthlyRent(monthlyRent);
 			
+			
 			//매매
-			String dealing = String.format("%d,.3" + "원", rs.getInt("dealing"));			
-			dto.setDealing(rs.getString(dealing));
 			
+			String temp;
+			String dealing = ""; 
+			
+			temp = rs.getString("dealing");
+			
+			System.out.println(temp);
+			if(temp == null) {
+				dealing = "";
+				dto.setDealing(dealing);
+			} 
+			
+			else {
+				dealing = String.format("%,d" + "원", Integer.parseInt(temp));	
+				dto.setDealing(dealing);
+			}
+				
+			//System.out.println(dto.getDealing());
+			
+			
+
 			//기간
-			String period = String.format("%d,.3" + "개월", rs.getInt("period"));
-			dto.setContractPeriod(period);
+			dto.setContractPeriod(rs.getString("contractPeriod") + "개월");
 			
+			System.out.println(dto.getContractPeriod());
 			
 			
 			//3. 관리비
 			dto.setInternet(rs.getInt("internet"));
 			dto.setCable(rs.getInt("cabletv"));
+			
 			dto.setCleaning(rs.getInt("cleaning"));
 			dto.setWater(rs.getInt("water"));
 			dto.setGas(rs.getInt("gas"));
 			dto.setElectric(rs.getInt("electric"));
-			dto.setServiceCharge(rs.getInt("serviceCharge"));
+			
+			String serviceCharge = String.format("%,d" + "원", (rs.getInt("serviceCharge")));
+			dto.setServiceCharge(serviceCharge);
+			
+			System.out.println(dto.getInternet());
+			
+			
 			
 			//4. 건물옵션			
 			dto.setParking(rs.getInt("parking"));
@@ -125,22 +158,40 @@ public class PropertyDAO {
 			dto.setMicrowave(rs.getInt("microwave"));
 			dto.setBidet(rs.getInt("bidet"));
 			
+			
 			//6. 지역
 			dto.setLocation(rs.getString("location"));
 			
+			//System.out.println(dto.getLocation());
 			//7. 이미지
 			dto.setPath(rs.getString("imagePath"));
 			
+			//System.out.println(dto.getPath());
+			
+			//8. 입주 가능 or 계약완료
+			dto.setAvailable(rs.getString("available"));
+			
+			//System.out.println(dto.getAvailable());
+			
+			//9. 중개인 정보
+			dto.setCompanyName(rs.getString("companyName"));			
+			dto.setTel(rs.getString("tel"));
+			dto.setName(rs.getString("nameC"));
+			
+			// 최종넣기 
+			 dto.setSeqContractor(rs.getString("seqContractor"));
+			 
+			 //System.out.println(dto.getSeqContractor());
+			 dto.setOccupancyDate(rs.getString("occupancyDate"));
+			 //System.out.println(dto.getOccupancyDate());
+			 
+			 dto.setTitle(rs.getString("title")); 
+			//System.out.println(dto.getTitle());
+			 
+			 dto.setContent(rs.getString("content"));
+			 //System.out.println(dto.getContent());
 			
 			
-			/*
-			 * //8. 최종넣기 dto.setSeqContractor(rs.getString("seqContractor"));
-			 * dto.setOccupancyDate(rs.getString("occupancyDate"));
-			 * dto.setTitle(rs.getString("title")); dto.setContent(rs.getString("content"));
-			 */
-			
-			//etc. 입주 가능 or 계약완료
-			dto.setAvailable(rs.getInt("available"));
 
 			list.add(dto);				
 		}
