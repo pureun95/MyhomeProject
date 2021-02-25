@@ -193,7 +193,7 @@
 				<input type="text" class="form-control" id="password" value="${dto.password}" readonly>
 				
 				<span>주소</span>
-				<input type="text" class="form-control" id="password" value="${dto.password}" readonly>
+				<input type="text" class="form-control" id="password" value="${dto.address}" readonly>
 				
 				<span>전화번호</span> 
 				<input type="text" class="form-control tel" id="tel1" value="${dto.tel1}" maxlength=3 readonly> - 

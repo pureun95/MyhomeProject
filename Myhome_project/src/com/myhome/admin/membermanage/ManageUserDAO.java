@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
@@ -31,11 +32,22 @@ public class ManageUserDAO {
 		}
 	}
 
-	public ArrayList<ManageUserDTO> list() {
+	public ArrayList<ManageUserDTO> list(HashMap<String, String> map) {
 		
 		try {
 			
-			String sql  = "select seq, id, name, jumin1, jumin2, tel1, tel2, tel3, address, reportcount from vwUser";
+			String where="";
+			
+			if(map.get("search") != null) {
+				
+				where = String.format("where name like '%%%s%%' or id like '%%%s%%'", map.get("search"), map.get("search"));
+			}
+			
+			//String sql  = "select seq, id, name, jumin1, jumin2, tel1, tel2, tel3, address, reportcount from vwUser";
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUser %s order by seq desc) a) where rnum between %s and %s"
+									, where
+									, map.get("begin")
+									, map.get("end"));
 			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
@@ -48,8 +60,8 @@ public class ManageUserDAO {
 				ManageUserDTO dto = new ManageUserDTO();
 				
 				dto.setSeq(rs.getString("seq"));
-				dto.setName(rs.getString("name"));
 				dto.setId(rs.getString("id"));
+				dto.setName(rs.getString("name"));
 				dto.setJumin1(rs.getString("jumin1"));
 				dto.setJumin2(rs.getString("jumin2"));
 				dto.setTel1(rs.getString("tel1"));
@@ -118,6 +130,34 @@ public class ManageUserDAO {
 			System.out.println(e);
 		}
 		return null;
+	}
+
+	//MemberManageUser 서블릿 -> 총 게시물 수 반환
+	public int getTotalCount(HashMap<String, String> map) {
+
+		try {
+			
+			String where = "";
+			
+			if(map.get("search") != null) {
+				
+				where = String.format("where name like '%%%s%%' or id like '%%%s%%' or seq like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+			}
+			
+			String sql = String.format("select count(*) as cnt from vwUser %s", where);
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			if(rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
 	}
 
 }

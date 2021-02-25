@@ -188,7 +188,7 @@
 				
 				<span>주민번호</span> 
 				<input type="text" class="form-control ssn" id="ssn1" maxlength=6 value="${dto.jumin1}" readonly > - 
-				<input type="text" class="form-control ssn" id="ssn2" maxlength=7 value="${dto.jumin2}" readonly >
+				<input type="text" class="form-control ssn" id="ssn2" maxlength=7 value="${dto.jimin2}" readonly >
 				
 				<span>비밀번호</span>
 				<input type="text" class="form-control" id="password" value="${dto.password}" readonly>
@@ -224,7 +224,7 @@
 			
 			<div class="btns">		
 				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">삭제</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">목록</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do?search=${search}&page=${page}';">목록</button>
 			</div>
 
 		</div>
