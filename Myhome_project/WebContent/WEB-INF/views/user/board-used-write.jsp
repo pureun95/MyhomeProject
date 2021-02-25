@@ -231,7 +231,8 @@ body, html {
 
 					<tr id="navboardtr">
 						<td class="navboardtd">
-							<!-- nav --> <%@include file="/WEB-INF/views/user/nav.jsp"%>
+							<!-- nav --> 
+							<%-- <%@include file="/WEB-INF/views/user/nav.jsp"%> --%>
 
 						</td>
 

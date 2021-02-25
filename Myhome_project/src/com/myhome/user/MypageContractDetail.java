@@ -15,6 +15,12 @@ public class MypageContractDetail extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		
+		
+		
+		
 		//http://localhost:8090/Myhome_project/user/mypage-contract-detail.do
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/mypage-contract-detail.jsp");
 		dispatcher.forward(request, response);
