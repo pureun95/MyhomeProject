@@ -52,10 +52,7 @@ public class MypageMatching extends HttpServlet {
 		int size = 0;
 		size = llist.size();
 		
-		//2.3 중개사 리스트 (매물 주소정보 들고감)
-		
-		
-		
+				
 		req.setAttribute("glist", glist);
 		req.setAttribute("slist", slist);
 		
