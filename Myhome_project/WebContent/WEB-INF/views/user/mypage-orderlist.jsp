@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	
 %>
@@ -118,41 +119,28 @@ tr td:nth-child(5) {
 							<tr>
 								<th>매물번호</th>
 								<th>제목</th>
-								<th>중개인</th>
+								<th>임대인(중개사)</th>
 								<th>계약일</th>
 								<th>후기작성</th>
 							</tr>
+							
+							<c:forEach items="${olist}" var="odto">
 							<tr>
-								<td>000001</td>
-								<td>전망 좋은 남향방</td>
-								<td>이수근(수근수근부동산)</td>
-								<td>2020.02.18</td>
-								<td>후기작성 기간 경과</td>
-							</tr>
-							<tr>
-								<td>000002</td>
-								<td>역세권 도보 5분 내에 살고싶다면 여기로</td>
-								<td>김햇살(햇살중개사무소)</td>
-								<td>2020.06.28</td>
-								<td>후기작성 기간 경과</td>
-							</tr>
-							<tr>
-								<td>000004</td>
-								<td>정말 싸게 나온 좋은방</td>
-								<td>유재석(114공인중개사무소)</td>
-								<td>2021.01.08</td>
-								<td>후기작성 완료</td>
-							</tr>
-							<tr>
-								<td>000006</td>
-								<td>[풀옵션]신축 원룸</td>
-								<td>강호동(천하장사부동산)</td>
-								<td>2021.02.18</td>
+								<td>${odto.seqContractorProperty}</td>
+								<td>${odto.title}</td>
+								<td>${odto.name}(${odto.contractorName})</td>
+								<td>${odto.contractDate}</td>
 								<td>
-									<button type="button" class="btn btn-default" id="btn-pro">
-										작성하기</button>
+								<c:if test="${odto.seqContractorReview==0}">
+									<button type="button" class="btn btn-default" id="btn-pro">작성하기</button>
+								</c:if>
+								<c:if test="${odto.seqContractorReview!=0}">
+									후기 작성 완료
+								</c:if>
 								</td>
 							</tr>
+							</c:forEach>
+							
 						</table>
 						<div style="clear: both;"></div>
 					</div>
