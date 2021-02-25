@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	
 %>
@@ -53,6 +54,9 @@ body, html {
 	text-align: center;
 	width: 800px;
 	margin-left: 256px;
+	position: absolute;
+	top:276px;
+	left:400px;
 }
 
 .tbl th {
@@ -75,12 +79,8 @@ body, html {
 	font-weight: bold;
 	text-decoration:underline;
 }
-#tbl1{
-	margin-top: -3px;
-}
+
 #tbl2{
-	position: relative;
-	top: -201px; 
 	visibility : hidden;
 }
 
@@ -101,7 +101,7 @@ body, html {
 
 #contractor {
 	position: relative;
-	top: -100px; 
+	top: 200px; 
 	visibility : hidden;
 }
 
@@ -185,29 +185,30 @@ body, html {
 									<th>중개인</th>
 									<th>매칭신청</th>
 								</tr>
+								
+								<c:if test="${glist.size()==0}">
 								<tr>
-									<td>00024</td>
-									<td>전망 좋은 남향방</td>
-									<td>김햇살(햇살중개사사무소)</td>
+									<td colspan="4">받은 매칭 목록이 존재하지 않습니다.</td>
+								</tr>
+								</c:if>
+								
+								<c:forEach items="${glist}" var="gdto">
+								<tr>
+									<td>${gdto.seqMatching }</td>
+									<td>${gdto.title}</td>
+									<td>${gdto.name}(${gdto.contractorName})</td>
 									<td>
+										<c:if test="${empty gdto.response}">
 										<div id="matchaccept">
-											<button type="button" class="btn btn-default" id="btnok">매칭 수락</button>
-											<button type="button" class="btn btn-default" id="btnno">매칭 거절</button> 
+											<button type="button" class="btn btn-default" id="btnok" onclick="location.href='/Myhome_project/user/matchingok.do?response=ok&seqMatching=${gdto.seqMatching}&seqLessorProperty=${gdto.seqLessorProperty}&seqContractor=${gdto.seqContractor}';">매칭 수락</button>
+											<button type="button" class="btn btn-default" id="btnno" onclick="location.href='/Myhome_project/user/matchingok.do?response=no&seqMatching=${gdto.seqMatching}';">매칭 거절</button> 
 										</div>
+										</c:if>
+										${gdto.response}
 									</td>
 								</tr>
-								<tr>
-									<td>00013</td>
-									<td>역세권 도보 5분 내에 살고싶다면 여기로</td>
-									<td>김햇살(햇살중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
-								<tr>
-									<td>00004</td>
-									<td>좋은 방입니다.</td>
-									<td>김햇살(햇살중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
+								</c:forEach>
+								
 							</table>
 						</div>
 
@@ -219,30 +220,38 @@ body, html {
 									<th>중개인</th>
 									<th>매칭신청</th>
 								</tr>
+								
+								<c:if test="${slist.size()==0}">
 								<tr>
-									<td>00024</td>
-									<td>전망 좋은 남향방</td>
-									<td>아침햇살(달님중개사사무소)</td>
-									<td>매칭거절됨 <button type="button" class="btn btn-default btncontr">중개사선택</button></td>
+									<td colspan="4">받은 매칭 목록이 존재하지 않습니다.</td>
 								</tr>
+								</c:if>
+								
+								<c:forEach items="${slist}" var="sdto" varStatus="status">
 								<tr>
-									<td>00014</td>
-									<td>역세권 도보 15분 내에 살고싶다면 여기로</td>
-									<td>반달곰(달님중개사사무소)</td>
-									<td>매칭신청완료 <button type="button" class="btn btn-danger">취소하기</button></td>
+									<td>${sdto.seqMatching }</td>
+									<td>${sdto.title}</td>
+									<td>${sdto.name}(${sdto.contractorName})</td>
+									<td>
+										<c:choose>
+										<c:when test="${sdto.response eq '거절' }">
+											매칭거절됨<button type="button" class="btn btn-default btncontr">중개사선택</button>
+										</c:when>
+										<c:when test="${sdto.response eq '수락' }">
+											매칭완료
+										</c:when>
+										<c:otherwise>
+											매칭대기중 <button type="button" class="btn btn-default btncontr" id="btn${status.count}">중개사선택</button>
+										</c:otherwise>
+										</c:choose>
+										
+									<input type="hidden" id="location" name="location" value="${sdto.location}">
+									
+									</td>
 								</tr>
-								<tr>
-									<td>00013</td>
-									<td>역세권 도보 5분 내에 살고싶다면 여기로</td>
-									<td></td>
-									<td>매칭대기중 <button type="button" class="btn btn-default btncontr">중개사선택</button></td>
-								</tr>
-								<tr>
-									<td>00004</td>
-									<td>좋은 방입니다.</td>
-									<td>아침햇살(달님중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
+								
+								</c:forEach>
+								
 							</table>
 						</div>
 						<div class="contractorbox" id="contractor">
@@ -306,7 +315,7 @@ body, html {
 		var btnok = document.getElementById("btnok");
 		var btnno = document.getElementById("btnno");
 		
-		
+	
 		btnget.onclick = function() {
 			document.getElementById("tbl1").style.visibility = 'visible';
 			document.getElementById("tbl2").style.visibility = 'hidden';
@@ -331,18 +340,6 @@ body, html {
 				document.getElementById("contractor").style.visibility = 'hidden';
 			};
 		}
-		
-		btnok.onclick = function() {
-			btnok.display = 'none'
-			btnno.display = 'none'
-			document.getElementById("matchaccept").innerHTML = '매칭완료(2021-02-18)';
-		};
-		
-		btnno.onclick = function() {
-			btnok.display = 'none'
-			btnno.display = 'none'
-			document.getElementById("matchaccept").innerHTML = '매칭거절(2021-02-18)';
-		};
 	
 	</script>
 	
