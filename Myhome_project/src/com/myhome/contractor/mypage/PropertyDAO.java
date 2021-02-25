@@ -207,19 +207,21 @@ public class PropertyDAO {
 	}
 	
 	
+	//2. 마이페이지 매칭매물관리 -> 나에게 들어온 매칭
+	
 	
 	
 	//일반회원 마이페이지 매물거래내역 -> 상세보기
-	public ArrayList<PropertyDTO> LessorList(String seq) {
+	public ArrayList<PropertyDTO> LessorList(int seq) {
 			
 			try {
 
-				String sql = "select * from vLessorOrderlist where seqUser = ?";
+				String sql = "select * from vLessorOrderlist where seqContractorProperty = ?";
 
 
-				//일반회원 번호 넘겨주기
+				//매물번호
 				pstat = conn.prepareStatement(sql);
-				pstat.setString(1, seq);
+				pstat.setInt(1, seq);
 				
 
 				rs = pstat.executeQuery();
