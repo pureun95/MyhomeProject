@@ -177,6 +177,32 @@ public class PolicyDAO {
 		return null;
 	}
 
+	//ListPolicy 서블릿 -> 총 게시물 수 반환
+	public int getTotalCount(HashMap<String, String> map) {
+		try {
+			
+			String where = "";
+			
+			if(map.get("search") != null) {
+				
+				where = String.format("where title like '%%%s%%' or content like '%%%s%%' or seq like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
+			}
+			
+			String sql = String.format("select count(*) as cnt from vwPolicy %s", where);
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			if(rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
 
 
 
