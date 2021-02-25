@@ -123,6 +123,11 @@ tr td:nth-child(5) {
 								<th>계약일</th>
 								<th>후기작성</th>
 							</tr>
+							<c:if test="${olist.size()==0}">
+							<tr>
+								<td colspan="5">거래 내역이 존재하지 않습니다.</td>
+							</tr>
+							</c:if>
 							
 							<c:forEach items="${olist}" var="odto">
 							<tr>

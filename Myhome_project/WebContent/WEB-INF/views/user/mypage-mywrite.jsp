@@ -46,7 +46,7 @@ body, html {
    margin: auto;
    position: absolute;
    top: 278px;
-   left: 550px;
+   left: 640px;
 }
 
 .tbl th {
@@ -140,7 +140,7 @@ body, html {
                         <th>게시판</th>
                         <th>글번호</th>
                         <th>제목</th>
-                        <th>작성일/판매상태</th>
+                        <th>작성일/상태</th>
                         <th>조회수</th>
                      </tr>
                      
