@@ -36,20 +36,20 @@ public class SearchPropertyDetail extends HttpServlet{
 			
 		//3-1. 중개인 seq 쿼리에 보내기
 			ArrayList<PropertyDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
-			
-			
-		//3-2. 일반회원 seq 쿼리에 보내기
-			ArrayList<PropertyDTO> lessorList = dao.LessorList(session.getAttribute("seqAllUser").toString());
 		
+		
+		//3-2. 중개인 매물번호 쿼리에 보내기
+			int seqProperty = Integer.parseInt(req.getParameter("seq").toString());
+			ArrayList<PropertyDTO> lessorList = dao.LessorList(seqProperty);
 			
 		//4-1. 올린매물리스트 보내기
 			req.setAttribute("list", list);
+		
 			
 		//4-2. 일반회원 매물거래내역 리스트 보내기	
 			req.setAttribute("lessorList", lessorList);	
 			req.setAttribute("nickname", nickname);
-		
-		
+			
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-property-detail.jsp");
 		dispatcher.forward(req, resp);
 		
