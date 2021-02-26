@@ -11,7 +11,14 @@ public class CleanDTO {
 	private String businessnum;
 	private String price;
 	private String introduce;
+	private String rating;
 	
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
 	public String getSeq() {
 		return seq;
 	}
