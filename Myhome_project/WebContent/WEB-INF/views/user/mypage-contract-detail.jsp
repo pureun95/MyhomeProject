@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 
 
@@ -192,7 +194,7 @@
 		 <div class="property-box">
 		 	<div class="board-name">전자계약조회</div>		 	
          	 
-        <form action="" id="form1">
+        <form method="POST" action="/Myhome_project/user/contractok.do" id="form1">
    
    		<!-- 전자계약서 -->
         <div class="matching-board">
@@ -203,27 +205,36 @@
 			<!-- 전세, 월세 라디오 버튼 -->
 			<div class="radio">				
 				<label class="custom-control-label" for="rd1">
-					<input type="radio" name="rd1" id="rd1" class="">
+					<input type="radio" name="rd1" id="rd1" class="" disabled <c:if test="${dto.dealing==0&&dto.monthlyRent==0}">checked</c:if>>
 					전세
 				</label>
 				
 				<label class="custom-control-label" for="rd2">
-					<input type="radio" name="rd1" id="rd2" class="">
+					<input type="radio" name="rd1" id="rd2" class="" disabled <c:if test="${dto.monthlyRent!=0}">checked</c:if>>
 					월세
 				</label>
+				
+				<label class="custom-control-label" for="rd2">
+					<input type="radio" name="rd1" id="rd3" class="" disabled <c:if test="${dto.deposit==0}">checked</c:if>>
+					매매
+				</label>
+				
 			<!-- radio 끝 -->
 			</div>
+				
 				
 				
 				
 			<table id="adcontracttbl" class="table table-condensed">					
 				<tr class="headtr">
 					<th class="adcontacttd title-color">계약번호</th>
-					<td class="adcontacttd" colspan="2">123456</td>
+					<td class="adcontacttd" colspan="2">${dto.seqContract}</td>
 					<th class="adcontacttd">계약일자</th>
-					<td class="adcontacttd" colspan="3">2020-12-31</td>
+					<td class="adcontacttd" colspan="3">${dto.contractDate}</td>
 					<th class="adcontacttd">계약상태</th>
-					<td class="adcontacttd" colspan="2">계약완료</td>
+					<td class="adcontacttd" colspan="2">${dto.contractState}</td>
+					<input type="hidden" id="hdn1" name="hdn1" value="${dto.seqContract}">
+					<input type="hidden" id="hdn2" name="hdn2" value="${dto.seqContractorProperty}">
 				</tr>
 
 				<tr class="headtr">
@@ -232,14 +243,36 @@
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">주소</th>
-						<td class="adcontacttd" colspan="9" >서울특별시 강남구 역산동 테레란로 1324-1 1234호</td>
+						<td class="adcontacttd" colspan="9" >${dto.location}</td>
 				</tr>
 				
+				<fmt:parseNumber var="percent" value="65.153454" integerOnly="true" />
+
 				<tr class="headtr">
-					<th class="adcontacttd title-color">금액</th>
-					<td class="adcontacttd" colspan="4" >1,100,000,000 원</td>
-					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="4" >100,000,000 원</td>
+					<!-- 전세 -->
+					<c:if test="${dto.dealing==0&&dto.monthlyRent==0}">
+						<th class="adcontacttd title-color">금액</th>
+						<td class="adcontacttd" colspan="4" >${dto.deposit}원</td>
+						<th class="adcontacttd title-color">계약금</th>
+						<td class="adcontacttd" colspan="4" >${dto.deposit/10}원(금액의 10%)</td>
+					</c:if>
+					<!-- 월세 -->
+					<c:if test="${dto.monthlyRent!=0}">
+						<th class="adcontacttd title-color">금액</th>
+						<td class="adcontacttd" colspan="2" >${dto.deposit}원</td>
+						<th class="adcontacttd title-color">계약금</th>
+						<td class="adcontacttd" colspan="3" >${dto.deposit/10}원(금액의 10%)</td>
+						<th class="adcontacttd title-color">월세</th>
+						<td class="adcontacttd" colspan="2" >${dto.monthlyRent}원</td>
+					</c:if>
+					<!-- 매매 -->
+					<c:if test="${dto.deposit==0}">
+						<th class="adcontacttd title-color">금액</th>
+						<td class="adcontacttd" colspan="4" >${dto.dealing}원</td>
+						<th class="adcontacttd title-color">계약금</th>
+						<td class="adcontacttd" colspan="4" >${dto.dealing/10}원(금액의 10%)</td>
+					</c:if>
+					
 				</tr>
 				
 				
@@ -250,7 +283,7 @@
 						<div class="low">
 											
 						<span class="low-title">제 2조 (존속기간)</span> 임대인은 위 부동산을 임대차 목적대로 사용 수익할 수 있는 상태로 <span>2021년 00월 00일</span>
-						까지 임차인에게 인도하며, 임대차 기간은 인도일로부터 <span class="underline">2021년 00월 00일</span>까지로 한다.<span class="underline">(00개월)</span>
+						까지 임차인에게 인도하며, 임대차 기간은 인도일로부터 <span class="underline">2021년 00월 00일</span>까지로 한다.<span class="underline">(${dto.contractPeriod}개월)</span>
 						<br><br>
 						<span class="low-title">제 3조 (용도변경 및 전대 등)</span> 임차인은 임대인의 동의없이 위 부동산의 용도나 구조를 변경하거나 전대 임차원 양도
 						또는 담보 제공을 하지 못하게 하며 임대차 목적 이외의 용도로 사용할 수 없다.
@@ -284,24 +317,24 @@
 				
 				<!-- 임차인 정보 -->
 				<tr>
-					<th class="adcontacttd info-color" colspan="10">임차인 정보 </th>
+					<th class="adcontacttd info-color" colspan="10">임차인 정보 ${dto.tenantSign}</th>
 				</tr>
 
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="${dto.bName}"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="${dto.bPhoneNumber}"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" value="${dto.bIdNumber}"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="${dto.bAddress}"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
 					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
@@ -310,7 +343,7 @@
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."<c:if test="${sessionScope.seqAllUser!=dto.bSeqUser||dto.contractState=='완료'}"> value="${dto.tenantSign}" disabled</c:if>></td>
 				</tr>		
 					
 					
@@ -319,24 +352,24 @@
 
 			<!-- 임대인 정보 -->
 				<tr>
-					<th class="adcontacttd info-color" colspan="10">임대인 정보 </th>
+					<th class="adcontacttd info-color" colspan="10">임대인 정보</th>
 				</tr>
 
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="${dto.sName }"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="${dto.sPhoneNumber}"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" value="${dto.sIdNumber}"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="${dto.sAddress}"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
 					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
@@ -346,7 +379,7 @@
 				<!-- 암호입력 -->
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요." <c:if test="${sessionScope.seqAllUser==dto.bSeqUser||dto.contractState=='완료'}"> value="${dto.lessorSign}" disabled</c:if>></td>
 				</tr>		
 									
 									
@@ -358,19 +391,19 @@
 
 
 				<tr class="headtr">
-					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<th class="adcontacttd">중개사명</th>
+					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="${dto.contractorName}"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
-					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="${dto.cPhoneNumber}"></td>
+					<th class="adcontacttd" style="font-size: 8px;">사업자등록번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" value="${dto.companyNumber }"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="${dto.cAddress}"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
 					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
 					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
@@ -380,7 +413,7 @@
 				<!-- 암호입력 -->
 				<tr class="headtr">				
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
-					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요." value="${dto.contractorSign}" disabled></td>
 				</tr>		
 				
 			</table>
@@ -393,9 +426,15 @@
        		
        		
        		<!-- 계약하기 버튼 -->
+       		
        		<div class="btn-contract">
-       			<input type="button" class="btn btn-contract1" value="계약하기">
-       			<input type="button" class="btn btn-contract1" value="폐기하기">
+       			<c:if test="${dto.contractState=='진행중'}">
+	       			<input type="submit" class="btn btn-contract1" value="계약하기">
+    	   			<input type="button" class="btn btn-contract1" value="폐기하기" onclick="location.href='/Myhome_project/user/contractcancel.do?seqContract=${dto.seqContract}';">
+       			</c:if>
+       			<c:if test="${dto.contractState=='취소'||dto.contractState=='완료'}">
+       				<input type="button" class="btn btn-contract1" value="목록으로 돌아가기" onclick="history.back();">
+       			</c:if>
        		</div>
        		
        	</form>

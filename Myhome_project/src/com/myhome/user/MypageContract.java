@@ -1,6 +1,7 @@
 package com.myhome.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,9 +22,22 @@ public class MypageContract extends HttpServlet {
 		//3. 결과 반환
 		
 		
+		//1.
 		HttpSession session = req.getSession();
+		
 		int seqUser = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 		
+		
+		//2.
+		MypageContractDAO dao = new MypageContractDAO();
+		
+		//리스트 요청
+		ArrayList<MypageContractDTO> clist = dao.contractList(seqUser);
+		
+		
+		
+		//3.
+		req.setAttribute("clist", clist);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage-contract.jsp");
