@@ -44,7 +44,12 @@ public class PolicyDAO {
 				where = String.format("where title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"));
 			}
 			
-			String sql = "select seq, title, id, writedate, viewcount from vwPolicy";
+			//String sql = "select seq, title, id, writedate, viewcount from vwPolicy";
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwPolicy %s order by seq desc) a) where rnum between %s and %s"
+					, where
+					, map.get("begin")
+					, map.get("end"));
+			
 			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
