@@ -65,7 +65,7 @@ public class MatchingDAO {
 				MatchingDTO dto = new MatchingDTO();
 				
 				//모든 매물번호
-				dto.setSeqProperty(rs.getInt("seqProperty"));
+				dto.setSeqProperty(rs.getInt("seqProperty_lp"));
 				dto.setSeqUser(rs.getInt("seqUser"));
 				dto.setSeqContractor(rs.getInt("seqContractor"));
 				dto.setSeqLessorProperty(rs.getInt("seqLessorProperty"));

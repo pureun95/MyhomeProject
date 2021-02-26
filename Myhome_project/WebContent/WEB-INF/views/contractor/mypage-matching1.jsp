@@ -95,7 +95,10 @@
     	width: 810px;
     	margin-top: 0px;
     	margin-left: 0px;
+    }
     
+    #board tr {
+    	cursor: pointer;
     }
     
    .boardtd {
@@ -135,14 +138,6 @@
 	
 	/* 매칭버튼 */
 	
-	#button-addon1 {
-	  	background-color: #f1aeae;
-	   	color: white;
-	   	outline: none !important;
-	   	font-family: 'NanumBarunGothic';
-	   	border: 1px solid #f1aeae;
-	   	height: 30px;
-   }
    
    #button-addon2 {
 	   	background-color: #f1aeae;
@@ -240,8 +235,8 @@
 		 	<div class="board-name">매칭매물관리</div>
 		 	
 		 	<div class="matching-option">
-		 			<a href="mypage-matching1.do">나에게 들어온 매칭</a>
-		 			<a href="mypage-matching2.do">내가 신청한 매칭</a>		 		 			
+		 		<a href="mypage-matching1.do">나에게 들어온 매칭</a>
+		 		<a href="mypage-matching2.do">내가 신청한 매칭</a>		 		 			
 		 	</div>
                 
           
@@ -254,33 +249,34 @@
         
 	        <table id="board" class="table table-hover table-striped table-condensed">
 	
-	            <tr class="headtr">
-	                <th class="firtd boardtd">매물번호</th>
-	                <th class="sectd boardtd">제목</th>
-	                <th class="thitd boardtd">닉네임</th>
-	                <th class="fortd boardtd">매칭신청</th>
+	           	<tr class="headtr">
+	                <th class="boardtd" colspan="1">매물번호</th>
+	                <th class="boardtd" colspan="4">제목</th>
+	                <th class="boardtd" colspan="1">닉네임</th>
+	                <th class="boardtd" colspan="2">매칭신청</th>
 	            </tr>
 	            
 	            <c:forEach items="${list }" var="dto">
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">${dto.seqProperty }</div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">${dto.title }</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">${dto.nickname }</div></td>
-	                <td class="fortd boardtd">
-	                <div class="temp">
-	                <c:if test="${dto.matching == 1 }">
-	                <c:set var="now" value="<%=new java.util.Date() %>"/>	           
-	                	<span>매칭완료(<fmt:formatDate value="${now }" type="date"/>)</span>
-	                </c:if>
-	                
-	                <c:if test="${dto.matching == 0 }">
-	            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">거절하기</button> 
-	            	</c:if>
-	            	
-	            	<c:if test="${empty dto.matching }">
-	            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">수락하기</button> 
-	            	</c:if>
-	            	</div>
+	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${dto.seqLessorProperty}';">
+	                <td class="boardtd" colspan="1"><div class="temp">${dto.seqLessorProperty }</div></td>
+	                <td class="boardtd" colspan="4"><div class="temp">${dto.title }</div></td>
+	                <td class="boardtd" colspan="1"><div class="temp">${dto.nickname }</div></td>
+	                <td class="boardtd" colspan="2">
+		                <div class="temp">
+		               
+			                <c:if test="${dto.matching == 1 }">
+			                <c:set var="now" value="<%=new java.util.Date() %>"/>	           
+			                	<span>매칭완료(<fmt:formatDate value="${now }" type="date"/>)</span>
+			                </c:if>
+			                
+			                <c:if test="${dto.matching == 0 }">
+			            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">거절하기</button> 
+			            	</c:if>
+			            	
+			            	<c:if test="${empty dto.matching }">
+			            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">수락하기</button> 
+			            	</c:if>
+		            	</div>
 	       			</td>
 	            </tr>
 	            </c:forEach>
