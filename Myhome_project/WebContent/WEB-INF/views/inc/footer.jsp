@@ -14,7 +14,10 @@
 
 <style>
 
-	
+	#footer-content2 > a {
+		color: white;
+		cursor: pointer;
+	}
 	
 	
 </style>
@@ -26,11 +29,7 @@
         <div id="footer-content">
             <div id="footer-content1">&copy; 2021</div>
             <div id="footer-content2">NOH PUREUN, PARK JIHYUN, LEE DAEHONG, LEE JUNOH, YUN JIHYUN, JANG JINYOUNG</div>
-            <div id="footer-content2">
-                <a>INFO</a>
-                <a>HISTORY</a>
-                <a>CONTACT</a>
-            </div>
+            <div id="footer-content2">WELCOME TO MYHOME</div>
         </div>
     </div>
 
