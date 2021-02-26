@@ -178,8 +178,7 @@ label {
 						</form>
 					</div>
 
-					<a href='/Myhome_project/user/reservationlist.do' id="list-link">내
-						예약목록으로 이동하기</a>
+					<a href='/Myhome_project/user/reservationlist.do' id="list-link">내 예약목록으로 이동하기</a>
 
 
 					<c:if test="${empty dto }">

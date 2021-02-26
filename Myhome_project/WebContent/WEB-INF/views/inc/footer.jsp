@@ -38,7 +38,6 @@
 	
 
     <div id="chat"></div>
-    
     <%@include file="/WEB-INF/views/member/chat.jsp" %>
 
 <script>

@@ -41,12 +41,6 @@ public class CleanMoveDetailOk extends HttpServlet {
 		int result = 1;
 		result = dao.reservation(sel1, seqContract, seqCompany, date);
 
-//		try {
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
 //		결과 : JSP 작업 X -> Servlet 작업 O
 		if (result == 1) {
 			//회원 가입 성공

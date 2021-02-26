@@ -192,7 +192,7 @@
 				<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-login" value="로그인">
 				
 				<!-- 테스트용 -->
-				<button type="button" class="btn" onclick="test('ccu7678','ccu7678nt');">이제위</button>
+				<button type="button" class="btn" onclick="test('jihyunnn','jihyun@');">이제위</button>
 	
        		
        	</div>
