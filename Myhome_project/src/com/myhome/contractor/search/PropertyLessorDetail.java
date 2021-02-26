@@ -14,39 +14,32 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
-@WebServlet("/contractor/search-property-detail.do")
-public class SearchPropertyDetail extends HttpServlet{
+@WebServlet("/contractor/property-lessor-detail.do")
+public class PropertyLessorDetail extends HttpServlet{
 
 	
+	//http://localhost:8090/Myhome_project/contractor/property-lessor-detail.do
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		//http://localhost:8090/Myhome_project/contractor/search-property-detail.do
-		
 		
 		//1. 매물 정보
 			PropertyDAO dao = new PropertyDAO();
-								
+							
+			
 		//2. session 받기
 			HttpSession session = req.getSession();
 			
 
-		//3. 중개인 매물번호 쿼리에 보내기
-			int seqProperty = Integer.parseInt(req.getParameter("seq").toString());
-			
-			ArrayList<PropertyDTO> propertyDetail = dao.propertyDetail(seqProperty);
-			
-		//4. 임대인 매물번호 쿼리에 보내기
+		//3. 임대인 매물번호 쿼리에 보내기
 			int seqLessorProperty = Integer.parseInt(req.getParameter("seq").toString());
-			ArrayList<PropertyDTO> LessorPropertyDetail = dao.propertyDetail(seqLessorProperty);
+			ArrayList<PropertyDTO> LessorPropertyDetail = dao.LessorPropertyDetail(seqLessorProperty);
 			
 			
-		//4. 매물상세보기 보내기
-			req.setAttribute("list", propertyDetail);
-			req.setAttribute("lessorproperty", LessorPropertyDetail);
+		//4. 매물상세보기로 보내기
+			req.setAttribute("list", LessorPropertyDetail);
 		
 			
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-property-detail.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/property-lessor-detail.jsp");
 		dispatcher.forward(req, resp);
 		
 	}

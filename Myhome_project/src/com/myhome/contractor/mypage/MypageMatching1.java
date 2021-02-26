@@ -29,8 +29,6 @@ public class MypageMatching1 extends HttpServlet{
 		//4. 보내기
 			req.setAttribute("list", list);
 				
-
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-matching1.jsp");
 		dispatcher.forward(req, resp);
 		

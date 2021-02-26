@@ -178,10 +178,10 @@
 		 	<div class="board-name">올린매물관리</div>
 		 		
 		 		<c:forEach items="${list }" var="dto">
-                <div class="property-list" onclick="location.href='/Myhome_project/contractor/search-property-detail.do';">
+                <div class="property-list">
                 
-                	<!-- 전자계약 체크박스 -->
-                	<div class="checkbox"><input type="checkbox" id="ck" value="${dto.seqProperty}"></div>    		     
+                	<!-- 전자계약 체크박스 중개인 매물번호 seq를 들고간다. -->       
+                	<div class="checkbox"><input type="checkbox" id="ck" value="${dto.seqContractorProperty}"></div>    		     
                      
                     <div class="img-property">           
                   	
@@ -199,11 +199,11 @@
                     
                     <div class="property-list2">
                     
-                        <div class="property-num">no. ${dto.seqProperty }</div>
-                        <div class="property-title">${dto.title }</div>
+                        <div class="property-num">no. ${dto.seqContractorProperty }</div>
+                        <div class="property-title" onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${dto.seqContractorProperty}';">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
-                            <div class="property-content2">${dto.roomType }</div>
+                            <div class="property-content2">${dto.roomType }</div>          
                         </div>
                             
                         <div class="property-content" id="floor">
@@ -245,16 +245,17 @@
                             <div class="location-detail">${dto.location }</div>
                         </div>
                			 
-               			 <input type="hidden" value="${dto.seqProperty }">
+               			<!-- Ajax로 보내기 -->        			 
+               			<input type="hidden" id="seq" value="${dto.seqContractorProperty }">
                     </div>  
                     
                    
                 </div>
-               
+               </c:forEach> 
                 
                                           
-                <input type="submit" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
-                </c:forEach>      
+                <input type="submit" id="btn1" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
+                     
                 
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
@@ -300,6 +301,35 @@
 
 
  <script>
+ 
+ $("#btn1").click(function() {
+ 	
+	$.ajax({
+		type: "GET",
+		url: "/Myhome_project/contractor/mypage-contract-insert.do",
+		data: "seq=" + $("#seq").val(),
+		success: function(result) {
+			//콜백함수
+			//응답이 오는 순간 자동으로 실행
+				
+			if(result == 1) {
+				$("#search-text").css("color", "red");
+				$("#search-text").val("이미 사용중인 아이디입니다.");
+						
+			} else {
+				$("#search-text").css("color", "blue");
+				$("#search-text").val("사용 가능한 아이디입니다.");
+						
+			}
+				
+		},
+		error: function(a,b,c) {
+			console.log(a,b,c);
+		}
+	})
+ 	
+ });
+ 
  
  </script>
      <!-- footer -->
