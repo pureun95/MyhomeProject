@@ -27,9 +27,9 @@
 	}
 	
 	/* 메인에서는 투명 */
-	#header:hover {
+	/* #header:hover {
 		background-color: transparent !important;
-	}
+	} */
 
 	/* 부트스트랩 사용 설정 수정중... */
 	/* 부트스트랩 사용하실분들은 아래 링크랑 밑의 설정들을 추가해서 이용해주세요~~(아직 쓰지말아주세요 수정중!) */
@@ -573,5 +573,38 @@
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 <!-- </div> -->
+
+
+<script>
+
+/* 브라우저 창 띄우면 white로 나옴 -> 메인에서 transparent */
+$(document).ready(function() {
+	$("header").hover(function() {
+		$("#header").css("background-color", "transparent");})
+})
+
+
+/* 스크롤 시  */
+
+$(window).scroll(function() {
+	
+	if($(this).scrollTop() > 0) {
+		$(".header-ul3").css("color", "#202020");
+		$("#header").css("background-color", "white");
+		$("header").hover(function() {
+			$("#header").css("background-color", "white");
+		});
+	
+	} else {
+		$(".header-ul3").css("color", "white");
+		$("#header").css("background-color", "transparent");
+		$("header").hover(function() {
+			$("#header").css("background-color", "transparent");})
+	}
+});
+
+
+
+</script>
 </body>
 </html>
