@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 
@@ -127,48 +128,26 @@ body, html {
 						<th>중개인</th>
 						<th>계약상태</th>
 					</tr>
-		 			<tr class="contract">
-		 				<td>2101859600</td>
-		 				<td>남궁성</td>
-		 				<td>홍진영</td>
-		 				<td>이정재(이정재부동산)</td>
+					<c:if test="${clist.size()==0}">
+						<tr><td colspan="5">계약 목록이 존재하지 않습니다.</td></tr>
+					</c:if>
+					<c:forEach items="${clist}" var="cdto">
+		 			<tr class="contract" onclick="location.href='/Myhome_project/user/mypagecontractdetail.do?seqContract=${cdto.seqContract}'">
+		 				<td>${cdto.seqContract}</td>
+		 				<td>${cdto.sName}</td>
+		 				<td>${cdto.bName}</td>
+		 				<td>${cdto.contractorName}</td>
 		 				<td>
-		 					계약진행중
-		 					<!-- <button type="button" class="btn btn-default" id="btn1">암호 입력하기</button>
-		 					<div class="box" id="box1">
-			 					<input type="text" placeholder="전자계약코드 입력." class="codetxt" id="txt1">
-			 					<button type="submit" class="btn btn-default" id="sub1">전송하기</button>
-		 					</div> -->
+		 				${cdto.contractState}
+		 				<!-- 후기인데 -->
+		 				<%-- <c:if test="${cdto.contractState=='완료'}">
+		 				<input type="button" class="btn btn-contract1" value="중개사 후기 작성">
+		 				<input type="button" class="btn btn-contract1" value="매물 후기 작성">
+		 				</c:if> --%>
 		 				</td>
 		 			</tr>
-		 			<tr class="contract">
-		 				<td>2101891107</td>
-		 				<td>김두한</td>
-		 				<td>마동석</td>
-		 				<td>김혜수(김혜수부동산)</td>
-		 				<td>
-		 					계약진행중
-		 					<!-- <button type="button" class="btn btn-default" id="btn2">암호 입력하기</button>
-		 					<div class="box" id="box2">
-			 					<input type="text" placeholder="전자계약코드 입력" class="codetxt" id="txt2">
-			 					<button type="submit" class="btn btn-default" id="sub2">전송하기</button>
-		 					</div> -->
-		 				</td>
-		 			</tr>
-		 			<tr class="contract">
-		 				<td>2101130110</td>
-		 				<td>홍길동</td>
-		 				<td>김임차</td>
-		 				<td>김한빛(한빛부동산)</td>
-		 				<td>계약완료</td>
-		 			</tr>
-		 			<tr class="contract">
-		 				<td>2101130100</td>
-		 				<td>김동자</td>
-		 				<td>김임차</td>
-		 				<td>유산슬(유산슬부동산)</td>
-		 				<td>계약취소</td>
-		 			</tr>
+		 			</c:forEach>
+		 			
 		 		</table>
 		 		
 		 	
@@ -193,45 +172,6 @@ body, html {
 </div>    
 
 	<script>
-		
-		var btn1 = document.getElementById("btn1");
-		var btn2 = document.getElementById("btn2");
-		
-		var sub1 = document.getElementById("sub1");
-		var sub2 = document.getElementById("sub2");
-		
-		var contract = document.getElementsByClassName("contract");
-		
-		for (var i=0; i<contract.length; i++){
-			contract[i].onclick = function() {
-				location.href = '/Myhome_project/user/mypage-contract-detail.do';
-			};
-		}
-		
-		
-		btn1.onclick = function() {
-			document.getElementById("box1").style.display = 'inline';
-			btn1.style.display = 'none';
-		};
-		btn2.onclick = function() {
-			document.getElementById("box2").style.display = 'inline';
-			btn2.style.display = 'none';
-		};
-		
-		
-	
-		sub1.onclick = function() {
-			document.getElementById("txt1").style.display = 'none';
-			sub1.style.display = 'none';
-			document.getElementById("box1").innerHTML = '계약완료'
-		}
-	
-		sub2.onclick = function() {
-			document.getElementById("txt2").style.display = 'none';
-			sub2.style.display = 'none';
-			document.getElementById("box2").innerHTML = '계약완료'
-		}
-	
 	
 	
 	</script>
