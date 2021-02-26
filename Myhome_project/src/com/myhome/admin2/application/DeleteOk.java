@@ -23,6 +23,7 @@ public class DeleteOk extends HttpServlet {
 		
 		int result = dao.delete(seqApplication);
 
+		dao.close();
 		if (result > 0) {
 			
 			resp.sendRedirect("/Myhome_project/admin2/application/list.do");

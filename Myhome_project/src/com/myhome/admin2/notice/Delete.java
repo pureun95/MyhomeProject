@@ -1,6 +1,8 @@
 package com.myhome.admin2.notice;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,23 @@ public class Delete extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+		String[] seqNotice = req.getParameterValues("seq");// 배열로 번호를 받음.
+		String temp = Arrays.toString(seqNotice);
+
+		
+		NoticeDAO dao = new NoticeDAO();
+
+		ArrayList<NoticeDTO> list = dao.list(seqNotice);
+
+		for (NoticeDTO dto : list) {
+
+			dto.setWriteDate(dto.getWriteDate().substring(0, 10));
+
+		}
+
+		req.setAttribute("list", list);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2notice/delete.jsp");
 		dispatcher.forward(req, resp);
 

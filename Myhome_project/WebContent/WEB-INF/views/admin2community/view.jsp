@@ -216,8 +216,6 @@ border-bottom:1px solid #f1aeae;
 
 		<div class="container">
 
-			<form action="" id="form1">
-
 				<table id="navboardtbl">
 
 					<tr id="navboardtr">
@@ -236,51 +234,60 @@ border-bottom:1px solid #f1aeae;
 									class="table table-hover table-striped table-condensed">
 									<!--  ?는 데이터 직접 넣기  -->
 									<tr class="headtr">
-										<th class="firtd boardtd">글번호 : ?</th>
-										<th class="sectd boardtd">진짜제목 ?</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
-										<th class="fortd boardtd">작성일</th>
-										<th class="fiftd boardtd">조회수</th>
+										<th class="firtd boardtd">${dto.seqCommunity}</th>
+										<th class="sectd boardtd">${dto.title}</th>
+										<th class="thitd boardtd">${dto.id}</th>
+										<th class="fortd boardtd">${dto.writeDate}</th>
+										<th class="fiftd boardtd">${dto.viewCount}</th>
 									</tr>
 
 									<tr class="boardtr">
 										<td class="firtd boardtd" colspan="5"><textarea
-												class="form-control col-sm-5 boardtext"
-												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
+												class="form-control col-sm-5 boardtext" style="resize: none;"
+												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>${dto.content}</textarea>
 										</td>
 
 									</tr>
 
-
 								</table>
 							</div> 
+							
 						<!-- 버튼 -->	
 						<div class="boardbutton">
-							<button id="Communitylist" onclick="location.href='/Myhome-project/admin2/community/list.do';">
+							<button id="Communitylist" type="button" onclick="location.href='/Myhome_project/admin2/community/list.do';">
 							목록</button>
-							<button id="communitydel" onclick="location.href='/Myhome-project/admin2/community/delete.do';">
+							<button id="communitydel" type="button" 
+							onclick="location.href='/Myhome_project/admin2/community/delete.do?seq=${dto.seqCommunity}';">
 							삭제</button>
-						  	<button id="checkerr" onclick="location.href='/Myhome-project/admin2/community/check.do';">
-						  	검열</button>	
-						  
+						  	<!-- <button id="checkerr" type="button" onclick="location.href='/Myhome-project/admin2/community/check.do';">
+						  	검열</button>	 -->
 						</div>					
 							
 							<!--  댓글  -->
 
+
 							<div class="myhomecomment">
 								<!-- 여기 행을 움직이자-->
+								
+								<c:if test="${dto.count != '0' }">	
+								<c:forEach items="${list}" var="cdto">
+				
 								<div class="MyhomeCommentRow">
 									<div class="commentinfo">
-										<input type="text" id="commentname" value="닉네임하하">
-										<textarea name="" id="" cols="40" rows="2" >까지등록할수할수까몇글자까지등록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지등까지등록</textarea>
+										<input type="text" id="commentname" value="${cdto.id }">
+										<textarea name="" id="" cols="40" rows="2" >${cdto.content}</textarea>
 										<div class="subinfo">
-											<span class="commentdate">2020-12-12</span>
-											<button>삭제</button>
+											<span class="commentdate">${cdto.writeDate}</span>
+											<button  type="button"  
+											onclick="location.href='/Myhome_project/admin2/community/delcommentok.do?seq=${cdto.seqCommunityComment}&seqC=${dto.seqCommunity}'">
+											삭제</button>
 										</div>
-
+									
 									</div>
-
 								</div>
+								</c:forEach>
+								</c:if>
+
 							</div>
 							
 							
@@ -296,16 +303,10 @@ border-bottom:1px solid #f1aeae;
 								<!-- 지금은 삭제? 아니면 안보이게? -->
 
 						
-						
-						
 						</td>
 					</tr>
 				</table>
-			</form>
-
-
-
-		</div>
+			</div>
 
 	</div>
 
