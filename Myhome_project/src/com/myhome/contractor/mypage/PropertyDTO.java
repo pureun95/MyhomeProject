@@ -9,9 +9,9 @@ package com.myhome.contractor.mypage;
 public class PropertyDTO {
 		
 		//매물 seq
-		private String seqProperty; //모든 매물
-		private String seqLessorProperty; //임대인매물
-		private String seqContractorProperty; //중개인매물
+		private int seqProperty; //모든 매물
+		private int seqLessorProperty; //임대인매물
+		private int seqContractorProperty; //중개인매물
 		
 		//중개인 정보
 		private String companyName;	//중개사무소명		
@@ -68,7 +68,7 @@ public class PropertyDTO {
 		private String path;
 		
 		//8. 최종넣기
-		private String seqContractor;
+		private int seqContractor;
 		private String occupancyDate;
 		private String title;
 		private String content;
@@ -81,24 +81,24 @@ public class PropertyDTO {
 		//getter & setter
 		
 		//매물 시퀀스
-		public String getSeqProperty() {
+		public int getSeqProperty() {
 			return seqProperty;
 		}
-		public void setSeqProperty(String seqProperty) {
+		public void setSeqProperty(int seqProperty) {
 			this.seqProperty = seqProperty;
 		}
 		
-		public String getSeqLessorProperty() {
+		public int getSeqLessorProperty() {
 			return seqLessorProperty;
 		}
-		public void setSeqLessorProperty(String seqLessorProperty) {
+		public void setSeqLessorProperty(int seqLessorProperty) {
 			this.seqLessorProperty = seqLessorProperty;
 		}
 		
-		public String getSeqContractorProperty() {
+		public int getSeqContractorProperty() {
 			return seqContractorProperty;
 		}
-		public void setSeqContractorProperty(String seqContractorProperty) {
+		public void setSeqContractorProperty(int seqContractorProperty) {
 			this.seqContractorProperty = seqContractorProperty;
 		}
 		
@@ -315,10 +315,10 @@ public class PropertyDTO {
 		}
 		
 		//8. 최종넣기
-		public String getSeqContractor() {
+		public int getSeqContractor() {
 			return seqContractor;
 		}
-		public void setSeqContractor(String seqContractor) {
+		public void setSeqContractor(int seqContractor) {
 			this.seqContractor = seqContractor;
 		}
 		public String getOccupancyDate() {

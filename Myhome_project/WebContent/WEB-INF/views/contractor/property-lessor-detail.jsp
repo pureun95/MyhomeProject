@@ -170,7 +170,6 @@
 	   	margin-left: 5px;
    }
 	 	
-
    
    /* 검색, 페이지바 */
     
@@ -184,10 +183,13 @@
    
    .property-title {
    		margin-bottom: 10px;
+   		width: auto;
+   		margin-left: 10px;
+   		margin-bottom: 30px;
    }
    
    .contractor-name {
-   	margin-bottom: 8px;
+   		margin-bottom: 8px;
    }
    
    .contractor-phone {
@@ -380,6 +382,12 @@
   	
   	}
   	
+  	#board tr {
+  		cursor: pointer;
+  	}
+  	
+  	
+  	
   	
   	
   	
@@ -557,16 +565,7 @@
 
             <div class="property-list2">                
 	            <div class="property-title">${dto.title }</div>
-	                        
-	            <!-- 중개인 정보 -->
-	            <div class="contractor-desc">                   
-	            	<div class="contractor-name"><b>${dto.companyName }</b> <div class="btn btn-outline-secondary" id="btn-chat">채팅하기</div></div>
-	                <div class="contractor-name">${dto.name }</div>
-	                <div class="contractor-phone">Tel. ${dto.tel }</div>
-	            </div>
-                        
-                        
-	                    
+	                        	              	                   
 	            <div class="informcontent1">
 	            	<table class="table table-condensed">
 	            		<tr class="headtr">

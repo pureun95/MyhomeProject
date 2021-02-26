@@ -21,6 +21,8 @@ public class ListChart extends HttpServlet {
 		
 		
 		
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminchart/listchart.jsp");
 		dispatcher.forward(req, resp);
 

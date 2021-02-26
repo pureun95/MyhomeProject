@@ -17,9 +17,7 @@ public class MypageMatching2 extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//http://localhost:8090/Myhome_project/contractor/mypage-matching1.do
-		
-		//1. 중개인이 보낸 매칭
+		//1. 중개인이 신청한 매칭
 		MatchingDAO dao = new MatchingDAO();
 					
 		//2. session 받기
@@ -30,6 +28,7 @@ public class MypageMatching2 extends HttpServlet{
 					
 		//4. 보내기
 		req.setAttribute("list", list);
+			
 			
 		
 		

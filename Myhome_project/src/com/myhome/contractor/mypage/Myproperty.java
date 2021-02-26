@@ -25,13 +25,12 @@ public class Myproperty extends HttpServlet{
 		HttpSession session = req.getSession();
 						
 		//3. 중개인 seq 쿼리에 보내기
-		ArrayList<PropertyDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
+		int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
+		ArrayList<PropertyDTO> list = dao.list(seqContractor);
 						
 		//4. 올린매물리스트 보내기
 		req.setAttribute("list", list);
 				
-				
-		
 		//http://localhost:8090/Myhome_project/contractor/mypage-myproperty.do
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-myproperty.jsp");
 		dispatcher.forward(req, resp);

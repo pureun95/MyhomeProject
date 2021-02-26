@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-
-
-%>    
+    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +26,12 @@
         margin: 0 auto;
         letter-spacing: -.2px;
         min-height:100%;
-		padding-bottom: 100px;
+		padding-bottom:100px;
 		border: 1px solid green;
 		margin-top: 100px;
 		z-index: -1;
     }
     
-   
     .board-name {
     	border-left: 5px solid #f1aeae;
 	    width: 810px;
@@ -98,7 +95,10 @@
     	width: 810px;
     	margin-top: 0px;
     	margin-left: 0px;
+    }
     
+    #board tr {
+    	cursor: pointer;
     }
     
    .boardtd {
@@ -106,27 +106,10 @@
 	    vertical-align: middle;
    }
     
-    .firtd {
-    	width: 10px;
-    }
-    
-    .sectd {
-    	width: 20px;
-    }
-    
-    .thitd {
-    	width: 10px;
-    }
-    
-    .fortd {
-    	width: 20px;
-    }
-    
-   	.boardtd {
+   .text-middle {
    		text-align: center;
-    	vertical-align: middle;
-   	
-   	} 
+   }
+ 
    	
    	/* 헤더 */
    	
@@ -137,27 +120,22 @@
 	
 	/* 매칭버튼 */
 	
-	#button-addon1 {
-	  	background-color: #f1aeae;
-	   	color: white;
-	   	outline: none !important;
-	   	font-family: 'NanumBarunGothic';
-	   	border: 1px solid #f1aeae;
-   }
    
    #button-addon2 {
 	   	background-color: #f1aeae;
-	   	color: white;
-	   	outline: none !important;
-	   	font-family: 'NanumBarunGothic';
-	   	border: 1px solid #f1aeae;
-	   	margin-left: 5px;
+	    color: white;
+	    outline: none !important;
+	    font-family: 'NanumBarunGothic';
+	    border: 1px solid #f1aeae;
+	    margin-left: 5px;
+	    height: 25px;
+	    padding: 2px;
+	    width: 80px;
    }
-	
-   	
+	 	
 
    
-  /* 검색, 페이지바 */
+   /* 검색, 페이지바 */
     
     .search-paging {
     	border: 1px solid black;
@@ -215,11 +193,9 @@
 	   	padding: 5px;
    
    }
-
-	
-	
-	
+   	
     
+
 </style>
 
 
@@ -256,108 +232,48 @@
 	        <table id="board" class="table table-hover table-striped table-condensed">
 	
 	            <tr class="headtr">
-	                <th class="firtd boardtd">매물번호</th>
-	                <th class="sectd boardtd">제목</th>
-	                <th class="thitd boardtd">닉네임</th>
-	                <th class="fortd boardtd">매칭신청</th>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">1</div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">거절(2020-01-01)</div> 
-	       			</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd"><div class="temp">2</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">                	
-		                <button class="btn btn-outline-secondary" type="button" id="button-addon2">방올리기</button>
-		            	<button class="btn btn-outline-secondary" type="button" id="button-addon2">매칭취소</button>                
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">3</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">4</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">5</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	 <button class="btn btn-outline-secondary" type="button" id="button-addon2">방올리기</button>
-		            	<button class="btn btn-outline-secondary" type="button" id="button-addon2">매칭취소</button>                
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">7</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">8</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">9</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">10</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
-	            </tr>
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp">6</div></td>
-	                <td class="sectd boardtd"><div class="temp">정말좋은방</div></td>
-	                <td class="thitd boardtd"><div class="temp">아이구</div></td>
-	                <td class="fortd boardtd">
-	                	<div class="temp">매칭완료(2020-01-01)</div>
-	            	</td>
+	                <th class="boardtd" colspan="1">매물번호</th>
+	                <th class="boardtd" colspan="4">제목</th>
+	                <th class="boardtd" colspan="1">닉네임</th>
+	                <th class="boardtd" colspan="2">매칭신청</th>
 	            </tr>
 	            
 	           
+	            <c:if test="${list.size() == 0 }">
+					<tr class="boardtr">
+						<td class="text-middle" colspan="8"><div class="temp">매칭 신청한 매물이 없습니다.</div></td>					
+					</tr>	            
+	            </c:if>
+	            
+	            <c:forEach items="${list }" var="dto">
+	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${dto.seqLessorProperty}';">
+	                <td class="firtd boardtd"><div class="temp">${dto.seqLessorProperty }</div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">${dto.title }</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">${dto.nickname }</div></td>
+	                <td class="fortd boardtd">
+	                <div class="temp">
+	                <c:if test="${dto.matching == 1 }">
+	                <c:set var="now" value="<%=new java.util.Date() %>"/>	           
+	                	<span>매칭완료(<fmt:formatDate value="${now }" type="date"/>)</span>
+	                </c:if>
+	                
+	                <c:if test="${dto.matching == 0 }">
+	            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">거절하기</button> 
+	            	</c:if>
+	            	
+	            	<c:if test="${empty dto.matching }">
+	            		<button class="btn btn-outline-secondary" type="button" id="button-addon2">수락하기</button> 
+	            	</c:if>
+	            	</div>
+	       			</td>
+	            </tr>
+	            </c:forEach>
+	           
+	            	     
 	        </table>
-       </div>
        		
+       		</div>
+       	
        		<!-- 검색, 페이지바 -->
        		<div class="search-paging">
 	       		<div class="paging">
@@ -384,10 +300,19 @@
 				</div>
        		</div>
        	
-       	
        	</form>
        
         
+       
+		
+        
+        
+    
+         
+              
+          
+          
+          
           
           <!-- property-box -->
           </div>

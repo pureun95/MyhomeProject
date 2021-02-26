@@ -136,7 +136,7 @@ margin-top:-5px;
 					<label for="menu3">매물관리</label>
 					<div class="navsub">
 						<a id="chart" onclick="location.href='/Myhome_project/admin/chart/listchart.do';" class="nav-list payment  ">가격변화</a> 
-						<a id="" href="" class="nav-list property ">매물관리</a> 
+						<a id="property" onclick="location.href='/Myhome_project/admin/property/listproperty.do';" class="nav-list property ">매물관리</a> 
 						<a id="" href="" class="nav-list adminalert ">알림서비스</a>
 					</div>
 

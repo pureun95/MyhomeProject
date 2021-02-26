@@ -1,4 +1,4 @@
-package com.myhome.admin.moveclean;
+package com.myhome.admin.property;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -9,16 +9,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
+import com.myhome.admin.moveclean.MoveDTO;
 
-public class MoveDAO {
-	
+public class PropertyDAO {
+
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private CallableStatement cstat;
 	private ResultSet rs;
 	
-	public MoveDAO() {
+	public PropertyDAO() {
 		
 		//DB 연결
 		conn = DBUtil.open();
@@ -32,52 +33,55 @@ public class MoveDAO {
 		}
 	}
 
-	public ArrayList<MoveDTO> list(HashMap<String, String> map) {
-		
+	public ArrayList<PropertyDTO> list(HashMap<String, String> map) {
+
 		try {
 			
 			String where = "";
 			
 			if(map.get("search") != null) {
 				
-				where = String.format("where name like '%%%s%%'", map.get("search"));
+				where = String.format("where seq like '%%%s%%'", map.get("search"));
 			}
 			
 			//String sql = "select * from vwMove order by seq asc";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwMove %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwProperty %s order by seq desc) a) where rnum between %s and %s"
 					, where
 					, map.get("begin")
 					, map.get("end"));
 			
-			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
 			
-			ArrayList<MoveDTO> list = new ArrayList<MoveDTO>();
+			ArrayList<PropertyDTO> list = new ArrayList<PropertyDTO>();
 			
-			while (rs.next()) {
+			while(rs.next()) {
 				//레코드 1줄 -> DTO 1개
 				
-				MoveDTO dto = new MoveDTO();
+				PropertyDTO dto = new PropertyDTO();
 				
 				dto.setSeq(rs.getString("seq"));
-				dto.setLocation(rs.getString("location"));
 				dto.setImage(rs.getString("image"));
-				dto.setName(rs.getString("name"));
-				dto.setTel(rs.getString("tel"));
-				dto.setAddress(rs.getString("address"));
-				dto.setBusinessnum(rs.getString("businessnum"));
-				dto.setPrice(rs.getString("price"));
-				dto.setIntroduce(rs.getString("introduce"));
+				dto.setRoomtype(rs.getString("roomtype"));
+				dto.setContracttype(rs.getString("contracttype"));
+				dto.setValue(rs.getString("value"));
+				dto.setLocation(rs.getString("location"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setFloor(rs.getString("floor"));
+				dto.setState(rs.getString("state"));
 				
 				list.add(dto);
+				
 			}
 			
 			return list;
 			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
 		return null;
 	}
 
@@ -88,10 +92,12 @@ public class MoveDAO {
 			
 			if(map.get("search") != null) {
 				
-				where = String.format("where name like '%%%s%%'", map.get("search"));
+				where = String.format("where seq like '%%%s%%'", map.get("search"));
 			}
 			
-			String sql = String.format("select count(*) as cnt from vwMove %s", where);
+			String sql = String.format("select count(*) as cnt from vwProperty %s", where);
+			
+			
 			
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -105,16 +111,7 @@ public class MoveDAO {
 		}
 		return 0;
 	}
-
+	
+	
 	
 }
-
-
-
-
-
-
-
-
-
-

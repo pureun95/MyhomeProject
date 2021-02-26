@@ -51,7 +51,6 @@ public class BoardUsedView extends HttpServlet {
 		
 		
 
-
 		//3. 값 넣기
 		req.setAttribute("dto", dto);
 		req.setAttribute("clist", clist);
