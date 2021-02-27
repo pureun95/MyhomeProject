@@ -28,12 +28,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -144,7 +146,7 @@
 		
 		<c:if test="${not empty search}">
 	        <div class="message well well-sm">
-	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	            '${search}'(으)로 ${listpolicy.size()}건의 게시물을 검색했습니다.
         </div>
         </c:if>
 		
@@ -176,7 +178,6 @@
             
             <div class="btns">
             	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addpolicy.do';">
-            	<input type="button" class="btn" value="수정" id="edit" onclick="location.href='/Myhome_project/admin/board/editpolicy.do';">
             	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicy.do';">
            	</div>
            	
@@ -187,9 +188,10 @@
                 </ul>
             </nav>
            	
-           	<form id="searchForm" method="GET" action="/admin/board/listpolicy.do">
+           	<!-- 검색 -->
+           	<form id="searchForm" method="GET" action="/Myhome_project/admin/board/listpolicy.do">
 	           	<div class="search">
-	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" required value="${search}">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" name="search" required value="${search}">
 	            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
 	           	</div>
             </form>

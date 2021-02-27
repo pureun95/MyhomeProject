@@ -161,7 +161,7 @@
 	   	padding: 10px;
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 200px;
 		display: inline;
 	}
@@ -249,7 +249,7 @@
 			<!-- 검색 -->
 			<form id="searchForm" method="GET" action="/Myhome_project/admin/membermanage/membermanage-user.do">
 				<div class="search">
-					<input type="text" class="form-control" placeholder="회원번호 / 아이디 / 이름" value="${search}" id="txt">
+					<input type="text" class="form-control" placeholder="회원번호 / 아이디 / 이름" id="search" name="search" value="${search}">
 					<input type="submit" class="btn" value="검색" onclick="$('#searchForm').submit();">
 				</div>
 			</form>

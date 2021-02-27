@@ -40,7 +40,7 @@ public class ManageContractorDAO {
 			
 			if(map.get("search") != null) {
 				
-				where = String.format("where name like '%%%s%%' or id like '%%%s%%'", map.get("search"), map.get("search"));
+				where = String.format("where seq like '%%%s%%' or name like '%%%s%%' or id like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
 			}
 			
 			//String sql = "select seq, name, id, email, companynumber, password, contractorname, tel1, tel2, tel3, address, state, reportcount from vwContractor";

@@ -61,7 +61,7 @@ public class ListCheckList extends HttpServlet {
 		//1.
 		ChecklistDAO dao = new ChecklistDAO();
 		
-		ArrayList<ChecklistDTO> listchecklist = dao.listchecklist();
+		ArrayList<ChecklistDTO> listchecklist = dao.listchecklist(map);
 		
 		
 		/* 페이지바 */

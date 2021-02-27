@@ -144,7 +144,7 @@
 	   	padding: 10px;
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 150px;
 		display: inline;
 	}
@@ -169,10 +169,17 @@
 		
 		<!-- <div class="list">	 -->
 			
+			<!-- 검색결과 -->
+			<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	        </div>
+	        </c:if>
+			
 			<c:forEach items="${list}" var="dto">
 			<div class="listbox">
 				<input type="checkbox" id="checkbox">
-                    <div class="img-property">${dto.image}<div class="state">${dto.state}</div></div>
+                    <div class="img-property" onclick="location.href='/Myhome_project//admin/property/viewproperty.do?seq=${dto.seq}';">${dto.image}<div class="state">${dto.state}</div></div>
                     <div class="property-list2">
                         <div class="property-num">no.${dto.seq}</div>
                         <div class="property-title">${dto.title}</div>
@@ -218,12 +225,14 @@
                     ${pagebar}
                 </ul>
             </nav>
-            
+            <!-- 검색 -->
+			<form id="searchForm" method="GET" action="/Myhome_project/admin/property/listproperty.do">            
            	<div class="search">
-            	<input type="text" class="form-control" placeholder="닉네임/매물번호" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
+            	<input type="text" class="form-control" placeholder="닉네임/매물번호" id="search" name="search" required value="${search}">
+            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
            	</div>
-		
+			</form>
+            <div style="clear:both;"></div>
 
 		
 	</div>

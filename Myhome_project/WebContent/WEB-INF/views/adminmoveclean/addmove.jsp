@@ -26,20 +26,22 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border: 1px solid tomato;
 	}
 	
 	.boardcover{
-		border: 1px solid tomato;
+		/* border: 1px solid tomato; */
 		float: left;
 		width:900px;
 		height: auto;
 		margin-left: 30px; 
+		
 	}
 	
 	/* 타이틀 */
@@ -115,22 +117,23 @@
 			<div class="add">
 				<div id="subtitle">이사업체 등록하기</div>
 		
-				<input type="text" class="form-control" name="name" placeholder="업체명"> 
-				<input type="text" class="form-control" name="address" placeholder="주소"> 
-				<input type="text" class="form-control" name="tel" placeholder="전화번호"> 
-				<input type="text" class="form-control" name="businessnum" placeholder="사업자번호"> 
-				<input type="text" class="form-control" name="price" placeholder="가격">
-				<textarea class="form-control" name="introduce" id="introduce" placeholder="소개"></textarea>
-				<input type="file"  id="file">
-
-				
-			</div>
-			
-			<div class="btns">		
-				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/listmove.do';">취소하기</button>
-			</div>
-			
+					<form method="POST" action="/Myhome_project/admin/moveclean/addmoveok.do" enctype="multipart/form-data">
+						<input type="text" class="form-control" name="name" placeholder="업체명"> 
+						<input type="text" class="form-control" name="address" placeholder="주소"> 
+						<input type="text" class="form-control" name="tel" placeholder="전화번호"> 
+						<input type="text" class="form-control" name="businessnum" placeholder="사업자번호"> 
+						<input type="text" class="form-control" name="price" placeholder="가격">
+						<textarea class="form-control" name="introduce" id="introduce" placeholder="소개"></textarea>
+						<input type="file"  id="file">
+		
+						
+					</div>
+					
+					<div class="btns">		
+						<button class="btn btn-outline-secondary" type="submit" id="button-addon1">등록하기</button>		
+						<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/moveclean/listmove.do';">취소하기</button>
+					</div>
+				</form>
 		</div>
 
 	</div>

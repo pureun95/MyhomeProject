@@ -24,47 +24,30 @@ public class AddCheckList extends HttpServlet {
 				HttpSession session = req.getSession();
 				
 				
-				
-				//1.
-				req.setCharacterEncoding("UTF-8");
-				
-				String title = req.getParameter("title");
-				String content = req.getParameter("content");
-				
-				//로그인한 관리자번호
-				String seqadmin = (String)session.getAttribute("seqadmin");
-				
-			
-				
-				//2.
-				ChecklistDAO dao = new ChecklistDAO();
-				ChecklistDTO dto = new ChecklistDTO();
-				
-				dto.setTitle(title);
-				dto.setContent(content);
-				dto.setSeqadmin(seqadmin);
-				
-				int result = dao.addchecklist(dto);
-				
-				if (result == 1) {
-					//글쓰기 성공 -> 게시판 목록으로 이동
-					resp.sendRedirect("/admin/board/listcheck.do");
+				//if(session.getAttribute("id") == null) {
 					
-				} else {
-					//글쓰기 실패 -> 경고 + 뒤로가기
-					resp.setCharacterEncoding("UTF-8");
-					PrintWriter writer = resp.getWriter();
-					
-					writer.print("<html><body>");
-					writer.print("<script>");
-					writer.print("alert('filed');");
-					writer.print("history.back();");
-					writer.print("</script>");
-					writer.print("</body></html>");
-					
-					writer.close();
-				}
+				//1. 내쫒기
+				/*
+				 * response.sendRedirect("/codestudy/board/list.do"); return; //아래
+				 * RequestDispatcher 충돌을 막기위해
+				 */			
+				//2. 경고 + 내쫒기
+			/*
+				PrintWriter writer = resp.getWriter();
 				
+				writer.print("<html><body>");
+				writer.print("<script>");
+				writer.print("alert('filed');");
+				writer.print("location.href='/Myhome_project/admin/board/listchecklist.do';");
+				writer.print("</script>");
+				writer.print("</body></html>");
+				
+				writer.close();
+			*/
+			//}
+				
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminboard/addchecklist.jsp");
+			dispatcher.forward(req, resp);	
 				
 
 			}
