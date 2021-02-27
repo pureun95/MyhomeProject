@@ -44,7 +44,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		padding: 100px 200px;
 		z-index: -1;
@@ -63,8 +64,8 @@
     }
     
     .property-list {
-    	border-bottom: 1px solid rgb(185, 183, 183);
-    	width: 860px;
+    	border-bottom: 1px solid #DBDCE0;
+    	width: 870px;
     	height: 240px;
     	padding: 30px 0px;
     	font-family: 'NanumBarunGothic';
@@ -227,6 +228,7 @@
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
+  		text-align: center;
    	}
     
     .pagination > li > .page-a {
@@ -260,7 +262,7 @@
    		/* border: 1px solid black; */
    		width: 390px;
    		height: 60px;
-   		margin: 10px 200px;
+   		margin: 10px 230px;
    		padding: 10px;
    }
    
@@ -284,23 +286,15 @@
   		float: left;
   	} 
   	
-  /*  .ckbox {
-   		width: 18px;
-   		height: 18px;
-   		position: relative;
-   		left: 0px;
-   		top: -4px;
-   		
-   } */
-   
-  /*  .nickname {
-   		position: relative;
-   		top: -30px;
-   } */
+  	.pagination > .disabled > a {
+  		cursor: pointer !important;
+  	}
+  	
+
    
    /* 방올리기 버튼 */
    #btn-upload {
-   		margin-left: 380px;
+   		margin-left: 790px;
    		margin-top: 20px;
    }
    
@@ -322,6 +316,29 @@
    		margin-top: 0px;
    }
    
+   
+   /* 컨텐츠 없는 경우 */
+   .content-none {
+   		border: 1px solid #e2e2e2;
+   		/* margin-left: 300px; */
+   		font-family: 'MaplestoryOTFLight';
+   		color: #202020;
+   		font-size: 24px;
+   		width: 800px;
+   		height: 400px;
+   		padding: 140px 200px;
+   		text-align: center;
+   		border-radius: 20px;
+   }
+   
+   .nothing {
+   		font-size: 50px;
+   		display: block;
+   		color: #f1aeae;
+   		line-height: 2;
+   }
+   
+   
    	
     
 
@@ -340,154 +357,100 @@
  
      <div class="container">
         <div class="boardcover">
-            
-		 
-		 
+            		 
 		 <!-- 상단 게시판 타이틀 -->
 		 <div class="board-name">방올리기</div>
 		 	
 		 	<div class="matching-option">
-		 		<span>임대임과 매칭된 매물리스트입니다.</span>	 		 			
+		 	<c:if test="${list.size() > 0 }">
+		 		<span>임대인과 매칭된 매물리스트입니다.</span>
+		 	</c:if>	 		 			
 		 	</div>
+        
                 
          <!-- 리스트 -->
 		 <div class="property-box">		 	
 		 
 		 <!-- form -->
 		 <form action="POST">
+		 
+		 <c:forEach items="${list }" var="dto">
+		 <c:if test="${list.size() > 0}">
                 <div class="property-list">
                 	<div class="checkbox"><input type="checkbox" id="ck"></div>    		      
                     <div class="img-property">               
-                    	<div class="state nickname">닉네임</div>
+                    	<div class="state nickname">${dto.nickname }</div>
                     </div>
                     <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
+                        <div class="property-num">no. ${dto.seqLessorProperty }</div>
+                        <div class="property-title">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
-                            <div class="property-content2">원룸</div>
+                            <div class="property-content2">${dto.roomType }</div>
                         </div>
                         
                         <div class="property-content" id="floor">
                             <span>층</span>
-                            <div class="property-content2">3/4</div>
+                            <div class="property-content2">${dto.floor }</div>
                         </div>
                         
                         <div class="property-content" id="contract">
                             <span>계약유형</span>
-                            <div class="property-content2">월세</div>
+                            <div class="property-content2">${dto.contractTypeDetail }</div>
                         </div>
+                                          
                         
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
+                        <c:if test="${dto.contractTypeDetail eq '월세'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.monthlyRent }/월(${dto.contractPeriod })</div>
+	                        </div>
+                        </c:if>
+                        
+                        <c:if test="${dto.contractTypeDetail eq '전세'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.deposit }</div>
+	                        </div>
+                        </c:if>
+                        
+                         <c:if test="${dto.contractTypeDetail eq '매매'}">
+	                        <div class="property-content" id="price">
+	                            <span>가격</span>
+	                            <div class="property-content2">${dto.dealing }</div>
+	                        </div>
+                        </c:if>
+                        
+                        
                         
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
+                            <div class="location-detail">${dto.location }</div>
                         </div>
                         
                     </div>
                 </div>
+                </c:if>
+               </c:forEach>
                 
-                
-                
-                
-                <div class="property-list">
-                <div class="checkbox"><input type="checkbox" id="ck"></div>    		
-                    <div class="img-property">           
-                    	<div class="state nickname">닉네임</div>
-                    </div>
-                    <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
-                        <div class="property-content" id="roomtype">
-                            <span>방유형</span>
-                            <div class="property-content2">원룸</div>
-                        </div>
-                        
-                        <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
-                        </div>
-                        
-                        <div class="property-content" id="contract">
-                            <span>계약유형</span>
-                            <div class="property-content2">월세</div>
-                        </div>
-                        
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
-                        
-                        <div class="property-location">
-                            <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>
-                        
-                    </div>
+                <c:if test="${list.size() == 0 }">
+                <div class="content-none">
+                	<span class="nothing">NOTHING</span>
+                	<span>매칭된 매물이 없어요.</span>
                 </div>
-                
-                
-                
-                <div class="property-list">
-                <div class="checkbox"><input type="checkbox" id="ck"></div>    		
-                    <div class="img-property">
-                    	<div class="state nickname">닉네임</div>
-                    </div>
-                    <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
-                        <div class="property-content" id="roomtype">
-                            <span>방유형</span>
-                            <div class="property-content2">원룸</div>
-                        </div>
-                        
-                        <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
-                        </div>
-                        
-                        <div class="property-content" id="contract">
-                            <span>계약유형</span>
-                            <div class="property-content2">월세</div>
-                        </div>
-                        
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
-                        
-                        <div class="property-location">
-                            <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
+                </c:if>
                 
 			<!-- 올리기 버튼 -->
-			<button class="btn btn-outline-secondary" type="button" id="btn-upload">방올리기</button>
-                
+			<c:if test="${list.size() > 0 }">
+				<button class="btn btn-outline-secondary" type="button" id="btn-upload">방올리기</button>
+            </c:if>    
+        
+        <c:if test="${list.size() > 0 }">   
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
 	   		<div class="paging">
 	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
+					${pagebar }
 				</ul>       		
 	       	</div>
 	       		
@@ -497,9 +460,9 @@
 				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
 			</div>
        	<!-- search-paging -->
+      
        	</div>         
-
-
+		</c:if>
 		<!-- form -->
 		</form>
                 

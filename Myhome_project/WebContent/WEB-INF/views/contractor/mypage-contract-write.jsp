@@ -101,6 +101,10 @@
         width: 200px;
     }
     
+    .small-text {
+    	width: 100px !important;
+    }
+    
     .month {
     	margin: 0px;
     	width: 150px;
@@ -172,6 +176,10 @@
 	   	border: 1px solid #f1aeae;
    }
    
+   #check, #discard {
+   		color: white !important;
+   }
+   
    
    
    
@@ -208,21 +216,22 @@
 				
 			
 			<!-- form 태그 -->	
-			<form method="POST" action="/myhome_project/mypage-contractok.do" id="form1">   
+			<form method="POST" action="/myhome_project/mypage-contract-writeok.do" id="form1">   
 			
 			<!-- 계약서 세부정보 -->
 	        
 			<table id="adcontracttbl" class="table table-condensed">	
 				
-				
+				<c:forEach items="${plist }" var="dto1">
 				<tr class="headtr">
 					<th class="adcontacttd title-color">계약번호</th>
-					<td class="adcontacttd" colspan="2"></td>
+					<td class="adcontacttd" colspan="2">${maxSeq }</td>
 					<th class="adcontacttd">계약일자</th>
 					<td class="adcontacttd" colspan="3"></td>
 					<th class="adcontacttd">계약상태</th>
+					
 					<!-- view에서 셋 다 암호입력하면 계약완료 -->
-						<td class="adcontacttd" colspan="2"></td>
+					<td class="adcontacttd" colspan="2">진행중</td>
 				</tr>
 
 				<tr class="headtr">
@@ -231,17 +240,48 @@
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">매물주소</th>
-					<td class="adcontacttd" colspan="9" ><input type="text" class="example" onfocus="this.value=''" value="매물 주소를 입력해주세요."></td>
+					<td class="adcontacttd" colspan="9" ><input type="text" class="example" value="${dto1.location }"></td>
 				</tr>
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">금액</th>
-					<td class="adcontacttd" colspan="3" ><input type="text" class="example" onfocus="this.value=''" value="숫자만 입력주세요."></td>
+					<c:if test="${not empty dto1.dealing }">
+					<td class="adcontacttd" colspan="3" ><input type="text" class="example" value="${dto1.dealing }"></td>
+					</c:if>
+					
+					<c:if test="${empty dto1.dealing }">
+					<td class="adcontacttd" colspan="3" ><input type="text" class="example" value="숫자만 입력"></td>
+					</c:if>
+					
 					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="2" ><input type="text" class="example"onfocus="this.value=''" value="숫자만 입력주세요."></td>
+					<c:if test="${not empty dto1.deposit }">
+					<td class="adcontacttd" colspan="2" ><input type="text" class="example small-text" value="${dto1.deposit }"></td>
+					</c:if>
+					
+					<c:if test="${empty dto1.deposit }">
+					<td class="adcontacttd" colspan="2" ><input type="text" class="example small-text" value="숫자만 입력"></td>
+					</c:if>
+					
 					<th class="adcontacttd title-color">계약종류</th>
-					<td class="adcontacttd"  colspan="2"><input type="text" class="example" onfocus="this.value=''"></td>
+					<td class="adcontacttd"  colspan="2">
+					
+					<c:if test="${not empty dto1.monthlyRent }">
+					<input type="text" class="example small-text" value="월세">
+					</c:if>
+					</td>
+					
+					<!-- 월세가 null 매매가 null 이면 전세 -->
+					<c:if test="${empty dto1.monthlyRent and dto1.dealing }">
+					<input type="text" class="example small-text" value="전세">
+					</c:if>
+					
+					<!-- 월세가 null이 아니고 보증금이 null이면 매매 -->
+					<c:if test="${not empty dto1.monthlyRent and empty dto1.deposit}">
+					<input type="text" class="example small-text" value="매매">
+					</c:if>
+					
 				</tr>
+				
 				
 				<tr>
 					<td class="adcontacttd" colspan="10">
@@ -283,7 +323,7 @@
 										
 					</td>
 				</tr>
-
+				</c:forEach>
 
 				
 				<!-- 임차인 정보 -->
@@ -291,23 +331,31 @@
 					<th class="adcontacttd info-color" colspan="10">임차인 정보</th>
 				</tr>
 
-				
+				<c:forEach items="${tlist }" var="dto2">
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" name="nameT"></td>
+					<td class="adcontacttd" colspan="3">
+						<input type="text" class="example" style="width: 200px;" name="nameT" value="${dto2.nameT }">
+					</td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" class="example" style="width: 140px;" value="ex) 010-1234-5678" onfocus="this.value=''" name="telT"></td>
+					<td class="adcontacttd" colspan="2">
+						<input type="text" class="example" style="width: 140px;" value="${dto2.telT }" name="telT">
+					</td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" class="example" style="width: 140px;" value="ex) 800901-1234567" onfocus="this.value=''" name="idNumberT"></td>					
+					<td class="adcontacttd" colspan="2">
+						<input type="text" class="example" style="width: 140px;" value="${dto2.ssnT }" name="idNumberT">
+					</td>					
 				</tr>
-
+			
 							
 				
 				
 				
 					<tr class="headtr">
 						<th class="adcontacttd" colspan="1">주소</th>
-						<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressT"></td>
+						<td class="adcontacttd" colspan="6">
+							<input type="text" class="example" value="${dto2.addressT }" name="addressT">
+						</td>
 						<th class="adcontacttd" colspan="2">암호입력상태</th>														
 						<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
 					</tr>		
@@ -320,7 +368,7 @@
 					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" placeholder="암호를 입력해주세요." name="passwordT"></td>
 					
 				</tr>		
-				
+				</c:forEach>
 					
 									
 
@@ -330,22 +378,25 @@
 					<th class="adcontacttd info-color" colspan="10">임대인 정보 </th>
 				</tr>
 
-
+				<c:forEach items="${llist }" var="dto3">
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" class="example" style="width: 200px;" name="nameL"></td>
+					<td class="adcontacttd" colspan="3"><input type="text" class="example" value="${dto3.nameL }" name="nameL"></td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 010-1234-5678" onfocus="this.value=''" name="telL"></td>
+					<td class="adcontacttd" colspan="2"><input type="text" class="example small-text" value="${dto3.telL }" onfocus="this.value=''" name="telL"></td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 800901-1234567" onfocus="this.value=''" name="idNumberL"></td>					
+					<td class="adcontacttd" colspan="2"><input type="text" class="example" value="${dto3.ssnL }" onfocus="this.value=''" name="idNumberL"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressL"></td>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+					<td class="adcontacttd" colspan="6"><input type="text" class="example" value="${dto3.addressL }" name="addressL"></td>
+					<th class="adcontacttd" colspan="2">암호입력상태</th>		
+					<td class="adcontacttd" colspan="1">
+						<input type="text" style="width: 80px;background-color: transparent;"  value="입력요청" name="passwordStateT" disabled>
+					</td>
 				</tr>		
 				
 				
@@ -354,7 +405,7 @@
 					<th class="adcontacttd" colspan="1"><div class="vertical-align">암호입력</div></th>
 					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="password"></td>
 				</tr>		
-									
+				</c:forEach>					
 									
 									
 				<!-- 중개인 정보 -->
@@ -362,23 +413,27 @@
 					<th class="adcontacttd info-color" colspan="10">중개인 정보 </th>
 				</tr>
 
-
+				<c:forEach items="${plist }" var="dto4">
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" class="example" value="ex) 공인중개사사무소명" onfocus="this.value=''" name="nameC"></td>
+					<td class="adcontacttd" colspan="3">
+						<input type="text" class="example" value="${dto4.name }(${dto4.companyName })" onfocus="this.value=''" name="nameC">
+					</td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 010-1234-5678" onfocus="this.value=''" name="telC"></td>
-					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" class="example" value="ex) 800901-1234567" onfocus="this.value=''" name="businessNum"></td>					
+					<td class="adcontacttd" colspan="2">
+						<input type="text" class="example small-text" value="${dto4.tel }" name="telC">
+					</td>
+					<th class="adcontacttd">사업자번호</th>
+					<td class="adcontacttd" colspan="2"><input type="text" class="example" value="${dto4.businessNum }" name="businessNum"></td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="" name="addressC"></td>
+					<td class="adcontacttd" colspan="6"><input type="text" class="example" value="${dto4.location }" name="addressC"></td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>			
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+					<td class="adcontacttd" colspan="1">입력요청</td>
 				</tr>							
 
 				
@@ -388,7 +443,7 @@
 					<td class="adcontacttd" colspan="9"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordC"></td>
 				</tr>		
 				
-				
+				</c:forEach>
 				
 			</table>
 			
@@ -404,8 +459,8 @@
        		
        		<!-- 계약하기 버튼 -->
        		<div class="btn-contract">
-       			<input type="submit" class="btn btn-contract1" value="계약하기">
-       			<input type="submit" class="btn btn-contract1" value="폐기하기">
+       			<input type="submit" class="btn btn-contract1" id="check" value="계약하기">
+       			<input type="submit" class="btn btn-contract1" id="discard" value="폐기하기">
        		</div>
        	
        		
@@ -434,6 +489,14 @@
 	$(".example").click(function() {
 		$(this).css("color", "#202020");
 	});
+	
+	$("#check").click(function() {
+		alert("작성이 완료되었습니다.");
+	})
+	
+	$("#discard").click(function() {
+		alert("계약서가 폐기되었습니다.");
+	})
 	
 	
 	

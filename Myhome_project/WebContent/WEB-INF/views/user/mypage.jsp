@@ -209,6 +209,7 @@
 	.mypage-title {
 		/* border: 1px solid black; */
 		margin-bottom: 20px;
+		font-size: 30px;
 	
 	}
 	

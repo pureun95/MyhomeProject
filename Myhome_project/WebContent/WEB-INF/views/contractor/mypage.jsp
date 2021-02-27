@@ -29,7 +29,6 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -232,7 +231,7 @@
 	}
 	
 	.mypage-title {
-		font-size: 24px;
+		font-size: 30px;
 		color: #202020;
 		text-align: center;
 		font-family: 'MaplestoryOTFLight';
