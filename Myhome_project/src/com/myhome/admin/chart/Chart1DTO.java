@@ -1,6 +1,6 @@
 package com.myhome.admin.chart;
 
-public class ChartDTO {
+public class Chart1DTO {
 	
 	private String contractdate;
 	private String contracttype;

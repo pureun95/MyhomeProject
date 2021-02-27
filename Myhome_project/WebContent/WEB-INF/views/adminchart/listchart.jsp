@@ -55,8 +55,10 @@
 	}
 	
 	.chartbox{
-		border : 1px solid black;
+		border : 3px solid #F1AEAE;
+		border-radius: 50px;
 		margin-bottom : 10px;
+		padding : 30px;
 	}
 	
 	.check{
@@ -116,7 +118,7 @@
              
 		<div id="title">가격변화 차트 관리</div>
 		
-		<select class="option1 form-control" id="propertytype">
+<!-- 		<select class="option1 form-control" id="propertytype">
 			<option>월세</option>
 			<option>전세</option>
 			<option>매매</option>
@@ -134,16 +136,12 @@
 		<div class="chartbox">
 			<input type="checkbox" class="check" style="zoom:1.5;">
 			<div id="chart1"></div>
-		</div>
+		</div> -->
 		
 		<div class="chartbox">
-			<input type="checkbox" class="check" style="zoom:1.5;">
-			<div id="chart2"></div>
+			<div id="chart1"></div>
 		</div>
-
-        <div class="search">
-            	<input type="button" class="btn" value="선택한 차트 수정" id="serch">
-            </div>
+      
             
 			
 
@@ -160,76 +158,7 @@
 	Highcharts.chart('chart1', {
 		
 	    title: {
-	        text: '매물종류별'
-	    },
-	
-	    subtitle: {
-	        text: '(월세, 전세, 매매)'
-	    },
-	
-	    yAxis: {
-	        title: {
-	            text:'가격 (원)' 
-	        }
-	    },
-	
-	    xAxis: {
-	        accessibility: {
-	            rangeDescription: 'Range: 01월 to 12월'
-	        },
-	    	title: {
-	    		text:'월'
-	    	}
-	    },
-	
-	    legend: {
-	        layout: 'vertical',
-	        align: 'right',
-	        verticalAlign: 'middle'
-	    },
-	
-	    plotOptions: {
-	        series: {
-	            label: {
-	                connectorAllowed: false
-	            },
-	            pointStart: 01
-	        }
-	    },
-	
-	    series: [
-	    	{
-	            name: '월세',
-	            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 133144, 199999, 97031, 97031]
-	        }, {
-	        name: '전세',
-	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 32323, 33333, 32490, 32490]
-	    }, {
-	        name: '매매',
-	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 44444, 33333, 20185, 20185]
-	    }],
-	
-	    responsive: {
-	        rules: [{
-	            condition: {
-	                maxWidth: 500
-	            },
-	            chartOptions: {
-	                legend: {
-	                    layout: 'horizontal',
-	                    align: 'center',
-	                    verticalAlign: 'bottom'
-	                }
-	            }
-	        }]
-	    }
-	
-	});
-	
-	Highcharts.chart('chart2', {
-		
-	    title: {
-	        text: '월세'
+	        text: '월세 평균 가격'
 	    },
 	
 	    subtitle: {
@@ -243,9 +172,9 @@
 	    },
 	
 	    xAxis: {
-	        accessibility: {
-	            rangeDescription: 'Range: 01월 to 12월'
-	        },
+  			  accessibility: {
+  		            rangeDescription: 'Range: 01월 to 12월'
+  		        }, 
 	    	title: {
 	    		text:'월'
 	    	}
@@ -270,23 +199,38 @@
 	    	{
 	            name: '원룸',
 	            data: [
-		            	<c:forEach items="${list}" var="dto" varStatus="status">
+		            	<c:forEach items="${list1}" var="dto" varStatus="status">
 		        		${dto.avg}
-		        		<c:if test="${status.index < list.size() -1}">
+		        		<c:if test="${status.index < list1.size() -1}">
 	        			, 
 	        			</c:if>
 		        		</c:forEach>
-	            	
-	            	]
+		            	]
 	        }
-	    	,
+	    	 ,
 	    	{
 	        name: '투룸',
-	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 32323, 33333, 32490, 32490]
-	    }, {
+	        data: [
+	            	<c:forEach items="${list2}" var="dto" varStatus="status">
+	        		${dto.avg}
+	        		<c:if test="${status.index < list2.size() -1}">
+	    			, 
+	    			</c:if>
+	        		</c:forEach>
+	            	]
+	    	}
+	    	, 
+	    	{
 	        name: '오피스텔',
-	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 44444, 33333, 20185, 20185]
-	    }],
+	        data: [
+	            	<c:forEach items="${list3}" var="dto" varStatus="status">
+	        		${dto.avg}
+	        		<c:if test="${status.index < list3.size() -1}">
+	    			, 
+	    			</c:if>
+	        		</c:forEach>	        	
+	        		]	
+	    	}],
 	
 	    responsive: {
 	        rules: [{
@@ -304,6 +248,7 @@
 	    }
 	
 	});
+	
 	
 	
 </script>
