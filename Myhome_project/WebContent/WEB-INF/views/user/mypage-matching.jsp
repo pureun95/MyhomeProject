@@ -56,9 +56,7 @@ body, html {
 	text-align: center;
 	width: 800px;
 	margin-left: 256px;
-	position: absolute;
-	top:276px;
-	left:400px;
+	position: relative;
 }
 
 .tbl th {
@@ -103,7 +101,6 @@ body, html {
 
 #contractor {
 	position: relative;
-	top: 200px; 
 	visibility : hidden;
 }
 
@@ -215,7 +212,7 @@ body, html {
 						</div>
 
 						<div class="matchingbox" id="get">
-							<table class="tbl" id="tbl2">
+							<table class="tbl" id="tbl2" style="top:${-101+glist.size()*-50}px">
 								<tr>
 									<th>매물번호</th>
 									<th>제목</th>

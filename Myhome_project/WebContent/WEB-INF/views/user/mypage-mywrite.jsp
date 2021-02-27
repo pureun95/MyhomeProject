@@ -165,7 +165,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${blist}" var="bdto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${bdto.seqProperty}';">
                         <td>방올리기</td>
                         <td>${bdto.seqProperty}</td>
                         <td>${bdto.title}</td>
@@ -175,7 +175,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${clist}" var="cdto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/Myhome/user/boardcommunityview.do?seq=${cdto.seqCommunity}';">
                         <td>커뮤니티</td>
                         <td>${cdto.seqCommunity}</td>
                         <td>${cdto.title}</td>
@@ -211,7 +211,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${elist}" var="edto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/Myhome/user/boardcommunityview.do?seq=${edto.seqCommunity}';">
                         <td>커뮤니티</td>
                         <td>${edto.seqCommunityComment}</td>
                         <td>${edto.content }</td>
@@ -220,7 +220,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${flist}" var="fdto">
-                     <tr>
+                     <tr><!-- onclick -> seqMoveReservation로 달아둘것 -->
                         <td>이사업체후기</td>
                         <td>${fdto.seqMoveReview}</td>
                         <td>[${fdto.name}]${fdto.title}</td>
@@ -229,7 +229,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${glist}" var="gdto">
-                     <tr>
+                     <tr><!-- onclick -> seqCleanReservation로 달아둘것 -->
                         <td>청소업체후기</td>
                         <td>${gdto.seqCleanReview}</td>
                         <td>[${gdto.name}]${gdto.title}</td>
@@ -238,7 +238,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${hlist}" var="hdto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/user/mypagecontractdetail.do?seqContract=${hdto.seqContract}'">
                         <td>중개인후기</td>
                         <td>${hdto.seqContractorReview}</td>
                         <td>[${hdto.contractorName}]${hdto.title}</td>
@@ -247,7 +247,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${ilist}" var="idto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/user/mypagecontractdetail.do?seqContract=${idto.seqContract}'"><!-- onclick -> seqContract로 계약서랑 연결 달아둘것 -->
                         <td>매물후기</td>
                         <td>${idto.seqPropertyReview}</td>
                         <td>[${ptitle}]${idto.title}</td>
@@ -285,7 +285,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${klist}" var="kdto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${kdto.seqConctractorProperty}';">
                         <td>방찾기</td>
                         <td>${kdto.seqPropertyContractReport}</td>
                         <td>${kdto.reason}</td>
@@ -295,7 +295,7 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${llist}" var="ldto">
-                     <tr>
+                     <tr onclick="location.href='/Myhome_project/Myhome/user/boardcommunityview.do?seq=${ldto.seqCommunity}';" >
                         <td>커뮤니티</td>
                         <td>${ldto.seqCommunityReport}</td>
                         <td>${ldto.reason}</td>

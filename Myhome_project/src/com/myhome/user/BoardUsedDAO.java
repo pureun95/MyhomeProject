@@ -43,7 +43,7 @@ public class BoardUsedDAO {
 				where = String.format("where name like '%%%s%%' or title like '%%%s%%' or nickname like '%%%s%%'",map.get("search"),map.get("search"),map.get("search"));
 			}
 
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUsedUserVer %s order by seqUsed desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUsedUserVer2 %s order by seqUsed desc) a) where rnum between %s and %s"
 														, where
 														, map.get("begin")
 														, map.get("end"));
@@ -88,7 +88,7 @@ String where ="";
 				where = String.format("where name like '%%%s%%' or title like '%%%s%%' or nickname like '%%%s%%'",map.get("search"),map.get("search"),map.get("search"));
 			}
 
-			String sql = String.format("select count(*) as cnt from vwUsedUserVer %s order by seqUsed desc", where);
+			String sql = String.format("select count(*) as cnt from vwUsedUserVer2 %s order by seqUsed desc", where);
 
 			stat = conn.createStatement();
 
@@ -112,7 +112,7 @@ String where ="";
 		BoardUsedDTO dto = new BoardUsedDTO();
 		try {
 
-			String sql = "select seqUsed, seqUser, title, name, tradeMode, category, price, content from vwUsedUserVer where seqUsed = ?";
+			String sql = "select seqUsed, seqUser, title, name, tradeMode, category, price, content from vwUsedUserVer2 where seqUsed = ?";
 
 			pstat = conn.prepareStatement(sql);
 			pstat.setInt(1, seqUsed);
