@@ -187,8 +187,7 @@ body, html {
 
 		<div class="container">
 
-			<form action="" id="form1">
-
+			
 				<table id="navboardtbl">
 
 					<tr id="navboardtr">
@@ -221,37 +220,38 @@ body, html {
 										<th class="sixtd boardtd">암호</th>
 									</tr>
 									<!--  암호 입력에 대한 재발 송은 임대인 중개인이, 임차인의 암호가 단 한개라도 null 이면 입력 상태 재발송 안내 문구 -->
-						
+									<c:forEach items="${list}" var="dto">	
 									<tr class="boardtr">
 										<td class="fiftd boardtd">
-										<a href="/Myhome_project/admin2/contract/view.do;"> 
-											0000001
+										<a href="/Myhome_project/admin2/contract/view.do?seqC=${dto.seqC}"> 
+											${dto.seqC}
 										</a>
 										</td>
-										<td class="thitd boardtd">아마홍길동</td>
-										<td class="thitd boardtd">아마임대인</td>
+										<td class="thitd boardtd">${dto.nameT}</td>
+										<td class="thitd boardtd">${dto.nameL}</td>
 										<td class="fortd boardtd">
-											<div class="Boardtdtitle">아마홍길동</div>
+											<div class="Boardtdtitle">${dto.nameC}</div>
 										</td>
 										<td class="fiftd boardtd">
 											<div class="Boardtdtitle">
-											주소 입니다. 블라 불르하하하핳하하ㅏㅎ하ㅏ하
+											${dto.location}
 											</div>
 										</td>
-										<td class="fortd boardtd">작성일</td>
-										<td class="fiftd boardtd">계약상태</td>
+										<td class="fortd boardtd">${dto.contractDate}</td>
+										<td class="fiftd boardtd">${dto.state}</td>
 										<td class="sixtd boardtd"><input type="checkbox"
-											name="seq" id="seq"></td>
+											name="seq" id="seq" value="${dto.seqC}">
+											<input type="hidden" id="state" value="${dto.state}">
+										</td>
 									</tr>
-									
-
+									</c:forEach>
 								</table>
 							</div>
 						
 						<div class="boardbutton">
-							<button id="passwordupdate">
+							<button id="passwordupdate" type="button">
 							암호재등록</button>
-							<button id="statechange">
+							<button id="statechange" type="button">
 							상태변경</button>
 						<!--  <button> 1234</button>-->	
 						</div>
@@ -261,37 +261,28 @@ body, html {
 							<div class="search-paging">
 								<div class="paging">
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-										<li><a class="page-link page-a" href="">다음</a></li>
+									${pagebar}
 									</ul>
 								</div>
 
 
+								<input type="hidden" value="" name="">
+								<form id="searchForm" method="GET" action="/Myhome_project/admin2/contract/list.do">
+                
 								<div id="search-box">
 									<input type="text" class="form-control" id="search-text"
 										placeholder="닉네임, 매물번호를 입력해주세요.">
 									<button class="btn btn-outline-secondary" type="button"
 										id="button-addon1">검색</button>
 								</div>
+								</form>
 								<!-- search-paging -->
 							</div>
 						
 						</td>
 					</tr>
 				</table>
-			</form>
-
-
+			
 
 		</div>
 
@@ -303,6 +294,7 @@ body, html {
 
 	<script>
 
+	// 한개만 체크 되도록하는것 
 	$("input[type='checkbox'][name='seq']").click(function(){
         if($(this).prop('checked')){
             
@@ -311,24 +303,43 @@ body, html {
         }
     });
 	
+	
 	$("#passwordupdate").click(function(){
 
-	    var con_test = confirm("암호를 재입력 하시겠습니까??");
-	    if(con_test == true){
-	    	location.href='http://localhost:8090/Myhome_project/admin2/application/list.do';?
-	    }
-
+		if( $("input[type='checkbox'][name='seq']:checked").val() != null ){
+		    var con_test = confirm("암호를 재입력 하시겠습니까? 기존암호 입력사항은 초기화됩니다.");
+		    var seq =$("input[type='checkbox'][name='seq']:checked").val();
+		    if(con_test == true){
+		    	location.href='http://localhost:8090/Myhome_project/admin2/contract/change.do?seqC='+seq;
+		    }
+		}else{
+			alert("변경할 계약을 선택해주세요.");
+		}
 	});
 	
 	
 	$("#statechange").click(function(){
 		/*페이지 이동 어떻게 하지?*/
-	    var con_test = confirm("계약 상태를 취소로 변경하시겠습니까??");
-	    if(con_test == true){
-	    	location.href='http://www.naver.com';?
-	    }
+		if( $("input[type='checkbox'][name='seq']:checked").val() != null ){
+		    var con_test = confirm("계약 상태를 취소로 변경하시겠습니까??");
+		    var seq =$("input[type='checkbox'][name='seq']:checked").val();
+		    if(con_test == true){
+		    	
+		    	if ($("input[type='checkbox'][name='seq']:checked+input[type='hidden']").val()=='완료'||$("input[type='checkbox'][name='seq']:checked+input[type='hidden']").val()=='취소'){
+		    		alert("진행중인 부분만 취소로 변경이 가능합니다.");
+		    	}else{
+
+			    	location.href='http://localhost:8090/Myhome_project/admin2/contract/stateok.do?seqC='+seq;
+			    	
+		    	}
+		    	
+		    }
+		}else{
+			alert("변경할 계약을 선택해주세요.");
+		}
 
 	});
+
 	
 	
 	</script>

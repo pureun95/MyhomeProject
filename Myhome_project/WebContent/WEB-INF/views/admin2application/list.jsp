@@ -210,7 +210,7 @@ body, html {
 												<a href="/Myhome_project/admin2/application/view.do?seq=${dto.seqApplication}">
 												${dto.title}</a>
 								
-												<span class="boardspan footspan">[댓글수]</span>
+												<span class="boardspan footspan"></span>
 											</div>
 
 										</td>

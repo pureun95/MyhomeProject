@@ -84,7 +84,7 @@ body, html {
 	height: 1000px;
 	width: 100%;
 	margin: 0px;
-	margin-top:-20px;
+	margin-top: -20px;
 }
 
 #navboardtbl .navboardtd:first-child {
@@ -162,9 +162,7 @@ body, html {
 
 		<div class="container">
 
-			-
-			<form action="" id="form1">
-
+			<form method="GET" action="/Myhome_project/admin2/notice/delete.do">
 				<table id="navboardtbl">
 
 					<tr id="navboardtr">
@@ -174,6 +172,7 @@ body, html {
 						</td>
 
 						<!---->
+
 
 						<td class="navboardtd">
 							<div id="boardtitle" class="">공지사항</div>
@@ -186,80 +185,78 @@ body, html {
 										<th class="sixtd boardtd">선택</th>
 										<th class="firtd boardtd">번호</th>
 										<th class="sectd boardtd">제목</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
+										<th class="thitd boardtd">작성자</th>
 										<th class="fortd boardtd">작성일</th>
 										<th class="fiftd boardtd">조회수</th>
 
 									</tr>
 
-									<tr class="boardtr">
-										<td class="sixtd boardtd"><input type="checkbox"
-											name="seq" id="seq"></td>
-										<td class="firtd boardtd">1</td>
-										<td class="sectd boardtd">
-											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/admin2/application/list.do;">화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic.</a>	
-												<span class="boardspan footspan">[댓글수]</span>
-											</div>
+									<c:if test="${list.size()==0}">
+										<tr>
+											<td colspan="6" style="text-align: center;">게시물이 없습니다.</td>
+										</tr>
+									</c:if>
 
-										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+									<c:forEach items="${list}" var="dto">
+										<tr class="boardtr">
+											<td class="sixtd boardtd"><input type="checkbox"
+												name="seq" id="seq" value="${dto.seqNotice}"></td>
+											<td class="firtd boardtd">${dto.seqNotice}</td>
+											<td class="sectd boardtd">
+												<div class="Boardtdtitle">
+													<span class="boardspan headspan"></span> <a
+														href="/Myhome_project/admin2/notice/view.do?seq=${dto.seqNotice}">
+														${dto.title}</a> <span class="boardspan footspan"></span>
+												</div>
 
-									</tr>
+											</td>
+											<td class="thitd boardtd">Admin${dto.seqAdmin}</td>
+											<td class="fortd boardtd">${dto.writeDate}</td>
+											<td class="fiftd boardtd">${dto.viewCount}</td>
+											
+										</tr>
+									</c:forEach>
 
-
+									
 
 								</table>
 							</div>
+
 
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2"
 									onclick="location.href='/Myhome_project/admin2/notice/write.do';">
 									쓰기</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/notice/delete.do';">삭제</button>
+								<button class="btn btn-outline-secondary " type="submit"
+									onclick="location.href='/Myhome_project/admin2/notice/delete.do';"
+									id="delete">삭제</button>
 							</div> <!-- 검색, 페이지바 -->
+							</form> <!-- 검색, 페이지바 -->
 							<div class="search-paging">
 								<div class="paging">
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-										<li><a class="page-link page-a" href="">다음</a></li>
+									<ul class="pagination">${pagebar}
 									</ul>
 								</div>
 
 
-								<div id="search-box">
-									<input type="text" class="form-control" id="search-text"
-										placeholder="닉네임, 매물번호를 입력해주세요.">
-									<button class="btn btn-outline-secondary" type="button"
-										id="button-addon1">검색</button>
-								</div>
+								<input type="hidden" value="" name="">
+								<form id="searchForm" method="GET"
+									action="/Myhome_project/admin2/notice/list.do">
+
+									<div id="search-box">
+										<input type="text" class="form-control" id="search-text"
+											placeholder="닉네임, 매물번호를 입력해주세요." name="search" required
+											value="${search}">
+										<button class="btn btn-outline-secondary" type="submit"
+											id="button-addon1">검색</button>
+									</div>
+								</form>
 								<!-- search-paging -->
 							</div>
 						</td>
 					</tr>
 				</table>
-			</form>
-
-
-
 		</div>
 
 	</div>
@@ -269,7 +266,18 @@ body, html {
 
 
 	<script>
-		
+		var checkboxarr = [];
+		$("#delete").click(function() {
+			console.log("1");
+
+			$("input[type='checkbox'][name='seq']:checked").each(function() {
+				checkboxarr.push($(this).val());
+				console.log("배열");
+			})
+
+			this.form.submit();
+
+		});
 	</script>
 
 

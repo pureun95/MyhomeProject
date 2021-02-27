@@ -96,6 +96,10 @@
 		width: 200px;
 		display: inline;
 	}
+	
+	#propertytype, #roomtype{
+		width : 20%;
+	}
 
 
 </style>
@@ -112,6 +116,20 @@
              
 		<div id="title">가격변화 차트 관리</div>
 		
+		<select class="option1 form-control" id="propertytype">
+			<option>월세</option>
+			<option>전세</option>
+			<option>매매</option>
+		</select>
+		<select class="option2 form-control" id="roomtype">
+			<option>원룸</option>
+			<option>투룸</option>
+			<option>오피스텔</option>
+		</select>
+		
+		<div class="btn">
+			<input type="button" class="form-control btn" value="검색">
+		</div>
 		
 		<div class="chartbox">
 			<input type="checkbox" class="check" style="zoom:1.5;">
@@ -122,7 +140,7 @@
 			<input type="checkbox" class="check" style="zoom:1.5;">
 			<div id="chart2"></div>
 		</div>
-		
+
         <div class="search">
             	<input type="button" class="btn" value="선택한 차트 수정" id="serch">
             </div>
@@ -208,12 +226,10 @@
 	
 	});
 	
-	
-	
 	Highcharts.chart('chart2', {
 		
 	    title: {
-	        text: '방별'
+	        text: '월세'
 	    },
 	
 	    subtitle: {
@@ -222,14 +238,17 @@
 	
 	    yAxis: {
 	        title: {
-	            text: '가격 (원)'
+	            text:'가격 (원)' 
 	        }
 	    },
 	
 	    xAxis: {
 	        accessibility: {
-	            rangeDescription: 'Range: 01 to 12'
-	        }
+	            rangeDescription: 'Range: 01월 to 12월'
+	        },
+	    	title: {
+	    		text:'월'
+	    	}
 	    },
 	
 	    legend: {
@@ -247,15 +266,26 @@
 	        }
 	    },
 	
-	    series: [{
-	        name: '원룸',
-	        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175, 123745, 122345, 137133, 137133 ]
-	    }, {
+	    series: [
+	    	{
+	            name: '원룸',
+	            data: [
+		            	<c:forEach items="${list}" var="dto" varStatus="status">
+		        		${dto.avg}
+		        		<c:if test="${status.index < list.size() -1}">
+	        			, 
+	        			</c:if>
+		        		</c:forEach>
+	            	
+	            	]
+	        }
+	    	,
+	    	{
 	        name: '투룸',
-	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 33333, 22222, 30282, 30282]
+	        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434, 32323, 33333, 32490, 32490]
 	    }, {
 	        name: '오피스텔',
-	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 12345, 65432, 24377, 24377]
+	        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387, 44444, 33333, 20185, 20185]
 	    }],
 	
 	    responsive: {
@@ -274,6 +304,8 @@
 	    }
 	
 	});
+	
+	
 </script>
  
 </body>

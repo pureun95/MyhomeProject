@@ -24,6 +24,9 @@
 	.container {
 		font-size : 16px;
 		font-family: 'NanumBarunGothic';
+		border: 0px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	.boardwrap{
 	    height: auto;

@@ -115,7 +115,7 @@
 		
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 200px;
 		display: inline;
 	}
@@ -142,11 +142,11 @@
              
 		<div id="title">부동산 정책 게시판 관리</div>
 		
-<%-- 		<c:if test="${not empty search}">
-                <div class="message well well-sm">
-                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+		<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
         </div>
-        </c:if> --%>
+        </c:if>
 		
 		<table id="tbl1" class="table table-hover table-striped table-condensed">
     
@@ -189,11 +189,11 @@
            	
            	<form id="searchForm" method="GET" action="/admin/board/listpolicy.do">
 	           	<div class="search">
-	            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
-	            	<input type="button" class="btn" value="검색" id="serch">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" required value="${search}">
+	            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
 	           	</div>
             </form>
-            
+            <div style="clear:both;"></div>
 			
 
 	</div>

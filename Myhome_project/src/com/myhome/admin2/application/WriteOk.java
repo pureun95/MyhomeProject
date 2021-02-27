@@ -56,6 +56,8 @@ public class WriteOk extends HttpServlet {
 
 			int result = dao.write(dto);
 
+			
+			dao.close();
 			if (result == 1) {
 				resp.sendRedirect("/Myhome_project/admin2/application/list.do");
 			} else {

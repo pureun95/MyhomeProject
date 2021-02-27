@@ -20,14 +20,15 @@ public class AddPolicy extends HttpServlet {
 		//로그인 안한 사람이 접근하면 내쫒기
 		HttpSession session = req.getSession();	
 		
-		if(session.getAttribute("id") == null) {
+		//if(session.getAttribute("id") == null) {
 			
 			//1. 내쫒기
 			/*
-			 * response.sendRedirect("/codestudy/board/list.do"); return; //아래
-			 * RequestDispatcher 충돌을 막기위해
+			 * response.sendRedirect("/codestudy/board/list.do"); 
+			 * return; //아래 RequestDispatcher 충돌을 막기위해
 			 */			
 			//2. 경고 + 내쫒기
+		/*
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
@@ -38,8 +39,8 @@ public class AddPolicy extends HttpServlet {
 			writer.print("</body></html>");
 			
 			writer.close();
-			
-		}
+			*/
+		//}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminboard/addpolicy.jsp");
 		dispatcher.forward(req, resp);

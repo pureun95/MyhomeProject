@@ -208,6 +208,11 @@ public class PolicyDAO {
 		return 0;
 	}
 
+	public int del(String[] seq) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 

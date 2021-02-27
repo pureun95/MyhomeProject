@@ -45,25 +45,26 @@ body, html {
 }
 
 .section2 {
-	
-    font-family: 'MaplestoryOTFLight';
-    display: inline;
-    position: relative;
-    left: 200px;
-    top: 100px;
-    float: left;
-    
+	font-family: 'MaplestoryOTFLight';
+	display: inline;
+	position: relative;
+	left: 200px;
+	top: 100px;
+	float: left;
 }
+
 #title {
 	border-bottom: 1px dashed #ccc;
 	font-size: 24px;
 	margin-bottom: 30px;
 	width: 200px;
 }
+
 #tbl1 {
 	font-size: 16px;
 	color: #202020;
 }
+
 #tbl1 td {
 	height: 50px;
 }
@@ -72,37 +73,31 @@ body, html {
 	margin-top: 30px;
 	text-align: center;
 	/* border: 1px solid black; */
-	
 }
 
-    .header {
-	     background-color : white;
-        
-    }
+.header {
+	background-color: white;
+}
 
-    #navboardtbl{
-        height: 800px;  
-        width: 100%;  
-        margin: 0px;
-    }
-    
-    
-    /*기존 200xp 삭제만 300px*/
-    #navboardtbl .navboardtd:first-child{
-    	width: 300px;
+#navboardtbl {
+	height: 800px;
+	width: 100%;
+	margin: 0px;
+}
 
-    }
-    
-	 .navboardtd{
-	
-	    vertical-align: top;
-			
-	}
-	
-	/*타이틀 태그 */
+/*기존 200xp 삭제만 300px*/
+#navboardtbl .navboardtd:first-child {
+	width: 300px;
+}
 
-	/*타이틀 태그 */
-	#boardtitle {
+.navboardtd {
+	vertical-align: top;
+}
+
+/*타이틀 태그 */
+
+/*타이틀 태그 */
+#boardtitle {
 	font-size: 24px;
 	margin: 30px 10px;
 	padding: 0px 10px;
@@ -115,49 +110,45 @@ body, html {
 	margin-left: 0px;
 }
 
+.boardtext {
+	margin-top: 10px;
+}
 
-	.boardtext{
-		margin-top:10px;
-	}
-	
-	.boardfile > input{
-		background-color: #f1aeae;
-		width:400px;
-		height:40px;
-		margin-left:20px;
-    	text-align:center;
-    	color:white;	
-    	outline: none;
-    	border: 0;
-    	
-	}
-	
-	
-	/*버트 새로 고침 */
-	
-	.boardbutton{
-		width:940px;
-		padding-right:120px;
-	}
-	.boardbutton button{
-	
-		float:right;
-		display:inline-block;	
-        outline: none;
-        border: 0px solid #000;
-        background-color: #f1aeae;
-        color: white;
-        width: 70px;
-        height: 34px;
-        margin-right:5px;
-        border-radius: 3px;
-	}
+.boardfile>input {
+	background-color: #f1aeae;
+	width: 400px;
+	height: 40px;
+	margin-left: 20px;
+	text-align: center;
+	color: white;
+	outline: none;
+	border: 0;
+}
 
-    .boardbutton button:after{
-        content: "";
-        display: block;
-        clear: both;
-	}
+/*버트 새로 고침 */
+.boardbutton {
+	width: 940px;
+	padding-right: 120px;
+}
+
+.boardbutton button {
+	float: right;
+	display: inline-block;
+	outline: none;
+	border: 0px solid #000;
+	background-color: #f1aeae;
+	color: white;
+	width: 70px;
+	height: 34px;
+	margin-right: 5px;
+	border-radius: 3px;
+}
+
+.boardbutton button:after {
+	content: "";
+	display: block;
+	clear: both;
+}
 </style>
 </head>
 <body>
@@ -168,76 +159,119 @@ body, html {
 
 		<div class="container">
 
-			<form action="" id="form1">
-				
-				<table id="navboardtbl">
+			<table id="navboardtbl">
 
-					<tr id="navboardtr">
-						<td class="navboardtd">
+				<tr id="navboardtr">
+					<td class="navboardtd">
+						<!-- nav --> <%@include file="/WEB-INF/views/admin/nav.jsp"%>
 
-					<!-- nav -->
-					<%@include file="/WEB-INF/views/admin/nav.jsp"%>
-				
-						</td>
+					</td>
 
-						<!-- 상세 보기 입니다.-->
+					<!-- 상세 보기 입니다.-->
 
-						<td class="navboardtd">
-							<div id="boardtitle" class="">QnA</div>
-							
-							<div class="boardcover">
-								<table id="board"
-									class="table table-hover table-striped table-condensed">
-										<!--  ?는 데이터 직접 넣기  -->
-									<tr class="headtr">
-										<th class="firtd boardtd">카테고리</th>
-										<th class="sectd boardtd" colspan="2">제목</th>
-										<th class="firtd boardtd">작성자</th>
-										<th class="firtd boardtd">처리상태</th>
-										<th class="fortd boardtd">작성일</th>
-									<!-- <th class="fiftd boardtd">조회수</th> -->	
-									</tr>
-									<tr class="boardtr">
-										<td class="firtd boardtd">카테고리</td>
-										<td class="sectd boardtd" colspan="2">
-										<div class="boardtexttilte"> 제목</div></td>
-										<td class="firtd boardtd">작성자</td>
-										<td class="firtd boardtd">처리상태</td>
-										<td class="fortd boardtd">작성일</td>
-									<!-- <th class="fiftd boardtd">조회수</th> -->	
-									</tr>
+					<td class="navboardtd">
+						<div id="boardtitle" class="">QnA</div>
 
-									<tr class="boardtr">
-										<td class="firtd boardtd" colspan="6">
-											<textarea class="form-control col-sm-5 boardtext"  
-											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
-										</td>
+						<div class="boardcover">
+							<table id="board"
+								class="table table-hover table-striped table-condensed">
+								<!--  ?는 데이터 직접 넣기  -->
+								<tr class="headtr">
+									<th class="firtd boardtd">카테고리</th>
+									<th class="sectd boardtd" colspan="2">제목</th>
+									<th class="firtd boardtd">작성자</th>
+									<th class="firtd boardtd">처리상태</th>
+									<th class="fortd boardtd">작성일</th>
+									<!-- <th class="fiftd boardtd">조회수</th> -->
+								</tr>
+								<tr class="boardtr">
+									<td class="firtd boardtd"><c:if test="${category == '1' }">
+										매물
+										</c:if> <c:if test="${category == '2' }">
+										중고장터
+										</c:if> <c:if test="${category == '3' }">
+										커뮤니티
+										</c:if> <c:if test="${category == '4' }">
+										전자계약
+										</c:if> <c:if test="${category == '5' }">
+										기타
+										</c:if></td>
+									<td class="sectd boardtd" colspan="2">
+										<div class="boardtexttilte">${dto.title}</div>
+									</td>
+									<td class="firtd boardtd">Admin${seqAdmin}</td>
+									<td class="firtd boardtd">${dto.state}</td>
+									<td class="fortd boardtd">${dto.writeDate}</td>
+									<!-- <th class="fiftd boardtd">조회수</th> -->
+								</tr>
 
-									</tr>
+								<tr class="boardtr">
+									<td class="firtd boardtd" colspan="6"><textarea
+											class="form-control col-sm-5 boardtext" style="resize: none;"
+											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>${dto.content}</textarea>
+									</td>
 
-
-								</table>
-							</div>
-
-						
-						
-						<!-- 버튼 처리상태가 완료면 신고카운도 disabled
+								</tr>
+							</table>
+						</div> <!-- 버튼 처리상태가 완료면 신고카운도 disabled
 						ProcReportChat 채팅 전송
 						ProcReportCompleteChat 카운트와 동시에 완료채팅 전송 -> 처리 상태 변경 
-						-->
-						
-						<!--  -->
-						<div class="boardbutton">
-							<button onclick="location.href='/Myhome_project/admin2/qna/writeok.do';">
-							등록</button>
-							<button onclick="location.href='/Myhome_project/admin2/qna/list.do';">
-							목록</button>
-						<!--  <button> 1234</button>-->	
-						</div>
-						
-						
-						<!-- 지금은 삭제? 아니면 안보이게? -->
-<!-- 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
+						--> <!--  -->
+		<form method="POST" action="/Myhome_project/admin2/qna/writeok.do">
+							<div class="boardbutton">
+								<button type="submit" 
+									<c:if test="${dto.state == '완료'}">
+									disabled style="background-color: #777;"
+									</c:if>
+								>
+									등록</button>
+								<button type="button"
+									onclick="location.href='/Myhome_project/admin2/qna/list.do?category=${category}';">
+									목록</button>
+								<!--  <button> 1234</button>-->
+							</div>
+							<c:if test="${dto.state ne '완료'}">
+								<div id="boardtitle" class="">답글쓰기</div>
+								<input type="hidden" name="seq" value="${dto.seqQna}">
+								<input type="hidden" name="category" value="${category}">
+								<div class="boardcover">
+									<table id="board"
+										class="table table-hover table-striped table-condensed">
+										<!--  ?는 데이터 직접 넣기  -->
+
+										<tr class="boardtr">
+											<td class="firtd boardtd" colspan="5"><textarea
+													name="content" class="form-control col-sm-5 boardtext"
+													style="resize: none;" placeholder="여기에 게시글을 작성해주세요"
+													rows="15"></textarea></td>
+
+										</tr>
+
+									</table>
+								</div>
+							</c:if>
+					</form>
+							<c:if test="${dto.state == '완료' }">
+								<div id="boardtitle" class="">답글쓰기</div>
+
+								<div class="boardcover">
+									<table id="board"
+										class="table table-hover table-striped table-condensed">
+										<!--  ?는 데이터 직접 넣기  -->
+
+										<tr class="boardtr">
+											<td class="firtd boardtd" colspan="5"><textarea
+													class="form-control col-sm-5 boardtext"
+													style="resize: none;" placeholder="여기에 게시글을 작성해주세요"
+													rows="15" disabled>${qCdto.content}</textarea></td>
+
+										</tr>
+
+									</table>
+								</div>
+							</c:if>
+							<!-- 지금은 삭제? 아니면 안보이게? -->
+							<!-- 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
 									id="button-addon2" onclick="location.href='/Myhome-project/admin2/report/chatok.do';">
 									채팅 전송</button>
@@ -246,10 +280,9 @@ body, html {
 									List</button>
 							</div>
  -->
-						</td>
-					</tr>
-				</table>
-			</form>
+					</td>
+				</tr>
+			</table>
 
 
 
@@ -262,7 +295,7 @@ body, html {
 
 
 	<script>
-
+		
 	</script>
 
 
