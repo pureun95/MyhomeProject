@@ -254,5 +254,79 @@ public class MemberDAO {
 		return null;
 	}
 
+	public String searchID(String type, MemberDTO dto) {
+		
+		try {
+			String sql = "";
+			
+			if(type.equals("email")) {
+				sql = "select id from tblAllUser where name = ? and email = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getName());
+				pstat.setString(2, dto.getEmail());
+				rs = pstat.executeQuery();
+				
+				while(rs.next())
+					return rs.getString("id");
+				
+			}
+			else if(type.equals("phone")) {
+				sql = "select id from tblAllUser where name = ? and phonenumber = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getName());
+				pstat.setString(2, dto.getPhonenumber());
+				rs = pstat.executeQuery();
+				
+				while(rs.next())
+					return rs.getString("id");
+				
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("MemberDAO.searchID()" + e);
+		}
+		return null;
+	}
+
+	public String searchPW(String type, MemberDTO dto) {
+		
+		try {
+			String sql = "";
+			
+			if(type.equals("email")) {
+				sql = "select password from tblAllUser where id = ? and email = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getId());
+				pstat.setString(2, dto.getEmail());
+				rs = pstat.executeQuery();
+				
+				while(rs.next())
+					return rs.getString("password");
+				
+			}
+			else if(type.equals("phone")) {
+				sql = "select password from tblAllUser where id = ? and phonenumber = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getId());
+				pstat.setString(2, dto.getPhonenumber());
+				rs = pstat.executeQuery();
+				
+				while(rs.next())
+					return rs.getString("password");
+				
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("MemberDAO.searchID()" + e);
+		}
+		return null;
+	}
+
 
 }

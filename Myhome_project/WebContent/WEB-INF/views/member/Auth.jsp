@@ -184,9 +184,9 @@
 		    	<input type="text" class="form-control form-weight readonly" id="pw" name="password" placeholder="패스워드" required> 
 				
 			<div class="search">
-				<a href="/jsp/web/search_id.jsp">아이디 찾기</a>
+				<a href="/member/searchid.jsp">아이디 찾기</a>
 				<span>|</span>              
-				<a href="/jsp/web/search_pw.jsp">비밀번호 찾기</a>
+				<a href="/member/searchpw.jsp">비밀번호 찾기</a>
 			</div>	
 				
 				<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-login" value="로그인">
