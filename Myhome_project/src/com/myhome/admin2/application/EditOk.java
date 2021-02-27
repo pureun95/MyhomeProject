@@ -50,6 +50,7 @@ public class EditOk extends HttpServlet {
 
 			int result = dao.edit(dto);
 
+			dao.close();
 			if (result == 1) {
 				resp.sendRedirect("/Myhome_project/admin2/application/list.do");
 			} else {

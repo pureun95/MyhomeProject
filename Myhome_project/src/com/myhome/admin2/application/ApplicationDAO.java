@@ -11,28 +11,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
+import com.myhome.admin2.Admin2;
 import com.sun.glass.ui.Pixels.Format;
 
-public class ApplicationDAO {
-	private Connection conn;
-	private Statement st;
-	private PreparedStatement ps;
-	private ResultSet rs;
-	private CallableStatement ct;
+public class ApplicationDAO extends Admin2{
 
-	public ApplicationDAO() {
-		conn = DBUtil.open();
-	}
-
-	public void close() {
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("close : " + e);
-		}
-	}
-
+	
 	public ArrayList<ApplicationDTO> list(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 
@@ -49,7 +33,6 @@ public class ApplicationDAO {
 					+ "(select a.*, rownum as rnum from tblApplication a %s order by seqApplication desc) "
 					+ "where rnum between %s and %s ", where, map.get("begin"),map.get("end"));
 
-			System.out.println(sql);
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 
@@ -69,7 +52,9 @@ public class ApplicationDAO {
 				list.add(dto);
 
 			}
-
+			rs.close();
+			ps.close();
+			
 			return list;
 
 		} catch (Exception e) {
@@ -100,6 +85,8 @@ public class ApplicationDAO {
 			
 			
 			int result = ct.executeUpdate();
+			ct.close();
+			
 			return result;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -132,7 +119,6 @@ public class ApplicationDAO {
 			String sql = String.format(
 					"select * from tblApplication where seqApplication in ( %s ) order by seqApplication desc", in);
 
-			System.out.println(sql);
 			ps = conn.prepareStatement(sql);
 
 			rs = ps.executeQuery();
@@ -152,7 +138,8 @@ public class ApplicationDAO {
 				list.add(dto);
 
 			}
-
+			rs.close();
+			ps.close();
 			return list;
 
 		} catch (Exception e) {
@@ -184,8 +171,9 @@ public class ApplicationDAO {
 
 			ps = conn.prepareStatement(sql);
 
-			return ps.executeUpdate();
-
+			int result = ps.executeUpdate();
+			ps.close();
+			return result;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("delete : " + e);
@@ -215,6 +203,9 @@ public class ApplicationDAO {
 				dto.setViewcount(rs.getString("viewcount"));
 				dto.setSavefile(rs.getString("savefile"));
 
+				rs.close();
+				ps.close();
+				
 				return dto;
 
 			}
@@ -236,6 +227,7 @@ public class ApplicationDAO {
 			ps = conn.prepareStatement(sql);
 			ps.executeUpdate();
 
+			ps.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("count : " + e);
@@ -258,11 +250,15 @@ public class ApplicationDAO {
 
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
-
+			
+			int result =0;
+			
 			if (rs.next()) {
-				return rs.getInt("count");
+				 result =rs.getInt("count");
 			}
-
+			rs.close();
+			st.close();
+			return result;
 		} catch (Exception e) {
 			System.out.println( "total : "+ e);
 		}
@@ -290,6 +286,8 @@ public class ApplicationDAO {
 
 			
 			int result = ct.executeUpdate();
+			
+			ct.close();
 			return result;
 		} catch (Exception e) {
 			// TODO: handle exception

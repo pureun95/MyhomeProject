@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Myhome::정보공유커뮤니티</title>
+<title>Myhome::중고장터</title>
 
 <%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
 
@@ -238,7 +238,7 @@ body, html {
 						<!-- 상세 보기 입니다.-->
 
 						<td class="navboardtd">
-							<div id="boardtitle" class="">중고거래</div>
+							<div id="boardtitle" class="">중고장터</div>
 
 							<div class="boardcover">
 								<table id="board"
@@ -247,83 +247,106 @@ body, html {
 									<tr class="headtr">
 										<th class=" boardtd">제목</th>
 										<td class=" boardtd" colspan="3">
-										<input type="text" placeholder="제목을 입력해주세요" id="usedtitle">
+										<input type="text" placeholder="제목을 입력해주세요" style="text-align:center;" 
+										value="${dto.title}" disabled id="usedtitle">
 										</td>
 									</tr>
 									<tr class="headtr">
 										<th class="boardtd">판매자</th>
-										<td class="boardtd"> 이름</td>
+										<td class="boardtd">${dto.id}</td>
 										<th class="boardtd">거래방법</th>
 										<td class="boardtd">
-										<select name="selcate" id="selcate">
+										${dto.tradeMode}
+									<!--	<select name="selcate" id="selcate">
 												<option value="dil">택배</option>
 												<option value="meet">직거래</option>
-										</select>
+										</select>   -->
 										</td>
 									</tr>
 									<tr class="headtr">
 										<th class=" boardtd">카테고리</th>
 										<td class="boardtd">
-										<select name="selcate"
-											id="selusedcate">
-												<option value="furniture">가구</option>
-												<option value="beauty">뷰티</option>
-												<option value="shoes">신발</option>
-												<option value="cloth">의류</option>
-												<option value="digit">디지털/가전</option>
-												<option value="daily">생활용품</option>
-												<option value="sport">스포츠</option>
-												<option value="food">식품</option>
-												<option value="book">도서</option>
-												<option value="endso">기타</option>
-										</select>
+										
+											<c:if test="${category == '1' }">
+											가구
+											</c:if> <c:if test="${category == '2' }">
+											뷰티
+											</c:if> <c:if test="${category == '3' }">
+											신발
+											</c:if> <c:if test="${category == '4' }">
+											의류
+											</c:if> <c:if test="${category == '5' }">
+											디지털/가전
+											</c:if> <c:if test="${category == '6' }">
+											생활용융
+											</c:if> <c:if test="${category == '7' }">
+											스포츠
+											</c:if> <c:if test="${category == '8' }">
+											식품
+											</c:if> <c:if test="${category == '9' }">
+											도서
+											</c:if> <c:if test="${category == '10' }">
+											기타
+											</c:if> 
+																				
 										</td>
 										<th class=" boardtd">금액</th>
 										<td class=" boardtd">
-											<input type="number" step="100" name="price"
-											id="price">원
+										<!--  	<input type="number" step="100" name="price"
+											id="price">--> ${dto.price} 원
 										</td>
 									</tr>
 
 									<tr class="boardtr">
 										<td class=" boardtd" colspan="4"><textarea
 												class="form-control col-sm-5 boardtext"
-												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
+												placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>${dto.content}</textarea>
 										</td>
 
 									</tr>
 
 
 								</table>
-							</div> <!-- 버튼 -->
-							<div class="boardbutton">
-								<button id="Communitylist"
-									onclick="location.href='/Myhome-project/admin2/community/list.do';">
-									목록</button>
-								<button id="communitydel"
-									onclick="location.href='/Myhome-project/admin2/community/delete.do';">
-									삭제</button>
-								<button id="checkerr"
-									onclick="location.href='/Myhome-project/admin2/community/check.do';">
-									검열</button>
+							</div> 
+							<!-- 버튼 -->
 
+							<div class="boardbutton">
+								<button type="button" id="Communitylist"
+									onclick="location.href='/Myhome_project/admin2/used/list.do?category=${category}';">
+									목록</button>
+								<button type="button" id="communitydel"
+									onclick="location.href='/Myhome_project/admin2/used/delete.do?seq=${dto.seqUsed}&category=${category}';">
+									삭제</button>
+								<button type="button" id="checkerr"
+									onclick="location.href='/Myhome_project/admin2/used/check.do?seq=${dto.seqUsed}';">
+									검열</button>
 							</div> <!--  댓글  -->
 
 							<div class="myhomecomment">
 								<!-- 여기 행을 움직이자-->
+								
+							<c:if test="${dto.count != '0' }">	
+								<c:forEach items="${list}" var="cdto">
 								<div class="MyhomeCommentRow">
 									<div class="commentinfo">
-										<input type="text" id="commentname" value="닉네임하하">
-										<textarea name="" id="" cols="40" rows="2">까지등록할수할수까몇글자까지등록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지록할수까몇글자까지등까지등록</textarea>
+										<input type="text" id="commentname" value="${cdto.id}">
+										<textarea name="" id="" cols="40" rows="2">${cdto.content}</textarea>
 										<div class="subinfo">
-											<span class="commentdate">2020-12-12</span>
-											<button>삭제</button>
+											<span class="commentdate">${cdto.writeDate}</span>
+											<button type="button" 
+											onclick="location.href='/Myhome_project/admin2/used/delcommentok.do?seq=${cdto.seqUsedComment}">
+											삭제</button>
 										</div>
 
 									</div>
-
+									
 								</div>
-							</div> <!-- 첨부파일  
+							</c:forEach>
+							</c:if>
+							
+							</div> 
+							
+							<!-- 첨부파일  
 							<div class="boardfile">
 							  <input type="file" class="form-control " id="inputGroupFile02" disabled>
 							  <label class="" for="inputGroupFile02"></label>
@@ -338,8 +361,6 @@ body, html {
 				</table>
 			</form>
 
-
-
 		</div>
 
 	</div>
@@ -350,9 +371,9 @@ body, html {
 
 	<script>
 		
+	
+	
 	</script>
-
-
 
 </body>
 </html>

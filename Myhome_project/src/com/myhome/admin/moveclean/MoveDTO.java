@@ -9,6 +9,7 @@ public class MoveDTO {
 	private String tel;
 	private String address;
 	private String businessnum;
+	private String rating;
 	private String price;
 	private String introduce;
 	
@@ -65,6 +66,12 @@ public class MoveDTO {
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
+	}
+	public String getRating() {
+		return rating;
+	}
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 	
 	

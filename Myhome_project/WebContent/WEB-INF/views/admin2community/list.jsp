@@ -152,6 +152,8 @@ body, html {
 	display: inline;
 	margin-right: 10px;
 }
+
+
 </style>
 </head>
 <body>
@@ -162,9 +164,8 @@ body, html {
 
 		<div class="container">
 
-			-
-			<form action="" id="form1">
-
+			<form method="GET" action="/Myhome_project/admin2/community/delete.do">
+	
 				<table id="navboardtbl">
 
 					<tr id="navboardtr">
@@ -172,7 +173,6 @@ body, html {
 							<!-- nav --> <%@include file="/WEB-INF/views/admin/nav.jsp"%>
 
 						</td>
-
 						<!---->
 
 						<td class="navboardtd">
@@ -186,33 +186,32 @@ body, html {
 										<th class="sixtd boardtd">선택</th>
 										<th class="firtd boardtd">번호</th>
 										<th class="sectd boardtd">제목</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
+										<th class="thitd boardtd">작성자</th>
 										<th class="fortd boardtd">작성일</th>
 										<th class="fiftd boardtd">조회수</th>
 
 									</tr>
+									<c:forEach items="${list}" var="dto">
 
 									<tr class="boardtr">
 										<td class="sixtd boardtd"><input type="checkbox"
-											name="seq" id="seq"></td>
-										<td class="firtd boardtd">1</td>
+											name="seq" id="seq" value="${dto.seqCommunity}"></td>
+										<td class="firtd boardtd">${dto.seqCommunity}</td>
 										<td class="sectd boardtd">
 											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/admin2/community/list.do;">화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic.</a>
-												
-												<span class="boardspan footspan">[댓글수]</span>
-																						</div>
+												<span class="boardspan headspan"></span> 
+												<a href="/Myhome_project/admin2/community/view.do?seq=${dto.seqCommunity}">
+												${dto.title}</a>					
+												<span class="boardspan footspan">[${dto.count}]</span>
+											</div>
 										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+										<td class="thitd boardtd">${dto.id}</td>
+										<td class="fortd boardtd">${dto.writeDate}</td>
+										<td class="fiftd boardtd">${dto.viewCount}</td>
 
 									</tr>
 
-
+									</c:forEach>
 
 								</table>
 							</div>
@@ -222,32 +221,23 @@ body, html {
 									id="button-addon2"
 									onclick="location.href='/Myhome_project/admin2/community/write.do';">
 									쓰기</button>
- -->								
- 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2"
-									onclick="location.href='/Myhome_project/admin2/community/delete.do';">삭제</button>
+ -->							
+ 								<button class="btn btn-outline-secondary " type="submit"
+									id="dele" style="outline:none;">삭제</button>
 							</div> 
-							
-							
+							</form>
+											
 							<!-- 검색, 페이지바 -->
 							<div class="search-paging">
 								<div class="paging">
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-										<li><a class="page-link page-a" href="">다음</a></li>
+									${pagebar}
 									</ul>
 								</div>
-
+								
+								<form id="searchForm" method="GET"
+									action="/Myhome_project/admin2/used/list.do">
+				
 
 								<div id="search-box">
 									<input type="text" class="form-control" id="search-text"
@@ -255,13 +245,12 @@ body, html {
 									<button class="btn btn-outline-secondary" type="button"
 										id="button-addon1">검색</button>
 								</div>
+								</form>
 								<!-- search-paging -->
 							</div>
 						</td>
 					</tr>
 				</table>
-			</form>
-
 
 
 		</div>

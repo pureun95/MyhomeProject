@@ -193,6 +193,12 @@ body, html {
 										<th class="fortd boardtd">${dto.writedate}</th>
 										<th class="fiftd boardtd">${dto.viewcount}</th>
 									</tr>
+									<tr>
+										<td colspan="5" style="text-align:center;">
+										<a href="https://apply.lh.or.kr/LH/index.html#MN::CLCC_MN_0010:" target="_blank">
+										LH 청약 센터 이동 [https://apply.lh.or.kr/]</a>
+										</td>
+									</tr>
 
 									<tr class="boardtr">
 										<td class="firtd boardtd" colspan="5"><textarea
@@ -215,6 +221,9 @@ body, html {
 							</div> <!-- 버튼 --> <!-- 지금은 삭제? 아니면 안보이게? -->
 								
 						<div class="boardbutton">
+<!--							<button id="Communitylist" type="button"  
+ 							onclick="location.href='/Myhome_project/admin2/application/list.do';">
+							목록</button>-->
 							<button id="Communitylist" type="button"  
 							onclick="location.href='/Myhome_project/admin2/application/list.do';">
 							목록</button>

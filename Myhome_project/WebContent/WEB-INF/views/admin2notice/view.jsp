@@ -133,6 +133,36 @@ body, html {
 	}
 	
 	
+/*버튼 수정*/
+
+	.boardbutton{
+		width:940px;
+		padding-right:120px;
+		float:right;
+		text-align:right;
+        margin-top:-100px;
+	}
+	
+    .boardbutton:after{
+        content: "";
+        display: block;
+        clear: both;
+	}
+	.boardbutton button{
+		
+		display:inline-block;	
+        outline: none;
+        border: 0px solid #000;
+        background-color: #f1aeae;
+        color: white;
+        width: 70px;
+        height: 34px;
+        margin-right:5px;
+        margin-bottom:10px;
+        border-radius: 3px;
+        z-index:99;
+	}
+	
 </style>
 </head>
 <body>
@@ -165,17 +195,17 @@ body, html {
 									class="table table-hover table-striped table-condensed">
 										<!--  ?는 데이터 직접 넣기  -->
 									<tr class="headtr">
-										<th class="firtd boardtd">글번호 : ?</th>
-										<th class="sectd boardtd">진짜제목 ?</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
-										<th class="fortd boardtd">작성일</th>
-										<th class="fiftd boardtd">조회수</th>
+										<th class="firtd boardtd">${dto.seqNotice}</th>
+										<th class="sectd boardtd">${dto.title }</th>
+										<th class="thitd boardtd">Admin${dto.seqAdmin }</th>
+										<th class="fortd boardtd">${dto.writeDate}</th>
+										<th class="fiftd boardtd">${dto.viewCount}</th>
 									</tr>
 
 									<tr class="boardtr">
 										<td class="firtd boardtd" colspan="5">
 											<textarea class="form-control col-sm-5 boardtext"  
-											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
+											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>${dto.content}</textarea>
 										</td>
 
 									</tr>
@@ -185,22 +215,21 @@ body, html {
 							</div>
 
 
- 						<!-- 첨부파일  -->
-							<div class="boardfile">
-							  <input type="file" class="form-control " id="inputGroupFile02" disabled>
-							  <label class="" for="inputGroupFile02"></label>
-							</div>
-						<!-- 버튼 -->
+ 					
 						
 						<!-- 지금은 삭제? 아니면 안보이게? -->
-							<div class="boardwork d-grid gap-2 d-md-block btn-group">
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome-project/admin2/notice/deleteok.do';">
-									Insert</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome-project/admin2/notice/list.do';">
-									List</button>
-							</div>
+						<div class="boardbutton">
+							<button id="Communitylist" type="button"  
+							onclick="location.href='/Myhome_project/admin2/notice/list.do';">
+							목록</button>
+							<button id="Noticedel" type="button"
+							onclick="location.href='/Myhome_project/admin2/notice/edit.do?seq=${dto.seqNotice}';">
+							수정
+							</button>
+						  	<button id="checkerr" type="button"
+						  	onclick="location.href='/Myhome_project/admin2/notice/delete.do?seq=${dto.seqNotice}';">
+						  	삭제</button>	
+						</div>			
 
 		
 					<tr>

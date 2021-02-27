@@ -35,8 +35,8 @@
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
 	                    <li class="header-li li-list" onclick="location.href='/Myhome/user/boardqnalist.do';">고객센터</li>
 	
-	 					<li id="login" class="li-login li-list"><a href="/Myhome_project/member/Auth.do">로그인</a></li>
-	                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/Register.do">회원가입</a></li>
+	 					<li id="login" class="li-login li-list" onclick="location.href='/Myhome_project/member/Auth.do';">로그인</li>
+	                    <li id="signup" class="li-login li-list" onclick="location.href='/Myhome_project/member/Register.do';">회원가입</li>
 	                </ul>
 	            </div>
 	            </div>
@@ -61,7 +61,7 @@
 	                    <li class="header-li li-list" onclick="location.href='/Myhome/user/boardqnalist.do';">고객센터</li>
 	
 	 					<li id="login" class="li-login li-list">${nickname }</li>
-	                    <li id="signup" class="li-login li-list"><a href="/Myhome_project/member/logout.do">로그아웃</a></li>
+	                    <li id="signup" class="li-login li-list" onclick="location.href='/Myhome_project/member/logout.do';">로그아웃</li>
 	                </ul>
 	            </div>
 	            </div>
