@@ -325,7 +325,7 @@ public class MypageMyWriteDAO {
 				dto.setPtitle(rs.getString("ptitle"));
 				dto.setLocation(rs.getString("location"));
 				dto.setRating(rs.getInt("rating"));
-				dto.setSeqContract(rs.getInt("seqContract"));
+				dto.setSeqProperty(rs.getInt("seqProperty"));
 				
 				list.add(dto);
 			}

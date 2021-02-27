@@ -247,10 +247,10 @@ body, html {
                      </c:forEach>
                      
                      <c:forEach items="${ilist}" var="idto">
-                     <tr onclick="location.href='/Myhome_project/user/mypagecontractdetail.do?seqContract=${idto.seqContract}'"><!-- onclick -> seqContract로 계약서랑 연결 달아둘것 -->
+                     <tr onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${idto.seqProperty}'"><!-- onclick -> seqContract로 계약서랑 연결 달아둘것 -->
                         <td>매물후기</td>
                         <td>${idto.seqPropertyReview}</td>
-                        <td>[${ptitle}]${idto.title}</td>
+                        <td>[${idto.ptitle}]${idto.title}</td>
                         <td>-</td>
                      </tr>
                      </c:forEach>
