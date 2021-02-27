@@ -20,143 +20,151 @@
 
 <style>
 
-.container {
-	border-color: transparent;
-	font-family: 'NanumBarunGothic', sans-serif;
-	font-size: 16px;
-	position: relative;
-	border-right: 1px solid #DBDCE0;
-    border-left: 1px solid #DBDCE0;
-}
+	/* div {
+		-webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;  
+	    box-sizing: border-box; 
+	} */
 
-.boardwrap {
-	height: auto;
-	min-height: 100%;
-}
+	.container {
+		border-color: transparent;
+		font-family: 'NanumBarunGothic', sans-serif;
+		font-size: 16px;
+		position: relative;
+	}
+	
+	.boardwrap{
+	    height: auto;
+	    min-height: 100%;
+	}
+	
+	.boardcover {
+		float: left;
+/* 		width: 900px; */
+		width: 75%;
 
-.boardcover {
-	float: left;
-	width: 90%;
-}
-
-#maintitle {
-	font-size: 24px;
-	font-family: 'MaplestoryOTFLight';
-	padding: 0 10px;
-	border-left: 5px solid #f1aeae;
-	position: relative;
-	display: inline;
-	text-align: left;
-	color: #202020;
-	top: 100px;
-	left: 100px;
-}
-
-.table {
-	position: relative;
-	top: 160px;
-	left: 100px;
-}
-
-.table thead tr th {
-	text-align: center;
-}
-
-.table td:nth-child(1) {
-	text-align: center;
-	width: 90px;
-}
-
-.table td:nth-child(2) {
-	text-align: left;
-	width: auto;
-}
-
-.table td:nth-child(3) {
-	text-align: center;
-	width: 130px;
-}
-
-.table td:nth-child(4) {
-	text-align: center;
-	width: 130px;
-}
-
-.table td:nth-child(5) {
-	text-align: center;
-	width: 90px;
-}
-
-.table tr {
-	height: 40px;
-}
-
-.table>tbody>tr>td {
-	vertical-align: middle !important;
-}
-
-#basic-addon2 {
-	background-color: #f1aeae;
-	color: white;
-	outline: none;
-}
+		
+	}
 
 
-#page_bar>.active>a, #page_bar>li>a:hover {
-	background-color: #f1aeae;
-	border-color: #f1aeae;
-	color: white;
-}
 
-#page_bar>li>a {
-	color: #202020;
-}
+	 #maintitle {
+	   border-bottom: 1px solid #ccc;
+	   font-size: 24px;
+	   font-family: 'MaplestoryOTFLight';
+	   /* padding-right: 50px; */
+	   padding-bottom: 7px;
+	   position: relative;
+	   display: inline;
+	/*    left: 100px;
+	   top: 100px; */
+	   text-align:left;
+	
+		/* font-weight: bold; */
+		color: #202020;
+		
+		/* margin: 10px 7px; */
+		/* padding-left: 10px; */
+		top: 100px;
+		left: 100px;
+		
+	} 
+	
+	.table {
+		position: relative;
+		top: 160px;
+		left: 100px;
+	}
+	
+	
+	.table thead tr th {
+		text-align: center;
+	}
+	
+	.table td:nth-child(1) {
+		text-align: center;
+		width: 90px;
+	}
+	
+	.table td:nth-child(2) {
+		text-align: left;
+		width: auto;
+	}
+	
+	.table td:nth-child(3) {
+		text-align: center;
+		width: 130px;
+	}
+	
+	.table td:nth-child(4) {
+		text-align: center;
+		width: 130px;
+	}
+	
+	.table td:nth-child(5) {
+		text-align: center;
+		width: 90px;
+	}
+	
+	
+	.table tr {
+		height: 40px;
+	}
+	
+	.table>tbody>tr>td {
+		vertical-align: middle !important;
+	}
+	
+	#basic-addon2 {
+		background-color: #f1aeae;
+        color: white;
+        outline: none;
+	}
+	
+	.search {
+		margin: 20px auto;
+		width: 400px;
+		positioin: relative;
+		float: left;
+		top: 90px;
+		left: 350px;
+		
+	}
 
-#titlename {
-	color: #202020;
-}
 
-#basic-addon4 {
-	background-color: #f1aeae;
-	color: white;
-	outline: none;
-	position: relative;
-	float: right;
-	top: -167px;
-left: -215px;
-	width: 65px;
-}
+	.pagebar {
+		margin: 0px auto;
+		margin-bottom: 70px;
+		float: left;
+		text-align: center;
+		position : relative;
+		top: 170px;
+		left: 500px;
+	}
+	
+	#page_bar>.active>a, #page_bar>li>a:hover {
+		background-color: #f1aeae;
+		border-color : #f1aeae;
+		color: white;
+	}
+	
+	#page_bar>li>a {
+		color: #202020;
+	}
+	
+	/* .pagination>.active>a, .pagination>li>a:hover{
+		background-color: #f1aeae;
+		border-color : #f1aeae;
+		color: white;
+	}
 
-.search {
-	margin: 20px auto;
-	width: 430px;
-	positioin: relative;
-	float: left;
-top: -340px;
-    left: 240px;
-}
-
-.pagebar {
-	margin: 0px auto;
-	margin-bottom: 70px;
-	float: left;
-	text-align: center;
-	position: relative;
-	top: -250px;
-	left: 500px;
-}
-
-#searchResult {
-	width: auto;
-	position: relative;
-	margin-top: 20px;
-	display: inline-block;
-	left: -10px;
-}
-
-.boardcontent {
-	margin-left: 180px;
-}
+	.pagination>li>a {
+		color: #202020;
+	} */
+	
+	#titlename {
+		color: #202020;
+	}
 
 </style>
 </head>
@@ -171,15 +179,7 @@ top: -340px;
             <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
             <!-- <div style="clear:both;"></div> -->
             
-            <div class="boardcontent">
             <div id="maintitle">공지사항</div>
-            
-            
-            <c:if test="${not empty search}">
-				<div class="message well well-sm" id="searchResult">
-					'${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
-				</div>
-			</c:if>
                
                
                <form action="" id="form1">
@@ -195,13 +195,6 @@ top: -340px;
 				                </tr>
 			                </thead>
                				<tbody>
-               				
-               					<c:if test="${list.size() == 0}">
-									<tr>
-										<td colspan="5" style="text-align: center;">게시물이 없습니다.</td>
-									</tr>
-								</c:if>
-               				
                					<c:forEach items="${list}" var="dto">
 	               					<tr>
 	               						<td>${dto.seqNotice}</td>
@@ -220,43 +213,32 @@ top: -340px;
                				</tbody>
                			</table>
                			
-               			</div>
-						<div style="clear: both;"></div>
                			
-               			<div style="text-align: center;">
-						<nav class="pagebar">
-							<ul class="pagination" id="page_bar">${pagebar}
-							</ul>
-						</nav>
-					</div>
-					<div style="width: 100%;">
-						<button type="button" class="btn btn-default" id="basic-addon4"
-							onclick="location.href='/Myhome_project/Myhome/user/boardnoticelist.do';">목록</button>
-					</div>
-					<div style="clear: both;"></div>
-
-				</form>
+               			<nav class="pagebar">
+			                <ul class="pagination" id="page_bar">
+			                    ${pagebar}
+			                </ul>
+			            </nav>
+			            <div style="clear:both;"></div>
 			            
 			            
-			            <form id="searchForm" method="GET"
-					action="/Myhome_project/Myhome/user/boardnoticelist.do">
-					<div class="input-group search">
-
-						<input type="text" class="form-control"
-							placeholder="제목, 내용, 작성자를 입력해주세요."
-							aria-describedby="basic-addon2" id="search" name="search"
-							required value="${search}"> <span
-							class="input-group-addon" id="basic-addon2"
-							onclick="$('#searchForm').submit();" style="cursor: pointer;"><span>검색</span></span>
-					</div>
-				</form>
-				<div style="clear: both;"></div>
-               
+			            <form id="searchForm" method="GET" action="/Myhome_project/Myhome/user/boardnoticelist.do">
+				     		<div class="input-group search">
+				     
+					         	<input type="text" class="form-control" placeholder="제목, 내용을 입력해주세요." aria-describedby="basic-addon2" id="search" name="search" required value="${search}">
+					         
+					         	<span class="input-group-addon" id="basic-addon2" onclick="$('#searchForm').submit();"><span>검색</span></span>
+					         <!-- stype="cursor:pointer;" -->
+				     		</div>
+			     		</form>
+			     		<div style="clear:both;"></div>
+            
+            	</div>
+               </form>
                
                </div>
+           
            </div>
-       
-       </div>
 
 
 

@@ -50,7 +50,7 @@ public class BoardCommunityEditOk extends HttpServlet {
 			//글수정 성공 -> 글보기로 이동(view.do) (이걸로 보통 많이 쓴다.)
 			//http://localhost:8090/codestudy/board/view.do?seq=13
 			//오류나면 seq 수정ㅎ아기*****
-			resp.sendRedirect("/Myhome_project/Myhome/user/boardcommunityview.do?seq=" + seqCommunity);
+			resp.sendRedirect("/Myhome/user/boardcommunitylview.do?seqCommunity=" + seqCommunity);
 			
 		} else {
 			//글수정 실패 -> 경고 + 뒤로 가기
