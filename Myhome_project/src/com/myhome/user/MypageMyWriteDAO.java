@@ -218,6 +218,7 @@ public class MypageMyWriteDAO {
 				dto.setName(rs.getString("name"));
 				dto.setReservationDate(rs.getDate("reservationDate"));
 				dto.setRating(rs.getInt("rating"));
+				dto.setSeqMoveReservation(rs.getInt("seqMoveReservation"));
 				
 				list.add(dto);
 			}
@@ -253,6 +254,7 @@ public class MypageMyWriteDAO {
 				dto.setName(rs.getString("name"));
 				dto.setReservationDate(rs.getDate("reservationDate"));
 				dto.setRating(rs.getInt("rating"));
+				dto.setSeqCleanReservation(rs.getInt("seqCleanReservation"));
 				
 				list.add(dto);
 			}
@@ -287,6 +289,7 @@ public class MypageMyWriteDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setContractorName(rs.getString("contractorName"));
 				dto.setRating(rs.getInt("rating"));
+				dto.setSeqContract(rs.getInt("seqContract"));
 				
 				list.add(dto);
 			}
@@ -322,6 +325,7 @@ public class MypageMyWriteDAO {
 				dto.setPtitle(rs.getString("ptitle"));
 				dto.setLocation(rs.getString("location"));
 				dto.setRating(rs.getInt("rating"));
+				dto.setSeqContract(rs.getInt("seqContract"));
 				
 				list.add(dto);
 			}
@@ -377,7 +381,7 @@ public class MypageMyWriteDAO {
 		
 		try {
 			
-			String sql = "select seqUser, seqPropertyContractReport, title, reason, case when state = 0 then '처리중' when state = 1 then '완료' end as state from tblPropertyContractReport where seqUser = ?";
+			String sql = "select seqUser, seqConctractorProperty, seqPropertyContractReport, title, reason, case when state = 0 then '처리중' when state = 1 then '완료' end as state from tblPropertyContractReport where seqUser = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setInt(1, seqUser);
@@ -391,6 +395,7 @@ public class MypageMyWriteDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setReason(rs.getString("reason"));
 				dto.setReportState(rs.getString("state"));
+				dto.setSeqConctractorProperty(rs.getInt("seqConctractorProperty"));
 				
 				list.add(dto);
 			}
@@ -425,6 +430,7 @@ public class MypageMyWriteDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setReason(rs.getString("reason"));
 				dto.setWriteDate(rs.getDate("writeDate"));
+				dto.setSeqCommunity(rs.getInt("seqCommunity"));
 				
 				list.add(dto);
 			}

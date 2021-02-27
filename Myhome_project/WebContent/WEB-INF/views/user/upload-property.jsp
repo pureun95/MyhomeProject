@@ -552,7 +552,7 @@ li.header-li.li-list.header-li-scroll {
 				<input type="checkbox" id="electric" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="electric" class="selectboxs">전기세</label>   
 
-				<input type="number" placeholder="관리비를(숫자만) 입력해주세요." style="width:250px;" name="servicecharge" id="servicecharge" min="0" step="10000" style="margin: 10px;" value="0">   
+				관리비 : <input type="number" placeholder="관리비를(숫자만) 입력해주세요." style="width:250px;" name="servicecharge" id="servicecharge" min="0" step="1000" style="margin: 10px;" value="0">   
 			</div>
 		</div>
 		

@@ -112,14 +112,14 @@ tr td:nth-last-child(1) {
 						<th>후기작성</th>
 					</tr>
 					
-					<c:if test="${clist.size()==0&&mlist.size()==0}">
+					<c:if test="${empty clist&& empty mlist}">
 					<tr>
 						<td colspan="6">예약목록이 존재하지 않습니다.</td>
 					</tr>
 					</c:if>
 					<!-- 청소업체 리스트 출력 -->
 					<c:forEach items="${clist}" var="dto">
-					<form></form>
+					<!-- <form></form> -->
 					<tr>
 						<td>${dto.seqCleanReservation}</td>
 						<td>${dto.name}</td>
