@@ -111,6 +111,31 @@ public class CleanDAO {
 		}
 		return 0;
 	}
+
+	public int addclean(CleanDTO dto) {
+		
+		try {
+			
+			String sql ="insert into tblClean (seqClean, seqLocation, seqImage, name, tel, address, businessNum, price, introduce) values (SEQCLean.nextVal, default, ?, ?, ?, ?, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getImage());
+			pstat.setString(2, dto.getName());
+			pstat.setString(3, dto.getTel());
+			pstat.setString(4, dto.getAddress());
+			pstat.setString(5, dto.getBusinessnum());
+			pstat.setString(6, dto.getPrice());
+			pstat.setString(7, dto.getIntroduce());
+
+			return pstat.executeUpdate();
+			
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return 0;
+	}
 }
 
 

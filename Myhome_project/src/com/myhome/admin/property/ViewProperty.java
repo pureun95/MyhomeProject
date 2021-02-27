@@ -28,7 +28,7 @@ public class ViewProperty extends HttpServlet{
 		PropertyDAO dao = new PropertyDAO();
 		
 		/* 번호를 넘겨주면 글번호에 해당하는 글을 가져온다 */
-		PolicyDTO dto = dao.get(seq);
+		PropertyDTO dto = dao.get(seq);
 		
 		dao.close(); //****
 		

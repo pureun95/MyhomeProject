@@ -136,23 +136,7 @@ public class PolicyDAO {
 		return null;
 	}
 
-	//ViewPolicy -> 조회수 증가
-	public void updateReadcount(String seq) {
 
-		try {
-			
-			String sql = "update tblPolicy set viewcount = viewcount + 1 where seq = ?";
-			
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, seq);
-			
-			pstat.executeUpdate();
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		
-	}
 
 	//EditPolicyOk -> 글수정
 	public int editpolicy(PolicyDTO dto) {
@@ -177,10 +161,6 @@ public class PolicyDAO {
 		return 0;
 	}
 
-	public ArrayList<PolicyDTO> membermanagecontractor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	//ListPolicy 서블릿 -> 총 게시물 수 반환
 	public int getTotalCount(HashMap<String, String> map) {
@@ -213,8 +193,22 @@ public class PolicyDAO {
 		return 0;
 	}
 
-
-
+	//ViewPolicy -> 조회수 증가
+	public void updateViewcount(String seq) {
+		try {
+			
+			String sql = "update tblPolicy set viewcount = viewcount + 1 where seqPolicy = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+	}
 
 }
 

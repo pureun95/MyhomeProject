@@ -27,12 +27,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -120,18 +122,20 @@
 			
 			<div id ="subtitle">체크리스트 등록</div>
 		
-			<form method="POST" action="/Myhome/admin/listchecklistok.do" enctype="multipart/form-data">
+			<form method="POST" action="addchecklistok.do" enctype="multipart/form-data">
 			<div class="txt">
 	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="체크리스트 제목입니다."> 
 	            <textarea class="form-control" name="content" id="content" placeholder="체크리스트 내용입니다."></textarea>
 				<input type="file"  id="file">
 			</div>
+			
+			<div style="clear:both;"></div>
 			        
             <div class="btns">
-                    <button type="button" class="btn" onclick="">
+                    <button type="submit" class="btn">
                         등록
                     </button>
-                    <button type="button" class="btn" onclick="location.href='/Myhome_project/Myhome/admin/listchecklist.do';">
+                    <button type="button" class="btn" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';">
                         취소
                     </button>
               </div>

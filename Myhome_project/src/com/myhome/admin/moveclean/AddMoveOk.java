@@ -1,4 +1,4 @@
-package com.myhome.admin.board;
+package com.myhome.admin.moveclean;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/admin/board/addchecklistok.do")
-public class AddchecklistOk extends HttpServlet {
 
+@WebServlet("/admin/moveclean/addmoveok.do")
+public class AddMoveOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
 		//1. 데이터 가져오기 (subject, content)
 		//2. DB작업 > insert
 		//3. 결과 처리
@@ -29,8 +28,16 @@ public class AddchecklistOk extends HttpServlet {
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
+		String seq = req.getParameter("seq");
+		String location = req.getParameter("location");
+		String image = req.getParameter("image");
+		String name = req.getParameter("image");
+		String tel = req.getParameter("tel");
+		String address = req.getParameter("address");
+		String businessnum = req.getParameter("businessnum");
+		String price = req.getParameter("price");
+		String introduce = req.getParameter("introduce");
+		String rating = req.getParameter("rating");
 		
 		//로그인한 관리자번호
 		String seqadmin = (String)session.getAttribute("seqAdmin");
@@ -38,19 +45,26 @@ public class AddchecklistOk extends HttpServlet {
 	
 		
 		//2.
-		ChecklistDAO dao = new ChecklistDAO();
-		ChecklistDTO dto = new ChecklistDTO();
+		MoveDAO dao = new MoveDAO();
+		MoveDTO dto = new MoveDTO();
 		
-		dto.setTitle(title);
-		dto.setContent(content);
-		dto.setSeqadmin(seqadmin);
-		dto.setViewcount("0");
+		dto.setSeq(seq);
+		dto.setLocation(location);
+		dto.setImage(image);
+		dto.setName(name);
+		dto.setTel(tel);
+		dto.setAddress(address);
+		dto.setBusinessnum(businessnum);
+		dto.setPrice(price);
+		dto.setIntroduce(introduce);
+		dto.setRating(rating);
 		
-		int result = dao.addchecklist(dto);
+		
+		int result = dao.addmove(dto);
 		
 		if (result == 1) {
 			//글쓰기 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/Myhome_project/admin/board/listchecklist.do");
+			resp.sendRedirect("/Myhome_project/admin/moveclean/listmove.do");
 			
 		} else {
 			//글쓰기 실패 -> 경고 + 뒤로가기
@@ -65,15 +79,7 @@ public class AddchecklistOk extends HttpServlet {
 			
 			writer.close();
 		}
-		
-		
 
 	}
 
 }
-
-
-
-
-
-

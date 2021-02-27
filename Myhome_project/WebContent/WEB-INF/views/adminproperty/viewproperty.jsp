@@ -35,26 +35,21 @@
 
 		}
 	
-	.header-containerwrap{
-	    height: auto;
-	    min-height: 100%;
-	    position: relative;
+
+	.boardcover{
+	/* 	border: 1px solid tomato; */
+		float: left;
+		width:900px;
+		height: auto;
+		margin-left: 20px; 
 	}
-
-
 	
-	#maintitle {
-	   /* margin: 30px 7px; */
-	   font-size: 24px;
-	   font-family: 'MaplestoryOTFLight';
-	   padding:0 10px;
-	   border-left: 5px solid #f1aeae;
-   
-		text-align: left;	    
-	    /* float: left; */
-	    
-	    margin-left: 100px;
-	    margin-top: 96px;
+	#title {
+		font-size: 24px;
+		font-family: 'MaplestoryOTFLight';
+		border-left: 5px solid #F1AEAE;
+		margin: 30px 10px;
+		padding : 0px 10px;
 	}
 	
 
@@ -393,16 +388,14 @@
 </head>
 <body>
  
-
-<!-- <div class="wrap"> -->
-<div class="header-containerwrap">
- 
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/admin/header.jsp" %>
  
      <div class="container">
+     <%@include file="/WEB-INF/views/admin/nav.jsp" %>
+        <div class="boardcover">
      
-     <div id="maintitle">방 상세보기</div>
+     <div id="title">방 상세보기</div>
      <div style="clear:both;"></div>
      
      <hr>
@@ -410,11 +403,7 @@
       
          <div class="property-box">		 	
 		 
-		 	<div class="top-inform">
-		 		<div class="btn" id="report">허위매물신고</div>	
-		 		<div class="btn" id="likecount">찜하기 <span class="glyphicon glyphicon-heart" style="color: red"></span></div>			 				 
-			</div>
-			
+		
 			<!-- 중개인 올린매물관리 -->
 			<c:if test="${empty nickname }">
 			
@@ -911,11 +900,11 @@
                    
                    
                    
-                <!-- property-box -->    
+                <!-- boardcover -->    
                 </div>
                 
 		
-        
+        <!-- container --> 
         </div>
             	
 

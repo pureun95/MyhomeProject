@@ -157,7 +157,7 @@
 	   	padding: 10px;
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 200px;
 		display: inline;
 	}
@@ -190,6 +190,13 @@
         <div class="boardcover">
 
 			<div id="title">회원 정보 관리</div>
+			
+			<!-- 검색결과 -->
+			<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	        </div>
+	        </c:if>
 
 			<div id="member">
 				<input type="button" id="user" value="일반회원" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
@@ -240,10 +247,13 @@
             </nav>
 			
 			<!-- 검색 -->
-			<div class="search">
-				<input type="text" class="form-control" placeholder="중개인번호 / 아이디 / 이름" id="txt">
-				<input type="submit" class="btn" value="검색">
-			</div>
+			<form id="searchForm" method="GET" action="/Myhome_project/admin/membermanage/membermanage-contractor.do">
+				<div class="search">
+					<input type="text" class="form-control" placeholder="중개인번호 / 아이디 / 이름" id="search" name="search" required value="${search}">
+					<input type="submit" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
+				</div>
+			</form>
+            <div style="clear:both;"></div>
 
 
 

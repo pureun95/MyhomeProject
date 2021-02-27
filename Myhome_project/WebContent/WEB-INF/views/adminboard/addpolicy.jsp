@@ -27,12 +27,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -123,12 +125,15 @@
 		
 		<div id ="subtitle">부동산 정책 게시판 등록</div>
 		
-		<form method="POST" action="/Myhome/admin/listpolicyok.do" enctype="multipart/form-data">
+		<form method="POST" action="/Myhome_project/admin/board/addpolicyok.do" enctype="multipart/form-data">
 			<div class="txt">
 	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="부동산 정책 제목입니다." required> 
 	            <textarea class="form-control" name="content" id="content" placeholder="부동산 정책 내용입니다." required></textarea>
 				<input type="file"  id="file">
 			</div>
+			
+			<div style="clear:both;"></div>
+			
 			        
             <div class="btns">
                     <button type="submit" class="btn">
