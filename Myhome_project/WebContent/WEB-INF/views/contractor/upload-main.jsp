@@ -29,7 +29,6 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -199,17 +198,13 @@
 		margin-left: 85px;
 		padding: 80px 100px;
 		width: 1000px;
-		height: 400px;
+		height: 430px;
+		border-radius: 40px;
 		background-color: rgb(245, 245, 245, .6);
 		/* border-radius: 30px; */
 	
 	}
 	
-	.mypage-title {
-		/* border: 1px solid black; */
-		margin-bottom: 20px;
-	
-	}
 	
 	.boardwrap {
 		background-image: url('../image/8.jpg');
@@ -222,7 +217,7 @@
 		height: 120px;
 		float: left;	
 		font-family: 'NanumBarunGothic';
-		margin-top: 30px;
+		margin-top: 50px;
 		background-color: white;
 		cursor: pointer;
 	}
@@ -237,6 +232,7 @@
 		color: #202020;
 		text-align: center;
 		font-family: 'MaplestoryOTFLight';
+		font-size: 30px;
 	}
 	
 	#box1, #box3 {

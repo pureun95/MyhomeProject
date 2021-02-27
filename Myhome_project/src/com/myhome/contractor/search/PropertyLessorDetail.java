@@ -22,11 +22,7 @@ public class PropertyLessorDetail extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//1. 매물 정보
-			PropertyDAO dao = new PropertyDAO();
-							
-			
-		//2. session 받기
-			HttpSession session = req.getSession();
+			PropertyDAO dao = new PropertyDAO();				
 			
 
 		//3. 임대인 매물번호 쿼리에 보내기

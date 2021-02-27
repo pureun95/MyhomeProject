@@ -12,7 +12,7 @@
 <title>Myhome::채팅</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 
 <style>
 	#chatmode {

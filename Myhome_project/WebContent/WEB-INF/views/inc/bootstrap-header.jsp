@@ -48,13 +48,24 @@
 	        <div class="header-ul">
 	            <div class="header-img" onclick="location.href='/Myhome_project/Myhome/main.do';"></div>
 	                <ul class="header-ul2 header-ul3">
-	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/search-contractor.do';">방찾기</li>             
+	                    
+	                    <c:if test="${empty nickname }"> <!-- 중개인 -->
+	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/search-lessor.do';">방찾기</li>        	                         
+	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/upload-main.do';">방올리기</li>
+	                    </c:if>
+	                    
+	                    <c:if test="${not empty nickname }"> <!-- 일반회원 -->
+	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/search-contractor.do';">방찾기</li>        	                         
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
+	                    </c:if>
+	                     
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">게시판</li>
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
+	                    
 	                    <c:if test="${empty nickname }"> <!-- 중개인 -->
 	                    	<li class="header-li li-list" onclick="location.href='/Myhome_project/contractor/mypage.do';">마이페이지</li>
 	                    </c:if>
+	                    
 	                    <c:if test="${not empty nickname }"> <!-- 일반회원 -->
 	                    	<li class="header-li li-list" onclick="location.href='/Myhome_project/user/mypage.do';">마이페이지</li>
 	                    </c:if>

@@ -31,7 +31,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+		border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -39,8 +40,8 @@
     
      /* css 붙여넣기 */
      .property-list {
-    	border-bottom: 1px solid rgb(185, 183, 183);
-    	width: 830px;
+    	border-bottom: 1px solid #DBDCE0;
+    	width: 850px;
     	height: 240px;
     	padding: 30px 0px;
     	font-family: 'NanumBarunGothic';
@@ -48,7 +49,7 @@
 	}
 	
 	.property-list2 {
-		margin-left: 40px;
+		margin-left: 20px;
 	}
     
     
@@ -62,6 +63,10 @@
 	    font-size: 24px;
 	    font-family: 'MaplestoryOTFLight';
 	    color: #202020;
+    }
+    
+    .property-title {
+    	width: 500px;
     }
     
     /* 네비 활성화 */
@@ -153,7 +158,55 @@
    		height: 16px;
    		margin-top: 0px;
    }
-    
+   
+   .tenantid {
+   		border: 1px solid #dedede;
+   		width: 400px;
+   		height: 280px;
+   		margin: 0px auto;
+   		position: fixed;
+   		border-radius: 30px;
+   		padding: 50px 40px;
+   		left: 600px;
+   		top: 400px;
+   		background-color: white;
+   		font-family: 'NanumBarunGothic';
+   		visibility: hidden;
+   }
+   
+   .tenantid > span {
+   		display: block;
+   		font-size: 20px;
+   		text-align: center;
+   		font-family: 'MaplestoryOTFLight';
+   		color: #f1aeae;
+   }
+   
+   .t2 {
+   		border: 1px solid black;
+   		margin-top: 30px;
+   		padding: 0px 10px;
+   		margin-bottom: 20px;
+   }
+   
+   .t2 > .form-control {
+   		width: 300px;
+   		margin-bottom: 10px;
+   		display: block;	
+   		color: #9c9c9c;
+   		
+   }
+   
+   .btns {
+   		border: 1px solid black;
+   		text-align: center;
+   		margin-top: 20px;
+   		
+   }
+   
+   .btn2 {
+   		margin-right: 10px;
+   }
     
     
 
@@ -177,7 +230,9 @@
 		 <div class="property-box">
 		 	<div class="board-name">올린매물관리</div>
 		 		
+		 		
 		 		<c:forEach items="${list }" var="dto">
+		 		<form method="GET" action="/Myhome_project/contractor/mypage-contract-write.do">      		
                 <div class="property-list">
                 
                 	<!-- 전자계약 체크박스 중개인 매물번호 seq를 들고간다. -->       
@@ -200,7 +255,7 @@
                     <div class="property-list2">
                     
                         <div class="property-num">no. ${dto.seqContractorProperty }</div>
-                        <div class="property-title" onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${dto.seqContractorProperty}';">${dto.title }</div>
+                        <div class="property-title" onclick="location.href='/Myhome_project/contractor/property-contractor-detail.do?seq=${dto.seqContractorProperty}';">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
                             <div class="property-content2">${dto.roomType }</div>          
@@ -245,34 +300,47 @@
                             <div class="location-detail">${dto.location }</div>
                         </div>
                			 
-               			<!-- Ajax로 보내기 -->        			 
-               			<input type="hidden" id="seq" value="${dto.seqContractorProperty }">
+               			
+               			 
+               			<input type="hidden" name="seq" id="seq" value="${dto.seqContractorProperty }">
+               			<input type="hidden" name="seqContractor" id="seqContractor" value="${dto.seqContractor }">
+               			<input type="hidden" name="seqLessor" id="seqLessor" value="${dto.seqLessor }">
                     </div>  
                     
                    
                 </div>
-               </c:forEach> 
+              
                 
                                           
-                <input type="submit" id="btn1" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
-                     
+                <input type="button" id="btn1" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
                 
+                        
+                <div class="tenantid">              
+                	<span>임차인 아이디를 입력해주세요.</span>
+                	<div class="t2">
+                		<input type="text" id="seqProperty" class="form-control seqProperty" value="매물번호 ${dto.seqContractorProperty }" readonly>
+                		
+                		
+                		<input type="text" class="form-control" id="idT" name="idT" value="임차인 아이디 입력" onfocus="this.value=''">
+                		
+                		<div class="btns">
+                			<input type="submit" class="btn btn-outline-secondary btn2" id="check"  value="확인">
+                			<input type="button" class="btn btn-outline-secondary btn2"  id="close" value="닫기">
+                		</div>
+                		
+                		
+                		
+                	</div>
+                </div>
+                
+                </form>
+                </c:forEach> 
+                 
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
 	   		<div class="paging">
 	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
+	       			${pagebar }
 				</ul>       		
 	       	</div>
 	       		
@@ -302,33 +370,20 @@
 
  <script>
  
- $("#btn1").click(function() {
- 	
-	$.ajax({
-		type: "GET",
-		url: "/Myhome_project/contractor/mypage-contract-insert.do",
-		data: "seq=" + $("#seq").val(),
-		success: function(result) {
-			//콜백함수
-			//응답이 오는 순간 자동으로 실행
-				
-			if(result == 1) {
-				$("#search-text").css("color", "red");
-				$("#search-text").val("이미 사용중인 아이디입니다.");
-						
-			} else {
-				$("#search-text").css("color", "blue");
-				$("#search-text").val("사용 가능한 아이디입니다.");
-						
-			}
-				
-		},
-		error: function(a,b,c) {
-			console.log(a,b,c);
-		}
-	})
- 	
- });
+ 
+	 //전자계약서 작성 누르면 visible, 닫기 hidden
+	 $("#btn1").click(function() {
+	 	
+		 $(".tenantid").css("visibility", "visible");
+	 });
+	 
+	 $("#close").click(function() {
+		 $(".tenantid").css("visibility", "hidden");
+	 });
+	 
+	 
+	 
+ 
  
  
  </script>

@@ -131,7 +131,7 @@ tr td:nth-child(5) {
 							</c:if>
 							
 							<c:forEach items="${olist}" var="odto">
-							<tr onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${odto.seqContractorProperty}';">
+							<tr onclick="location.href='/Myhome_project/contractor/property-contractor-detail.do?seq=${odto.seqContractorProperty}';">
 								<td>${odto.seqContractorProperty}</td>
 								<td>${odto.title}</td>
 								<td>${odto.name}(${odto.contractorName})</td>
