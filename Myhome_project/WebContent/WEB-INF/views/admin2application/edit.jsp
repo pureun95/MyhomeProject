@@ -214,7 +214,7 @@ body, html {
 
 							<div class="boardbutton">
 								<button id="Communitylist" type="button"
-									onclick="location.href='/Myhome-project/admin2/application/list.do';" >
+									onclick="location.href='/Myhome_project/admin2/application/list.do';" >
 									목록</button>
 								<button id="communitydel" type="submit">			
 									수정</button>

@@ -134,8 +134,6 @@ body, html {
 		<%@include file="/WEB-INF/views/admin/header.jsp"%>
 
 		<div class="container">
-
-			<form action="" id="form1">
 				
 				<table id="navboardtbl">
 
@@ -159,56 +157,85 @@ body, html {
 									<tr class="headtr">
 										<th class="firtd boardtd">번호</th>
 										<th class="sectd boardtd">제목</th>
-										<th class="thitd boardtd">작성자(닉네임)</th>
+										<th class="thitd boardtd">작성자</th>
 										<th class="fortd boardtd">작성일</th>
-										<th class="fiftd boardtd">조회수</th>
+										<th class="fiftd boardtd">댓글수</th>
 									</tr>
 
+			<form action="/Myhome_project/admin2/used/deleteok.do" method="POST">
+									
+									<c:forEach items="${list}" var="dto">
 									<tr class="boardtr">
-										<td class="firtd boardtd">1</td>
+										<input type="hidden" name ="seq" value="${dto.seqUsed}">
+										<td class="firtd boardtd">${dto.seqUsed}</td>
 										<td class="sectd boardtd">
 											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic. <span
-													class="boardspan footspan">[댓글수]</span>
+												<span class="boardspan headspan">[
+												
+												<c:if test="${category == '1' }">
+												가구
+												</c:if> <c:if test="${category == '2' }">
+												뷰티
+												</c:if> <c:if test="${category == '3' }">
+												신발
+												</c:if> <c:if test="${category == '4' }">
+												의류
+												</c:if> <c:if test="${category == '5' }">
+												디지털/가전
+												</c:if> <c:if test="${category == '6' }">
+												생활용융
+												</c:if> <c:if test="${category == '7' }">
+												스포츠
+												</c:if> <c:if test="${category == '8' }">
+												식품
+												</c:if> <c:if test="${category == '9' }">
+												도서
+												</c:if> <c:if test="${category == '10' }">
+												기타
+												</c:if>
+												
+												]
+												</span> 
+												${dto.title}<span
+													class="boardspan footspan"></span>
 											</div>
 
 										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fortd boardtd">2020-01-22</td>
-										<td class="fiftd boardtd">11111</td>
+										<td class="thitd boardtd">${dto.id}</td>
+										<td class="fortd boardtd">${dto.writeDate}</td>
+										<td class="fiftd boardtd">${dto.count}</td>
 									</tr>
-
+							</c:forEach>		
 
 								</table>
 							</div>
-
+										<input type="hidden" name ="category" value="${category}">
+							
  						<!-- 삭제 항목 글 -->
  							<div class="boardalert">				
 								<div class="alert alert-danger" role="alert">
 								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 								  <span class="sr-only">경고!</span>
-								  위의 항목(들)을 삭제하시겠습니까?삭제하시려면 아래의 delete 항목을 눌러 주세요.
+								  위의 항목(들)을 삭제하시겠습니까?삭제하시려면 아래의 삭제버튼을 눌러 주세요.
 								</div>
 							</div>	
 						<!-- 버튼 -->
 						
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/list.do';">
+									id="button-addon2" onclick="location.href='/Myhome_project/admin2/used/list.do?category=${category}';">
 									목록</button>
-								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2" onclick="location.href='/Myhome_project/admin2/application/deleteok.do';">
+								<button class="btn btn-outline-secondary " type="submit"
+									id="del" >
 									삭제</button>
 							</div>
-
+					</form>
 
 						</td>
  					</tr>
 		
 				</table>
-			</form>
+			
 
 
 

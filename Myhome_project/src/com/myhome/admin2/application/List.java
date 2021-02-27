@@ -127,8 +127,8 @@ public class List extends HttpServlet {
 			dto.setWritedate(dto.getWritedate().substring(0, 10));
 
 		}
-		System.out.println("pagebar : "+pagebar);
 		
+		dao.close();
 		req.setAttribute("list", list);
 		req.setAttribute("search", search);
 		req.setAttribute("pagebar", pagebar);

@@ -33,6 +33,8 @@ public class Delete extends HttpServlet {
 
 		}
 
+		
+		dao.close();
 		req.setAttribute("list", list);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2application/delete.jsp");
