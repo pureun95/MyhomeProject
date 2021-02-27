@@ -38,7 +38,9 @@ public class Edit extends HttpServlet {
 		
 		
 		dto.setWritedate(dto.getWritedate().substring(0, 10));
+	
 		
+		dao.close();
 		req.setAttribute("dto", dto);
 
 		

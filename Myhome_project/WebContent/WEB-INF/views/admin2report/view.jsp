@@ -194,25 +194,57 @@ body, html {
 										<th class="firtd boardtd">신고자</th>
 										<th class="firtd boardtd">피신고</th>
 										<th class="firtd boardtd">처리상태</th>
-										<th class="fortd boardtd">작성일</th>
+										<th class="fortd boardtd">연관글번호</th>
 									<!-- <th class="fiftd boardtd">조회수</th> -->
 									</tr>
 									
 									<tr class="boardtr">
-										<td class="firtd boardtd">카테고리</td>
+										<!-- 		<td class="sixtd boardtd"><input type="checkbox" name="seq" id="seq"></td>  -->
+										<td class="firtd boardtd">${dto.seqReport}</td>
 										<td class="sectd boardtd">
-										<div class="boardtexttilte" style="width:286px"> 열글자가되며라궁금하다오바잘된다</div></td>
-										<td class="firtd boardtd">신고한</td>
-										<td class="firtd boardtd">신고받는</td>
-										<td class="firtd boardtd">처리상태</td>
-										<td class="fortd boardtd">작성일</td>
-									<!-- <th class="fiftd boardtd">조회수</th> -->	
+											<div class="Boardtdtitle">
+												<span class="boardspan headspan">[ 
+												<c:if test="${category == '1' }">
+												중고장터
+												</c:if> 
+												<c:if test="${category == '2' }">
+												커뮤니티
+												</c:if>
+												 <c:if test="${category == '3' }">
+												매물거래
+												</c:if> 
+												]
+												</span> 
+												${dto.title}
+												<span
+													class="boardspan footspan"></span>
+											</div>
+
+										</td>
+										<td class="thitd boardtd">${dto.rId}</td>
+										<td class="thitd boardtd">${dto.pId}</td>
+										<td class="fiftd boardtd">${dto.state}
+										</td>
+										<td class="fortd boardtd">
+												<c:if test="${category == '1' }">
+												${dto.seqUsed}
+												</c:if> 
+												<c:if test="${category == '2' }">
+												${dto.seqCommunity}
+												</c:if>
+												 <c:if test="${category == '3' }">
+												${dto.seqProperty}
+												</c:if>
+										</td>
+
 									</tr>
+								
+
 
 									<tr class="boardtr">
 										<td class="firtd boardtd" colspan="6">
-											<textarea class="form-control col-sm-5 boardtext"  
-											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>여기글들!!</textarea>
+											<textarea class="form-control col-sm-5 boardtext" style="resize: none;"  
+											placeholder="여기에 게시글을 작성해주세요" rows="15" disabled>${dto.reason}</textarea>
 										</td>
 
 									</tr>
@@ -224,14 +256,29 @@ body, html {
 
 						<!-- 버튼 처리상태가 완료면 신고카운도 disabled
 						ProcReportChat 채팅 전송
-						ProcReportCompleteChat 카운트와 동시에 완료채팅 전송 -> 처리 상태 변경 
+						ProcReportCompleteChat 카운트버튼 클릭  => 카운트 + 완료채팅 전송 + 처리 상태 변경 
+								 disabled style="background-color: #777;
+							 <c:if test="${dto.state == '완료'}">
+								 disabled style='background-color: #777';
+							</c:if> 
+					
 						-->
 						
 						
 						<div class="boardbutton">
-							<button onclick="location.href='/Myhome-project/admin2/report/chatok.do';">
+							<button type="button" 
+							 onclick="location.href='/Myhome_project/admin2/report/chatok.do?puser=${dto.pUser}&ruser=${dto.rUser}'";
+							<c:if test="${dto.state == '완료'}">
+								 disabled style='background-color: #777';
+							</c:if> 
+								 >
 							채팅전송</button>
-							<button onclick="location.href='/Myhome-project/admin2/report/countok.do';">
+							<button type="button" onclick="location.href='/Myhome_project/admin2/report/chatok.do?puser=${dto.pUser}&category=${category}&ruser=${dto.rUser}&seqreport=${dto.seqReport}'"
+							<c:if test="${dto.state == '완료'}">
+								 disabled style='background-color: #777';
+							</c:if> 
+							
+							>
 							신고카운트</button>
 						<!--  <button> 1234</button>-->	
 						</div>

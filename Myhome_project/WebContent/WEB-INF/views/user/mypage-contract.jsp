@@ -29,6 +29,8 @@ body, html {
 
 .container {
 	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 	width: 1190px;
 	margin: 0px auto;
 	margin-top: 100px;
@@ -99,6 +101,7 @@ body, html {
 	width: 250px;
 	display: none;
 }
+
 </style>
 </head>
 <body>
@@ -140,11 +143,13 @@ body, html {
 		 				<td>
 		 				${cdto.contractState}
 		 				<!-- 후기인데 -->
-		 				<%-- <c:if test="${cdto.contractState=='완료'}">
-		 				<input type="button" class="btn btn-contract1" value="중개사 후기 작성">
-		 				<input type="button" class="btn btn-contract1" value="매물 후기 작성">
-		 				</c:if> --%>
+		 				<!--
+		 				<c:if test="${cdto.contractState=='완료'}">
+		 				<input type="button" class="btn btn-default writeReview" value="중개사 후기 작성">
+		 				<input type="button" class="btn btn-default writeReview" value="매물 후기 작성">
+		 				</c:if>
 		 				</td>
+		 				-->
 		 			</tr>
 		 			</c:forEach>
 		 			

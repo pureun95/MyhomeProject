@@ -144,7 +144,8 @@ body, html {
 
 		<div class="container">
 
-			<form action="" id="form1">
+			<form method="POST"
+				action="/Myhome_project/admin2/notice/writeok.do" id="form1">
 
 				<table id="navboardtbl">
 
@@ -165,32 +166,29 @@ body, html {
 									<!--  ?는 데이터 직접 넣기  -->
 									<tr class="headtr">
 										<td class="boardtitletext"><input type="text"
-											placeholder="제목을 입력해주세요" class=""></td>
+											placeholder="제목을 입력해주세요" name="title" class=""></td>
 									</tr>
 
 									<tr class="boardtr">
 										<td class="firtd boardtd" colspan="5"><textarea
-												class="form-control col-sm-5 boardtext"
+												class="form-control col-sm-5 boardtext" name="content"
 												placeholder="여기에 게시글을 작성해주세요" rows="15"></textarea></td>
 
 									</tr>
 
-								
+
 								</table>
 							</div> 
 							
 							
-							<!-- 첨부파일  -->
-							<div class="boardfile">
-								<input type="file" class="form-control " id="inputGroupFile02">
-								<label class="" for="inputGroupFile02"></label>
-							</div> <!-- 버튼 --> <!-- 지금은 삭제? 아니면 안보이게? -->
+							
+							 <!-- 버튼 --> <!-- 지금은 삭제? 아니면 안보이게? -->
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
 								<button class="btn btn-outline-secondary " type="button"
-									id="button-addon2"
+									id="list"
 									onclick="location.href='/Myhome_project/admin2/notice/list.do';">
 									목록</button>
-								<button class="btn btn-outline-secondary " type="button"
+								<button class="btn btn-outline-secondary " type="submit"
 									id="button-addon2"
 									onclick="location.href='/Myhome_project/admin2/notice/writeok.do';">
 									등록</button>

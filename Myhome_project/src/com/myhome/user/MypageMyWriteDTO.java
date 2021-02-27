@@ -33,6 +33,9 @@ public class MypageMyWriteDTO {
 	private int seqPropertyReview;
 	private int seqMoveReview;
 	private int seqCleanReview;
+	private int seqMoveReservation;
+	private int seqCleanReservation;
+	private int seqContract;
 	
 	
 	private String contractorName;	//중개사이름
@@ -47,12 +50,25 @@ public class MypageMyWriteDTO {
 	private int seqCommunityReport;
 	private int seqUsedReport;
 	private int seqPropertyContractReport;
+	private int seqConctractorProperty;
 	
 	private String reason;//신고사유
 	private String reportState;//신고처리상태
 	
 	//----------------------------------------------------------------//
 	
+	public int getSeqMoveReservation() {
+		return seqMoveReservation;
+	}
+	public void setSeqMoveReservation(int seqMoveReservation) {
+		this.seqMoveReservation = seqMoveReservation;
+	}
+	public int getSeqCleanReservation() {
+		return seqCleanReservation;
+	}
+	public void setSeqCleanReservation(int seqCleanReservation) {
+		this.seqCleanReservation = seqCleanReservation;
+	}
 	public int getSeqUser() {
 		return seqUser;
 	}
@@ -214,6 +230,18 @@ public class MypageMyWriteDTO {
 	}
 	public void setSeqMoveReview(int seqMoveReview) {
 		this.seqMoveReview = seqMoveReview;
+	}
+	public int getSeqContract() {
+		return seqContract;
+	}
+	public void setSeqContract(int seqContract) {
+		this.seqContract = seqContract;
+	}
+	public int getSeqConctractorProperty() {
+		return seqConctractorProperty;
+	}
+	public void setSeqConctractorProperty(int seqConctractorProperty) {
+		this.seqConctractorProperty = seqConctractorProperty;
 	}
 	
 	

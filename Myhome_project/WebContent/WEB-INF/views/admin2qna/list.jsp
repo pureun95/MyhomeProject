@@ -153,32 +153,24 @@ body, html {
 	margin-right: 10px;
 }
 
-
 /* 셀렉트 버트 수정입니다. */
 .boardwork>select {
-	width:100px;
-	font-size:16px;
+	width: 100px;
+	font-size: 16px;
 	height: 34px;
 	border: 0px solid #000;
 	background-color: #F1AEAE;
-    color: white;
-    border-radius:20px;
-
-    
+	color: white;
+	border-radius: 3px;
 }
 
-.boardwork>select option{
-	text-align:center;
-}
-.boardtr {
-	display: none;
-	
+.boardwork>select option {
+	text-align: center;
 }
 
-.Boardtdtitle a{
-	text-overflow:ellipsis;
+.Boardtdtitle a {
+	text-overflow: ellipsis;
 }
-
 
 /* 토글 버튼 설정 모르겠다...
 
@@ -203,8 +195,17 @@ body, html {
         clear: both;
 	}
 */
-
-
+#selsub {
+	width: 68px;
+	font-size: 16px;
+	height: 33px;
+	border: 0px solid #000;
+	background-color: #F1AEAE;
+	color: white;
+	border-radius: 3px;
+	position: relative;
+	top: -1px;
+}
 </style>
 </head>
 <body>
@@ -215,121 +216,140 @@ body, html {
 
 		<div class="container">
 
-			-
-			<form action="" id="form1">
 
-				<table id="navboardtbl">
+			<table id="navboardtbl">
 
-					<tr id="navboardtr">
-						<td class="navboardtd">
-							<!-- nav --> <%@include file="/WEB-INF/views/admin/nav.jsp"%>
+				<tr id="navboardtr">
+					<td class="navboardtd">
+						<!-- nav --> <%@include file="/WEB-INF/views/admin/nav.jsp"%>
 
-						</td>
+					</td>
 
-						<!---->
+					<!---->
 
-						<td class="navboardtd">
-							<div id="boardtitle" class="">QnA</div>
+					<td class="navboardtd">
+						<div id="boardtitle" class="">
+							QnA <span class="boardtitlesub" style="font-size: 16px">&nbsp;&nbsp;
+								<c:if test="${category == '1' }">
+								매물
+								</c:if> <c:if test="${category == '2' }">
+								중고장터
+								</c:if> <c:if test="${category == '3' }">
+								커뮤니티
+								</c:if> <c:if test="${category == '4' }">
+								전자계약
+								</c:if> <c:if test="${category == '5' }">
+								기타
+								</c:if>
 
-							<div class="boardcover">
-								<table id="board"
-									class="table table-hover table-striped table-condensed">
+							</span>
 
-									<tr class="headtr">
-										<!--  <th class="sixtd boardtd">선택</th> -->
-										
-										<th class="firtd boardtd">번호</th>
-										<th class="sectd boardtd">제목</th>
-										<th class="thitd boardtd">작성자</th>
-										<!-- 답변이 있으면 완료 없으면 처리 중  -->
-										<th class="fiftd boardtd">처리상태</th>
-										<th class="fortd boardtd">작성일</th>
-									</tr>
+						</div>
+
+						<div class="boardcover">
+							<table id="board"
+								class="table table-hover table-striped table-condensed">
+
+								<tr class="headtr">
+									<!--  <th class="sixtd boardtd">선택</th> -->
+
+									<th class="firtd boardtd">번호</th>
+									<th class="sectd boardtd">제목</th>
+									<th class="thitd boardtd">작성자</th>
+									<!-- 답변이 있으면 완료 없으면 처리 중  state 한글 -->
+									<th class="fiftd boardtd">처리상태</th>
+									<th class="fortd boardtd">작성일</th>
+								</tr>
 
 
+								<c:if test="${category == '0' }">
 									<tr class="boardoption">
 										<td colspan="5" style="text-align: center;">아래의 카테고리를 선택해
 											주세요</td>
 									</tr>
+								</c:if>
 
+								<c:forEach items="${list}" var="dto">
 									<tr class="boardtr">
-										<!-- 					<td class="sixtd boardtd"><input type="checkbox" name="seq" id="seq"></td>  -->
-										<td class="firtd boardtd">1</td>
+										<!-- 	<td class="sixtd boardtd"><input type="checkbox" name="seq" id="seq"></td>  -->
+										<td class="firtd boardtd">${dto.seqQna}</td>
 										<td class="sectd boardtd">
 											<div class="Boardtdtitle">
-												<span class="boardspan headspan">[카테고리?]</span> 
-												<a href="/Myhome_project/admin2/qna/view.do;">화이팅.. Lorem
-												ipsum dolor sit amet consectetur, adipisicing elit. Maiores
-												minus culpa? Officia dolorum ducimus hic.</a>
-												
-												<span class="boardspan footspan">[댓글수]</span>
+												<span class="boardspan headspan">[ <c:if
+														test="${category == '1' }">
+												매물
+												</c:if> <c:if test="${category == '2' }">
+												중고장터
+												</c:if> <c:if test="${category == '3' }">
+												커뮤니티
+												</c:if> <c:if test="${category == '4' }">
+												전자계약
+												</c:if> <c:if test="${category == '5' }">
+												기타
+												</c:if> ]
+												</span> <a
+													href="/Myhome_project/admin2/qna/view.do?category=${category}&seq=${dto.seqQna}">
+													${dto.title} </a> <span class="boardspan footspan"></span>
 											</div>
 
 										</td>
-										<td class="thitd boardtd">길도이(닉네임)</td>
-										<td class="fiftd boardtd">미처리</td>
-										<td class="fortd boardtd">2020-01-22</td>
-
+										<td class="thitd boardtd">${dto.id}</td>
+										<td class="fiftd boardtd">${dto.state}</td>
+										<td class="fortd boardtd">${dto.writeDate}</td>
 
 									</tr>
 
 
+								</c:forEach>
+							</table>
+						</div>
 
-								</table>
-							</div>
-
-	
+						<form action="/Myhome_project/admin2/qna/list.do" method="GET"
+							id="form1">
 							<div class="boardwork d-grid gap-2 d-md-block btn-group">
-							<!-- 전체 혹은 미처리 내역을 선택하기  모르겠음..
+								<!-- 전체 혹은 미처리 내역을 선택하기  모르겠음..
 									<button id="boardstate">이거버튼</button>
 							text-overflow: ellipsis;
 							-->
-								  <select class="form-select boardworksel"
-									aria-label="Default select example">
-									<option selected value="0"> 카테고리</option>
-									<option value="1"> 매물</option>
-									<option value="2"> 중고장터</option>
-									<option value="3"> 커뮤니티</option>
-									<option value="4"> 전자계약</option>
-									<option value="5"> 기타</option>
+
+								<input type="submit" id="selsub" name="selsub" value="선택">
+								<select class="form-select boardworksel"
+									aria-label="Default select example" onchange="selch()" id="sel">
+									<option selected value="0">카테고리</option>
+									<option value="1">매물</option>
+									<option value="2">중고장터</option>
+									<option value="3">커뮤니티</option>
+									<option value="4">전자계약</option>
+									<option value="5">기타</option>
 								</select>
-							</div> 
+							</div>
+							<input type="hidden" id="category" name="category" value="">
+						</form> <!-- 검색, 페이지바 -->
 						
-
-							
-							<!-- 검색, 페이지바 -->
-							<div class="search-paging">
-								<div class="paging">
-									<ul class="pagination">
-										<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-										<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-										<li><a class="page-link page-a" href="">다음</a></li>
-									</ul>
-								</div>
-
+						
+						<div class="search-paging">
+							<div class="paging">
+								<ul class="pagination">${pagebar}
+								</ul>
+							</div>
+							<form id="searchForm" method="GET"
+								action="/Myhome_project/admin2/qna/list.do">
 
 								<div id="search-box">
 									<input type="text" class="form-control" id="search-text"
-										placeholder="닉네임, 매물번호를 입력해주세요.">
-									<button class="btn btn-outline-secondary" type="button"
+										placeholder="닉네임, 매물번호를 입력해주세요." name="search" required
+										value="${search}">
+									<button class="btn btn-outline-secondary" type="submit"
 										id="button-addon1">검색</button>
 								</div>
-								
-								<!-- search-paging -->
-							</div>
-						</td>
-					</tr>
-				</table>
-			</form>
+							</form>
+
+							<!-- search-paging -->
+						</div>
+					</td>
+				</tr>
+			</table>
+
 
 
 
@@ -342,22 +362,27 @@ body, html {
 
 
 	<script>
-		
-	/*boardtr*/
-    $(".boardwork").click(function(){
-        if( $(".boardworksel option:selected").val()==0){
-            
-            $(".boardtr").css("display","none");
-            $(".boardoption").css("display","table-row");         
-        }else{
-            console.log(1213);
-            $(".boardtr").css("display","table-row");    
-            $(".boardoption").css("display","none");    
-        
-        }
+		/*boardtr
+		$(".boardwork").click(function(){
+		    if( $(".boardworksel option:selected").val()==0){
+		        
+		        $(".boardtr").css("display","none");
+		        $(".boardoption").css("display","table-row");         
+		    }else{
+		        console.log(1213);
+		        $(".boardtr").css("display","table-row");    
+		        $(".boardoption").css("display","none");    
+		    
+		    }
 
-    });
+		});
+		 */
 
+		function selch() {
+			console.log($("#sel option:selected").val());
+			$("input[name='category']").val($("#sel option:selected").val());
+
+		}
 	</script>
 
 

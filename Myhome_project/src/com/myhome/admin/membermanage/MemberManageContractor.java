@@ -124,7 +124,6 @@ public class MemberManageContractor extends HttpServlet{
 		} else {
 			pagebar += String.format("<li>"
 					+ "<a href=\"/Myhome_project/admin/membermanage/membermanage-contractor.do?page=%d\" aria-label=\"Next\">"
-					+ "이전"
 					+ "다음"
 					+ "</a>"
 					+ "</li>", n);

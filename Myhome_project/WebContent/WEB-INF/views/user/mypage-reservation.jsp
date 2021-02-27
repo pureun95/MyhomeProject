@@ -121,6 +121,11 @@ label {
 #pagebox .pagebtn:hover {
 	background-color: #f6afb3;
 }
+.container {
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
+}
 </style>
 </head>
 <body>

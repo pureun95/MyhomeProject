@@ -1,6 +1,7 @@
 package com.myhome.admin.chart;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,9 +19,10 @@ public class ListChart extends HttpServlet {
 		//1. DB작업 -> select
 		//2. 결과 + JSP 호출
 		
+		ChartDAO dao = new ChartDAO();
+		ArrayList<ChartDTO> list = dao.get();
 		
-		
-		
+		req.setAttribute("list", list);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminchart/listchart.jsp");

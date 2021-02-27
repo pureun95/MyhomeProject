@@ -295,8 +295,6 @@ input[type="text"] {
 
 		<div class="container">
 
-			<form action="" id="form1">
-
 				<table id="navboardtbl">
 
 					<tr id="navboardtr">
@@ -339,11 +337,11 @@ input[type="text"] {
 												<table id="adcontracttbl" class="table table-condensed">
 													<tr class="headtr">
 														<th class="adcontacttd title-color">계약번호</th>
-														<td class="adcontacttd" colspan="2">123456</td>
+														<td class="adcontacttd" colspan="2">${dto.seqC}</td>
 														<th class="adcontacttd">계약일자</th>
-														<td class="adcontacttd" colspan="3">2020-12-31</td>
+														<td class="adcontacttd" colspan="3">${dto.contractDate}</td>
 														<th class="adcontacttd">계약상태</th>
-														<td class="adcontacttd" colspan="2">계약완료</td>
+														<td class="adcontacttd" colspan="2">${dto.state}</td>
 													</tr>
 
 													<tr class="headtr">
@@ -353,19 +351,28 @@ input[type="text"] {
 
 													<tr class="headtr">
 														<th class="adcontacttd title-color">주소</th>
-														<td class="adcontacttd" colspan="9">서울특별시 강남구 역산동
-															테레란로 1324-1 1234호</td>
+														<td class="adcontacttd" colspan="9">${dto.location}</td>
 													</tr>
-
+												<c:if test="${dto.type =='매매'}">
 													<tr class="headtr">
 														<th class="adcontacttd title-color">금액</th>
-														<td class="adcontacttd" colspan="3">1,100,000,000 원</td>
+														<td class="adcontacttd" colspan="3">${dto.dealing}</td>
 														<th class="adcontacttd title-color">계약금</th>
-														<td class="adcontacttd" colspan="3">100,000,000 원</td>
+														<td class="adcontacttd" colspan="3">${dto.deposit}</td>
 														<th class="adcontacttd title-color">계약종류</th>
-														<td class="adcontacttd">매매</td>
+														<td class="adcontacttd">${dto.type}</td>
 													</tr>
-
+												</c:if>
+												<c:if test="${dto.type !='매매'}">
+													<tr class="headtr">
+														<th class="adcontacttd title-color">보증금</th>
+														<td class="adcontacttd" colspan="3">${dto.deposit}</td>
+														<th class="adcontacttd title-color">월세</th>
+														<td class="adcontacttd" colspan="3">${dto.monthlyRent}</td>
+														<th class="adcontacttd title-color">계약종류</th>
+														<td class="adcontacttd">${dto.type}</td>
+													</tr>
+												</c:if>
 
 													<tr>
 														<td class="adcontacttd" colspan="10">
@@ -405,7 +412,7 @@ input[type="text"] {
 													</tr>
 													<tr>
 														<td class="adcontacttd" colspan="10"">
-														<textarea id="contractcontent" rows="7" placeholder="추가 특약 사항을 입력해 주세요."></textarea>
+														<textarea id="contractcontent" rows="7" disabled  placeholder="추가 특약 사항을 입력해 주세요.">${dto.content}</textarea>
 														</td>
 													</tr>
 
@@ -419,13 +426,13 @@ input[type="text"] {
 													<tr class="headtr">
 														<th class="adcontacttd">계약자명</th>
 														<td class="adcontacttd" colspan="3"><input
-															type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+															type="text" style="width: 200px;" value="${dto.nameT}"></td>
 														<th class="adcontacttd" colspan="1">전화번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" style="width: 140px;" value="010=1234-5678"></td>
+															type="text" style="width: 140px;" value="${dto.telT}"></td>
 														<th class="adcontacttd">주민번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" value="123456-1234567"></td>
+															type="text" value="${dto.idnumberT}"></td>
 													</tr>
 
 
@@ -434,12 +441,20 @@ input[type="text"] {
 														<th class="adcontacttd" colspan="1">주소</th>
 														<td class="adcontacttd" colspan="6"><input
 															type="text" style="width: 450px;"
-															value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+															value="${dto.addT}"></td>
 														<th class="adcontacttd" colspan="2">암호입력상태</th>
 														<td class="adcontacttd" colspan="1"><input
 															type="text"
-															style="width: 80px; background-color: transparent;"
-															value="해당무" disabled></td>
+															style="width: 80px; background-color: transparent; disabled"
+															
+														<c:if test="${empty dto.signT}">
+															value='입력'
+														</c:if>
+														<c:if test="${not empty dto.signT}">
+															value='미입력'
+														</c:if>
+															
+															disabled></td>
 														<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
 													</tr>
 
@@ -448,7 +463,7 @@ input[type="text"] {
 														<th class="adcontacttd" colspan="1"><div
 																class="vertical-align">암호입력</div></th>
 														<td class="adcontacttd" colspan="9"><input
-															type="text" class="form-control"
+															type="text" class="form-control" disabled
 															placeholder="암호를 입력해주세요."></td>
 													</tr>
 
@@ -466,13 +481,13 @@ input[type="text"] {
 													<tr class="headtr">
 														<th class="adcontacttd">계약자명</th>
 														<td class="adcontacttd" colspan="3"><input
-															type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+															type="text" style="width: 200px;" value="${dto.nameL}"></td>
 														<th class="adcontacttd" colspan="1">전화번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" style="width: 140px;" value="010=1234-5678"></td>
+															type="text" style="width: 140px;" value="${dto.telL}"></td>
 														<th class="adcontacttd">주민번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" value="123456-1234567"></td>
+															type="text" value="${dto.idNumberL}"></td>
 													</tr>
 
 
@@ -481,12 +496,21 @@ input[type="text"] {
 														<th class="adcontacttd" colspan="1">주소</th>
 														<td class="adcontacttd" colspan="6"><input
 															type="text" style="width: 450px;"
-															value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+															value="${dto.addL}"></td>
 														<th class="adcontacttd" colspan="2">암호입력상태</th>
 														<td class="adcontacttd" colspan="1"><input
-															type="text"
+															type="text" 
 															style="width: 80px; background-color: transparent;"
-															value="해당무" disabled></td>
+															
+														<c:if test="${empty dto.signL}">
+															value='입력'
+														</c:if>
+														<c:if test="${not empty dto.signL}">
+															value='미입력'
+														</c:if>
+															
+															
+															disabled></td>
 														<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
 													</tr>
 
@@ -496,7 +520,7 @@ input[type="text"] {
 														<th class="adcontacttd" colspan="1"><div
 																class="vertical-align">암호입력</div></th>
 														<td class="adcontacttd" colspan="9"><input
-															type="text" class="form-control"
+															type="text" class="form-control" disabled
 															placeholder="암호를 입력해주세요."></td>
 													</tr>
 
@@ -512,13 +536,13 @@ input[type="text"] {
 													<tr class="headtr">
 														<th class="adcontacttd">계약자명</th>
 														<td class="adcontacttd" colspan="3"><input
-															type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+															type="text" style="width: 200px;" value="${dto.nameC}"></td>
 														<th class="adcontacttd" colspan="1">전화번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" style="width: 140px;" value="010=1234-5678"></td>
+															type="text" style="width: 140px;" value="${dto.telC}"></td>
 														<th class="adcontacttd">주민번호</th>
 														<td class="adcontacttd" colspan="2"><input
-															type="text" value="123456-1234567"></td>
+															type="text" value="${dto.companyNumberC}"></td>
 													</tr>
 
 
@@ -527,25 +551,34 @@ input[type="text"] {
 														<th class="adcontacttd" colspan="1">주소</th>
 														<td class="adcontacttd" colspan="6"><input
 															type="text" style="width: 450px;"
-															value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+															value="${dto.addC}"></td>
 														<th class="adcontacttd" colspan="2">암호입력상태</th>
 														<td class="adcontacttd" colspan="1"><input
-															type="text"
+															type="text" 
 															style="width: 80px; background-color: transparent;"
-															value="해당무" disabled></td>
+															
+															
+														<c:if test="${empty dto.signC}">
+															value='입력'
+														</c:if>
+														<c:if test="${not empty dto.signC}">
+															value='미입력'
+														</c:if>
+															
+															
+															
+															disabled></td>
 														<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
 													</tr>
 
 
-													<!-- 암호입력 
 													<tr class="headtr">
 														<th class="adcontacttd" colspan="1"><div
 																class="vertical-align">암호입력</div></th>
 														<td class="adcontacttd" colspan="9"><input
-															type="text" class="form-control"
+															type="text" class="form-control" disabled
 															placeholder="암호를 입력해주세요."></td>
 													</tr>
-													-->
 												</table>
 
 
@@ -577,16 +610,15 @@ input[type="text"] {
 
 
 							<div class="boardbutton">
-								<button id="passwordupdate">암호재등록</button>
+								<button id="passwordupdate" type="button">암호재등록</button>
 
-								<button id="statechange">상태변경</button>
+								<button id="statechange"  type="button">상태변경</button>
 								<button onclick="location.href='/Myhome-project/admin2/contract/list.do';" >목록</button>
 							</div>
 
 						</td>
 					</tr>
 				</table>
-			</form>
 
 
 
@@ -605,7 +637,7 @@ input[type="text"] {
 
 		    var con_test = confirm("암호를 재입력 하시겠습니까??");
 		    if(con_test == true){
-		    	location.href='http://localhost:8090/Myhome_project/admin2/application/list.do';
+		    	location.href='http://localhost:8090/Myhome_project/admin2/contract/.do';
 		    }
 
 		});
