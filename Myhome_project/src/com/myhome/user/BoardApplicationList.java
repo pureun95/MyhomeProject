@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Myhome/user/boardapplicationlist.do") 
-//http://localhost:8090/Myhome_project/Myhome/user/boardapplicationlist.do  주소 오류나면 이 주소로 연결해주세요!
+@WebServlet("/Myhome/user/boardapplicatioinlist.do")
 public class BoardApplicationList extends HttpServlet {
 	
 	@Override
