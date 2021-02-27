@@ -27,6 +27,8 @@ body, html {
 
 .container {
 	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 #header {
@@ -172,9 +174,13 @@ body, html {
 
 				<div class="likebox" id="property">
 					<div style="background-color: white">매물 찜 목록</div>
-
+					
+					<c:if test="${empty plist}">
+					<div>찜한 매물이 존재하지 않습니다.</div>					
+					</c:if>
+					
 					<c:forEach items="${plist}" var="pdto" varStatus="status">
-						<div class="innerbox" onclick="location.href='/Myhome/user/searchpropertydetaillist.do?seq=${pdto.seqContractorProperty}'">	
+						<div class="innerbox" onclick="location.href='/Myhome_project/contractor/search-property-detail.do?seq=${pdto.seqContractorProperty}';">	
 							<div class="like likeimg" id="propertyimg2">
 								<img src="/Myhome_project/image/1${status.index+1}.jpg"
 									style="width: 150px; height: 150px;">
@@ -226,6 +232,10 @@ body, html {
 
 				<div class="likebox" id="used">
 					<div style="background-color: white">중고물품 찜 목록</div>
+					
+					<c:if test="${empty ulist}">
+					<div>찜한 매물이 존재하지 않습니다.</div>					
+					</c:if>
 
 					<c:forEach items="${ulist}" var="udto" varStatus="status">
 						<div class="innerbox" onclick="location.href='/Myhome_project/user/boardusedview.do?seq=${udto.seqUsed}'">

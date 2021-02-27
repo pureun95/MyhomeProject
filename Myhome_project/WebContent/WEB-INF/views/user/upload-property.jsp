@@ -32,7 +32,9 @@
 }
 
 .container {
-	/* border: 0px; */ 
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 	font-family: 'NanumBarunGothic', sans-serif;
 	font-size: 16px;
 }
@@ -304,6 +306,15 @@ li.header-li.li-list.header-li-scroll {
 		height: 50px;
 	}
 	
+	#form1>div {
+		margin-top: 15px;
+	    width: 80%;
+	    margin: 10px auto;
+	}
+	.price {
+		margin-top: 30px;
+	}
+	
 </style>
 
 
@@ -324,12 +335,47 @@ li.header-li.li-list.header-li-scroll {
  			 // 2017년 2월 제공항목이 추가되었습니다. 원하시는 항목을 추가하여 사용하시면 됩니다.
  			/* document.form.roadFullAddr.value = roadFullAddr; */
  			 document.form.roadAddrPart1.value = roadAddrPart1;
- 			 /* document.form.roadAddrPart2.value = roadAddrPart2; */
  			 document.form.addrDetail.value = addrDetail;
+ 			 /* document.form.roadAddrPart2.value = roadAddrPart2; */
  			 /* document.form.zipNo.value = zipNo; */
  			}
  		
+ 			
+ 			$(".li-list").hover(function() {
+ 		       $(this).addClass("li-list-hover");
+ 		     }, function() {
+ 		       $(this).removeClass("li-list-hover");
+ 		     })
  		
+ 		     
+        $(window).scroll(function() {
+            if($(this).scrollTop() > 100) {
+                $("header").addClass("header-scroll");
+                $(".header-ul").addClass("header-ul-scroll");
+                $(".header-img").addClass("header-img-scroll");
+                $(".header-ul2").addClass("header-ul2-scroll");
+
+                $(".li-list").hover(function() {
+                    $(this).removeClass("li-list-hover");
+                    $(this).addClass("li-list-scroll-hover");
+                }, function() {
+                    $(this).removeClass("li-list-hover");
+                    $(this).removeClass("li-list-scroll-hover");
+                })
+
+            } else {
+                $("header").removeClass("header-scroll");
+                $(".header-ul").removeClass("header-ul-scroll");
+                $(".header-img").removeClass("header-img-scroll");
+                $(".header-ul2").removeClass("header-ul2-scroll");
+                $(".li-list").hover(function() {
+                    $(this).removeClass("li-list-scroll-hover");
+                    $(this).addClass("li-list-hover");
+                }, function() {
+                    $(this).removeClass("li-list-hover");
+                })
+            }
+        });
  	
  	</script>
 
@@ -386,17 +432,48 @@ li.header-li.li-list.header-li-scroll {
      
      <div class="container">
 	
-			<div id="title">방 올리기</div>
-			<div id="explain">올리는 매물의 정보를 선택 및 입력하세요.</div>
-			<hr>
-			<div id="emptybox"></div>
+		<div id="title">방 올리기</div>
+		<div id="explain">올리는 매물의 정보를 선택 및 입력하세요.</div>
+		<hr>
+		<div id="emptybox"></div>
 			
 			
 		<!-- 매물 종류 선택 -->
+		<div id="location">
+			<div class="smalltitle">
+			위치 정보
+			<span style="font-size: 16px; color:tomato; padding-left: 200px;">
+				<span class="glyphicon glyphicon-alert" style="margin-right: 20px;"></span>
+				필수입력 사항입니다.
+			</span>
+			</div>
+			<div style="margin: 10px;">
+				<form name="form" id="form" method="post">
+					<input type="button" id="btnaddress" class="btn btn-default" onClick="goPopup();" value="주소검색"/><br>
+					<!-- 도로명주소 전체(포맷)<input type="text" id="roadFullAddr" name="roadFullAddr" style="width: 400px;"/><br> -->
+					<input type="text" id="roadAddrPart1" name="roadAddrPart1" placeholder="도로명주소" style="width: 400px; margin: 10px;" /><br>
+					<input type="text" id="addrDetail" name="addrDetail" placeholder="고객입력 상세주소" style="width: 400px; margin: 10px;"/><br>
+					<!-- 참고주소<input type="text" id="roadAddrPart2" name="roadAddrPart2" style="width: 400px;" /><br>
+					우편번호<input type="text" id="zipNo" name="zipNo" style="width: 400px;" /> -->
+				</form>
+			</div>
+		</div>
+		
+		<form id="form1" method="POST" action="/Myhome_project/user/uploadpropertyok.do">
 		<div id="propertyroomtypedetail">
-			<div class="smalltitle">매물 종류 선택</div>
+			<div class="smalltitle">
+				매물 종류 선택
+				<span style="font-size: 16px; color:tomato; padding-left: 200px;">
+					<span class="glyphicon glyphicon-alert" style="margin-right: 20px;"></span>
+					필수입력 사항입니다.
+				</span>
+			</div>
 			<div>
-				<input type="radio" id="oneroom" name="roomtype" class="roomtype hidden-menu" value="1">
+				<input type="hidden" id="hdn1" name="hdn1" value="">
+				<input type="hidden" id="hdn2" name="hdn2" value="">
+				<input type="hidden" id="hdn3" name="hdn3" value="${seqAllUser}">
+				
+				<input type="radio" id="oneroom" name="roomtype" class="roomtype hidden-menu" value="1" checked>
  				<label for="oneroom" class="selectboxs">원룸</label>
 				<input type="radio" id="tworoom" name="roomtype"class="roomtype hidden-menu" value="2">
 				<label for="tworoom" class="selectboxs">투룸</label>
@@ -410,26 +487,37 @@ li.header-li.li-list.header-li-scroll {
 			<div>
 				<input type="checkbox" id="aircon" name="aircon" class="roomoption ckbox hidden-menu" value="1">
 				<label for="aircon" class="selectboxs">에어컨</label>
+				
 				<input type="checkbox" id="washer" name="washer" class="roomoption ckbox hidden-menu" value="1">
 				<label for="washer" class="selectboxs">세탁기</label>
+				
 				<input type="checkbox" id="bed" name="bed" class="roomoption ckbox hidden-menu" value="1">
 				<label for="bed" class="selectboxs">침대</label>
+				
 				<input type="checkbox" id="desk" name="desk" class="roomoption ckbox hidden-menu" value="1">
 				<label for="desk" class="selectboxs">책상</label>   
+				
 				<input type="checkbox" id="closet" name="closet" class="roomoption ckbox hidden-menu" value="1">
 				<label for="closet" class="selectboxs">옷장</label>
+				
 				<input type="checkbox" id="tv" name="tv" class="roomoption ckbox hidden-menu" value="1">
 				<label for="tv" class="selectboxs">TV</label>   
+				
 				<input type="checkbox" id="shoebox" name="shoebox" class="roomoption ckbox hidden-menu" value="1">
 				<label for="shoebox" class="selectboxs">신발장</label>   
+				
 				<input type="checkbox" id="refrigerator" name="refrigerator" class="roomoption ckbox hidden-menu" value="1">
 				<label for="refrigerator" class="selectboxs">냉장고</label>   
+				
 				<input type="checkbox" id="stove" name="stove" class="roomoption ckbox hidden-menu" value="1">
 				<label for="stove" class="selectboxs">가스레인지</label>   
+				
 				<input type="checkbox" id="induction" name="induction" class="roomoption ckbox hidden-menu" value="1">
 				<label for="induction" class="selectboxs">인덕션</label>   
+				
 				<input type="checkbox" id="microwave" name="microwave" class="roomoption ckbox hidden-menu" value="1">
 				<label for="microwave" class="selectboxs">전자레인지</label>   
+				
 				<input type="checkbox" id="bidet" name="bidet" class="roomoption ckbox hidden-menu" value="1">
 				<label for="bidet" class="selectboxs">비데</label>   
 			</div>
@@ -445,53 +533,73 @@ li.header-li.li-list.header-li-scroll {
 				<small>'관리비있음' 버튼을 클릭하여 관리비 세부항목을 설정하세요.</small>
 			<!-- 관리비 체크 시 나옴 -->
 			<div id="option">
+				
 				<input type="checkbox" id="internet" name="internet" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="internet" class="selectboxs">인터넷</label>
+				
 				<input type="checkbox" id="tvfee" name="tvfee" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="tvfee" class="selectboxs">유선TV</label>
+				
 				<input type="checkbox" id="cleaning" name="cleaning" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="cleaning" class="selectboxs">청소비</label>
+				
 				<input type="checkbox" id="water" name="water" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="water" class="selectboxs">수도세</label>   
+				
 				<input type="checkbox" id="gas" name="gas" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="gas" class="selectboxs">도시가스</label>
+				
 				<input type="checkbox" id="electric" class="maintenanceoption ckbox hidden-menu" value="1">
 				<label for="electric" class="selectboxs">전기세</label>   
-				<input type="number" placeholder="관리비를(숫자만) 입력해주세요." style="width:250px;" name="servicecharge" id="servicecharge" style="margin: 10px;">   
-			</div>
-		</div>
-		
-		<div id="location">
-			<div class="smalltitle">위치 정보</div>
-			<div style="margin: 10px;">
-				<form name="form" id="form" method="post">
-					<input type="button" class="btn btn-default" onClick="goPopup();" value="주소검색"/><br>
-					<!-- 도로명주소 전체(포맷)<input type="text" id="roadFullAddr" name="roadFullAddr" style="width: 400px;"/><br> -->
-					<input type="text" id="roadAddrPart1" name="roadAddrPart1" placeholder="도로명주소" style="width: 400px; margin: 10px;" /><br>
-					<input type="text" id="addrDetail" name="addrDetail" placeholder="고객입력 상세주소" style="width: 400px; margin: 10px;"/><br>
-					<!-- 참고주소<input type="text" id="roadAddrPart2" name="roadAddrPart2" style="width: 400px;" /><br>
-					우편번호<input type="text" id="zipNo" name="zipNo" style="width: 400px;" /> -->
-				</form>
+
+				<input type="number" placeholder="관리비를(숫자만) 입력해주세요." style="width:250px;" name="servicecharge" id="servicecharge" min="0" step="10000" style="margin: 10px;" value="0">   
 			</div>
 		</div>
 		
 		<div id="propertycontracttype">
-			<div class="smalltitle">거래 종류</div>
+			<div class="smalltitle">
+			거래 종류
+			<span style="font-size: 16px; color:tomato; padding-left: 200px;">
+				<span class="glyphicon glyphicon-alert" style="margin-right: 20px;"></span>
+				필수입력 사항입니다.
+			</span>
+			</div>
 			<div>
-				<input type="radio" id="monthly" name="tradetype" class="tradetype hidden-menu" value="1">
+				<input type="radio" id="monthly" name="tradetype" class="tradetype hidden-menu" value="1" required>
 				<label for="monthly" class="selectboxs">월세</label>
-				<input type="radio" id="yearly" name="tradetype"class="tradetype hidden-menu" value="2">
+				
+				<input type="radio" id="yearly" name="tradetype" class="tradetype hidden-menu" value="2">
 				<label for="yearly" class="selectboxs">전세</label>
-				<input type="radio" id="trade" name="tradetype"class="tradetype hidden-menu" value="3">
+				
+				<input type="radio" id="trade" name="tradetype" class="tradetype hidden-menu" value="3">
 				<label for="trade" class="selectboxs">매매</label>
+			</div>
+			<div class="smalltitle">
+			계약 정보
+			<span style="font-size: 16px; color:tomato; padding-left: 200px;">
+				<span class="glyphicon glyphicon-alert" style="margin-right: 20px;"></span>
+				필수입력 사항입니다.
+			</span>
+			</div>
+			<div>
+				보증금 : <input class="price" type="number" id="deposit" name="deposit" placeholder="보증금" min="0" step="10000">원<br>
+				월세가 : <input class="price" type="number" id="monthlyRent" name="monthlyRent" placeholder="월세" min="0" step="10000">원<br>
+				매매가 : <input class="price" type="number" id="dealing" name="dealing" placeholder="매매가격" disabled min="0" step="10000">원<br>
+				계약기간 : <input class="price" type="number" id="contractPeriod" name="contractPeriod" placeholder="계약기간(개월)" style="width:150px;" min="0" max="36" required>개월<br>
 			</div>
 		</div>
 		
 		<div id="spacing">
-			<div class="smalltitle">건물 크기</div>
+			<div class="smalltitle">
+			건물 크기
+			<span style="font-size: 16px; color:tomato; padding-left: 200px;">
+				<span class="glyphicon glyphicon-alert" style="margin-right: 20px;"></span>
+				필수입력 사항입니다.
+			</span>
+			</div>
 			<div style="margin: 10px;">
-				공급면적 : <input type="number" placeholder="평수를(숫자만) 입력하세요." style="width:200px;" id="suparea">
-				전용면적 : <input type="number"placeholder="평수를(숫자만) 입력하세요."  style="width:200px;" id="excarea">
+				면적 : <input type="number" placeholder="평수를(숫자만) 입력하세요." style="width:200px;" id="suparea" name="suparea" min="0" required>
+				
 			</div>
 		</div>
 		<div id="heating">
@@ -499,7 +607,7 @@ li.header-li.li-list.header-li-scroll {
 			<div>
 				<input type="radio" id="central" name="heating"class="heating hidden-menu" value="1">
 				<label for="central" class="selectboxs">중앙난방</label>
-				<input type="radio" id="individual" name="heating"class="heating hidden-menu" value="2">
+				<input type="radio" id="individual" name="heating"class="heating hidden-menu" value="2" checked >
 				<label for="individual" class="selectboxs">개별난방</label>
 			</div>
 		</div>
@@ -507,15 +615,15 @@ li.header-li.li-list.header-li-scroll {
 		<div id="floor">
 			<div class="smalltitle">건물 층수</div>
 			<div style="margin: 10px;">
-				전체 층 수 : <input type="number" placeholder="층수를(숫자만) 입력하세요." style="width:200px;" id="totaloffloor">
-				해당 층 수 : <input type="number" placeholder="층수를(숫자만) 입력하세요." style="width:200px;" id="numberoffloor">
+				전체 층 수 : <input type="number" placeholder="층수를(숫자만) 입력하세요." style="width:200px;" id="totaloffloor" name="totaloffloor">
+				해당 층 수 : <input type="number" placeholder="층수를(숫자만) 입력하세요." style="width:200px;" id="numberoffloor" name="numberoffloor">
 			</div>
 		</div>
 		
 		<div id="occupancy">
 			<div class="smalltitle">입주 가능일</div>
 			<div>
-				<input type="radio" id="now" name="occupancy"class="occupancy hidden-menu" value="null">
+				<input type="radio" id="now" name="occupancy"class="occupancy hidden-menu" value="" checked>
 				<label for="now" class="selectboxs">즉시입주</label>
 				<input type="radio" id="later" name="occupancy"class="occupancy hidden-menu" value="">
 				<label for="later" class="selectboxs">날짜선택</label>
@@ -527,7 +635,7 @@ li.header-li.li-list.header-li-scroll {
 		<div id="parking">
 			<div class="smalltitle">주차 여부</div>
 			<div>
-				<input type="radio" id="cant1" name="parking"class="parking hidden-menu" value="0">
+				<input type="radio" id="cant1" name="parking"class="parking hidden-menu" value="0" checked >
 				<label for="cant1" class="selectboxs">불가능</label>
 				<input type="radio" id="can1" name="parking"class="parking hidden-menu" value="1">
 				<label for="can1" class="selectboxs">가능</label>
@@ -537,7 +645,7 @@ li.header-li.li-list.header-li-scroll {
 		<div id="pet">
 			<div class="smalltitle">반려 동물</div>
 			<div>
-				<input type="radio" id="cant2" name="pet"class="pet hidden-menu" value="0">
+				<input type="radio" id="cant2" name="pet"class="pet hidden-menu" value="0" checked >
 				<label for="cant2" class="selectboxs">불가능</label>
 				<input type="radio" id="can2" name="pet"class="pet hidden-menu" value="1">
 				<label for="can2" class="selectboxs">가능</label>
@@ -547,7 +655,7 @@ li.header-li.li-list.header-li-scroll {
 		<div id="elevator">
 			<div class="smalltitle">엘리베이터</div>
 			<div>
-				<input type="radio" id="cant3" name="elevator"class="elevator hidden-menu" value="0">
+				<input type="radio" id="cant3" name="elevator"class="elevator hidden-menu" value="0" checked >
 				<label for="cant3" class="selectboxs">없음</label>
 				<input type="radio" id="can3" name="elevator"class="elevator hidden-menu" value="1">
 				<label for="can3" class="selectboxs">있음</label>
@@ -557,7 +665,7 @@ li.header-li.li-list.header-li-scroll {
 		<div id="window">
 			<div class="smalltitle">베란다/발코니</div>
 			<div>
-				<input type="radio" id="cant4" name="window"class="window hidden-menu" value="0">
+				<input type="radio" id="cant4" name="window"class="window hidden-menu" value="0" checked>
 				<label for="cant4" class="selectboxs">없음</label>
 				<input type="radio" id="can4" name="window"class="window hidden-menu" value="1">
 				<label for="can4" class="selectboxs">있음</label>
@@ -567,17 +675,17 @@ li.header-li.li-list.header-li-scroll {
 		<div id="titletext">
 			<div class="smalltitle">제목</div>
 			<div>
-				<input type="text" id="titletxt" name="titletxt" style="width: 500px; margin: 10px;" placeholder="매물 소개글의 제목을 입력하세요." required>
+				<input type="text" id="titletxt" name="titletxt" name="titletxt" style="width: 500px; margin: 10px;" placeholder="매물 소개글의 제목을 입력하세요." required>
 			</div>
 		</div>
 		
 		<div id="contents">
 			<div class="smalltitle">설명</div>
 			<div>
-				<textarea id="content" placeholder="매물 소개글을 입력하세요." style="width: 500px; margin: 10px;" rows="15" required></textarea>
+				<textarea id="content" name="content" placeholder="매물 소개글을 입력하세요." style="width: 500px; margin: 10px;" rows="15" required></textarea>
 			</div>
 		</div>
-		
+		<!-- 
 		<div id="attach">
 			<div class="smalltitle">사진 업로드</div>
 			<div>
@@ -585,46 +693,26 @@ li.header-li.li-list.header-li-scroll {
 				<input type="file" id="file2" style="margin: 10px;">
 				<input type="file" id="file3" style="margin: 10px;">
 			</div>
-		</div>
+		</div> -->
 		
 		<div id="contractor">
 			<div class="smalltitle">중개인 선택</div>
 			<div>
-				<input type="radio" id="choiceyes" name="contractor" class="contractor hidden-menu" value="1">
-				<label for="choiceyes" class="selectboxs">예</label>
-				<input type="radio" id="choiceno" name="contractor" class="contractor hidden-menu" value="0">
-				<label for="choiceno" class="selectboxs">아니오</label>
+				<input type="radio" id="choiceyes" name="contractor" class="contractor hidden-menu" value="1" >
+				<label for="choiceyes" id="clabelyes" class="selectboxs" onclick="contractorlist();">예</label>
+				<input type="radio" id="choiceno" name="contractor" class="contractor hidden-menu" value="0" checked>
+				<label for="choiceno" id="clabelno" class="selectboxs">아니오</label>
 				
 				<div id="contractorcontainer">
-					<hr>
-					<h4>해당 지역의 중개인 리스트입니다.</h4>
-					<h5 style="text-align: right; color: #aaa;">이미지 누르면 중개사 프로필 창이 팝업됩니다.</h5>
 					
-					<div class="contractors">
-						<div class="imgbox"><img src="../image/2.jpg"></div>
-						<input type="radio" name="selcontractor" id="ctr1">
-						<label for="ctr1">강남공인중개사</label>
-					</div>
-					<div class="contractors">
-						<div class="imgbox"><img src="../image/3.jpg"></div>
-						<input type="radio" name="selcontractor" id="ctr2">
-						<label for="ctr2">서울공인중개사</label>
-					</div>
-					
-					<div class="contractors">
-						<div class="imgbox"><img src="../image/4.jpg"></div>
-						<input type="radio" name="selcontractor" id="ctr3">
-						<label for="ctr3">쌍용공인중개사</label>
-					</div>
-					<div style="clear: both;"></div>
 				</div>
 				
-				<div id="btnwrap">
-					<button type="submit" class="btn btn-default" id="btnupload" name="btnupload">올리기</button>
-				</div>
+			</div>
+			<div id="btnwrap">
+				<button type="submit" class="btn btn-default" id="btnupload" name="btnupload">올리기</button>
 			</div>
 		</div>
-		
+		</form>
 		
     </div>
 
@@ -654,19 +742,6 @@ li.header-li.li-list.header-li-scroll {
 	    minDate: "0"
 	});
  	
- /* var selectboxs = document.getElementsByClassName('selectboxs');
- 	var hidden-menu = document.getElementsByClassName('hidden-menu');
- 	 
- 	
- 	for (var i=0; i<selectboxs.length; i++) {
- 		hidden-menu[i].onclick = function() {
- 			if(document.getElementById(selectboxs[i].id) == checked){
-	 			this.style.backgroundColor = 'white';
- 			} else {
-	 			this.style.backgroundColor = '#F1AEAE';
- 			}
-	 	}
- 	} */
  	var selbox = document.getElementById('selbox');
  	var option = document.getElementById('option');
  	
@@ -706,12 +781,109 @@ li.header-li.li-list.header-li-scroll {
  	
  	
  	//중개인 선택에 따른 #contractorcontainer 숨기기/보이기
- 	choiceyes.onclick = function() {
- 		contractorcontainer.style.display = 'block'
- 	}
+ 	
  	choiceno.onclick = function() {
  		contractorcontainer.style.display = 'none'
  	}
+ 	
+ 	
+ 	function contractorlist() {
+ 		let location = $("#roadAddrPart1").val();
+
+ 		if (location!="") {
+	 		//alert(location);		//전체 주소
+	 		
+	 		$("#contractorcontainer").css("display","block");
+ 			
+	 		$.ajax({
+				type: "GET",
+				url: "/Myhome_project/user/vwcontractordata.do",
+				data:"location="+location,
+				success: function(llist){
+					var body = '';
+					
+					console.log(llist);
+					llist = JSON.parse(llist);
+					
+					body += '<hr>';
+					body += '<h4>해당 지역의 중개인 리스트입니다.</h4>';
+					body += '<h5 style="text-align: right; color: #aaa;">중개사를 선택하세요.</h5>';
+					
+					for (var i=0; i<llist.length; i++) {
+						
+						
+						body += '<div class="contractors">';
+						body += '<div class="imgbox"><img src="../image/2.jpg"></div>';
+						if (i==0) {
+							body += '<input type="radio" name="selcontractor" id="ctr'+i+'" value="'+llist[i].seqContractor+'" checked>';
+						} else {
+							body += '<input type="radio" name="selcontractor" id="ctr'+i+'" value="'+llist[i].seqContractor+'">';
+						}
+						body += '<label for="ctr'+i+'">'+llist[i].contractorName+'</label>';
+						body += '</div>';
+						
+					}
+					
+					$("#contractorcontainer").html(body);
+					
+				}
+	 			
+	 			
+	 		})
+	 		
+ 		} else {
+ 			alert("주소를 먼저 입력하세요");
+ 			$("#choiceyes").prop('checked', false);
+ 			$("#clabelyes").css("color","black");
+ 			$("#clabelyes").css("background-color","white");
+ 			$("#btnaddress").focus();
+ 			
+ 		}
+ 		
+ 	}
+ 	
+ 	//주소가 등록될 때 히든태그에 값을 넣는다.
+ 	$(window).on("wheel", function (event){
+		  // deltaY obviously records vertical scroll
+		  
+		  // event.originalEvent → JavaScript 의 wheelEvent 객체
+		  // deltaY 값은 개인이 마우스 설정에서 설정한 휠 설정 값에 따라 다르다.
+		  //console.log(event.originalEvent.deltaY);
+		
+		  //if (event.originalEvent.deltaY < 0) {
+		    // wheeled up
+		  //}
+		  //else {
+		    // wheeled down
+		  //}
+ 		$("#hdn1").val($("#roadAddrPart1").val())
+		$("#hdn2").val($("#addrDetail").val())
+		  
+	});
+ 	
+ 	$("#monthly").click(function(){
+ 		//월세
+ 		$("#monthlyRent").attr("disabled", false);
+ 		$("#deposit").attr("disabled", false);
+ 		$("#dealing").attr("disabled", true);
+ 		$("#contractPeriod").attr("disabled", false);
+ 	});
+ 	$("#yearly").click(function(){
+ 		//전세
+ 		$("#monthlyRent").attr("disabled", true);
+ 		$("#deposit").attr("disabled", false);
+ 		$("#dealing").attr("disabled", true);
+ 		$("#contractPeriod").attr("disabled", false);
+ 	});
+ 	$("#trade").click(function(){
+ 		//매매
+ 		$("#monthlyRent").attr("disabled", true);
+ 		$("#deposit").attr("disabled", true);
+ 		$("#dealing").attr("disabled", false);
+ 		$("#contractPeriod").attr("disabled", true);
+ 	});
+ 	
+ 	
  	
  	
  	
