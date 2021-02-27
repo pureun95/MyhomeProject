@@ -40,6 +40,8 @@ body, html {
 	font-family: 'NanumBarunGothic';
 	font-size: 16px;
 	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 
@@ -319,6 +321,7 @@ body, html {
 		function contractorlist(location, seqMatching){
 			
 			let num = seqMatching;
+			
 			$("#contractor").css("visibility","visible");
 			
 			$.ajax({

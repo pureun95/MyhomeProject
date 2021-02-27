@@ -69,6 +69,11 @@ body, html {
 	text-align: center;
 	/* border: 1px solid black; */
 }
+.container {
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
+}
 </style>
 </head>
 <body>

@@ -39,7 +39,9 @@ body, html {
 .container {
 	font-family: 'NanumBarunGothic';
 	font-size: 16px;
-	border: 0px; 
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 #tbl1{
 	width: 860px;

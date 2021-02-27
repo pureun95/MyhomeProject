@@ -29,7 +29,9 @@
 	    letter-spacing: -.2px;
 	    min-height: 100%;
 	    padding-bottom: 100px;
-	    border: 1px solid green;
+	    border: 0px;
+		border-right: 1px solid #DBDCE0;
+   		border-left: 1px solid #DBDCE0;
 	    margin-top: 100px;
 	    
 

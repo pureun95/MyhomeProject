@@ -29,6 +29,8 @@ body, html {
 
 .container {
 	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 #header {
