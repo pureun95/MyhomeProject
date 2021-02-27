@@ -120,7 +120,6 @@ public class ListProperty extends HttpServlet {
 		} else {
 			pagebar += String.format("<li>"
 					+ "<a href=\"/Myhome_project/admin/property/listproperty.do?page=%d\" aria-label=\"Next\">"
-					+ "이전"
 					+ "다음"
 					+ "</a>"
 					+ "</li>", n);

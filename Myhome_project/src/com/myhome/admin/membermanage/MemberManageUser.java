@@ -127,7 +127,6 @@ public class MemberManageUser extends HttpServlet{
 		} else {
 			pagebar += String.format("<li>"
 					+ "<a href=\"/Myhome_project/admin/membermanage/membermanage-user.do?page=%d\" aria-label=\"Next\">"
-					+ "이전"
 					+ "다음"
 					+ "</a>"
 					+ "</li>", n);

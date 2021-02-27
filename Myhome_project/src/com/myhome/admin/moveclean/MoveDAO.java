@@ -67,6 +67,7 @@ public class MoveDAO {
 				dto.setTel(rs.getString("tel"));
 				dto.setAddress(rs.getString("address"));
 				dto.setBusinessnum(rs.getString("businessnum"));
+				dto.setRating(rs.getString("rating"));
 				dto.setPrice(rs.getString("price"));
 				dto.setIntroduce(rs.getString("introduce"));
 				

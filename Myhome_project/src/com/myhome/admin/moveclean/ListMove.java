@@ -118,7 +118,6 @@ public class ListMove extends HttpServlet {
 		} else {
 			pagebar += String.format("<li>"
 					+ "<a href=\"/Myhome_project/admin/moveclean/listMove.do?page=%d\" aria-label=\"Next\">"
-					+ "이전"
 					+ "다음"
 					+ "</a>"
 					+ "</li>", n);

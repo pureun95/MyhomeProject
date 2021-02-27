@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
+import com.myhome.admin.board.PolicyDTO;
 import com.myhome.admin.moveclean.MoveDTO;
 
 public class PropertyDAO {
@@ -110,6 +111,55 @@ public class PropertyDAO {
 			System.out.println(e);
 		}
 		return 0;
+	}
+
+	//ViewProperty 서블릿 -> 글 1개 반환 요청
+	public PolicyDTO get(String seq) {
+		
+		try {
+			
+			String sql = "select * from vwPorperty where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				
+				PropertyDTO dto = new PropertyDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setImage(rs.getString("image"));
+				dto.setRoomtype(rs.getString("roomtype"));
+				dto.setValue(rs.getString("value"));
+				dto.setLocation(rs.getString("location"));
+				dto.setFloor(rs.getString("floor"));
+				dto.setState(rs.getString("state"));
+				dto.setTitle(rs.getString("title"));
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
 	}
 	
 	

@@ -11,39 +11,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/admin/board/addpolicy.do")
-public class AddPolicy extends HttpServlet {
+@WebServlet("/admin/board/deletepolicyok.do")
+public class DeletePolicyOk extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//로그인 안한 사람이 접근하면 내쫒기
-		HttpSession session = req.getSession();	
 		
-		//if(session.getAttribute("id") == null) {
+		HttpSession session = req.getSession();
+		
+		//1. 
+		req.setCharacterEncoding("UTF-8");
+		
+		//String seq = req.getParameter("seq"); //삭제할 글번호
+		String[] seq = req.getParameterValues("seq");
+		
+		//2.
+		PolicyDAO dao = new PolicyDAO();
+		
+		int result = dao.del(seq);	//글삭제하기
+		
+		if (result == 1) {
+			//글삭제 성공 -> 게시판 목록으로 이동
+			resp.sendRedirect("/admin/board/listepolicy.do");
 			
-			//1. 내쫒기
-			/*
-			 * response.sendRedirect("/codestudy/board/list.do"); 
-			 * return; //아래 RequestDispatcher 충돌을 막기위해
-			 */			
-			//2. 경고 + 내쫒기
-		/*
+			
+		} else {
+			//글삭제 실패 -> 경고 + 뒤로가기
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
 			writer.print("<script>");
 			writer.print("alert('filed');");
-			writer.print("location.href='/Myhome_project/admin/board/listpolicy.do';");
+			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");
 			
 			writer.close();
-			*/
-		//}
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminboard/addpolicy.jsp");
-		dispatcher.forward(req, resp);
+		}
 
 	}
 

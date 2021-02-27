@@ -115,7 +115,7 @@
 		
 	}
 	
-	.search #search {
+	.search #txt {
 		width: 200px;
 		display: inline;
 	}
@@ -142,11 +142,11 @@
              
 		<div id="title">부동산 정책 게시판 관리</div>
 		
-		<c:if test="${not empty search}">
-	        <div class="message well well-sm">
-	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+<%-- 		<c:if test="${not empty search}">
+                <div class="message well well-sm">
+                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
         </div>
-        </c:if>
+        </c:if> --%>
 		
 		<table id="tbl1" class="table table-hover table-striped table-condensed">
     
@@ -174,26 +174,21 @@
                 
             </table>
             
+            <div class="boardalert">				
+				<div class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				  <span class="sr-only">경고!</span>
+				  위의 항목(들)을 삭제하시겠습니까? 삭제하시려면 아래의 '삭제'버튼을 눌러 주세요.
+				</div>
+			</div>	
+            
             <div class="btns">
-            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addpolicy.do';">
-            	<input type="button" class="btn" value="수정" id="edit" onclick="location.href='/Myhome_project/admin/board/editpolicy.do';">
-            	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicy.do';">
+            	<input type="button" class="btn" value="목록" id="edit" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';">
+            	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicyok.do';">
            	</div>
            	
-	       	<!-- 페이징 -->
-	       	<nav class="pagebar">
-                <ul class="pagination">
-                    ${pagebar}
-                </ul>
-            </nav>
-           	
-           	<form id="searchForm" method="GET" action="/admin/board/listpolicy.do">
-	           	<div class="search">
-	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" required value="${search}">
-	            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
-	           	</div>
-            </form>
-            <div style="clear:both;"></div>
+	       
+            
 			
 
 	</div>
