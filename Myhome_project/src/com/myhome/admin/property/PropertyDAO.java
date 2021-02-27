@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
-import com.myhome.admin.board.PolicyDTO;
-import com.myhome.admin.moveclean.MoveDTO;
 
 public class PropertyDAO {
 
@@ -114,7 +112,7 @@ public class PropertyDAO {
 	}
 
 	//ViewProperty 서블릿 -> 글 1개 반환 요청
-	public PolicyDTO get(String seq) {
+	public PropertyDTO get(String seq) {
 		
 		try {
 			

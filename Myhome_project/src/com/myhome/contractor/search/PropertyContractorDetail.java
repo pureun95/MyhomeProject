@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
-@WebServlet("/contractor/search-property-detail.do")
-public class SearchPropertyDetail extends HttpServlet{
+@WebServlet("/contractor/property-contractor-detail.do")
+public class PropertyContractorDetail extends HttpServlet{
 
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,18 +24,15 @@ public class SearchPropertyDetail extends HttpServlet{
 		
 		
 		//1. 매물 정보
-			PropertyDAO dao = new PropertyDAO();
-								
-		//2. session 받기
-			HttpSession session = req.getSession();
+			PropertyDAO dao = new PropertyDAO();						
 			
 
-		//3. 중개인 매물번호 쿼리에 보내기
+		//2. 중개인 매물번호 쿼리에 보내기
 			int seqProperty = Integer.parseInt(req.getParameter("seq").toString());
 			
 			ArrayList<PropertyDTO> propertyDetail = dao.propertyDetail(seqProperty);
 			
-		//4. 임대인 매물번호 쿼리에 보내기
+		//3. 임대인 매물번호 쿼리에 보내기
 			int seqLessorProperty = Integer.parseInt(req.getParameter("seq").toString());
 			ArrayList<PropertyDTO> LessorPropertyDetail = dao.propertyDetail(seqLessorProperty);
 			
@@ -46,7 +43,7 @@ public class SearchPropertyDetail extends HttpServlet{
 		
 			
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-property-detail.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/property-contractor-detail.jsp");
 		dispatcher.forward(req, resp);
 		
 	}

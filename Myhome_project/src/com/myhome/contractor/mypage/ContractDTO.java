@@ -9,12 +9,13 @@ import java.util.Calendar;
  * */
 public class ContractDTO {
 
-	private String seqContract; //전자계약 seq
+	private int seqContract; //전자계약 seq
 	
-	private String seqUserC; //중개인 seq
-	private String seqUserL; //임대인seq
-	private String seqUserT; //임차인 seq
+	private int seqUserC; //중개인 seq
+	private int seqUserL; //임대인seq
+	private int seqUserT; //임차인 seq
 	
+	private String companyName; //중개소
 	private String nameC; //중개인 이름
 	private String nameT; //임차인 이름
 	private String nameL; //임대인 이름
@@ -43,11 +44,14 @@ public class ContractDTO {
 	private String deposit;	//계약금(보증금)
 	private String monthlyRent; //월세
 	private String period;		//기간
+	private String contractPeriod; //계약기간(전자계약일 + 기간)
 	private String dealing;	//매매
 	
 	private String addressL; //임대인 주소
 	private String addressT; //임차인 주소
 	private String addressC; //중개인주소
+
+	private int percent; //퍼센트
 	
 
 	//getter setter
@@ -95,22 +99,22 @@ public class ContractDTO {
 		this.dealing = dealing;
 	}
 	
-	public String getSeqUserC() {
+	public int getSeqUserC() {
 		return seqUserC;
 	}
-	public void setSeqUserC(String seqUserC) {
+	public void setSeqUserC(int seqUserC) {
 		this.seqUserC = seqUserC;
 	}
-	public String getSeqUserL() {
+	public int getSeqUserL() {
 		return seqUserL;
 	}
-	public void setSeqUserL(String seqUserL) {
+	public void setSeqUserL(int seqUserL) {
 		this.seqUserL = seqUserL;
 	}
-	public String getSeqUserT() {
+	public int getSeqUserT() {
 		return seqUserT;
 	}
-	public void setSeqUserT(String seqUserT) {
+	public void setSeqUserT(int seqUserT) {
 		this.seqUserT = seqUserT;
 	}
 	public String getNameC() {
@@ -215,10 +219,10 @@ public class ContractDTO {
 	public void setSeqp(String seqp) {
 		this.seqp = seqp;
 	}
-	public String getSeqContract() {
+	public int getSeqContract() {
 		return seqContract;
 	}
-	public void setSeqContract(String seqContract) {
+	public void setSeqContract(int seqContract) {
 		this.seqContract = seqContract;
 	}
 	public String getLocation() {
@@ -226,6 +230,24 @@ public class ContractDTO {
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public String getContractPeriod() {
+		return contractPeriod;
+	}
+	public void setContractPeriod(String contractPeriod) {
+		this.contractPeriod = contractPeriod;
+	}
+	public int getPercent() {
+		return percent;
+	}
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
 	
 	

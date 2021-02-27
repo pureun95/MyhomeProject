@@ -224,22 +224,27 @@
 				
 				<tr class="headtr">
 					<th class="adcontacttd title-color">금액</th>
-					<td class="adcontacttd" colspan="3" ></td>
+					<td class="adcontacttd" colspan="3" >${dto.dealing }</td>
 					<th class="adcontacttd title-color">계약금</th>
-					<td class="adcontacttd" colspan="3" >{dto.deposit }</td>
+					<td class="adcontacttd" colspan="3" >${dto.deposit }</td>
 					<th class="adcontacttd title-color">계약종류</th>
 					
 					<!-- 월세가 null이면 매매 -->
-					<c:if test="${empty dto.monthlyRent }">
+					<c:if test="${not empty dto.monthlyRent }">
+					<td class="adcontacttd">월세</td>
+					</c:if>
+					
+					<!-- 월세가 null이 아니고 보증금이 null이면 매매 -->
+					<c:if test="${not empty dto.monthlyRent and empty dto.deposit}">
 					<td class="adcontacttd">매매</td>
 					</c:if>
 					
-					<!-- 월세가 null이 아니면 매매 -->
-					<c:if test="${not empty dto.monthlyRent }">
-					<td class="adcontacttd">매매</td>
+					<c:if test="${empty dto.monthlyRent and dto.dealing }">
+					<td class="adcontacttd">전세</td>
 					</c:if>
+					
 				</tr>
-				</c:forEach>	
+					
 				
 				<tr>
 					<td class="adcontacttd" colspan="10">
@@ -290,9 +295,9 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="${dto.nameT }"></td>
+					<td class="adcontacttd" colspan="3">${dto.nameT }</td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="${dto.telT }"></td>
+					<td class="adcontacttd" colspan="2">${dto.telT }</td>
 					<th class="adcontacttd">주민번호</th>
 					<td class="adcontacttd" colspan="2"><input type="text" value="${dto.ssnT }"></td>					
 				</tr>
@@ -301,20 +306,19 @@
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value=""></td>
+					<td class="adcontacttd" colspan="6">${dto.addressT }</td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<c:if test="${empty dto.signC }">
+						<td class="adcontacttd" colspan="1">입력요청</td>
+					</c:if>
+					<c:if test="${not empty dto.signC }">
+						<td class="adcontacttd" colspan="1">입력완료</td>
+					</c:if>
 				</tr>		
-				
-				<!-- 암호입력되면 '입력완료'로 바뀐다. -->				
-				<c:if test="${not empty dto.lSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" pstyle="width: 80px; background-color: transarent;" value="입력완료" name="passwordStateT" disabled></td>
-				</c:if>
 						
 				<!-- 암호입력이 안되면 '입력요청' -->				
-				<c:if test="${empty dto.lSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+				<c:if test="${empty dto.signC }">
+					<td class="adcontacttd" colspan="10"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordT"></td>
 				</c:if>
 					
 					
@@ -329,34 +333,34 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3">${dto.nameL }</td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
+					<td class="adcontacttd" colspan="2">${dto.telL }</td>
 					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2">${dto.ssnL }</td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6">${dto.addressL }</td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<c:if test="${empty dto.signL }">
+						<td class="adcontacttd" colspan="1">입력요청</td>
+					</c:if>
+					<c:if test="${not empty dto.signL }">
+						<td class="adcontacttd" colspan="1">입력완료</td>
+					</c:if>		
 				</tr>		
 				
 				
-				<!-- 암호입력되면 입력완료로 바뀐다. -->				
-				<c:if test="${not empty dto.lSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력완료" name="passwordStateT" disabled></td>
+				<!-- 암호입력이 안되면 '입력요청' -->				
+				<c:if test="${empty dto.signL }">
+					<td class="adcontacttd" colspan="10"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordL"></td>
 				</c:if>
 						
-				<!-- 암호입력이 안되면 입력요청 -->				
-				<c:if test="${empty dto.lSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
-				</c:if>
-									
+					
 									
 									
 									
@@ -368,34 +372,34 @@
 
 				<tr class="headtr">
 					<th class="adcontacttd">계약자명</th>
-					<td class="adcontacttd" colspan="3"><input type="text" style="width: 200px;" value="공인중개사사무소공인중개사"></td>
+					<td class="adcontacttd" colspan="3">${dto.nameC }(${dto.companyName })</td>
 					<th class="adcontacttd" colspan="1">전화번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" style="width: 140px;" value="010=1234-5678"></td>
-					<th class="adcontacttd">주민번호</th>
-					<td class="adcontacttd" colspan="2"><input type="text" value="123456-1234567"></td>					
+					<td class="adcontacttd" colspan="2">${dto.telC }</td>
+					<th class="adcontacttd">사업자번호</th>
+					<td class="adcontacttd" colspan="2">${dto.businessNum }</td>					
 				</tr>
 
 							
 					
 				<tr class="headtr">
 					<th class="adcontacttd" colspan="1">주소</th>
-					<td class="adcontacttd" colspan="6"><input type="text" style="width: 450px;" value="서울특별시 영등포구 여의도동 여의도아파트 1234-123, 1234호"></td>
+					<td class="adcontacttd" colspan="6">${dto.addressC }</td>
 					<th class="adcontacttd" colspan="2">암호입력상태</th>
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="해당무" disabled></td>
-					<!-- 여기를  전자계약서 입력시에는 2,암호입력상태  조회시 1,암호임력  크기조절한다 -->
+					<c:if test="${empty dto.signC }">
+						<td class="adcontacttd" colspan="1">입력요청</td>
+					</c:if>
+					<c:if test="${not empty dto.signC }">
+						<td class="adcontacttd" colspan="1">입력완료</td>
+					</c:if>		
 				</tr>							
 
 				
-				<!-- 암호입력되면 '입력완료'로 바뀐다. -->				
-				<c:if test="${not empty dto.cSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력완료" name="passwordStateT" disabled></td>
-				</c:if>
-						
 				<!-- 암호입력이 안되면 '입력요청' -->				
-				<c:if test="${empty dto.cSign }">
-					<td class="adcontacttd" colspan="1"><input type="text" style="width: 80px; background-color: transparent;" value="입력요청" name="passwordStateT" disabled></td>
+				<c:if test="${empty dto.signC }">
+					<td class="adcontacttd" colspan="10"><input type="text" class="form-control" class="example" placeholder="암호를 입력해주세요." name="passwordC"></td>
 				</c:if>
 				
+			</c:forEach>	
 			</table>
 			
 		

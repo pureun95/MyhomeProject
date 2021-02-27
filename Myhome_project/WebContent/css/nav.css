@@ -1,6 +1,6 @@
 
 		.nav1 {
-            border: 1px solid black;
+           /*  border: 1px solid black; */
             width: 180px;
             height: 1000px;
             font-family: 'NanumBarunGothic';
@@ -10,10 +10,12 @@
         }
 
         .nav1-box1 {
-            border: 1px solid black;
-            width: 180px;
-            height: 205px;
-            margin-top: 50px;
+            border: 1px solid #eaeaea;
+   			box-shadow: 0px 10px 15px #eceaea;
+    		width: 180px;
+    		height: 205px;
+   		 	margin-top: 50px;
+    		border-radius: 20px;
         }
 
         .nav1-content {

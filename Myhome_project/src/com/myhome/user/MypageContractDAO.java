@@ -48,7 +48,10 @@ public class MypageContractDAO {
 			
 			while (rs.next()) {
 				MypageContractDTO dto = new MypageContractDTO();
+
+
 				
+
 				dto.setSeqContract(rs.getInt("seqContract"));
 				dto.setsName(rs.getString("sName"));
 				dto.setbName(rs.getString("bName"));

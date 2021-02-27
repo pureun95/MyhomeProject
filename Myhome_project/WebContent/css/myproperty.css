@@ -37,7 +37,7 @@
            /* border: 1px solid black; */
            float: left;
            margin-left: 35px;
-           width: 480px;
+           width: 520px;
            height: 180px;
         }
         
@@ -47,12 +47,12 @@
         }
 
         .property-title {
-            /* border: 1px solid rgb(128, 128, 128); */
-            width: 200px;
+            /* border: 1px solid rgb(128, 128, 128); */            
             font-size: 20px;
             font-weight: bold;
             color: #202020;
             cursor: pointer;
+            width: 500px;
         }
 
         .property-content {
@@ -75,7 +75,7 @@
         }
 
         #floor {
-            width: 70px;
+            width: 80px;
             color: #202020;
         }
 
@@ -85,7 +85,7 @@
         }
 
         #price {
-            width: 130px;
+            width: 180px;
             background-color: #f1acac;
             color: white;
         }

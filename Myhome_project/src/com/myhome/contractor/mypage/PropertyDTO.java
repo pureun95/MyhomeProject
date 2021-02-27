@@ -17,8 +17,17 @@ public class PropertyDTO {
 		private String companyName;	//중개사무소명		
 		private String tel;	//전화번호
 		private String name;	//중개인명
+		private String businessNum; //사업자번호
+		private String addressC; //중개사무소 주소
 		
+		//임대인 정보
+		private int seqLessor; //임대인 번호
+		private String nameL; //임대인 이름
+		private String nickname;
 		
+		//매칭여부
+		private String response; //매칭여부
+		private String requester; //매칭신청 한 사람
 		
 		//1. 방옵션
 		private String roomType; //1. 원룸 2. 투룸 3. 오피스텔
@@ -368,6 +377,51 @@ public class PropertyDTO {
 		public void setName(String name) {
 			this.name = name;
 		}
+		
+		//매칭
+		public String getRequester() {
+			return requester;
+		}
+		public void setRequester(String requester) {
+			this.requester = requester;
+		}
+		public String getResponse() {
+			return response;
+		}
+		public void setResponse(String response) {
+			this.response = response;
+		}
+		public String getNickname() {
+			return nickname;
+		}
+		public void setNickname(String nickname) {
+			this.nickname = nickname;
+		}
+		public String getNameL() {
+			return nameL;
+		}
+		public void setNameL(String nameL) {
+			this.nameL = nameL;
+		}
+		public int getSeqLessor() {
+			return seqLessor;
+		}
+		public void setSeqLessor(int seqLessor) {
+			this.seqLessor = seqLessor;
+		}
+		public String getBusinessNum() {
+			return businessNum;
+		}
+		public void setBusinessNum(String businessNum) {
+			this.businessNum = businessNum;
+		}
+		public String getAddressC() {
+			return addressC;
+		}
+		public void setAddressC(String addressC) {
+			this.addressC = addressC;
+		}
+	
 		
 		
 		

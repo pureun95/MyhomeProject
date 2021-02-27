@@ -29,7 +29,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -165,21 +166,22 @@
    /* 검색, 페이지바 */
     
     .search-paging {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
     }
     
     .paging {
-  		border: 1px solid blue;
+  		/* border: 1px solid blue; */
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
+  		text-align: center;
    	}
     
-    .pagination > li > .page-a {
-		color: #202020;
+    .pagination > li > a {
+		color: #202020 !important;
 	
 	}
     
@@ -201,7 +203,7 @@
    		/* border: 1px solid black; */
    		width: 390px;
    		height: 60px;
-   		margin: 10px 200px;
+   		margin: 10px 220px;
    		padding: 10px;
    }
    
@@ -276,8 +278,8 @@
                     	</tr>                
 	            </c:if>
 	            <c:if test="${not empty dto.seqUserL }">
-	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-detail.do';">
-	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">${dto.seqContract }</a></div></td>
+	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-view.do?seq=${dto.seqContract }';">
+	                <td class="firtd boardtd "><div class="temp">${dto.seqContract }</div></td>
 	                <td class="sectd boardtd boardtext align-middle"><div class="temp">${dto.nameL}</div></td>
 	                <td class="thitd boardtd align-middle"><div class="temp">${dto.nameT }</div></td>
 	                <td class="fortd boardtd align-middle"><div class="temp">${dto.nameC }</div></td>
@@ -307,18 +309,7 @@
        		<div class="search-paging">
 	       		<div class="paging">
 	       			<ul class="pagination">
-					    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					    <li><a class="page-link page-a" href="">다음</a></li>
+					   ${pagebar }
 					</ul>       		
 	       		</div>
 	       		
