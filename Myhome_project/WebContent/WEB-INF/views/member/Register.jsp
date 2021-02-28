@@ -29,7 +29,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+	    border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -62,13 +63,14 @@
 	/* mypage css */
 	
 	.start {
-		border: 1px solid #d8d4d4;
-		margin-top: 200px;
-		margin-left: 85px;
-		padding: 80px 100px;
-		width: 1000px;
-		height: 480px;
-		border-radius: 30px;
+		border: 1px solid #f3f3f3;
+	    margin-top: 170px;
+	    margin-left: 85px;
+	    padding: 80px 100px;
+	    width: 1000px;
+	    height: 480px;
+	    box-shadow: 0px 5px 15px #e4e4e4;
+	    border-radius: 30px;
 	
 	}
 	

@@ -28,7 +28,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -95,7 +96,7 @@
 	/* info css */
 	
 	.start {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		height: auto;
 		margin-top: 100px;
 		padding: 0px 240px;
@@ -275,7 +276,7 @@
 			
 			<span>닉네임</span> 			
 			<input type="text" class="form-control form-weight" id="nickname" name="nickname">
-			<span class="desc">닉네임이 중복입니다.</span>
+			<!-- <span class="desc">닉네임이 중복입니다.</span> -->
 			
 		
       		<span>주민번호</span> 
@@ -286,7 +287,7 @@
 	       <input type="password" class="form-control form-weight" id="" name="password">
 			
 			<span>비밀번호확인</span>
-			<input type="password" class="form-control form-weight" id="search-text" "repassword">
+			<input type="password" class="form-control form-weight" id="search-text" name="repassword">
 			
 			<span>주소</span>
 			<input type="text" class="form-control search-text" name="address">
