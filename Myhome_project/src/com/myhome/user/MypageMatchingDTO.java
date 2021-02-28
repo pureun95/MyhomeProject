@@ -2,15 +2,15 @@ package com.myhome.user;
 
 public class MypageMatchingDTO {
 
-	private int seqMatching;
-	private int seqUser;
-	private int seqProperty;
-	private int seqContractor;
-	private int seqLessorProperty;
-	private String title;
-	private String contractorName;
-	private String name;
-	private String response;
+	private int seqMatching;//매칭 번호
+	private int seqUser;//회원 번호
+	private int seqProperty;//매물 번호
+	private int seqContractor;//중개사 번호
+	private int seqLessorProperty;//임대인 매물 번호
+	private String title;//글제목
+	private String contractorName;	//중개사 이름
+	private String name;	//중개인 이름
+	private String response;	//매칭응답 내용
 	
 	private String location; //매물 주소
 	

@@ -37,6 +37,10 @@ public class MypageContractDTO {
 	private int dealing;			//매매가격
 	private int contractPeriod;	//계약기간(달)
 	
+	private String contractType;	//계약종류(월,전세,매매)
+	private String location;	//매물주소
+	
+	
 	public String getContractorSign() {
 		return contractorSign;
 	}
@@ -175,9 +179,6 @@ public class MypageContractDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	private String contractType;	//계약종류(월,전세,매매)
-	private String location;	//매물주소
-	
 	public int getSeqContract() {
 		return seqContract;
 	}
