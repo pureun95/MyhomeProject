@@ -28,12 +28,14 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		margin-top: 100px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
     }
     
 	.boardcover{
-    	border: 1px solid tomato;
+    	/* border: 1px solid tomato; */
     	float: left;
     	width:900px;
     	height: auto;
@@ -168,7 +170,7 @@
 		
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 150px;
 		display: inline;
 	}
@@ -190,6 +192,12 @@
         
         
 		<div id="title">청소업체관리</div>
+			
+			<c:if test="${not empty search}">
+	                <div class="message well well-sm">
+	                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	                </div>
+                </c:if>
 
 			<c:forEach items="${list}" var="dto">
 			<div class="list">
@@ -215,7 +223,6 @@
 			
 			<div class="btns">
             	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/moveclean/addclean.do';">
-            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/admin/moveclean/editclean.do.do';">
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
             
@@ -226,10 +233,14 @@
                 </ul>
             </nav>
             
-           	<div class="search">
-            	<input type="text" class="form-control" placeholder="청소업체명" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
-           	</div>
+            <!-- 검색 -->
+            <form id="searchForm" method="GET" action="/admin/moveclean/listclean.do">
+	           	<div class="search">
+	            	<input type="text" class="form-control" placeholder="청소업체명" id="search" name="search" required value="${search}">
+	            	<input type="button" class="btn" value="검색" id="search" onclick="$('#searchForm').submit();">
+	           	</div>
+	           	</form>
+                <div style="clear:both;"></div>
             
 		
 

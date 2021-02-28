@@ -7,12 +7,15 @@ import java.util.Random;
 import com.myhome.DBUtil;
 import com.myhome.admin2.Admin2;
 
+
+/**
+ * 전자 계약관련 DB업무를 처리하는 클래스 
+ * 
+ * @author 이대홍
+ */
 public class ContractDAO extends Admin2{
 
-	public ContractDAO() {
-		conn =DBUtil.open();
-	}
-	
+
 	@Override
 	public ArrayList<ContractDTO> list(HashMap<String, String> map) {
 
@@ -77,7 +80,9 @@ public class ContractDAO extends Admin2{
 				list.add(dto);
 
 			}
-
+			rs.close();
+			ps.close();
+			
 			return list;
 
 		} catch (Exception e) {
@@ -106,7 +111,13 @@ public class ContractDAO extends Admin2{
 			rs = st.executeQuery(sql);
 
 			if (rs.next()) {
-				return rs.getInt("count");
+				int result = rs.getInt("count");
+				
+				
+				rs.close();
+				st.close();
+				
+				return result;
 			}
 
 		} catch (Exception e) {
@@ -173,6 +184,9 @@ public class ContractDAO extends Admin2{
 				
 				dto.setType(rs.getString("type"));
 				
+				rs.close();
+				st.close();
+				
 				
 				return dto;
 
@@ -207,8 +221,10 @@ public class ContractDAO extends Admin2{
 			ct.setString(2, seqC);
 			ct.setString(3, pass);
 			
+			int result = ct.executeUpdate();
 			
-			return ct.executeUpdate();
+			ct.close();
+			return result;
 			
 
 		} catch (Exception e) {
@@ -227,8 +243,10 @@ public class ContractDAO extends Admin2{
 			ct = conn.prepareCall(sql);
 			ct.setString(1, seqC);
 			
+			int result = ct.executeUpdate();
 			
-			return ct.executeUpdate();
+			ct.close();
+			return result;
 			
 
 		} catch (Exception e) {

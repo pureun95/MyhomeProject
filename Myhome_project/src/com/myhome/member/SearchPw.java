@@ -1,4 +1,4 @@
-package com.myhome.admin2;
+package com.myhome.member;
 
 import java.io.IOException;
 
@@ -9,15 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/adminAllMenu/admin-userInfo.do")
-public class AdminUserInfo extends HttpServlet {
+@WebServlet("/member/searchpw.do")
+public class SearchPw extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminAllMenu/admin-userinfo.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/Searchpw.jsp");
 		dispatcher.forward(req, resp);
-
 	}
-
 }

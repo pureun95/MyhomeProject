@@ -10,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 청약 게시글 삭제 업무 처리  서블릿
+ * @author 이대홍
+ */
 @WebServlet("/admin2/application/deleteok.do")
 public class DeleteOk extends HttpServlet {
 

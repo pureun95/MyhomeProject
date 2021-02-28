@@ -4,13 +4,11 @@ public class CommentCommunityDTO {
 	
 	private String seqCommunityComment;
 	private String seqCommunity;
-	private String seqUser;
 	private String seqAllUser;
 	private String writeDate;
 	private String ccontent;
 	
 	private String nickName;
-	
 	
 
 	public String getSeqCommunityComment() {
@@ -29,12 +27,12 @@ public class CommentCommunityDTO {
 		this.seqCommunity = seqCommunity;
 	}
 
-	public String getSeqUser() {
-		return seqUser;
+	public String getSeqAllUser() {
+		return seqAllUser;
 	}
 
-	public void setSeqUser(String seqUser) {
-		this.seqUser = seqUser;
+	public void setSeqAllUser(String seqAllUser) {
+		this.seqAllUser = seqAllUser;
 	}
 
 	public String getWriteDate() {
@@ -45,7 +43,13 @@ public class CommentCommunityDTO {
 		this.writeDate = writeDate;
 	}
 
+	public String getCcontent() {
+		return ccontent;
+	}
 
+	public void setCcontent(String ccontent) {
+		this.ccontent = ccontent;
+	}
 
 	public String getNickName() {
 		return nickName;
@@ -55,20 +59,8 @@ public class CommentCommunityDTO {
 		this.nickName = nickName;
 	}
 
-	public String getCcontent() {
-		return ccontent;
-	}
-
-	public void setCcontent(String ccontent) {
-		this.ccontent = ccontent;
-	}
-
-	public String getSeqAllUser() {
-		return seqAllUser;
-	}
-
-	public void setSeqAllUser(String seqAllUser) {
-		this.seqAllUser = seqAllUser;
-	}
+	
+	
+	
 
 }

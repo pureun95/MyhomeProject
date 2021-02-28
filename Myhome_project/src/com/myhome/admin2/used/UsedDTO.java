@@ -1,5 +1,11 @@
 package com.myhome.admin2.used;
 
+
+/**
+ * 중고 장터 DB처리 DTO 클래스 
+ * @author 이대홍
+ *
+ */
 public class UsedDTO {
 //vwUsed
  

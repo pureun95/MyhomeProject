@@ -1,5 +1,11 @@
 package com.myhome.admin2.qna;
 
+
+/**
+ * QNA게시글 관련 DB작업 DTO 클래스 
+ * @author 이대홍
+ *
+ */
 public class QnaDTO {
 
 /*

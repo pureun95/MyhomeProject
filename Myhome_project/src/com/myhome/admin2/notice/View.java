@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+/**
+ * 공지사항안내 1개의 게시글 상세 반환 서블릿 
+ * @author 이대홍
+ *
+ */
+
 @WebServlet("/admin2/notice/view.do")
 public class View extends HttpServlet {
 
@@ -34,6 +41,8 @@ public class View extends HttpServlet {
 		
 		dto.setWriteDate(dto.getWriteDate().substring(0, 10));
 		
+		
+		dao.close();
 		req.setAttribute("dto", dto);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2notice/view.jsp");

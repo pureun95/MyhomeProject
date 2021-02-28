@@ -26,7 +26,7 @@ public class ViewPolicy extends HttpServlet {
 		PolicyDAO dao = new PolicyDAO();
 		
 		/* 조회수증가 */
-		dao.updateReadcount(seq);
+		dao.updateViewcount(seq);
 		
 		//번호를 넘겨주면 글번호에 해당하는 글을 가져온다
 		PolicyDTO dto = dao.getpolicy(seq);

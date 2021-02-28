@@ -1,5 +1,8 @@
 package com.myhome.admin2.community;
-
+/**
+ * 정보공유게시판 댓글 DTO
+ * @author 이대홍
+ */
 public class CommunityCommentDTO {
    
 	private String seqCommunityComment;

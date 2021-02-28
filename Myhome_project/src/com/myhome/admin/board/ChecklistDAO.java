@@ -32,11 +32,22 @@ public class ChecklistDAO {
 		}
 	}
 
-	public ArrayList<ChecklistDTO> listchecklist() {
+	public ArrayList<ChecklistDTO> listchecklist(HashMap<String, String> map) {
 
 		try {
 			
-			String sql = "select seq, title, id, writedate, viewcount from vwChecklist";
+			String where = "";
+			
+			if(map.get("search") != null) {
+				
+				where = String.format("where title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"));
+			}
+			
+			//String sql = "select seq, title, id, writedate, viewcount from vwChecklist";
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwChecklist %s order by seq desc) a) where rnum between %s and %s"
+					, where
+					, map.get("begin")
+					, map.get("end"));
 			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
@@ -67,7 +78,22 @@ public class ChecklistDAO {
 	}
 
 	public int addchecklist(ChecklistDTO dto) {
-		// TODO Auto-generated method stub
+		try {
+			
+			String sql = "insert into tblChecklist (seqChecklist, seqAdmin, title, content, writeDate, viewCount) values (SEQChecklist.nextVal, ?, ?, ?, default, default)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getSeqadmin());
+			pstat.setString(2, dto.getTitle());
+			pstat.setString(3, dto.getContent());
+			
+			return pstat.executeUpdate(); //1 or 0
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		return 0;
 	}
 
@@ -147,6 +173,22 @@ public class ChecklistDAO {
 			System.out.println(e);
 		}
 		return 0;
+	}
+
+	//ViewChecklist -> 조회수 증가
+	public void updateViewcount(String seq) {
+		try {
+			
+			String sql = "update tblChecklist set viewcount = viewcount + 1 where seqChecklist = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

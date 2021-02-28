@@ -33,7 +33,7 @@ public class AddchecklistOk extends HttpServlet {
 		String content = req.getParameter("content");
 		
 		//로그인한 관리자번호
-		String seqadmin = (String)session.getAttribute("seqadmin");
+		String seqadmin = (String)session.getAttribute("seqAdmin");
 		
 	
 		
@@ -44,12 +44,13 @@ public class AddchecklistOk extends HttpServlet {
 		dto.setTitle(title);
 		dto.setContent(content);
 		dto.setSeqadmin(seqadmin);
+		dto.setViewcount("0");
 		
 		int result = dao.addchecklist(dto);
 		
 		if (result == 1) {
 			//글쓰기 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/admin/board/listchecklist.do");
+			resp.sendRedirect("/Myhome_project/admin/board/listchecklist.do");
 			
 		} else {
 			//글쓰기 실패 -> 경고 + 뒤로가기

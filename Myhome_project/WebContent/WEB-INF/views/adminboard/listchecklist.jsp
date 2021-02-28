@@ -29,12 +29,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -122,7 +124,7 @@
 		text-align : right;
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 200px;
 		display: inline;
 	}
@@ -145,6 +147,12 @@
         <div class="boardcover">
              
 		<div id="title">체크리스트 게시판 관리</div>
+		
+		<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${listchecklist.size()}건의 게시물을 검색했습니다.
+        </div>
+        </c:if>
 		
 		<table id="tbl1" class="table table-hover table-striped table-condensed">
     
@@ -174,7 +182,6 @@
             
             <div class="btns">
             	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addchecklist.do';">
-            	<input type="button" class="btn" value="수정" id="edit" onclick="location.href='/Myhome_project/admin/board/editchecklist.do';">
             	<input type="button" class="btn" value="삭제" id="delete"  onclick="location.href='/Myhome_project/admin/board/deletechecklist.do';">
             </div>
             
@@ -185,13 +192,14 @@
                 </ul>
             </nav>
             
-            <form id="searchForm" method="GET" action="/admin/board/listpchecklist.do">
+            <!-- 검색 -->
+            <form id="searchForm" method="GET" action="/Myhome_project/admin/board/listchecklist.do">
 	            <div class="search">
-	            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
-	            	<input type="button" class="btn" value="검색" id="serch">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" name="search" required value="${search}">
+	            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
 	            </div>
             </form>
-            
+            <div style="clear:both;"></div>
 			
 
 	</div>

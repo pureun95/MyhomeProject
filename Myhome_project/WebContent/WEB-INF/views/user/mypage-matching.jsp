@@ -77,7 +77,6 @@ body, html {
 	cursor: pointer;
 	background-color: #ffe1e1;
 	font-weight: bold;
-	text-decoration:underline;
 }
 
 #tbl2{
@@ -194,7 +193,7 @@ body, html {
 								<c:forEach items="${glist}" var="gdto">
 								<tr>
 									<td>${gdto.seqMatching }</td>
-									<td>${gdto.title}</td>
+									<td onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${gdto.seqLessorProperty}'">${gdto.title}</td>
 									<td>${gdto.name}(${gdto.contractorName})</td>
 									<td>
 										<c:if test="${empty gdto.response}">
@@ -212,7 +211,7 @@ body, html {
 						</div>
 
 						<div class="matchingbox" id="get">
-							<table class="tbl" id="tbl2" style="top:${-101+glist.size()*-50}px">
+							<table class="tbl" id="tbl2" style="top: <c:if test="${empty glist}">-101</c:if><c:if test="${glist.size()>=1}">${-51+glist.size()*-50}</c:if>px">
 								<tr>
 									<th>매물번호</th>
 									<th>제목</th>
@@ -229,7 +228,7 @@ body, html {
 								<c:forEach items="${slist}" var="sdto" varStatus="status">
 								<tr>
 									<td>${sdto.seqMatching }</td>
-									<td>${sdto.title}</td>
+									<td onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${sdto.seqLessorProperty}'">${sdto.title}</td>
 									<td>${sdto.name}(${sdto.contractorName})</td>
 									<td>
 										<c:choose>
@@ -331,6 +330,15 @@ body, html {
 					
 					console.log(llist);
 					llist = JSON.parse(llist);
+
+					
+					if (llist==null || llist==""){
+						body += '<td colspan="4">';
+						body += '지역에 존재하는 다른 중개사가 없습니다.';
+						body += '</td>';
+						body += '</tr>';
+					}
+					
 					
 					for (var i=0; i<llist.length; i++) {
 						

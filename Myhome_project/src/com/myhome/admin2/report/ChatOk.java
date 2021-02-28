@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 신고 게시글관련 메세지 전송 DB업무 처리용 서블릿
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/report/chatok.do")
 public class ChatOk extends HttpServlet {
 
@@ -39,7 +43,7 @@ ProcReportCompleteChat 카운트버튼 클릭  => 카운트 + 완료채팅 전�
 		int result = dao.chatOk(seqAdmin,pUser,rUser);
 		
 	
-		
+		dao.close();
 		if (result == 1) {
 			PrintWriter writer = resp.getWriter();
 			writer.println("<HTML><body>");

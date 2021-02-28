@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 중고장터 게시글 삭제 DB업무 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/used/deleteok.do")
 public class DeleteOk extends HttpServlet {
 
@@ -23,6 +28,7 @@ public class DeleteOk extends HttpServlet {
 		UsedDAO dao =new UsedDAO();
 		int result = dao.delete(seqUsed);
 
+		dao.close();
 		if (result > 0) {
 			
 			resp.sendRedirect("/Myhome_project/admin2/used/list.do?category="+ category);

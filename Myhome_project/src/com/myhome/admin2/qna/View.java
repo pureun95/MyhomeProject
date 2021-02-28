@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.myhome.admin2.notice.NoticeDTO;
 
-
+/**
+ * QNA 목록 반환 페이지서블릿
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/qna/view.do")
 public class View extends HttpServlet {
 
@@ -38,7 +42,7 @@ public class View extends HttpServlet {
 		
 		dto.setWriteDate(dto.getWriteDate().substring(0, 10));
 
-		
+		dao.close();
 		req.setAttribute("category", category);
 		req.setAttribute("dto", dto);
 		

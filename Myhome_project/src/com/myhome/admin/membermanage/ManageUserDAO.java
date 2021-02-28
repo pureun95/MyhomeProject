@@ -40,7 +40,7 @@ public class ManageUserDAO {
 			
 			if(map.get("search") != null) {
 				
-				where = String.format("where name like '%%%s%%' or id like '%%%s%%'", map.get("search"), map.get("search"));
+				where = String.format("where seq like '%%%s%%' or name like '%%%s%%' or id like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
 			}
 			
 			//String sql  = "select seq, id, name, jumin1, jumin2, tel1, tel2, tel3, address, reportcount from vwUser";

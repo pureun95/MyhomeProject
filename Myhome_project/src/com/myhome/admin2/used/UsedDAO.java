@@ -9,11 +9,13 @@ import java.util.HashMap;
 import com.myhome.DBUtil;
 import com.myhome.admin2.Admin2;
 
-public class UsedDAO extends Admin2{
 
-	public UsedDAO() {
-		conn = DBUtil.open();
-	}
+/**
+ * 중고 장터 게시글 DB업무 클래스 Admin2 상속
+ * @author 이대홍
+ *
+ */
+public class UsedDAO extends Admin2{
 
 	@Override
 	public ArrayList<UsedDTO> list(HashMap<String, String> map) {
@@ -68,6 +70,9 @@ public class UsedDAO extends Admin2{
 
 			}
 
+			rs.close();
+			ps.close();
+			
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -107,9 +112,10 @@ public class UsedDAO extends Admin2{
 			rs = ps.executeQuery();
 
 
-			while (rs.next()) {
-								
-				return rs.getInt("count");
+			if(rs.next()) {
+				
+				int result = rs.getInt("count");
+				return result;
 			
 			}
 
@@ -167,6 +173,8 @@ public class UsedDAO extends Admin2{
 
 			}
 
+			rs.close();
+			ps.close();
 			return list;
 
 		} catch (Exception e) {
@@ -198,7 +206,9 @@ public class UsedDAO extends Admin2{
 
 			ps = conn.prepareStatement(sql);
 
-			return ps.executeUpdate();
+			int result =ps.executeUpdate(); 
+			
+			return result;
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -218,7 +228,7 @@ public class UsedDAO extends Admin2{
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 
-			while (rs.next()) {
+			if (rs.next()) {
 				UsedDTO dto = new UsedDTO();
 				
 				dto.setSeqUsed(rs.getString("seqUsed"));
@@ -233,6 +243,9 @@ public class UsedDAO extends Admin2{
 				dto.setSeqImage(rs.getString("seqImage"));
 				dto.setTradeMode(rs.getString("tradeMode"));
 				dto.setCount(rs.getString("count"));
+				
+				rs.close();
+				ps.close();
 				
 				return dto;
 
@@ -279,6 +292,9 @@ public class UsedDAO extends Admin2{
 				list.add(dto);
 			}
 			
+			rs.close();
+			ps.close();
+			
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -297,7 +313,9 @@ public class UsedDAO extends Admin2{
 			String sql = "update tblUsedComment set content = '' where seqUsedComment = "+seqUsedComment;
 			
 			st = conn.createStatement();
-			return st.executeUpdate(sql);
+			
+			int result = st.executeUpdate(sql); 
+			return result;
 		
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -320,7 +338,8 @@ public class UsedDAO extends Admin2{
 			ct.execute();
 			
 			int result = ct.getInt(1);
-			System.out.println("fcCheckUsed : " +result); 
+
+			ct.close();
 			return result;
 		} catch (Exception e) {
 			// TODO: handle exception

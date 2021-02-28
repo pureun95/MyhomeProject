@@ -24,7 +24,7 @@ public class AddPolicy extends HttpServlet {
 			
 			//1. 내쫒기
 			/*
-			 * response.sendRedirect("/codestudy/board/list.do"); 
+			 * response.sendRedirect("/Myhome_project/admin/board/listpolicy.do"); 
 			 * return; //아래 RequestDispatcher 충돌을 막기위해
 			 */			
 			//2. 경고 + 내쫒기

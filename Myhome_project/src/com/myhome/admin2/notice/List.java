@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * 공지사항 게시글 목록 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/notice/list.do")
 public class List extends HttpServlet {
 
@@ -127,8 +131,9 @@ public class List extends HttpServlet {
 			dto.setWriteDate(dto.getWriteDate().substring(0, 10));
 
 		}
-		System.out.println("pagebar : "+pagebar);
 		
+		
+		dao.close();
 		req.setAttribute("list", list);
 		req.setAttribute("search", search);
 		req.setAttribute("pagebar", pagebar);
