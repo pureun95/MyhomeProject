@@ -200,9 +200,9 @@
 		    	<input type="password" class="form-control form-weight readonly" id="pw" name="password" placeholder="패스워드" required> 
 				
 			<div class="search">
-				<a href="/Myhome_project/member/searchid.jsp">아이디 찾기</a>
+				<a href="/Myhome_project/member/searchid.do">아이디 찾기</a>
 				<span>|</span>              
-				<a href="/Myhome_project/member/searchpw.jsp">비밀번호 찾기</a>
+				<a href="/Myhome_project/member/searchpw.do">비밀번호 찾기</a>
 			</div>	
 				
 				<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-login" value="로그인">
