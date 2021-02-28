@@ -143,11 +143,13 @@ body, html {
 		 				<td>
 		 				${cdto.contractState}
 		 				<!-- 후기인데 -->
+
 		 				<!--
 		 				<c:if test="${cdto.contractState=='완료'}">
 		 				<input type="button" class="btn btn-default writeReview" value="중개사 후기 작성">
 		 				<input type="button" class="btn btn-default writeReview" value="매물 후기 작성">
 		 				</c:if>
+
 		 				</td>
 		 				-->
 		 			</tr>
