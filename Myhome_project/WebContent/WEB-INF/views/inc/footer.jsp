@@ -44,7 +44,7 @@
 	function chat(){
 	    var url = "/Myhome_project/member/chat.do";
 	    var name = "popup test";
-	    var option = "width = 450, height = 630, top = 100, left = 200, location = no"
+	    var option = "width = 450, height = 630, top = 200, left = 400, location = no"
 	    window.open(url, name, option);
 	}
 	
