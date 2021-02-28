@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-   
-
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -15,18 +14,18 @@
 <!-- <link rel="stylesheet" href="/Myhome_project/css/main.css"> -->
 <link rel="stylesheet" href="/Myhome_project/css/template.css">
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 
 <style>
-
 .container {
 	border-color: transparent;
 	font-family: 'NanumBarunGothic', sans-serif;
 	font-size: 16px;
 	position: relative;
 	border-right: 1px solid #DBDCE0;
-    border-left: 1px solid #DBDCE0;
+	border-left: 1px solid #DBDCE0;
 }
 
 .boardwrap {
@@ -101,7 +100,6 @@
 	outline: none;
 }
 
-
 #page_bar>.active>a, #page_bar>li>a:hover {
 	background-color: #f1aeae;
 	border-color: #f1aeae;
@@ -123,7 +121,7 @@
 	position: relative;
 	float: right;
 	top: -167px;
-left: -215px;
+	left: -215px;
 	width: 65px;
 }
 
@@ -132,8 +130,8 @@ left: -215px;
 	width: 430px;
 	positioin: relative;
 	float: left;
-top: -340px;
-    left: 240px;
+	top: -340px;
+	left: 240px;
 }
 
 .pagebar {
@@ -155,75 +153,73 @@ top: -340px;
 }
 
 .boardcontent {
-	margin-left: 180px;
+	margin-left: 180px;	
 }
-
 </style>
 </head>
 <body>
-      <div class="boardwrap">
-         <!-- header -->
-         <%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
+	<div class="boardwrap">
+		<!-- header -->
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
-         <div class="container">
-            
-            <!-- nav -->
-            <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
-            <!-- <div style="clear:both;"></div> -->
-            
-            <div class="boardcontent">
-            <div id="maintitle">공지사항</div>
-            
-            
-            <c:if test="${not empty search}">
-				<div class="message well well-sm" id="searchResult">
-					'${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
-				</div>
-			</c:if>
-               
-               
-               <form action="" id="form1">
-               		<div class="boardcover">
-               			<table id="board" class="table table-hover table-striped table-condensed list">
-               				<thead>
-				                <tr class="headtr">
-				                    <th class="sectd boardtd">번호</th>
-				                    <th class="thitd boardtd">제목</th>
-				                    <th class="thitd boardtd">작성자</th>
-				                    <th class="fortd boardtd">작성일</th>
-				                    <th class="fiftd boardtd">조회수</th>
-				                </tr>
-			                </thead>
-               				<tbody>
-               				
-               					<c:if test="${list.size() == 0}">
+		<div class="container">
+
+			<!-- nav -->
+			<%@include file="/WEB-INF/views/user/nav-board.jsp"%>
+			<!-- <div style="clear:both;"></div> -->
+
+			<div class="boardcontent">
+				<div id="maintitle">공지사항</div>
+
+
+				<c:if test="${not empty search}">
+					<div class="message well well-sm" id="searchResult">
+						'${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.</div>
+				</c:if>
+
+
+				<form action="" id="form1">
+					<div class="boardcover">
+						<table id="board"
+							class="table table-hover table-striped table-condensed list">
+							<thead>
+								<tr class="headtr">
+									<th class="sectd boardtd">번호</th>
+									<th class="thitd boardtd">제목</th>
+									<th class="thitd boardtd">작성자</th>
+									<th class="fortd boardtd">작성일</th>
+									<th class="fiftd boardtd">조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<c:if test="${list.size() == 0}">
 									<tr>
 										<td colspan="5" style="text-align: center;">게시물이 없습니다.</td>
 									</tr>
 								</c:if>
-               				
-               					<c:forEach items="${list}" var="dto">
-	               					<tr>
-	               						<td>${dto.seqNotice}</td>
-	               						<td>
-	               						<a href="/Myhome_project/Myhome/user/boardnoticeview.do?seq=${dto.seqNotice}&search=${search}&page=${nowPage}" id="titlename">${dto.title}</a>
-	               						<!-- 최신글표시 -->
-	               						<c:if test="${dto.gap < 1}">                         
-			                           		<span class="label label-danger">new</span>
-			                           	</c:if>
-	               						</td>
-	               						<td>${dto.id}</td>
-	               						<td>${dto.writeDate}</td>
-	               						<td>${dto.viewCount}</td>
-	               					</tr>
-               					</c:forEach>				
-               				</tbody>
-               			</table>
-               			
-               			</div>
-						<div style="clear: both;"></div>
-               			
-               			<div style="text-align: center;">
+
+								<c:forEach items="${list}" var="dto">
+									<tr>
+										<td>${dto.seqNotice}</td>
+										<td><a
+											href="/Myhome_project/Myhome/user/boardnoticeview.do?seq=${dto.seqNotice}&search=${search}&page=${nowPage}"
+											id="titlename">${dto.title}</a> <!-- 최신글표시 --> <c:if
+												test="${dto.gap < 1}">
+												<span class="label label-danger">new</span>
+											</c:if></td>
+										<td>${dto.id}</td>
+										<td>${dto.writeDate}</td>
+										<td>${dto.viewCount}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+
+					</div>
+					<div style="clear: both;"></div>
+
+					<div style="text-align: center;">
 						<nav class="pagebar">
 							<ul class="pagination" id="page_bar">${pagebar}
 							</ul>
@@ -236,9 +232,9 @@ top: -340px;
 					<div style="clear: both;"></div>
 
 				</form>
-			            
-			            
-			            <form id="searchForm" method="GET"
+
+
+				<form id="searchForm" method="GET"
 					action="/Myhome_project/Myhome/user/boardnoticelist.do">
 					<div class="input-group search">
 
@@ -251,24 +247,23 @@ top: -340px;
 					</div>
 				</form>
 				<div style="clear: both;"></div>
-               
-               
-               </div>
-           </div>
-       
-       </div>
+
+
+			</div>
+		</div>
+
+	</div>
 
 
 
-      <!-- footer -->
-      <%@include file="/WEB-INF/views/inc/footer.jsp"%>
-   
-   
-   <script>
+	<!-- footer -->
+	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
-   
-   </script>
-   
-   
+
+	<script>
+		
+	</script>
+
+
 </body>
 </html>
