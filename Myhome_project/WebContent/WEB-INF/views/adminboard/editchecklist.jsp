@@ -111,9 +111,9 @@
              
 		<div id="title">부동산 체크리스트 게시판 관리</div>
 		
-		<form method="POST" action="/admin/board/editchecklistok.do">
+		<form method="POST" action="/Myhome_project/admin/board/editchecklistok.do">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" required value="${dto.title}"> 
+	        	<input type="text" class="form-control" name="title" id=" title" required value="${dto.title}"> 
 	            <textarea class="form-control" name="content" id="content" required>${dto.content}</textarea>
 				<input type="file"  id="file">
 			</div>
@@ -128,7 +128,7 @@
               </div>
               <input type="hidden" name="seq" value="${dto.seq}">
               </form>
-            
+              <div style="clear:both;"></div>
 			
 
 	</div>

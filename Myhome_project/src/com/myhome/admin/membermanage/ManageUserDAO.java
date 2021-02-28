@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 일반회원 관리 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 상세페이지(view), 삭제(delete)
+ */
 public class ManageUserDAO {
 	
 	private Connection conn;
@@ -89,6 +94,7 @@ public class ManageUserDAO {
 		try {
 			
 			String sql ="select * from vwUser where seq=?";
+			
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, seq);
