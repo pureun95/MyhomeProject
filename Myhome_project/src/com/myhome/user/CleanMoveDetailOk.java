@@ -49,10 +49,10 @@ public class CleanMoveDetailOk extends HttpServlet {
 //
 //		결과 : JSP 작업 X -> Servlet 작업 O
 		if (result == 1) {
-			//회원 가입 성공
+			// 성공
 			resp.sendRedirect("/Myhome_project/Myhome/main.do");
 		} else {
-			//회원 가입 실패
+			// 실패
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");

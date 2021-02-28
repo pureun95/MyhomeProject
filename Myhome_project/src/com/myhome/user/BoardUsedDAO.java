@@ -193,7 +193,8 @@ String where ="";
 
 		return dto;
 	}
-
+	
+	//DB insert작업. 글쓰기담당
 	public int insertUsed(HashMap map) {
 		int result = 0;
 

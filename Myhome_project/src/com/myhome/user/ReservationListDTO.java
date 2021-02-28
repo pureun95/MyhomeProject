@@ -11,6 +11,15 @@ public class ReservationListDTO {
 	
 	private int seqCleanReservation;
 	private int seqClean;
+	private int seqCleanReview;
+	
+	
+	private int seqMoveReservation;
+	private int seqMove;
+	private int seqMoveReview;
+	
+	
+	
 	public int getSeqCleanReview() {
 		return seqCleanReview;
 	}
@@ -23,15 +32,6 @@ public class ReservationListDTO {
 	public void setSeqMoveReview(int seqMoveReview) {
 		this.seqMoveReview = seqMoveReview;
 	}
-	private int seqCleanReview;
-	
-	
-	private int seqMoveReservation;
-	private int seqMove;
-	private int seqMoveReview;
-	
-	
-	
 	public int getSeqCleanReservation() {
 		return seqCleanReservation;
 	}

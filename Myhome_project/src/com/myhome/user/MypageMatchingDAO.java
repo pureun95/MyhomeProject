@@ -73,7 +73,7 @@ public class MypageMatchingDAO {
 	
 	//보낸 매칭 목록 요청
 	public ArrayList<MypageMatchingDTO> getSendMatchingList(int seqUser) {
-ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
+		ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 		
 		try {
 			
@@ -156,7 +156,8 @@ ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 		return result;
 			
 	}
-
+	
+	//중개사 목록 출력 요청
 	public ArrayList getContractorList(String location) {
 		
 		ArrayList list = new ArrayList();

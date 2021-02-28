@@ -195,7 +195,7 @@ public class MypageInfo extends HttpServlet {
 			String endsel = req.getParameter("endsel");
 			int alarm = Integer.parseInt(req.getParameter("alarm"));
 			
-			UserDAO dao = new UserDAO();
+			UserDAO udao = new UserDAO();
 			UserDTO dto = new UserDTO();
 			
 			dto.setId(id);////
@@ -213,14 +213,14 @@ public class MypageInfo extends HttpServlet {
 			HttpSession session = req.getSession();
 			int seq = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 			//2.
-			int resultLocation = dao.getSeqLocation(dto.getInterestlocation());
-			int resultRoomtype = dao.getSeqRoomtype(dto.getInterestroomtype());
+			int resultLocation = udao.getSeqLocation(dto.getInterestlocation());
+			int resultRoomtype = udao.getSeqRoomtype(dto.getInterestroomtype());
 			
 			dto.setSeqLocation(resultLocation);
 			dto.setSeqPropertyRoomtypeDetail(resultRoomtype);
 		
 		
-			int resultUpdate = dao.updateUser(dto, seq);
+			int resultUpdate = udao.updateUser(dto, seq);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
