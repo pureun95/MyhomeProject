@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 전자 계약관련 암호 변경 업무처리 
+ * Modal 부분 구현 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/contract/change.do")
 public class ChangeOk extends HttpServlet {
 
@@ -22,7 +26,8 @@ public class ChangeOk extends HttpServlet {
 		ContractDAO dao = new ContractDAO();
 		
 		int result = dao.change(seqAdmin, seqC);
-
+		
+		dao.close();
 		if (result > 0) {
 
 			resp.sendRedirect("/Myhome_project/admin2/contract/list.do");

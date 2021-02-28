@@ -9,7 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 정보공유 게시글 삭제 서블릿 
+ * @author 이대홍
+ */
 
 @WebServlet("/admin2/community/delete.do")
 public class Delete extends HttpServlet {
@@ -22,7 +25,9 @@ public class Delete extends HttpServlet {
 		CommunityDAO dao = new CommunityDAO();
 
 		ArrayList<CommunityDTO> list = dao.list(seqCommunity);
-
+		
+		dao.close();
+		
 		for (CommunityDTO dto : list) {
 
 			dto.setWriteDate(dto.getWriteDate().substring(0, 10));

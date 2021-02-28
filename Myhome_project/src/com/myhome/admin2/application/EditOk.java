@@ -12,7 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
+/**
+ * 청약 수정 업무처리 서블릿 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/application/editok.do")
 public class EditOk extends HttpServlet {
 

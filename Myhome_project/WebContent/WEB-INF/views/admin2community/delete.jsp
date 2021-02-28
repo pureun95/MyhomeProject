@@ -125,6 +125,13 @@ body, html {
     	width:800px;
 	}
 
+
+/* 추가 요청 등록 */
+.container{
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
+}
+
 </style>
 </head>
 <body>

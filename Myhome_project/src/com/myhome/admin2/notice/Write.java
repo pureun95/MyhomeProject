@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 공지사항 게시글 작성 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/notice/write.do")
 public class Write extends HttpServlet {
 

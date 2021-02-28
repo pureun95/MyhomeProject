@@ -10,7 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 
+ * 공지사항 게시글 삭제 안내 서블릿
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/notice/delete.do")
 public class Delete extends HttpServlet {
 
@@ -19,7 +24,6 @@ public class Delete extends HttpServlet {
 
 
 		String[] seqNotice = req.getParameterValues("seq");// 배열로 번호를 받음.
-		String temp = Arrays.toString(seqNotice);
 
 		
 		NoticeDAO dao = new NoticeDAO();
@@ -31,7 +35,7 @@ public class Delete extends HttpServlet {
 			dto.setWriteDate(dto.getWriteDate().substring(0, 10));
 
 		}
-
+		dao.close();
 		req.setAttribute("list", list);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2notice/delete.jsp");

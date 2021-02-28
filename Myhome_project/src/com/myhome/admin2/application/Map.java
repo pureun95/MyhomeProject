@@ -1,4 +1,4 @@
-package com.myhome.admin2.notice;
+package com.myhome.admin2.application;
 
 import java.io.IOException;
 
@@ -8,37 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 /**
- * 공지사항관련 게시글 수정 페이지 서블릿 
+ * 청약 1개 게시글의 부가 상세 내용 서블릿 
+ * MAP API, CHART, Rolling CSS 기능 추가 
  * @author 이대홍
- *
  */
-
-@WebServlet("/admin2/notice/edit.do")
-public class Edit extends HttpServlet {
+@WebServlet("/admin2/application/map.do")
+public class Map extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
-	HttpSession session= req.getSession();
-		
 		String seq = req.getParameter("seq");// 청약테이블 번호
 
-		NoticeDAO dao = new NoticeDAO();
-		NoticeDTO dto = dao.view(seq);
-
 		
-		
-		dto.setWriteDate(dto.getWriteDate().substring(0, 10));
-		
-		
-		dao.close();
-		req.setAttribute("dto", dto);
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2notice/edit.jsp");
+		req.setAttribute("seq", seq);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2application/map.jsp");
 		dispatcher.forward(req, resp);
 
 	}

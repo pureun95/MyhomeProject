@@ -10,7 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 중고장터 게시글 부정 글 자동 처리 페이지 서블릿
+ * @author 이대홍
+ *
+ */
 
 @WebServlet("/admin2/used/check.do")
 public class Check extends HttpServlet {
@@ -25,6 +29,7 @@ public class Check extends HttpServlet {
 		
 		int result = dao.check(seqUsed);
 		
+		dao.close();
 		if (result > 0) {
 
 			PrintWriter writer = resp.getWriter();

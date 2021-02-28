@@ -14,6 +14,11 @@ import com.myhome.DBUtil;
 import com.myhome.admin2.Admin2;
 import com.sun.glass.ui.Pixels.Format;
 
+/**
+ * 청약 DAO, 목록 반환, 입력, 수정, 삭제 페이징   
+ * @author 이대홍
+ */
+
 public class ApplicationDAO extends Admin2{
 
 	
@@ -256,6 +261,7 @@ public class ApplicationDAO extends Admin2{
 			if (rs.next()) {
 				 result =rs.getInt("count");
 			}
+			
 			rs.close();
 			st.close();
 			return result;

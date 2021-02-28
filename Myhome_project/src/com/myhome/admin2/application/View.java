@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 청약 게시글 1개의 내용 반환 서블릿
+ * @author 이대홍
+ */
 @WebServlet("/admin2/application/view.do")
 public class View extends HttpServlet {
 

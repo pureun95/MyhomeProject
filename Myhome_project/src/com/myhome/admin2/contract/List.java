@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+/**
+ * 전자계약 목록 반환 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/contract/list.do")
 public class List extends HttpServlet {
 
@@ -126,6 +131,8 @@ public class List extends HttpServlet {
 			dto.setContractDate(dto.getContractDate().substring(0, 10));
 
 		}
+		
+		dao.close();
 		
 		req.setAttribute("list", list);
 		req.setAttribute("search", search);

@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 전자계약관련 안내메세지 전공 DB작업 서블릿 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/contract/send.do")
 public class Send extends HttpServlet {
 

@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
-
+/**
+ * 신고 관련 DB 업무처리 클래스
+ * @author 이대홍
+ *
+ */
 public class ReportDAO {
 	private Connection conn;
 	private Statement st;
@@ -77,7 +81,10 @@ public class ReportDAO {
 					list.add(dto);
 
 				}
-
+				
+				rs.close();
+				ps.close();
+				
 				return list;
 
 				// seqCommunity
@@ -111,7 +118,8 @@ public class ReportDAO {
 					list.add(dto);
 
 				}
-
+				rs.close();
+				ps.close();
 				return list;
 
 				// seqProperty vwPCReport
@@ -147,7 +155,8 @@ public class ReportDAO {
 					list.add(dto);
 
 				}
-
+				rs.close();
+				ps.close();
 				return list;
 
 			}
@@ -187,7 +196,8 @@ public class ReportDAO {
 
 				if (rs.next()) {
 
-					return rs.getInt("count");
+					int result = rs.getInt("count");
+					return result;
 				}
 
 				// seqCommunity
@@ -201,8 +211,9 @@ public class ReportDAO {
 				rs = st.executeQuery(sql);
 
 				if (rs.next()) {
-
-					return rs.getInt("count");
+					
+					int result = rs.getInt("count");
+					return result;
 				}
 
 				// seqProperty vwPCReport
@@ -216,8 +227,8 @@ public class ReportDAO {
 				rs = st.executeQuery(sql);
 
 				if (rs.next()) {
-
-					return rs.getInt("count");
+					int result = rs.getInt("count");
+					return result;
 				}
 
 			}
@@ -262,6 +273,10 @@ public class ReportDAO {
 
 					dto.setrUser(rs.getString("rUser")); // 신고 받는사람
 					dto.setrId(rs.getString("rId"));
+
+					rs.close();
+					ps.close();
+					
 					return dto;
 
 				}
@@ -290,6 +305,9 @@ public class ReportDAO {
 					dto.setpId(rs.getString("pId")); // 신고 받는 사람
 					dto.setpUser(rs.getString("pUser"));
 
+					rs.close();
+					ps.close();
+					
 					return dto;
 
 				}
@@ -319,6 +337,10 @@ public class ReportDAO {
 					dto.setrUser(rs.getString("rUser")); // 신고 받는사람
 					dto.setrId(rs.getString("rId"));
 
+					
+					rs.close();
+					ps.close();
+					
 					return dto;
 
 				}
@@ -345,7 +367,10 @@ public class ReportDAO {
 			ct.setString(2, pUser);
 			ct.setString(3, rUser);
 
-			return ct.executeUpdate();
+			
+			int result = ct.executeUpdate();
+			ct.close();
+			return result;
 
 		} catch (Exception e) {
 			System.out.println("chatok : " + e);
@@ -375,7 +400,9 @@ public class ReportDAO {
 					sql = String.format("update tblUsedReport set state = '완료'  where seqUsedreport = %s", seqReport);
 
 					ps = conn.prepareStatement(sql);
-					return ps.executeUpdate();
+					
+					int temp = ps.executeUpdate();
+					return temp;
 
 					// seqCommunity
 				} else if (category.equals("2")) {
@@ -384,7 +411,8 @@ public class ReportDAO {
 							seqReport);
 
 					ps = conn.prepareStatement(sql);
-					return ps.executeUpdate();
+					int temp = ps.executeUpdate();
+					return temp;
 
 					// seqProperty vwPCReport
 				} else if (category.equals("3")) {
@@ -394,7 +422,8 @@ public class ReportDAO {
 							seqReport);
 
 					ps = conn.prepareStatement(sql);
-					return ps.executeUpdate();
+					int temp = ps.executeUpdate();
+					return temp;
 
 				}
 
@@ -418,8 +447,10 @@ public class ReportDAO {
 			ct.setString(2, pUser);
 			ct.setString(3, rUser);
 
-			return ct.executeUpdate();
-
+			int result = ct.executeUpdate();
+			
+			return result;
+			
 		} catch (Exception e) {
 			System.out.println("chat : " + e);
 		}

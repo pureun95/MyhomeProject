@@ -14,6 +14,11 @@ import javax.servlet.http.HttpSession;
 
 import com.myhome.admin2.application.ApplicationDTO;
 
+/**
+ * QNA 게시판 목록 반환 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 
 @WebServlet("/admin2/qna/list.do")
 public class List extends HttpServlet {
@@ -147,6 +152,7 @@ ProcQnaAnswer 답변등록
 
 		}
 		
+		dao.close();
 		if( !category.equals("0")) {
 			req.setAttribute("list", list);
 			req.setAttribute("search", search);

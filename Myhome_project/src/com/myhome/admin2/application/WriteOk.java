@@ -12,7 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
+/**
+ * 청약 게시글  작성 DB처리용 서블릿  
+ * @author 이대홍
+ */
 @WebServlet("/admin2/application/writeok.do")
 public class WriteOk extends HttpServlet {
 

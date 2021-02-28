@@ -10,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 정보공유 게시글 삭제 DB업무 처리 서블릿
+ * @author 이대홍
+ */
 @WebServlet("/admin2/Community/deleteok.do")
 public class DeleteOk extends HttpServlet {
 
@@ -21,7 +24,8 @@ public class DeleteOk extends HttpServlet {
 	
 		CommunityDAO dao =new CommunityDAO();
 		int result = dao.delete(seqCommunity);
-
+		
+		dao.close();
 		if (result > 0) {
 			
 			resp.sendRedirect("/Myhome_project/admin2/community/list.do");

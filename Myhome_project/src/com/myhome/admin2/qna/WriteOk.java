@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * QNA 게시글 작성 DB업무 처리용 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/qna/writeok.do")
 public class WriteOk extends HttpServlet {
 
@@ -30,6 +34,7 @@ public class WriteOk extends HttpServlet {
 		
 		int result = dao.write(seqAdmin,seq,content);
 		
+		dao.close();
 		if(result==1) {
 			
 			resp.sendRedirect("/Myhome_project/admin2/qna/list.do?category="+category);

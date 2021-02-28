@@ -12,7 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
+/**
+ * 공지사항 게시글 수정 DB작업 서블릿
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/notice/editok.do")
 public class EditOk extends HttpServlet {
 
@@ -34,7 +38,8 @@ public class EditOk extends HttpServlet {
 		dto.setContent(content);
 
 		int result = dao.edit(dto);
-
+		
+		dao.close();
 		if (result == 1) {
 			resp.sendRedirect("/Myhome_project/admin2/notice/list.do");
 		} else {
