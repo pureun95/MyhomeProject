@@ -8,7 +8,11 @@ package com.myhome.admin2.report;
 
 
 */	
-
+/**
+ * 신고 게시글 DB업무 DTO 클래스
+ * @author 이대홍
+ *
+ */
 
 public class ReportDTO {
 	private String seqReport; // 신고 번호 

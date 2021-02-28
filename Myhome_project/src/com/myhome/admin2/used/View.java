@@ -9,7 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 중고장터 게시글 1개 상세 보기 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 
 @WebServlet("/admin2/used/view.do")
 public class View extends HttpServlet {
@@ -38,6 +42,7 @@ public class View extends HttpServlet {
 		dto.setWriteDate(dto.getWriteDate().substring(0, 10));
 
 		
+		dao.close();
 		req.setAttribute("category", category);
 		req.setAttribute("dto", dto);
 

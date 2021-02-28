@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 중고장터 게시글의 댓글 삭제 DB처리 서블릿
+ * @author 이대홍
+ *
+ */
 public class DelCommentOk extends HttpServlet {
 
 	@Override
@@ -19,6 +24,7 @@ public class DelCommentOk extends HttpServlet {
 		
 		int result = dao.delComment(seqUsedComment);
 
+		dao.close();
 		if (result > 0) {
 
 			resp.sendRedirect("/Myhome_project/admin2/used/list.do");

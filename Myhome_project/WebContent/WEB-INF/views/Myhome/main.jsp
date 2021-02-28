@@ -26,42 +26,9 @@
     
 	}
 	
-	/* 메인에서는 투명 */
-	/* #header:hover {
-		background-color: transparent !important;
-	} */
-
-	/* 부트스트랩 사용 설정 수정중... */
-	/* 부트스트랩 사용하실분들은 아래 링크랑 밑의 설정들을 추가해서 이용해주세요~~(아직 쓰지말아주세요 수정중!) */
-	/* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> */
-	/* .li-list{
-    	font-size:19.2px;
-    }
-    
-    .header-ul2 {
-    	top: 55px !important;
-    }
-    
-    .header-img {
-    	position: relative;
-    	left: 22px;
-    	top: 20px !important;
-    }
-    
-    .header-ul2-scroll {
-	    left: 475px !important;
-	    top: 25px !important;
-	}
-
-     
-   .li-list-hover {
-	    padding-bottom: 8px !important;
-	    font-size: 17.6px;
-	} */
-	
 	
 	.box2 {
-	    border: 1px solid rgb(255, 255, 255);
+	   /*  border: 1px solid rgb(255, 255, 255); */
     	width: 900px;
    	 	height: 300px;
     	margin: 0 auto;
@@ -98,12 +65,7 @@
     }
     
 
-     /* .wrap {
-    	min-height: 100%;
-    	position: relative;
-    	padding-bottom: 130px;
-    } */
-    
+ 
     .main-wrap {
         height: auto;
 	    min-height: 100%;
@@ -122,13 +84,13 @@
         width: 100%;
         height: 1200px;
         border: 1px solid transparent;
-        background-image: url(/Myhome_project/image/8.jpg);
+        background-image: url(/Myhome_project/image/main-img/0.jpg);
         background-size: cover;
         background-position: 50% 50%;
     }
 
     .box2 {
-        border: 1px solid rgb(255, 255, 255);
+        /* border: 1px solid rgb(255, 255, 255); */
         width: 900px !important;
         height: 300px;
         margin: 0 auto;
@@ -143,7 +105,6 @@
         margin: 0 auto;
         margin-top: 120px;
         text-align: center;
-        
         padding: 20px;
 		padding-top: 80px;
 		height: 330px;
@@ -151,102 +112,6 @@
         
     }
 
-    /* 텍스트, 버튼 공통 클래스 */
-    .txt_btn1 {
-        border-radius: 30px;
-        height: 50px;
-        border: 0px;
-        outline: none;
-        margin-top: 20px;
-    }
-
-    /* 버튼 공통 클래스 */
-    .btn1 {
-        background-color: #F1AEAE;
-        color: white;
-    }
-
-    /* 검색창 공통 클래스 */
-   .txt1 {
-        background-color: white;
-        width: 480px;
-        padding-left: 20px;
-        color: rgb(53, 52, 52);
-        font-size: 1.1em;
-    }
-
-    /* 버튼 공통 클래스 */
-    .btn1  {
-        width: 100px;
-        font-size: 1.1em;
-    }
-
-    .category {
-        width: 300px;
-        height: 52px;
-        /* border: 1px solid black; */
-        border-radius: 30px;
-        background-color: white;
-    }
-
-    .btn2 {
-        float: left;
-        font-size: 1.1em;
-        width: 100px;
-        height: 52px;
-        border-radius: 30px;
-        text-align: center;
-        padding: 10px;
-        cursor: pointer;
-        outline: none;
-        border: 0px;
-        background-color: transparent;
-        z-index: 2;
-    }
-
-    .btn2:hover {
-        background-color: #F1AEAE;
-        color: white;
-    }
-
-    .btn2:nth-child(1) {
-        background-color: #F1AEAE;
-        color: white;
-    }
-
-    
-
-    .category-room {
-        position: relative;        
-        left: 100px;
-    }
-
-    .category-contract {
-        position: relative;
-        top: -53px;
-        left: 415px;
-    }
-
-    #box_category {
-        border: 1px solid #F1AEAE;
-        width: 100px;
-        height: 50px;
-        border-radius: 30px;
-        background-color: transparent;
-        position: relative;
-        left: 90px;
-        top: 53px;
-        z-index: 1;
-    }
-
-     #btn1 {  
-        margin-left: 10px;
-    }
-
-    .search-room {
-        position: relative;
-        top: -50px;
-    }
 
     #search-title {
         font-size: 2em;
@@ -258,68 +123,18 @@
 
     .section1 {
         border: 1px solid transparent;
-        height: 500px;
+        height: 700px;
     }
    
     .content {
-        border: 1px solid black; 
-        border: 1px solid transparent;
-        width: 1190px;
-        height: 300px;        
+       /*  border: 1px solid black; */
+        width: 1210px;
+        height: 500px;        
         margin: 100px auto;
         text-align: center;
-        position: relative;
-        padding-left: 100px;
-        padding-top: 30px;
-    }
-
-    .section1-content {
-        background-color: rgb(255, 255, 255);
-        width: 260px;
-        height: 210px;
-        padding: 20px 0;
-        float: left;
-        margin: 10px 50px;
-        box-shadow: 0px 2px 4px #b8b8b8;
-        color: rgb(63, 62, 62);
-        position: relative;
-        border: 1px solid #DBDCE0;
-        font-size: 16px;
     }
 
    
-    .section1-content > a {
-        font-size: 1.5em;
-        text-decoration: none;
-        color: #F1AEAE;
-        font-family: 'MaplestoryOTFLight';
-    }
-    
-    a:hover {
-    	text-decoration: none !important; 
-    	color: #F1AEAE !important;
-    }
-
-    .section1-content2 {
-        margin-top: 30px;
-    }
-    
-    #content1 {
-        font-family: 'NEXON Lv2 Gothic';
-        line-height: 24px;        
-    }
-
-    #content2 {
-        font-family: 'NanumBarunGothic', sans-serif;
-        line-height: 24px;        
-    }
-
-    #content3 {
-        font-family: 'InfinitySans-RegularA1';
-        line-height: 24px;
-    }
-    
-    
     
     /* 카운트 박스 */
     
@@ -331,7 +146,7 @@
 	}
 	
 	#count-sbox1, #count-sbox2 {
-		border: 1px solid blue;
+		/* border: 1px solid blue; */
 		width: 250px;
 		height: 270px;
 		margin-right: 50px;
@@ -340,7 +155,7 @@
 	}
 	
 	#count-sbox3 {
-		border: 1px solid blue;
+		/* border: 1px solid blue; */
 		width: 250px;
 		height: 270px;
 		margin-right: 0px;
@@ -350,6 +165,7 @@
 	.count-box > span {
 		font-size: 30px;
 		font-family: 'MaplestoryOTFLight';
+		color: white;
 	}
 	
 	.cbox {
@@ -369,12 +185,13 @@
 	
 	/* 매물 검색 창  */
 	.search-room {
-		border: 1px solid #9c9c9c;
-		width: 850px;
+		/* border: 1px solid #9c9c9c; */
+		width: 880px;
 		height: 350px;
 		margin: 100px auto;
 		padding: 50px 60px;
-		border-radius: 10px;
+		border-radius: 20px;
+		background-color: #dcdcdc42;
 	}	
 
 	.search-title {
@@ -385,32 +202,25 @@
 	}
 	
 	.search-box1 {
-		border: 1px solid white;
-		width: 750px;
+		/* border: 1px solid white; */
+		width: 770px;
 		height: 70px;
-		margin-top: 20px;
+		margin-top: 40px;
 		
 	}
 	
-	.search-box2 {
+	.op-box1 {
 		/* border: 1px solid white; */
-		width: 340px;
+		width: 350px;
 		height: 50px;
-		/* background-color: white; */
 		float: left;
+		font-size: 16px;
 	}
 	
-	.search-box2 > div {
-		border-right: 1px solid #e0e0e0;
-		float: left;
-		width: 106px;
-		height: 50px;
-		font-size: 20px;
-		/* background-color: pink; */
-		text-align: center;
-		padding: 10px 0px;
-		font-size: 20px;
-		font-family: 'NanumBarunGothic';
+	
+	.search-box2 > input:hover {
+		background-color: #f1aeae !important;
+		color: white !important;
 	}
 	
 	.search-box2 > .search-last {
@@ -425,13 +235,16 @@
 		width: 610px;
 		height: 50px;
 		float: left;
+		
 	}
 	
+	
+	/* 버튼 */
 	.btn {
-		background-color: #f1aeae;
-   		color: white;
+		background-color: white;
+   		color: #202020;
    		outline: none !important;
-   		font-family: 'NanumBarunGothic';
+   		font-family: 'MaplestoryOTFLight';
    		margin-right: 5px;
    		height: 50px;
    		font-size: 20px;
@@ -440,15 +253,173 @@
 	}
 	
 	
-	/* 첫 페이지에서 원룸, 월세만 빼고 버튼 하얀색 */
-	#btn2, #btn3, #btn5, #btn6 {
-		background-color: white;
-		color: #202020;
+	#btn-search:hover {
+		background-color: white !important;
+		color: #f1aeae !important;
 	}
 	
-	#btn-search {
-		margin-left: 10px;
+	#btn-search:active {
+		background-color: white !important;
+		color: #f1aeae !important;
 	}
+	
+	
+	#btn-search {
+		margin-left: 20px;
+		background-color: #f1aeae;
+		color: white;
+	}
+	
+	.op-box1:nth-child(2) {
+		margin-left: 50px;
+	}
+	
+	.btn-active {
+		background-color: #f1aeae;
+		color: white;
+	}
+	
+	
+	/* 공지사항 */
+	.notice1 {
+		/* border: 1px solid black; */
+		width: 600px;
+		height: 500px;
+		float: left;
+		color: white;	
+		padding: 100px;
+			
+	}
+	
+	.notice1 > span {
+		color: white;
+		display: block;
+	}
+	
+	.large-font {		
+		border: 7px solid white;
+		padding: 10px;
+		width: 400px;
+		margin-top: 150px;
+		font-family: 'MaplestoryOTFLight';
+		font-weight: bold;		
+		font-size: 50px;	
+		background-color: #00000073;	
+	}
+	
+	.small-font {
+		font-size: 20px;
+		margin-top: 10px;
+		display: block;
+		font-weight: 700;
+	}
+	
+	.notice2 {
+		/* border: 1px solid black; */
+		width: 300px;
+		height: 250px;
+		float: left;
+		padding: 40px 35px;
+		/* overflow: hidden; */
+		text-align: left;
+		padding: 20px 35px;
+	}
+	
+	.notice3 {
+		background-color: #ececec;
+	}
+	
+	#n1 {
+		background-image: url(/Myhome_project/image/9.jpg);
+		background-size: cover;
+        background-position: 50% 50%;
+	}
+	
+	.notice4 {
+		border: 1px solid #ececec;
+	}
+	
+	.large-title {
+		font-size: 20px;
+		font-family: 'MaplestoryOTFLight';
+		text-align: center;
+		color: #202020;
+		margin-left: 15px;
+	}
+	
+	.notice2 > ul {
+		margin-top: 20px;
+		padding: 0px;
+		font-size: 16px;
+	}
+	
+	
+	.notice2 > ul > li {
+		list-style: none;
+		line-height: 1.7;
+		text-align: left;
+		font-family: 'NanumBarunGothic';
+	}
+	
+	.notice2 > .glyphicon {
+		font-size: 28px;
+		color: #f1aeae;
+		margin-right: 30px;
+		text-align: center;
+	}
+	
+	.span-block {
+		display: block;
+		text-align: center;
+	}
+	
+	.span-block:nth-child(2) {
+		margin-top: 50px;
+		font-size: 30px;
+		font-weight: 700;
+		
+	} 
+	
+	.main-tran {
+		/* border: 1px solid black; */
+		width: 400px;
+		height: 100px;
+		margin-top: 10px;
+		background-color: #00000099;
+		padding: 10px;
+	
+	}
+	
+	
+	.more {
+		border: 1px solid #eccfcf;
+	    width: 80px;
+	    height: 30px;
+	    text-align: center;
+	    padding: 3px;
+	    float: left;
+	    margin-left: 150px;
+	    font-size: 14px;
+	    font-family: 'NanumBarunGothic';
+	    background-color: transparent;
+	    color: #202020;
+	}
+	
+	.more:hover {
+		background-color: #f6afb3;
+		color: white;
+	}
+	
+	input[type=checkbox] {
+		display: none;
+	}
+	
+	input[type="checkbox"]:checked + label {
+		background-color: #f6afb3;
+		color: white;
+	}
+	
+	
 	
 	
 	
@@ -472,62 +443,53 @@
       		</div>
       		<div class="count-box" id="count-sbox2">
       			<span>전체 매물</span>
-      			<div class="cbox">320</div>
+      			<div class="cbox">${count1 }</div>
       		</div>
       		<div class="count-box" id="count-sbox3">
       			<span>계약완료</span>
-      			<div class="cbox">220</div>
+      			<div class="cbox">${count2 }</div>
       		</div>
         </div> 
+         
+         
 
-    <!-- 검색 박스 -->
-     <!--  <div class="search">
-            <div id="search-title"><span class="glyphicon glyphicon-search"></span><span>원하는 방을 검색해보세요.</span></div>
-            <div class="category-room category">
-                <input type="button" value="원룸" class="btn2">
-                <input type="button" value="투룸" class="btn2">
-                <input type="button" value="오피스텔" class="btn2">
-            </div>
-            <div class="category-contract category">
-                <input type="button" value="전세" class="btn2">
-                <input type="button" value="월세" class="btn2">
-                <input type="button" value="매매" class="btn2">
-            </div>
-            <div class="search-room">
-                <input class="txt_btn1 txt1" type="text" value="지역, 지하철역을 검색해주세요.">
-                <input class="txt_btn1 btn1" id="btn1" type="submit" value="검색">
-            </div>
-        </div> -->
-        
-        
-        
-        
         <!-- 검색창 -->
      	<div class="search-room">
      		<div class="search-title"><span class="glyphicon glyphicon-search"></span> 원하는 방을 검색해보세요.</div>
      		
+     		<form method="GET" action="/Myhome_project/contractor/search-contractor.do"> 
      		<!-- 원룸, 투룸, 전세, 월세 -->
      		<div class="search-box1">
      		
-     			<div class="search-box2">
-     				<div class="btn btn-big" id="btn1">원룸</div>
-     				<div class="btn btn-big" id="btn2">투룸</div>
-     				<div class="btn btn-big" id="btn3">오피스텔</div>
+     		
+     			<div class="op-box1">
+     				<input type="checkbox" name="room" id="btn1" value="원룸" checked onclick='checkOnlyOne(this)'>
+     				<label for="btn1" class="btn btn-big">원룸</label>
+     				<input type="checkbox" name="room" id="btn2" value="투룸" onclick='checkOnlyOne(this)'>
+     				<label for="btn2" class="btn btn-big">투룸</label>
+     				<input type="checkbox" name="room" id="btn3" value="오피스텔" onclick='checkOnlyOne(this)'>
+     				<label for="btn3" class="btn btn-big">오피스텔</label>
      			</div>
      			
-     			<div class="search-box2">
-     				<div class="btn btn-big2" id="btn4">월세</div>
-     				<div class="btn btn-big2" id="btn5">전세</div>
-     				<div class="btn btn-big2" id="btn6">매매</div>
+     			<div class="op-box1">
+     				<input type="checkbox" name="deal" id="btn4" value="월세" checked onclick='checkOnlyOne2(this)'>
+     				<label for="btn4" class="btn btn-big">월세</label>
+     				<input type="checkbox" name="deal" id="btn5" value="전세" onclick='checkOnlyOne2(this)'>
+     				<label for="btn5" class="btn btn-big">전세</label>     				
+     				<input type="checkbox" name="deal" id="btn6" value="매매" onclick='checkOnlyOne2(this)'>
+     				<label for="btn6" class="btn btn-big">매매</label>
      			</div>
      			
+     		
      		</div>
      		
      		
      		<!-- 지하철역 검색 -->
      		<div class="search-box1">
-     			<input type="text" class="form-control" placeholder="지역, 지하철역을 검색해주세요.">
-     			<button class="btn btn-outline-secondary" type="button" id="btn-search">검색하기</button>
+     			<input type="text" class="form-control search-box2" name="location" placeholder="지역을 검색해주세요.">
+     			<input type="submit" class="btn" id="btn-search" value="검색하기"></div>
+     			
+     		</form>	
      		</div>
      	</div>
      	
@@ -539,37 +501,55 @@
 
     <div class="section1">
         <div class="content">
-            <div id="content1" class="section1-content">
-                <a href="">이용가이드</a>
-                <div class="section1-content2">
-                    이용가이드 1<br>
-                    이용가이드 2<br>
-                    이용가이드 3<br>
-                    NEXON Lv2 Gothic<br>
-                </div>
-            </div>
-            <div id="content2" class="section1-content">
-                <a href="">전자계약서 바로알기</a>
-                <div class="section1-content2">
-                    전자계약서 바로알기1<br>
-                    전자계약서 바로알기2<br>
-                    전자계약서 바로알기3<br>
-                    NanumBarunGothic<br>
-                </div>
-            </div>
-            <div id="content3" class="section1-content">
-                <a href="">공지사항</a>
-                <div class="section1-content2">
-                    공지사항1<br>
-                    공지사항2<br>
-                    공지사항3<br>
-                    InfinitySans-RegularA1<br>
-                </div>
-            </div>
+       		<div class="notice1" id="n1">
+       			<span class="large-font">MYHOME</span>
+       			<div class="main-tran">
+       				<span class="small-font">방구하기부터 전자계약까지 한번에!</span>
+       				<span class="small-font">당신이 찾던 마이홈</span>
+       			</div>
+       		</div>
+       		<div class="notice2 notice4" id="n2">
+       			<span class="glyphicon glyphicon-bullhorn"><span class="large-title">공지사항</span></span>
+       			<ul>
+       			<c:forEach items="${notice }" var="dto1" begin="0" end="3">
+       				<li>${dto1.notice }</li>
+       			</c:forEach>
+       			</ul>
+       			
+       			<!-- 연결안됨 -->
+       			<div class="more btn" onclick="location.href='/Myhome/user/boardnoticelist.do';">more</div>
+       		</div>
+       		<div class="notice2 notice3 no-title" id="n3">
+       			<span class="glyphicon glyphicon-pencil"><span class="large-title">청약알림</span></span>
+       			<ul>
+       			<c:forEach items="${application }" var="dto2" begin="0" end="3">
+       				<li>${dto2.application }</li>
+       			</c:forEach>
+       			</ul>
+       			<div class="more btn" onclick="location.href='/Myhome/user/boardapplicatioinlist.do';">more</div>
+       		</div>
+       		<div class="notice2 notice3">
+       			<span class="glyphicon glyphicon-ok"><span class="large-title">부동산 체크리스트</span></span>   
+       			<ul>
+       			<c:forEach items="${checkList }" var="dto3" begin="0" end="3">
+       				<li>${dto3.check }</li>
+       			</c:forEach>
+       			</ul>    	
+       			<div class="more btn" onclick="location.href='/Myhome/user/boardchecklist.do';">more</div>		
+       		</div>
+       		<div class="notice2 notice4">
+       			<span class="glyphicon glyphicon-info-sign"><span class="large-title">고객센터</span></span>
+       			
+       			<span class="span-block">02-1234-0000</span>
+       			<span class="span-block">09:00 ~ 18:00</span>
+       		</div>
         </div>
+    
+    
+    <!-- main-wrap -->
     </div>
     
-</div><!-- main-wrap -->
+
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 <!-- </div> -->
@@ -604,6 +584,51 @@ $(window).scroll(function() {
 });
 
 
+	//체크박스는 하나만 선택
+	function checkOnlyOne(element) {
+		const checkbox = document.getElementsByName("room");
+		
+		checkbox.forEach((cb) => {
+			  cb.checked = false;
+		})
+		
+		 element.checked = true;
+	}
+	
+	function checkOnlyOne2(element) {
+		const checkbox2 = document.getElementsByName("deal");
+		
+		checkbox2.forEach((cb) => {
+			  cb.checked = false;
+		})
+		
+		 element.checked = true;
+	}
+	
+	
+	//메인 이미지 4초마다 변경
+	
+	var count = 0;
+	
+	$(document).ready(function() {
+		setInterval("onChange()", 4000);
+	})
+	
+	function onChange() {
+		
+		count++;
+		$(".main1").css("background-image", "url(/Myhome_project/image/main-img/" + count + ".jpg");
+		
+		if(count > 6) {
+			count = 0;
+		}
+		
+	}
+	
+	
+	
+	
+	
 
 </script>
 </body>

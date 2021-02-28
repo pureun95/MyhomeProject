@@ -199,7 +199,7 @@
 		width: 1000px;
 		height: 520px;
 		background-color: rgb(245, 245, 245, .6);
-		/* border-radius: 30px; */
+		border-radius: 40px;
 	
 	}
 	

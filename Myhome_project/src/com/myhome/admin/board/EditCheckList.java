@@ -26,6 +26,27 @@ public class EditCheckList extends HttpServlet {
 		ChecklistDAO dao = new ChecklistDAO();
 		ChecklistDTO dto = dao.getchecklist(seq);
 		
+/*		HttpSession session = req.getSession();
+		
+		if(!dto.getId().equals((String)session.getAttribute("id"))) {
+			
+			//권한 없음 -> 쫒아내기
+			PrintWriter writer = resp.getWriter();
+			
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('filed');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+			
+			return;//**********
+		}
+*/		
+		
+		
 		//3.
 		req.setAttribute("dto", dto);
 		

@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * 신고게시글 목록 반환 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/report/list.do")
 public class List extends HttpServlet {
 
@@ -137,6 +141,7 @@ public class List extends HttpServlet {
 
 		ArrayList<ReportDTO> list = dao.list(map);
 	
+		dao.close();
 		if( !category.equals("0")) {
 			req.setAttribute("list", list);
 			req.setAttribute("search", search);

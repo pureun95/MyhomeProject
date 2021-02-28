@@ -1,5 +1,6 @@
 package com.myhome.admin.moveclean;
 
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +11,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 청소업체 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 등록(add), 수정(edit), 삭제(delete)
+ */
 public class CleanDAO {
 
 	private Connection conn;
@@ -116,7 +122,7 @@ public class CleanDAO {
 		
 		try {
 			
-			String sql ="insert into tblClean (seqClean, seqLocation, seqImage, name, tel, address, businessNum, price, introduce) values (SEQCLean.nextVal, default, ?, ?, ?, ?, ?, ?, ?)";
+			String sql ="insert into tblClean (seqClean, seqLocation, seqImage, name, tel, address, businessNum, price, introduce) values (SEQCLean.nextVal, 1, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getImage());

@@ -22,6 +22,8 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 
 <style>
+
+
 body, html {
 	height: 100%;
 	margin: 0 auto;
@@ -151,6 +153,12 @@ body, html {
 	outline: 0;
 	display: inline;
 	margin-right: 10px;
+}
+
+/* 추가 요청 등록 */
+.container{
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 

@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 신고 게시글 회업 재제 카운트 증가 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/report/CountOk.do")
 public class CountOk extends HttpServlet {
 
@@ -38,6 +42,7 @@ public class CountOk extends HttpServlet {
 		int result = dao.reportCount(pUser,category,seqReport);
 		int allOk = 0;
 
+		dao.close();
 		if (result == 1) {
 			allOk = 1;  //dao.chat(seqAdmin,rUser ,pUser);
 			

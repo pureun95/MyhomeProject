@@ -1,5 +1,10 @@
 package com.myhome.admin2.notice;
-
+/**
+ * 
+ * 공지사항 DB작업 DTO클래스 
+ * @author 이대홍
+ *
+ */
 public class NoticeDTO {
 
 	private String seqNotice;

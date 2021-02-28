@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 부동산 정책 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 등록(add), 수정(edit), 삭제(delete)
+ */
 public class PolicyDAO {
 	
 	private Connection conn;
@@ -33,6 +38,7 @@ public class PolicyDAO {
 	}
 
 
+	//list
 	public ArrayList<PolicyDTO> listpolicy(HashMap<String, String> map) {
 
 		try {
@@ -143,7 +149,7 @@ public class PolicyDAO {
 		
 		try {
 			
-			String sql = "update tblPolicy set title = ?, content= ? where seq = ?";
+			String sql = "update tblPolicy set title = ?, content= ? where seqPolicy = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getTitle());
@@ -208,6 +214,106 @@ public class PolicyDAO {
 			System.out.println(e);
 		}
 		
+	}
+
+
+	public int delete(String seq) {
+		
+		try {
+			
+			String sql = "update from tblPolicy set title = ?, content = ? where seqPolicy = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq); //글번호
+			
+			return pstat.executeUpdate();	//1 or 0
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+	//DeletePolicyOk -> 다중선택 삭제
+	public int delete(String[] seq) {
+		
+		int count = seq.length;
+		String in = "";
+		
+		if (seq.length != 1) {
+			for(int i = 0; i<count -1; i++) {
+				in += seq[i] + ",";
+			}
+			
+			in += seq[count -1]; 
+		}else {
+			in = seq[0];
+		}
+		
+		
+		try {
+			String sql = String.format("delete tblPolicy where seqPolicy in ( %s ) ", in);
+			
+			pstat = conn.prepareStatement(sql);
+			
+			int result = pstat.executeUpdate();
+			pstat.close();
+			
+			return result;
+			
+		} catch (Exception e2) {
+			System.out.println();
+		}
+		return 0;
+	}
+
+	//삭제할 리스트 받아오기
+	public ArrayList<PolicyDTO> list(String[] seq) {
+		
+		try {
+			
+			int count = seq.length;
+			String in ="";
+			
+			if(seq.length != 1) {
+				for(int i =0; i <count -1; i++) {
+					in += seq[i] + ",";
+				}
+				
+				in += seq[count -1];
+			}else {
+				in = seq[0];
+			}
+			
+			String sql = String.format("select * from tblPolicy where in (%s) order by seqPolicy desc", in);
+		
+			pstat = conn.prepareStatement(sql);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<PolicyDTO> list = new ArrayList<PolicyDTO>();
+			
+			while(rs.next()) {
+				PolicyDTO dto = new PolicyDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setSeqadmin(rs.getString("seqadmin"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setId(rs.getString("id"));
+				dto.setWritedate(rs.getString("writedate"));
+				dto.setViewcount(rs.getString("viewcount"));
+				
+				list.add(dto);
+			}
+			rs.close();
+			pstat.close();
+			return list;
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		} 
+		return null;
 	}
 
 }

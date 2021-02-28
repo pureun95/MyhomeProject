@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/Myhome_project/css/footer.css">
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
+<!-- <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css"> -->
 
 <style>
 
@@ -34,15 +35,18 @@
     </div>
 
 
-	
-
-    <div id="chat"></div>
-    
-    
+    <a id="chat" target="_blank" onclick="chat();" ></a>
 
 <script>
 
 	
+	//채팅팝업
+	function chat(){
+	    var url = "/Myhome_project/member/chat.do";
+	    var name = "popup test";
+	    var option = "width = 450, height = 630, top = 100, left = 200, location = no"
+	    window.open(url, name, option);
+	}
 	
 
 </script>

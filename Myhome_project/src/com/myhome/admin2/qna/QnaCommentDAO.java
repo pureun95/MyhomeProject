@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+
+/**
+ * QNA 질문 답글 반환 DB작업 페이지 
+ * @author 이대홍
+ *
+ */
 public class QnaCommentDAO {
 
 	private Connection conn;
@@ -52,7 +58,10 @@ public class QnaCommentDAO {
 				dto.setSeqQna(rs.getString("seqQna"));
 				dto.setContent(rs.getString("content"));
 				dto.setWriteDate(rs.getString("writeDate"));
-				System.out.println("여DAO는 되나요?");
+				
+				rs.close();
+				ps.close();
+				
 				return dto; 
 			}
 				

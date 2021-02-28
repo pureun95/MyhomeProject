@@ -159,7 +159,9 @@
                     <th class="list">조회수</th>
                 </tr>
                 
+                <form action="/Myhome_project/admin/board/deletepolicyok.do" method="POST" id="form1">
                 <c:forEach items="${listpolicy}" var="dto">
+                <input type="hidden" name ="seq" value="${dto.seq}">
                 <tr class="boardtr">
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
                     <td class="list">${dto.seq}</td>
@@ -173,6 +175,7 @@
                
                 
             </table>
+
             
             <div class="boardalert">				
 				<div class="alert alert-danger" role="alert">
@@ -180,12 +183,13 @@
 				  <span class="sr-only">경고!</span>
 				  위의 항목(들)을 삭제하시겠습니까? 삭제하시려면 아래의 '삭제'버튼을 눌러 주세요.
 				</div>
-			</div>	
+			</div>
             
             <div class="btns">
             	<input type="button" class="btn" value="목록" id="edit" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';">
-            	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicyok.do';">
+            	<input type="submit" class="btn" value="삭제" id="delete">
            	</div>
+           	</form>
            	
 	       
             
