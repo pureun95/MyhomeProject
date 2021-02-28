@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 체크리스트 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 상세보기(view), 등록(add), 수정(edit), 삭제(delete)
+ */
 public class ChecklistDAO {
 	
 	private Connection conn;
@@ -77,6 +82,7 @@ public class ChecklistDAO {
 		return null;
 	}
 
+	//AddChecklistOk -> 작성
 	public int addchecklist(ChecklistDTO dto) {
 		try {
 			
@@ -130,11 +136,12 @@ public class ChecklistDAO {
 		return null;
 	}
 
+	//EditChecklistOk -> 글수정
 	public int editchecklist(ChecklistDTO dto) {
 
 		try {
 			
-			String sql = "update tblCheacklist set title =?, content =? where seq = ?";
+			String sql = "update tblChecklist set title =?, content =? where seqChecklist = ?";
 		
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getTitle());

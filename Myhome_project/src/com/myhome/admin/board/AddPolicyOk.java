@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 부동산 정책 등록 DB 서블릿입니다.
+ * @author 윤지현
+ * 
+ */
 @WebServlet("/admin/board/addpolicyok.do")
 public class AddPolicyOk extends HttpServlet {
 
@@ -18,7 +23,7 @@ public class AddPolicyOk extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-		//1. 데이터 가져오기 (subject, content)
+		//1. 데이터 가져오기 (title, content)
 		//2. DB작업 > insert
 		//3. 결과 처리
 		

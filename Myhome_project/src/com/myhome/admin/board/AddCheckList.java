@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 체크리스트 등록 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
+
 @WebServlet("/admin/board/addchecklist.do")
 public class AddCheckList extends HttpServlet {
 

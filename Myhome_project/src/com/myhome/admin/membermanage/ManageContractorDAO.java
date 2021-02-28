@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 중개인회원 관리 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 상세페이지(view), 삭제(delete)
+ */
 public class ManageContractorDAO {
 
 	private Connection conn;

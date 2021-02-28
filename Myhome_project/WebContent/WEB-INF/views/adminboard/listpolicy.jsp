@@ -149,7 +149,8 @@
 	            '${search}'(으)로 ${listpolicy.size()}건의 게시물을 검색했습니다.
         </div>
         </c:if>
-		
+        
+		<form method="POST" action="/Myhome_project/admin/board/deletepolicy.do">
 		<table id="tbl1" class="table table-hover table-striped table-condensed">
     
                 <tr class="headtr">
@@ -161,9 +162,10 @@
                     <th class="list">조회수</th>
                 </tr>
                 
+               
                 <c:forEach items="${listpolicy}" var="dto">
                 <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
+                	<td class="list"><input type="checkbox" name="seq" id="seq" value="${dto.seq}"></td>
                     <td class="list">${dto.seq}</td>
                     <td class="list" id="policytitle" onclick="location.href='/Myhome_project/admin/board/viewpolicy.do?seq=${dto.seq}';">${dto.title}</td>
                     <td class="list">${dto.id}</td>
@@ -178,8 +180,9 @@
             
             <div class="btns">
             	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addpolicy.do';">
-            	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicy.do';">
+            	<input type="button" class="btn" value="삭제" id="delete">
            	</div>
+           	</form>
            	
 	       	<!-- 페이징 -->
 	       	<nav class="pagebar">
@@ -204,6 +207,17 @@
 	
 	<!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+ 
+ 	<script>
+ 		var cbarr = [];
+ 		$("#delete").click(function(){
+ 			$("input[type='checkbox'][name='seq']:checked").each(funtion(){
+ 				cbarr.push($(this).val());
+ 			})
+ 			this.form.submit();
+ 		});
+ 	
+ 	</script>
  
 </body>
 </html>
