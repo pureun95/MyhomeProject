@@ -30,6 +30,8 @@
         min-height:100%;
 		padding-bottom:100px;
 		border: 0px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -200,7 +202,7 @@
 		width: 1000px;
 		height: 800px;
 		background-color: rgb(245, 245, 245, .6);
-		border-radius: 40px;
+		/* border-radius: 30px; */
 	
 	}
 	
