@@ -66,6 +66,11 @@ public class Login extends HttpServlet {
 		} else if( seqAdmin != null ) {
 			HttpSession session = req.getSession();
 			
+			// 02/26강제 접속시 퇴장용도 
+			// admin을 불러와서 안불러와지면 강퇴.
+			String admin = "admin";
+			
+			session.setAttribute("admin", admin );
 			session.setAttribute("SeqAdmin", seqAdmin );
 			//관리자 페이지로 이동
 			System.out.println("관리자가 로그인 했습니다.");
