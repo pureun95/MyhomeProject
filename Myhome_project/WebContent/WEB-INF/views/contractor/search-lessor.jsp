@@ -309,7 +309,7 @@
                 
                     <div class="img-property">           
  
-	                   <c:if test="${dto.response eq '수락' }">	           
+	                   <c:if test="${dto.response eq '1' }">	           
 	                    <div class="state">매칭완료</div>             
 	                    </c:if>
 	                     

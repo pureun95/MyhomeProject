@@ -322,7 +322,7 @@
 		 <!-- 중개인 메뉴 -->
 		 <c:if test="${empty nickname }">
 		 	
-		 	<c:if test="${not empty seqAlluser }">
+		 	<c:if test="${not empty seq }">
 		 	<a href="search-lessor.do">임대인이 올린 방</a>
 		 	<a href="search-contractor.do">중개인이 올린 방</a>
 		 	</c:if>

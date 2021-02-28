@@ -32,7 +32,6 @@ public class PropertyLessorDetail extends HttpServlet{
 			
 		//4. 매물상세보기로 보내기
 			req.setAttribute("list", LessorPropertyDetail);
-		
 			
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/property-lessor-detail.jsp");

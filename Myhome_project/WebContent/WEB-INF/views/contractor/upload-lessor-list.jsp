@@ -248,6 +248,7 @@
    		color: white;
    		outline: none !important;
    		font-family: 'NanumBarunGothic';
+   		
    	} 
    	
    	.btn:active {
@@ -339,6 +340,40 @@
    }
    
    
+   .tenantid {
+   		border: 1px solid #dedede;
+   		width: 400px;
+   		margin: 0px auto;
+   		position: fixed;
+   		border-radius: 30px;
+   		padding: 50px 40px;
+   		left: 700px;
+   		top: 400px;
+   		background-color: white;
+   		font-family: 'NanumBarunGothic';
+   		visibility: hidden;
+   		height: 170px;
+   }
+   
+   .tenantid > span {
+   		display: block;
+   		font-size: 20px;
+   		text-align: center;
+   		font-family: 'MaplestoryOTFLight';
+   		color: #f1aeae;
+   }
+   
+   #check {
+   		margin-top: 20px;
+   		margin-left: 130px;
+   }
+   
+   .pagination > li > a {
+   		color: #202020;
+   }
+   
+   
+   
    	
     
 
@@ -356,7 +391,9 @@
  <!-- 임대인과 매칭된 매물 리스트만 보여주기 + 체크박스 > 방올리기 페이지 이동 -->
  
      <div class="container">
-        <div class="boardcover">
+  	
+        
+       
             		 
 		 <!-- 상단 게시판 타이틀 -->
 		 <div class="board-name">방올리기</div>
@@ -364,25 +401,36 @@
 		 	<div class="matching-option">
 		 	<c:if test="${list.size() > 0 }">
 		 		<span>임대인과 매칭된 매물리스트입니다.</span>
-		 	</c:if>	 		 			
+		 	</c:if>	 		 
+		 	
+		 	<c:if test="${list.size() == 0 }">
+		 		<span>임대인과 매칭된 매물이 없어요.</span>
+		 	</c:if>	 		
+		 				
 		 	</div>
-        
+        	
                 
          <!-- 리스트 -->
 		 <div class="property-box">		 	
 		 
-		 <!-- form -->
-		 <form action="POST">
+		 <form method="GET" action="/Myhome_project/contractor/upload-lessorok.do">
 		 
 		 <c:forEach items="${list }" var="dto">
+		 <!-- form -->
 		 <c:if test="${list.size() > 0}">
                 <div class="property-list">
-                	<div class="checkbox"><input type="checkbox" id="ck"></div>    		      
+                	<div class="checkbox">
+                	<input type="checkbox" name="seq" id="ck" value="${dto.seqLessorProperty }" onclick='checkOnlyOne(this)'>
+                </div>
+                	
+                	<input type="hidden" value="${dto.seqLessorProperty }">
+                	    		      
                     <div class="img-property">               
                     	<div class="state nickname">${dto.nickname }</div>
                     </div>
                     <div class="property-list2">
                         <div class="property-num">no. ${dto.seqLessorProperty }</div>
+                        
                         <div class="property-title">${dto.title }</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
@@ -431,6 +479,9 @@
                     </div>
                 </div>
                 </c:if>
+                
+                <input type="hidden" value="${dto.seqLessorProperty }">
+                
                </c:forEach>
                 
                 <c:if test="${list.size() == 0 }">
@@ -442,9 +493,10 @@
                 
 			<!-- 올리기 버튼 -->
 			<c:if test="${list.size() > 0 }">
-				<button class="btn btn-outline-secondary" type="button" id="btn-upload">방올리기</button>
+				<input type="button" class="btn btn-outline-secondary" value="방올리기" id="btn-upload"></input>
             </c:if>    
         
+				
         <c:if test="${list.size() > 0 }">   
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
@@ -454,36 +506,63 @@
 				</ul>       		
 	       	</div>
 	       		
-	       		
+	       	
 	    	<div id="search-box">		
 				<input type="text" class="form-control" id="search-text" placeholder="닉네임, 매물번호를 입력해주세요."> 		
 				<button class="btn btn-outline-secondary" type="button" id="button-addon1">검색</button>
-			</div>
+		</div>
        	<!-- search-paging -->
       
        	</div>         
 		</c:if>
-		<!-- form -->
-		</form>
-                
+		
+		
+			<div class="tenantid">              
+        	<span>매물 올리기가 완료되었습니다.</span>
+        		<div class="btns">
+                	<input type="submit" class="btn btn-outline-secondary btn2" id="check"  value="확인">
+                </div>
+        	</div>
+        
+        </form>        
         <!-- property-box -->
         </div>
         
         
         
+         
         
-    
-             
     <!-- container -->        
 	</div>  
-   
-    
-  
+
    </div>
            
-            
-</div>
 
+
+<script>
+
+	$("#btn-upload").click(function() {
+		$(".tenantid").css("visibility", "visible");
+		$(".tenantid").css("z-index", "999");
+	})
+	
+	$("#check").click(function() {
+		$(".tenantid").css("visibility", "hidden");
+	})
+	
+	
+	//체크박스는 하나만 선택
+	function checkOnlyOne(element) {
+		const checkbox = document.getElementsByName("seq");
+		
+		checkbox.forEach((cb) => {
+			  cb.checked = false;
+		})
+		
+		 element.checked = true;
+	}
+	
+</script>
 
  
      <!-- footer -->
