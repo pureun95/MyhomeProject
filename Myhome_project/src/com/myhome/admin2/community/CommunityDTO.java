@@ -1,5 +1,10 @@
 package com.myhome.admin2.community;
 
+
+/**
+ * 정보공유 게시판 DTO 
+ * @author 홍
+ */
 public class CommunityDTO {
 //vwCC
  

@@ -10,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 청약 삭제 관련 서블릿   
+ * @author 이대홍
+ */
 @WebServlet("/admin2/application/delete.do")
 public class Delete extends HttpServlet {
 	
@@ -18,10 +21,6 @@ public class Delete extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		String[] seqApplication = req.getParameterValues("seq");// 배열로 번호를 받음.
-		String temp = Arrays.toString(seqApplication);
-
-		System.out.println(temp);
-		System.out.println("배열 갯수 : " + Arrays.toString(seqApplication));
 
 		ApplicationDAO dao = new ApplicationDAO();
 

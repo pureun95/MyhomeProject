@@ -1,5 +1,12 @@
 package com.myhome.admin2.qna;
 
+
+/**
+ * QNA 답글 게시글 DB 업무 처리 DTO
+ * @author 이대홍
+ *
+ */
+
 public class QnaCommentDTO {
 	
 	private String seqQnAComment;

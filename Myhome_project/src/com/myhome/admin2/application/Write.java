@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 청약 게식글 글쓰기 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/application/write.do")
 public class Write extends HttpServlet {
 

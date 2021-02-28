@@ -1,5 +1,8 @@
 package com.myhome.admin2.application;
-
+/**
+ * 청약 DTO   
+ * @author 이대홍
+ */
 public class ApplicationDTO {
 
 	private String seqAdmin;

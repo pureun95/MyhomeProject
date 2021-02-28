@@ -9,7 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 정보공유 게시글 1개 상세 보기 페이지 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/community/view.do")
 public class View extends HttpServlet {
 
@@ -34,7 +37,7 @@ public class View extends HttpServlet {
 			}
 		
 		}
-		
+		dao.close();
 		
 		req.setAttribute("dto", dto);
 		req.setAttribute("list", list);

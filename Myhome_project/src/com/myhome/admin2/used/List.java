@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * 중고장터 게시글 목록반환 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/used/list.do")
 public class List extends HttpServlet {
 
@@ -136,6 +140,7 @@ public class List extends HttpServlet {
 			
 		}
 		
+		dao.close();
 		if( !category.equals("0")) {
 			req.setAttribute("list", list);
 			req.setAttribute("search", search);

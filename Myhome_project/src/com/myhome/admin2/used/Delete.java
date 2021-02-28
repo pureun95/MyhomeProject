@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 중고장터 게시글 삭제 페이지 서블릿 
+ * @author 이대홍
+ *
+ */
+
 @WebServlet("/admin2/used/delete.do")
 public class Delete extends HttpServlet {
 
@@ -32,6 +38,9 @@ public class Delete extends HttpServlet {
 
 		}
 
+		
+		dao.close();
+		
 		req.setAttribute("list", list);
 		req.setAttribute("category", category);
 		

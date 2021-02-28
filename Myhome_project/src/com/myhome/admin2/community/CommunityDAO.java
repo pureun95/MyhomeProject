@@ -6,11 +6,12 @@ import java.util.HashMap;
 import com.myhome.DBUtil;
 import com.myhome.admin2.Admin2;
 
-public class CommunityDAO extends Admin2 {
+/**
+ * 정보공유 게시판 DB처리 DAO Admin2 상속
+ * @author 이대홍
+ */
 
-	public CommunityDAO() {
-		conn = DBUtil.open();
-	}
+public class CommunityDAO extends Admin2 {
 
 	@Override
 	public ArrayList<CommunityDTO> list(HashMap<String, String> map) {
@@ -50,7 +51,9 @@ public class CommunityDAO extends Admin2 {
 				list.add(dto);
 
 			}
-
+			rs.close();
+			ps.close();
+			
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -78,9 +81,13 @@ public class CommunityDAO extends Admin2 {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 
-			while (rs.next()) {
-
-				return rs.getInt("count");
+			if (rs.next()) {
+				int result = rs.getInt("count");
+				
+				rs.close();
+				ps.close();
+				
+				return result;
 
 			}
 
@@ -133,7 +140,10 @@ public class CommunityDAO extends Admin2 {
 				list.add(dto);
 
 			}
-
+			
+			rs.close();
+			ps.close();
+			
 			return list;
 
 		} catch (Exception e) {
@@ -163,8 +173,12 @@ public class CommunityDAO extends Admin2 {
 			String sql = String.format("update tblCommunity set title = ' '  where seqCommunity in ( %s ) ", in);
 
 			ps = conn.prepareStatement(sql);
-
-			return ps.executeUpdate();
+			
+			
+			int result = ps.executeUpdate();
+			
+			ps.close();
+			return result;
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -195,6 +209,9 @@ public class CommunityDAO extends Admin2 {
 				dto.setCount(rs.getString("count"));
 				dto.setViewCount(rs.getString("viewCount"));
 
+				rs.close();
+				ps.close();
+				
 				return dto;
 			}
 
@@ -231,6 +248,8 @@ public class CommunityDAO extends Admin2 {
 				list.add(dto);
 			}
 
+			rs.close();
+			st.close();
 			return list;
 			
 		} catch (Exception e) {
@@ -251,7 +270,12 @@ public class CommunityDAO extends Admin2 {
 			String sql = "update tblCommunityComment set content = ' '  where seqCommunityComment = "+seqCommunityComment; 
 			
 			st =conn.createStatement();
-			return st.executeUpdate(sql);
+			
+			int result = st.executeUpdate(sql);
+			
+			st.close();
+			
+			return result;
 			
 		} catch (Exception e) {
 			// TODO: handle exception

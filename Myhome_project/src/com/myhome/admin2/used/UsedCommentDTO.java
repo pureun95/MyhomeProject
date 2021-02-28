@@ -1,5 +1,9 @@
 package com.myhome.admin2.used;
-
+/**
+ * 중고 장터 댓글 DB업무 DTO 클래스
+ * @author 이대홍
+ *
+ */
 public class UsedCommentDTO {
 
 
