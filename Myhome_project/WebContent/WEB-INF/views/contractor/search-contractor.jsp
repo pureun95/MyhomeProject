@@ -271,7 +271,31 @@
    		margin-top: 0px;
    }
    
+   .search-result {
+   		font-size: 16px;
+   		font-family: 'NanumBarunGothic';
+   }
+   
+   .nothing {
+   		height: 250px;
+   }
+   
+   .nothing1 {
+   		margin-top: 130px;
+   		font-size: 50px;
+   		color: #f1aeae;
+   		font-family: 'MaplestoryOTFLight';
+   		display: block;
+   		text-align: center;
+   }
    	
+   .nothing2 {
+   		font-size: 16px;
+   		color: #202020;
+   		display: block;
+   		font-family: 'NanumBarunGothic';
+   		text-align: center;
+   }
     
 
 </style>
@@ -297,16 +321,56 @@
 		 
 		 <!-- 중개인 메뉴 -->
 		 <c:if test="${empty nickname }">
+		 	
+		 	<c:if test="${not empty seqAlluser }">
 		 	<a href="search-lessor.do">임대인이 올린 방</a>
-		 		<a href="search-contractor.do">중개인이 올린 방</a>
+		 	<a href="search-contractor.do">중개인이 올린 방</a>
+		 	</c:if>
+		 	
 		 </c:if>	
 		 
 		 <!-- 일반회원 메뉴 -->
 		  <c:if test="${not empty nickname }">
-		 	<a href="search-contractor.do">중개인이 올린 방</a>
+		 	<a href="search-contractor.do">중개인이 올린 방 리스트 입니다.</a>
 		 </c:if>		 		 			
 		 </div>
-                
+         
+         
+         <!-- 메인에서 검색으로 들어왔을 때 -->
+        
+         <!-- 다 검색된 경우 -->
+          <c:if test="${not empty deal and not empty room and not empty location}">
+           	<c:if test="${list.size() == 0 }">
+           		<div class="nothing">
+           			<span class="nothing1">NOTHING</span>
+         			<span class="nothing2">검색결과가 없어요.</span>
+         		</div>
+         	</c:if>
+          
+          	<c:if test="${list.size() > 0 }">
+         	<span class="search-result">${deal }, ${room }, ${location } (으)로 검색한 결과입니다.</span>
+         	</c:if>
+         </c:if>
+        
+        
+        <!-- 지역이 빈 경우 -->
+         <c:if test="${not empty deal and not empty room and empty location}">
+         
+         	<c:if test="${list.size() == 0 }">
+         		<div class="nothing">
+           			<span class="nothing1">NOTHING</span>
+         			<span class="nothing2">검색결과가 없어요.</span>
+         		</div>
+         	</c:if>
+         	
+         	<c:if test="${list.size() > 0 }">
+         		<span class="search-result">${deal }, ${room }(으)로 검색한 결과입니다.</span>
+         	</c:if>
+         </c:if>
+         
+	
+        		
+        	  
                 
          <!-- 리스트 -->
 		 <div class="property-box">		 			 	
@@ -384,7 +448,7 @@
                </c:forEach> 
                 
                                           
-
+	<c:if test="${list.size() > 0 }">
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
 	   		<div class="paging">
@@ -400,7 +464,7 @@
 			</div>
        	<!-- search-paging -->
        	</div>         
-              
+         </c:if>     
                         
         <!-- property-box -->
         </div>
