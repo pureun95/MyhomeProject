@@ -183,7 +183,7 @@
    }
    
    .t2 {
-   		border: 1px solid black;
+   		/* border: 1px solid black; */
    		margin-top: 30px;
    		padding: 0px 10px;
    		margin-bottom: 20px;
@@ -198,7 +198,7 @@
    }
    
    .btns {
-   		border: 1px solid black;
+   		/* border: 1px solid black; */
    		text-align: center;
    		margin-top: 20px;
    		
@@ -318,9 +318,7 @@
                 <div class="tenantid">              
                 	<span>임차인 아이디를 입력해주세요.</span>
                 	<div class="t2">
-                		<input type="text" id="seqProperty" class="form-control seqProperty" value="매물번호 ${dto.seqContractorProperty }" readonly>
-                		
-                		
+                		<input type="text" id="seqProperty" class="form-control seqProperty" value="매물번호 ${dto.seqContractorProperty }" readonly>                		     
                 		<input type="text" class="form-control" id="idT" name="idT" value="임차인 아이디 입력" onfocus="this.value=''">
                 		
                 		<div class="btns">

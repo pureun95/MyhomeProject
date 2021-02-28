@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
@@ -19,6 +20,14 @@ public class SearchContractor extends HttpServlet{
 
 	//http://localhost:8090/Myhome_project/contractor/search-contractor.do
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		//내 시퀀스 받기
+		
+		HttpSession session = req.getSession();
+		int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
+		
+		System.out.println("내 시퀀스" + seqContractor);
 		
 		
 		//1. 매물 정보
@@ -173,7 +182,7 @@ public class SearchContractor extends HttpServlet{
 			req.setAttribute("room", room);
 			req.setAttribute("deal", deal);
 			req.setAttribute("location", location);
-						
+			req.setAttribute("seq", seqContractor);	
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-contractor.jsp");
 			dispatcher.forward(req, resp);

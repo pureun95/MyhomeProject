@@ -352,7 +352,7 @@ public class PropertyDAO {
 
 			try {
 
-				String sql = "select * from vmatchingTocontractor where seqLessorProperty = ?";
+				String sql = "select * from vAllLessorProperty where seqLessorProperty = ?";
 
 				//임대인 매물번호 넘겨주기
 				pstat = conn.prepareStatement(sql);
@@ -371,7 +371,7 @@ public class PropertyDAO {
 					dto.setSeqLessorProperty(rs.getInt("seqLessorProperty"));
 
 					// 중개인 seq
-					dto.setSeqContractor(rs.getInt("seqContractor"));
+					//dto.setSeqContractor(rs.getInt("seqContractor"));
 
 					// 1. 방옵션
 					dto.setRoomType(rs.getString("roomType"));
@@ -527,7 +527,7 @@ public class PropertyDAO {
 				dto.setSeqLessorProperty(rs.getInt("seqLessorProperty"));
 				
 				//매칭여부
-				dto.setResponse(rs.getString("response"));
+				dto.setResponse(rs.getString("matching"));
 				
 				// 1. 방옵션
 				dto.setRoomType(rs.getString("roomType"));

@@ -26,7 +26,7 @@ public class MypageContract extends HttpServlet{
 		HttpSession session = req.getSession();
 		int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 
-				
+		
 		HashMap<String,String> map = new HashMap<String, String>();
 		
 		String search = req.getParameter("search");

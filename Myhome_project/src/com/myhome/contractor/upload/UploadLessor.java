@@ -33,7 +33,8 @@ public class UploadLessor extends HttpServlet{
 		HashMap<String,String> map = new HashMap<String, String>();
 							
 		String search = req.getParameter("search");
-							
+		
+		
 		if (!(search == null || search.equals(""))) {
 								map.put("search", search);
 		}

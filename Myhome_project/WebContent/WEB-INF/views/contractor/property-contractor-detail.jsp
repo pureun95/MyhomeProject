@@ -559,7 +559,8 @@
 	                        
 	            <!-- 중개인 정보 -->
 	            <div class="contractor-desc">                   
-	            	<div class="contractor-name"><b>${dto.companyName }</b> <div class="btn btn-outline-secondary" id="btn-chat">채팅하기</div></div>
+	            	<div class="contractor-name"><b>${dto.companyName }</b> 
+	            	<div class="btn btn-outline-secondary" id="btn-chat" onclick="chat();">채팅하기</div></div>
 	                <div class="contractor-name">${dto.name }</div>
 	                <div class="contractor-phone">Tel. ${dto.tel }</div>
 	            </div>
@@ -665,9 +666,19 @@
 
       <!-- footer -->
       <%@include file="/WEB-INF/views/inc/footer.jsp"%>
-
-
 </div>
+
+<script>
+	
+	//채팅팝업
+	function chat(){
+	    var url = "/Myhome_project/member/chat.do";
+	    var name = "popup test";
+	    var option = "width = 450, height = 630, top = 100, left = 200, location = no"
+	    window.open(url, name, option);
+	}
+
+</script>
  
 </body>
 </html>
