@@ -20,18 +20,47 @@ public class SearchContractor extends HttpServlet{
 	//http://localhost:8090/Myhome_project/contractor/search-contractor.do
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
 		//1. 매물 정보
 		PropertyDAO dao = new PropertyDAO();
-		
-		//2. session 받기
-		//HttpSession session = req.getSession();
 				
 		HashMap<String,String> map = new HashMap<String, String>();
-						
+		
+		
+		//방유형
+		String room = req.getParameter("room");
+		
+		//매매유형
+		String deal = req.getParameter("deal");
+		
+		//지역
+		String location = req.getParameter("location");
+		
+		//방찾기 페이지에서 검색
 		String search = req.getParameter("search");
-						
+		
+		System.out.println("list" + room);
+		System.out.println("deal: " + deal);
+		System.out.println("location" + location);
+		
+		//메인에서 검색했을 때
+		if(!(room == null || room.equals(""))) {
+			map.put("room", room);
+		}
+	
+		
+		if(!(deal == null || deal.equals(""))) {
+			map.put("deal", deal);
+		}
+		
+		if(!(location == null || location.equals(""))) {
+			map.put("deal", location);
+		}
+		
+		
+		//방찾기 리스트에서 검색했을 때
 		if (!(search == null || search.equals(""))) {
-							map.put("search", search);
+			map.put("search", search);
 		}
 						
 						
@@ -140,8 +169,10 @@ public class SearchContractor extends HttpServlet{
 			req.setAttribute("search", search);
 			req.setAttribute("pagebar", pagebar);
 			req.setAttribute("nowPage", nowPage);
-						
-
+			
+			req.setAttribute("room", room);
+			req.setAttribute("deal", deal);
+			req.setAttribute("location", location);
 						
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-contractor.jsp");
