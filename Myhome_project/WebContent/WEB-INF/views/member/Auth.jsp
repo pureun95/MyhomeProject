@@ -24,6 +24,19 @@
 		background-color : white;
 	}
 	
+	.property-box {
+		/* border: 1px solid blue; */
+	    padding-top: 20px;
+	    float: left;
+	    margin-left: 50px;
+	    width: 900px;
+	    height: auto;
+	    margin-bottom: 50px;
+	    /* padding-right: 150px; */
+	    padding-left: 320px;
+	}
+	
+	
 	.container {
         width: 1190px;
         height: 800px;
@@ -31,7 +44,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -74,12 +88,14 @@
 	/* Auth css */
 	
 	.start {
-		/* border: 1px solid black; */
-		height: auto;
-		margin-top: 200px;
-		padding: 0px 240px;
-		width: 800px;
-		margin-left: 60px;
+		/* border: 1px solid #e2e2e2; */
+	    height: 380px;
+	    margin-top: 200px;
+	    padding: 50px 40px;
+	    width: 380px;
+	    border-radius: 30px;
+	    /* margin-left: 60px; */
+	    box-shadow: 0px 5px 15px #e4e4e4;
 	
 	}
 	
@@ -181,7 +197,7 @@
            		<span>마이홈 로그인</span>
            	</div>
 		    	<input type="text" class="form-control form-weight readonly" id="id" name="id" placeholder="아이디" required> 
-		    	<input type="text" class="form-control form-weight readonly" id="pw" name="password" placeholder="패스워드" required> 
+		    	<input type="password" class="form-control form-weight readonly" id="pw" name="password" placeholder="패스워드" required> 
 				
 			<div class="search">
 				<a href="/member/searchid.jsp">아이디 찾기</a>
@@ -192,7 +208,7 @@
 				<input type="submit" class="btn btn-outline-secondary" type="button" id="btn-login" value="로그인">
 				
 				<!-- 테스트용 -->
-				<button type="button" class="btn" onclick="test('ccu7678','ccu7678nt');">이제위</button>
+				<!-- <button type="button" class="btn" onclick="test('ccu7678','ccu7678nt');">이제위</button> -->
 	
        		
        	</div>
