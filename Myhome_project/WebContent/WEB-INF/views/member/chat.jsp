@@ -19,28 +19,28 @@
 		border: 1px solid white;
 		background-color: white;
 		border-radius: 15px;
-		width: 280px;
-		height: 400px;
+		width: 400px;
+    	height: 600px;
 		position: fixed;
 		right: 20px;
 		bottom: 20px;
 		box-shadow: 0px 1px 10px #c5c3c3;
-		z-index: 1;
 	}
 	
 	
 	
 	#chatstart {
-		/* border: 1px solid white; */
+	/* 	border: 1px solid white; */
 		border-radius: 15px 15px 0px 0px;
 		font-size: 20px;
 		font-weight: bold;
 		color: #202020;
-		width: 280px;
+		width: 400px;
 		height: 60px;
 		background-color: #f1aeae; 
-		padding-left: 10px;
+		padding: 0px 20px;
 		box-shadow: 0px 5px 8px #b9b9b9;
+		margin-left: -3px;
 		
 				
 	}
@@ -75,9 +75,9 @@
 		/* border: 1px solid black; */
 		width: 16px;
 		height: 16px;
-		float: left; 
+		float: right; 
 		margin-top: 20px;
-		margin-left: 55px;
+		margin-left: 80px;
 		background-image: url('../image/out_white.png');
 		background-size: cover;
     	background-position: 50% 50%;
@@ -92,15 +92,20 @@
 	
 	
 	.chat-list {
-		border-bottom: 1px solid #e6e5e5;
-		width: 275px;
-		height: 65px;
-		background-color: white;
-		margin-top: 10px;
-		padding: 5px 15px;
-		font-size: 14px;
-		cursor: pointer;
+		border: 1px solid #e0e0e0;
+	    width: 365px;
+	    height: 65px;
+	    background-color: white;
+	    box-shadow: 0px 5px 15px #dadada;
+	    /* margin-top: 20px; */
+	    padding: 5px 15px;
+	    font-size: 14px;
+	    cursor: pointer;
+	    position: absolute;
+	    border-radius: 10px;
+	    top: 80px;
 	}
+	
 	
 
 	.send {
@@ -128,15 +133,17 @@
 	
 	/* 채팅상세 */
 	#chat-box {
-		/* border: 1px solid black; */
-		width: 255px;
-		height: 220px;
+		border: 1px solid #e0e0e0;
+		width: 380px;
+		height: 380px;
 		margin: 10px;
 		padding: 5px;
 		background-color: white;
 		font-family: 'NanumBarunGothic', sans-serif;
 		position: absolute;
 		top: 70px;
+		visibility: hidden;
+		overflow: auto;
 	}
 	
 	.send-date {
@@ -185,31 +192,34 @@
 	
 	.text-submit {
 		/* border: 1px solid black; */
-		width: 280px;
+		width: 380px;
 		height: 100px;
 		position: relative;
-		top: 105px;
+		top: 420px;
+		visibility: hidden;
 	}
 	
 	#chat-reply {
-		border: 1px solid #afafaf;
-		width: 190px;
-		height: 65px;
-		margin: 5px 10px;
+		border: 1px solid #e0e0e0;
+		width: 290px;
+		height: 105px;
+		margin-right: 15px;
+    	margin-left: 10px;
 		border-radius: 0px 0px 0px 10px;
 		background-color: white;
 		font-family: 'NanumBarunGothic', sans-serif;
 		font-size: 14px;
 		padding: 5px;
 		outline: none;
+		/* visibility: hidden; */
 	
 	}
 	
 	#chat-submit {
 		/* border: 1px solid black; */
 		border: none;
-		width: 53px;
-		height: 65px;
+		width: 55px;
+		height: 105px;
 		padding: 5px;
 		border-radius: 0px 0px 10px 0px;
 		outline: none;
@@ -246,6 +256,49 @@
 		
 	}
 	
+	.chat-out2 {
+		z-index: 999;
+	    width: 300px;
+	    border-radius: 20px;
+	    height: 110px;
+	    box-shadow: 0px 5px 15px #e0e0e0;
+	    /* border: 1px solid #e4e4e4; */
+	    padding: 20px;
+	    text-align: center;
+	    position: relative;
+	   	left: 90px;
+    	top: 260px;
+    	visibility: hidden;
+    	background-color: white;
+	}
+	
+	.chat-out2 > span {
+		color: #202020;
+		display: block;
+		margin-bottom: 20px;
+	}
+	
+	.btn {
+		background-color: #f1aeae;
+	    color: white;
+	    font-family: 'NanumBarunGothic';
+	    outline: none;
+	    margin-right: 10px;
+	    border: 0px;
+	}
+	
+	.none-outline:active {
+		outline: none !important;
+		color: white;
+	}
+	
+	.none-outline:hover {
+		outline: none !important;
+		color: #f1aeae;
+		background-color: white;
+		border: 1px solid #f1aeae;
+	}
+	
 	
 </style>
 </head>
@@ -260,139 +313,171 @@
    			<div id="chat-title">채팅하기</div>
    			<div class="icon-out" id="chat-out"></div>
    		</div>
+   		
    		<!-- 채팅리스트 -->
-   	</div>
    		
    		
-   	<!-- 채팅 상세 -->
-	<div id="chat-box">
-	</div>
-
-
-	<!-- 텍스트 보내기  -->
-	<div class="text-submit">
-    	<input type="text" id="chat-reply">
-   		<input type="submit" id="chat-submit" value="보내기">
+   		<!-- 채팅 상세 -->
+		<div id="chat-box">
+		</div>
+		
+			<!-- 텍스트 보내기  -->
+		<div class="text-submit">
+	    	<input type="text" id="chat-reply">
+	   		<input type="submit" id="chat-submit" value="보내기">
+	   	</div>	   
+		
    	</div>
+   		
+   
+   	<div class="chat-out2">
+   		<span>채팅을 종료하시겠어요?</span>
+   		<input type="button" class="btn none-outline" id="yes" value="확인" onclick="window.close();">
+   		<input type="button" class="btn none-outline" id="no" value="닫기">
+   	</div>
+   	
+   
+   
+
+
+	
     
     <script>
 
-		/* 채팅창 클릭 시 리스트, 채팅창 띄우기 */
-		$("#chat").click(function() {
+    $(document).ready(function() {
+    	
+    	$.ajax({
+			type: "GET",
+			url: "/Myhome_project/member/chatlistdata.do",
 			
-			$("#chatmode").css("visibility", "visible");
-			
-			$.ajax({
-				type: "GET",
-				url: "/Myhome_project/member/chatlistdata.do",
-				
-				success: function(result) {
+			success: function(result) {
 
- 					var list = result.split(',');
-					var html = "";
-					
-					for(var i = 0; i<list.length-1; i+=2) {	//-1은 마지막까지 ,가붙어서 해주는것
-						html += "<div class='chat-list' value='" + list[i] + "'>";
-						html += "<div class='send'>";	//seqTheHost 알기위해서 name에 붙혀준다
-						html += list[i+1];
-						html += "</div>";
-						html += "</div>";
-					}
-					
-					$("#chatmode").append(html);
-					$(".chat-list").css("visibility", "visible");
+				var list = result.split(',');
+				var html = "";
 				
-					const url = "ws://localhost:8090/Myhome_project/chatserver";
-					let ws;
-					
-					/* 채팅 상세 클릭 시 리스트 hidden, 텍스트&submit 보이기 */
-			    	$(".chat-list").click(function() {
-			    		
-			    		$(".chat-list").css("visibility", "hidden");
-			    		$("#chat-box").css("visibility", "visible");
-			    		var html = "";
-			    		var text= "";
-			    		
-						$.ajax({	//채팅내용 불러옴
-							
-							type: "GET",
-							url: "/Myhome_project/member/chatdata.do",
-							data: "seqTheOther=" + $(this).attr("value"),
-							
-							success: function(result) {
-								
-			 					text = result.split(',');
-								
-								for(var i = 0; i<text.length-1; i++) {	
-									html += "<div class='send-content2'>";
-									html += text[i];
-									html += "</div>";
-								}
-								
-								$("#chat-box").append(html);
-								$("#chat-box").css("visibility", "visible");
-								$(".text-submit").css("visibility", "visible");
-								
-								$("#chat-box").scrollTop($("#chat-box").prop("scrollHeight"));
-							},
-							error: function(a,b,c) {
-								console.log(a,b,c);
-							}
-						});	// chat-list ajax
-						
-						//채팅
-						ws = new WebSocket(url);
-						
-						ws.onopen = function(evt) {
-							print("상대방이 입장했습니다.");
-						};
-						
-						ws.onmessage = function(evt) {
-							console.log("서버에서 클라이언트에게 메시지를 전송했습니다.");
-							console.log(evt.data);
-							
-						};
-						
-						ws.onclose = function(evt) {
-							print("상대방이 퇴장했습니다");
-						};
-						
-						ws.onerror = function(evt) {
-							console.log(evt);
-						};
-						
-						$("#chat-reply").keyup(function() {
-							
-							//서버에 메시지 보내기
-							//강아지#안녕하세요.
-							if (event.keyCode == 13) {
-								ws.send($("#chat-reply").val());
-								
-								print($("#chat-reply").val());
-								
-								$("#chat-reply").val("");
-								$("#chat-reply").focus();
-								
-								//스크롤바를 가장 밑으로 내려라
-								//$("#output").scrollTop($("#output").prop("scrollHeight"));
-							}
-							
-						});
-						
-					});	//chat-list
-				},
-				error: function(a,b,c) {
-					console.log(a,b,c);
+				for(var i = 0; i<list.length-1; i+=2) {	//-1은 마지막까지 ,가붙어서 해주는것
+					html += "<div class='chat-list' value='" + list[i] + "'>";
+					html += "<div class='send'>";	//seqTheHost 알기위해서 name에 붙혀준다
+					html += list[i+1];
+					html += "</div>";
+					html += "</div>";
 				}
-			});	//chat ajax
+				
+				$("#chatstart").append(html);
+				$(".chat-list").css("visibility", "visible");
 			
-		});
+				const url = "ws://localhost:8090/Myhome_project/chatserver";
+				let ws;
+				
+				/* 채팅 상세 클릭 시 리스트 hidden, 텍스트&submit 보이기 */
+		    	$(".chat-list").click(function() {
+		    		
+		    		$(".chat-list").css("visibility", "hidden");
+		    		$("#chat-box").css("visibility", "visible");
+		    		var html = "";
+		    		var text= "";
+		    		
+					$.ajax({	//채팅내용 불러옴
+						
+						type: "GET",
+						url: "/Myhome_project/member/chatdata.do",
+						data: "seqTheOther=" + $(this).attr("value"),
+						
+						success: function(result) {
+							
+		 					text = result.split(',');
+							
+							for(var i = 0; i<text.length-1; i++) {	
+								html += "<div class='send-content2'>";
+								html += text[i];
+								html += "</div>";
+							}
+							
+							$("#chat-box").append(html);
+							$("#chat-box").css("visibility", "visible");
+							$(".text-submit").css("visibility", "visible");
+							
+							$("#chat-box").scrollTop($("#chat-box").prop("scrollHeight"));
+						},
+						error: function(a,b,c) {
+							console.log(a,b,c);
+						}
+					});	// chat-list ajax
+					
+					//채팅
+					ws = new WebSocket(url);
+					
+					ws.onopen = function(evt) {
+						print("상대방이 입장했습니다.");
+					};
+					
+					ws.onmessage = function(evt) {
+						console.log("서버에서 클라이언트에게 메시지를 전송했습니다.");
+						console.log(evt.data);
+						
+					};
+					
+					ws.onclose = function(evt) {
+						print("상대방이 퇴장했습니다");
+					};
+					
+					ws.onerror = function(evt) {
+						console.log(evt);
+					};
+					
+					$("#chat-reply").keyup(function() {
+						
+						//서버에 메시지 보내기
+						//강아지#안녕하세요.
+						if (event.keyCode == 13) {
+							ws.send($("#chat-reply").val());
+							
+							print($("#chat-reply").val());
+							
+							$("#chat-reply").val("");
+							$("#chat-reply").focus();
+							
+							//스크롤바를 가장 밑으로 내려라
+							//$("#output").scrollTop($("#output").prop("scrollHeight"));
+						}
+						
+					});
+					
+				});	//chat-list
+			},
+			error: function(a,b,c) {
+				console.log(a,b,c);
+			}
+		});	//chat ajax
+    })
+    
+			
+			
+		
 		
 		/* 나가기 클릭 시 hidden */
-    	$("#chat-out").click(function() {
-    		alert("채팅종료");
-		});
+    	/* $("#chat-out").click(function() {
+    		ws.close();
+			$("#chatmode").css("visibility", "hidden");
+			$("#chat-box").css("visibility", "hidden");
+			$(".text-submit").css("visibility", "hidden");
+			$(".chat-list").css("visibility", "hidden");
+		}); */
 		
+		
+		$("#chat-out").click(function() {
+			$(".chat-out2").css("visibility", "visible");
+			$("#chatmode").css("z-index", "-1");
+		})
+		
+		$("#yes").click(function() {
+			ws.close();
+		})
+		
+		$("#no").click(function() {
+			$(".chat-out2").css("visibility", "hidden");
+			$("#chatmode").css("z-index", "1");
+		})
 		
 		
 		function print(msg) {
