@@ -1,6 +1,7 @@
 package com.myhome.admin2.application;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,7 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 청약 게시글 목록반환 서블릿 
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/application/list.do")
 public class List extends HttpServlet {
 
@@ -19,6 +24,35 @@ public class List extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+		HttpSession session = req.getSession();
+		session.setAttribute("read", false);
+		
+		
+		// 잘못된 접속자 강퇴
+		if ( session.getAttribute("admin")==null  ) {
+			PrintWriter writer = resp.getWriter();
+			writer.println("<HTML><body>");
+			writer.println("<Script>");
+			writer.println("alert('failed')");
+			writer.println("history.back();");
+			writer.println("</script>");
+			writer.println("</body></HTML>");
+			
+			writer.close();
+		}else if( !session.getAttribute("admin").equals("admin") ) {
+			PrintWriter writer = resp.getWriter();
+			writer.println("<HTML><body>");
+			writer.println("<Script>");
+			writer.println("alert('failed')");
+			writer.println("history.back();");
+			writer.println("</script>");
+			writer.println("</body></HTML>");
+			
+			writer.close();	
+		}
+
+		System.out.println("admin : ");
 		// 검색
 		HashMap<String, String> map = new HashMap<String, String>();
 
@@ -27,9 +61,6 @@ public class List extends HttpServlet {
 		if (!(search == null || search.trim().equals(""))) {
 			map.put("search", search);
 		}
-
-		HttpSession session = req.getSession();
-		session.setAttribute("read", false);
 
 		ApplicationDAO dao = new ApplicationDAO();
 
@@ -129,6 +160,7 @@ public class List extends HttpServlet {
 		}
 		
 		dao.close();
+		
 		req.setAttribute("list", list);
 		req.setAttribute("search", search);
 		req.setAttribute("pagebar", pagebar);

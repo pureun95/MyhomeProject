@@ -10,7 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 공지사항 게시글 삭제 DB 작업 서블릿
+ * @author 이대홍
+ *
+ */
 @WebServlet("/admin2/notice/deleteok.do")
 public class DeleteOk extends HttpServlet {
 
@@ -22,7 +26,7 @@ public class DeleteOk extends HttpServlet {
 		NoticeDAO dao =new NoticeDAO();
 		
 		int result = dao.delete(seqNotice);
-
+		dao.close();
 		if (result > 0) {
 			resp.sendRedirect("/Myhome_project/admin2/notice/list.do");
 			

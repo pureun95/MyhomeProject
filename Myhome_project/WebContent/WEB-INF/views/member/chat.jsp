@@ -26,7 +26,6 @@
 		bottom: 20px;
 		box-shadow: 0px 1px 10px #c5c3c3;
 		z-index: 1;
-		visibility: hidden;
 	}
 	
 	
@@ -136,7 +135,6 @@
 		padding: 5px;
 		background-color: white;
 		font-family: 'NanumBarunGothic', sans-serif;
-		visibility: hidden;
 		position: absolute;
 		top: 70px;
 	}
@@ -191,7 +189,6 @@
 		height: 100px;
 		position: relative;
 		top: 105px;
-		visibility: hidden;
 	}
 	
 	#chat-reply {
@@ -393,11 +390,7 @@
 		
 		/* 나가기 클릭 시 hidden */
     	$("#chat-out").click(function() {
-    		ws.close();
-			$("#chatmode").css("visibility", "hidden");
-			$("#chat-box").css("visibility", "hidden");
-			$(".text-submit").css("visibility", "hidden");
-			$(".chat-list").css("visibility", "hidden");
+    		alert("채팅종료");
 		});
 		
 		

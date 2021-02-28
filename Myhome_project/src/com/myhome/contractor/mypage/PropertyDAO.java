@@ -677,9 +677,10 @@ public class PropertyDAO {
 			String where = "";
 			
 			if (map.get("search") != null) {
-				
 				where = String.format("where companyName like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
-			}
+			} else if (map.get("room") != null && map.get("deal") != null || map.get("location") != null) {
+				where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' or location like '%%%s%%'", map.get("room"), map.get("deal"), map.get("location"));
+			} 
 			
 			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vUploadProperty %s order by seqContractorProperty desc) a) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
 			
@@ -823,7 +824,9 @@ public class PropertyDAO {
 			
 			if (map.get("search") != null) {
 				where = String.format("where companyName like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
-			}
+			}  else if (map.get("room") != null && map.get("deal") != null) {
+				where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' or location like '%%%s%%'", map.get("room"), map.get("deal"), map.get("location"));
+			} 
 			
 			String sql = String.format("select count(*) as cnt from vUploadProperty %s", where);
 			

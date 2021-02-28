@@ -9,20 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 전자 계약 관련 상태 변경 서블릿 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/contract/stateok.do")
 public class StateOk extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpSession session = req.getSession();
 		String seqC = req.getParameter("seqC");
-		String seqAdmin = (String) session.getAttribute("seqAdmin");
+
 		ContractDAO dao = new ContractDAO();
 		
 		int result = dao.state(seqC);
 
+		dao.close();
 		if (result > 0) {
 
 			resp.sendRedirect("/Myhome_project/admin2/contract/list.do");

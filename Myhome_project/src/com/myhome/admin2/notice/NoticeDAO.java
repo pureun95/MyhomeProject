@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.myhome.DBUtil;
-
+/**
+ * 공지사항 DB 업무 처리 클래스 
+ * @author 이대홍
+ *
+ */
 public class NoticeDAO {
 
 	private Connection conn;
@@ -47,7 +51,7 @@ public class NoticeDAO {
 					+ "(select a.*, rownum as rnum from tblNotice a %s order by seqNotice desc) "
 					+ "where rnum between %s and %s ", where, map.get("begin"), map.get("end"));
 
-			System.out.println(sql);
+
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 
@@ -66,7 +70,10 @@ public class NoticeDAO {
 				list.add(dto);
 
 			}
-
+			
+			rs.close();
+			ps.close();
+			
 			return list;
 
 		} catch (Exception e) {
@@ -95,7 +102,12 @@ public class NoticeDAO {
 			rs = st.executeQuery(sql);
 
 			if (rs.next()) {
-				return rs.getInt("count");
+				
+			int result = rs.getInt("count");
+				
+				st.close();
+				rs.close();
+				return result;
 			}
 
 		} catch (Exception e) {
@@ -115,7 +127,12 @@ public class NoticeDAO {
 			ps.setString(2, dto.getTitle());
 			ps.setString(3, dto.getContent());
 			
+			
 			int result = ps.executeUpdate();
+			
+			rs.close();
+			ps.close();
+			
 			return result;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -146,6 +163,9 @@ public class NoticeDAO {
 				dto.setWriteDate(rs.getString("writedate"));
 				dto.setViewCount(rs.getString("viewcount"));
 				
+				rs.close();
+				ps.close();
+				
 				return dto;
 
 			}
@@ -166,7 +186,7 @@ public class NoticeDAO {
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.executeUpdate();
-
+			ps.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("count : " + e);
@@ -210,7 +230,8 @@ public class NoticeDAO {
 				list.add(dto);
 
 			}
-
+			rs.close();
+			ps.close();
 			return list;
 
 		} catch (Exception e) {
@@ -240,7 +261,11 @@ public class NoticeDAO {
 
 			ps = conn.prepareStatement(sql);
 
-			return ps.executeUpdate();
+			
+			int result = ps.executeUpdate();
+			ps.close();
+			
+			return result;
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -263,6 +288,8 @@ public class NoticeDAO {
 			ps.setString(3, dto.getSeqNotice());
 			
 			int result = ps.executeUpdate();
+			
+			ps.close();
 			return result;
 		} catch (Exception e) {
 			// TODO: handle exception

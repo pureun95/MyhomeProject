@@ -10,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 정보 공유 게시글 목록 반환 서블릿 
+ * @author 이대홍
+ */
 @WebServlet("/admin2/community/list.do")
 public class List extends HttpServlet {
 

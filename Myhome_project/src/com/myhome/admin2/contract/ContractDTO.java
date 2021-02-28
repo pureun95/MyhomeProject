@@ -1,5 +1,8 @@
 package com.myhome.admin2.contract;
-
+/**
+ * 전자 계약관련 DB 업무 DTO 클래스
+ * @author 이대홍
+ */
 public class ContractDTO {
 /*
 

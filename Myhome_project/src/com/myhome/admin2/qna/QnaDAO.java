@@ -11,6 +11,12 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/**
+ * QNA DB 업무처리 DAO 클래스 
+ * @author 이대홍
+ *
+ */
+
 public class QnaDAO {
 	private Connection conn;
 	private Statement st;
@@ -78,6 +84,9 @@ public class QnaDAO {
 
 			}
 
+			rs.close();
+			ps.close();
+			
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -115,9 +124,12 @@ public class QnaDAO {
 			rs = ps.executeQuery();
 
 
-			while (rs.next()) {
-								
-				return rs.getInt("count");
+			if (rs.next()) {
+				int result = rs.getInt("count");
+				rs.close();
+				ps.close();
+				
+				return result;
 			
 			}
 
@@ -149,7 +161,9 @@ public class QnaDAO {
 					dto.setType(rs.getString("type"));			
 					dto.setWriteDate(rs.getString("writeDate"));			
 					
-					System.out.println(dto.getState());
+					rs.close();
+					ps.close();
+					
 					return dto;
 
 				}
@@ -173,7 +187,10 @@ public class QnaDAO {
 			ct.setString(2, seq);
 			ct.setString(3, content);
 			
-			return ct.executeUpdate();
+			int result = ct.executeUpdate();
+			
+			ct.close();
+			return result;
 			
 		} catch (Exception e) {
 			// TODO: handle exception

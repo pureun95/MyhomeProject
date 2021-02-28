@@ -92,6 +92,7 @@ ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 				dto.setSeqUser(rs.getInt("seqUser"));
 				dto.setSeqProperty(rs.getInt("seqProperty"));
 				dto.setSeqContractor(rs.getInt("seqContractor"));
+				dto.setSeqLessorProperty(rs.getInt("seqLessorProperty"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContractorName(rs.getString("contractorName"));
 				dto.setName(rs.getString("name"));

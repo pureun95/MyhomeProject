@@ -708,10 +708,10 @@ li.header-li.li-list.header-li-scroll {
 				</div>
 				
 			</div>
+		</div>
 			<div id="btnwrap">
 				<button type="submit" class="btn btn-default" id="btnupload" name="btnupload">올리기</button>
 			</div>
-		</div>
 		</form>
 		
     </div>
