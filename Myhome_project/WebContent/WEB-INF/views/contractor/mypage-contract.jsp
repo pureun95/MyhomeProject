@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Myhome::전자계약관리</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 <link rel="stylesheet" href="/Myhome_project/css/contractor-mypage.css">
@@ -29,7 +29,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -165,21 +166,22 @@
    /* 검색, 페이지바 */
     
     .search-paging {
-    	border: 1px solid black;
+    	/* border: 1px solid black; */
     	width: 800px;
     	height: 200px;
     	padding: 20px 0px; 
     }
     
     .paging {
-  		border: 1px solid blue;
+  		/* border: 1px solid blue; */
   		width: 100%;
   		height: 75px;
   		padding: 0px 170px;
+  		text-align: center;
    	}
     
-    .pagination > li > .page-a {
-		color: #202020;
+    .pagination > li > a {
+		color: #202020 !important;
 	
 	}
     
@@ -201,7 +203,7 @@
    		/* border: 1px solid black; */
    		width: 390px;
    		height: 60px;
-   		margin: 10px 200px;
+   		margin: 10px 220px;
    		padding: 10px;
    }
    
@@ -220,6 +222,14 @@
 	   	padding: 5px;
    
    }
+   
+   /* 전자계약이 존재하지 않는 경우 */
+   
+   .empty {
+   		font-size: 16px;
+   		font-family: 'MaplestoryOTFLight';
+	    color: #202020;
+   }
    	
     
 
@@ -232,7 +242,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      <%@include file="/WEB-INF/views/contractor/nav.jsp" %>
@@ -243,13 +253,13 @@
 		 <div class="property-box">
 		 	<div class="board-name">전자계약관리</div>		 	
          	 
-        <form action="" id="form1">
+        
    
    		<!-- 게시판 -->
         <div class="matching-board">
         
 	        <table id="board" class="table table-hover table-striped table-condensed">
-	
+		
 	            <tr class="headtr">
 	                <th class="firtd boardtd">계약번호</th>
 	                <th class="sectd boardtd">임대인</th>
@@ -258,61 +268,48 @@
 	                <th class="fortd boardtd">계약상태</th>
 	            </tr>
 	            
-	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-detail.do';">
-	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">박지현</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">노푸른</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
+	            <!-- 매물계약 리스트 -->
+	            <c:forEach items="${list }" var="dto">
+	      
+	            <!-- 중개인의 전자계약이 없는 경우 -->
+	            <c:if test="${empty dto.seqUserL }">
+                    	<tr>
+                    		<td colspan="5" style="text-align:center;">전자계약이 존재하지 않아요.</td>
+                    	</tr>                
+	            </c:if>
+	            <c:if test="${not empty dto.seqUserL }">
+	            <tr class="boardtr" onclick="location.href='/Myhome_project/contractor/mypage-contract-view.do?seq=${dto.seqContract }';">
+	                <td class="firtd boardtd "><div class="temp">${dto.seqContract }</div></td>
+	                <td class="sectd boardtd boardtext align-middle"><div class="temp">${dto.nameL}</div></td>
+	                <td class="thitd boardtd align-middle"><div class="temp">${dto.nameT }</div></td>
+	                <td class="fortd boardtd align-middle"><div class="temp">${dto.nameC }</div></td>
 	                <td class="fiftd boardtd">
-	                	<div class="temp">진행중</div>            	
+	                	<div class="temp">
+	                	${dto.state }
+	                	<!-- 계약완료인 경우만 날짜 나오기 --> 
+	                	<c:if test="${dto.state eq '완료'}" var="var1">
+	                		(${dto.contractDate })
+	                	</c:if>
+	                	
+	                	</div>            	
 	       			</td>
 	            </tr>
-	            
-	            
-	              <tr class="boardtr">
-	                <td class="firtd boardtd "><div class="temp"><a class="contract-num">1022929</a></div></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">이준오</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">이대홍</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
-	                <td class="fiftd boardtd">
-	                	<div class="temp">진행중</div>    	
-	       			</td>
-	            </tr>
-	            
-	            
-	            <tr class="boardtr">
-	                <td class="firtd boardtd "><a class="contract-num">1022929</a></td>
-	                <td class="sectd boardtd boardtext align-middle"><div class="temp">윤지현</div></td>
-	                <td class="thitd boardtd align-middle"><div class="temp">장진영</div></td>
-	                <td class="fortd boardtd align-middle"><div class="temp">마이공인중개사</div></td>
-	                <td class="fiftd boardtd">
-	                	<div class="temp">계약완료(2020-01-01)</div>	            	
-	       			</td>
-	            </tr>
-	            
+	             </c:if>	  
+	            </c:forEach>
+	                      	            	            
 	           
 	        </table>
+	        
+	        
+	     </div>
        		
-       		</div>
        		
-       		
-       	
+
        		<!-- 검색, 페이지바 -->
        		<div class="search-paging">
 	       		<div class="paging">
 	       			<ul class="pagination">
-					    <li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					    <li class="page-item"><a class="page-link page-a" href="">7</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-						<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					    <li><a class="page-link page-a" href="">다음</a></li>
+					   ${pagebar }
 					</ul>       		
 	       		</div>
 	       		
@@ -324,29 +321,11 @@
 	       		
 	       	</div>
 	       		
-	       		
-       		
-       	
-       	</form>
-       
-        
-       
-		
-        
-        
-    
-         
-              
-          
-          
-          
+
           
           <!-- property-box -->
           </div>
-             
-             
-             
-             
+     
              
     <!-- container -->        
 	</div>  

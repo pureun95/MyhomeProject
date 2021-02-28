@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 
 
@@ -26,13 +28,15 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		margin-top: 100px;
 		z-index: -1;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
     }
     
     .boardcover{
-    	border: 1px solid tomato;
+    	/* border: 1px solid tomato; */
     	float: left;
     	width:900px;
     	height: auto;
@@ -74,7 +78,7 @@
     
     .listbox{
     	float: left;
-    	width: 200px;
+    	width: 300px;
     	height: 180px;
     	margin-left : 30px;
     }
@@ -129,7 +133,7 @@
     
     .name{
     	font-size: 20px;
-    	margin: 5px 0px;
+    	margin-bottom: 5px;
     	border-bottom: 1px solid #eaecef;
     }
     
@@ -138,10 +142,10 @@
     }
     
     .address, .tel, .price, .businessnum, .introduce{
-    	margin : 5px 0px;
+    	margin : 3px 0px;
     }
     
-	.paging {
+	.pagebar {
 		text-align : center;
 	}
 	
@@ -165,7 +169,7 @@
 		
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 150px;
 		display: inline;
 	}
@@ -187,126 +191,54 @@
         
         
 		<div id="title">이사업체관리</div>
+			
+			<c:if test="${not empty search}">
+	                <div class="message well well-sm">
+	                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	                </div>
+            </c:if>
 		
+			<c:forEach items="${list}" var="dto">
 			<div class="list">
 				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
 				<div class="imagelogo">
 					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
+					<span class="rating">${dto.rating} / 5.0</span>					
 				</div>
 				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
+					<div class="name" style="font-weight:bold">${dto.name}</div>
 					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
+						<div class="tel">${dto.tel}</div>
+						<div class="address">${dto.address}</div>
+						<div class="businessnum">${dto.businessnum}</div>
+						<div class="price">${dto.price}</div>
+						<div class="introduce">${dto.introduce}</div>
 					</div>
 				</div>	
 			</div>
+			</c:forEach>
 			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
-			
-			<div class="list">
-				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">3.0 / 5.0</span>					
-				</div>
-				<div class="listbox">
-					<div class="name" style="font-weight:bold">이사업체명</div>
-					<div class="content">
-						<div class="tel">010-1234-5678</div>
-						<div class="address">서울시 강남구 역삼동</div>
-						<div class="businessnum">123-3456-7890</div>
-						<div class="price">80,000원</div>
-						<div class="introduce">이사업체소개글입니다</div>
-					</div>
-				</div>	
-			</div>
 			
 			<div class="btns">
-            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/Myhome/admin/addclean.do';">
-            	<input type="button" class="btn" value="수정" id="update" onclick="location.href='/Myhome_project/Myhome/admin/editclean.do';">
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/moveclean/addmove.do';">          
             	<input type="button" class="btn" value="삭제" id="delete">
             </div>
             
-            <div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-	       	</div>
+            <!-- 페이징 -->
+	       	<nav class="pagebar">
+                <ul class="pagination">
+                    ${pagebar}
+                </ul>
+            </nav>
 	       	
+	       	<!-- 검색 -->
+            <form id="searchForm" method="GET" action="/Myhome_project/admin/moveclean/listmove.do">         
            	<div class="search">
-            	<input type="text" class="form-control" placeholder="이사업체명" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
+            	<input type="text" class="form-control" placeholder="이사업체명" id="search" name="search" required value="${search}">
+            	<input type="button" class="btn" value="검색"  onclick="$('#searchForm').submit();">
            	</div>
-		
+			</form>
+            <div style="clear:both;"></div>
 
 		
 	</div>

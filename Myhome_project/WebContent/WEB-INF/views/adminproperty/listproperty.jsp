@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 
@@ -48,11 +49,14 @@
 		padding : 0px 10px;
 	}
 	
+	.property-list2{
+		width:510px;
+	}
 
     
      .listbox{
-     	width: 850px;
-    	margin: 10px 10px;
+     	width: 870px;
+    	margin: 10px 0px;
     	height: 200px;
     } 
     
@@ -63,6 +67,13 @@
     	padding : 15px 0px;
    	
    	}
+   	
+   	.property-content{
+   		margin-right : 10px;
+   	
+   	}
+   	
+
    	
    	.img-property {
         border: 1px solid black;
@@ -79,10 +90,17 @@
 		float: left;
 		margin : 10px;
 	}
+	.property-title{
+		width : 100%
+	}
+	
+	#price{
+		width:auto;
+	}
 
 
     
-    .paging {
+    .pagebar {
 		text-align : center;
 	}
 	
@@ -126,7 +144,7 @@
 	   	padding: 10px;
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 150px;
 		display: inline;
 	}
@@ -149,145 +167,72 @@
         
 		<div id="title">매물관리</div>
 		
-		<div class="list">	
-
+		<!-- <div class="list">	 -->
+			
+			<!-- 검색결과 -->
+			<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+	        </div>
+	        </c:if>
+			
+			<c:forEach items="${list}" var="dto">
 			<div class="listbox">
 				<input type="checkbox" id="checkbox">
-                    <div class="img-property"><div class="state">입주가능</div></div>
+                    <div class="img-property" onclick="location.href='/Myhome_project//admin/property/viewproperty.do?seq=${dto.seq}';">${dto.image}<div class="state">${dto.state}</div></div>
                     <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
+                        <div class="property-num">no.${dto.seq}</div>
+                        <div class="property-title">${dto.title}</div>
                         <div class="property-content" id="roomtype">
                             <span>방유형</span>
-                            <div class="property-content2">원룸</div>
+                            <div class="property-content2">${dto.roomtype}</div>
                         </div>
                         
                         <div class="property-content" id="floor">
                             <span>층</span>
-                            <div class="property-content2">3/4</div>
+                            <div class="property-content2">${dto.floor}</div>
                         </div>
                         
                         <div class="property-content" id="contract">
                             <span>계약유형</span>
-                            <div class="property-content2">월세</div>
+                            <div class="property-content2">${dto.contracttype}</div>
                         </div>
                         
                         <div class="property-content" id="price">
                             <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
+                            <div class="property-content2">${dto.value}</div>
                         </div>
                         
                         <div class="property-location">
                             <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
+                            <div class="location-detail">${dto.location}</div>
                         </div>
                         
                     </div>
                 </div>
+                </c:forEach>
                 
-                
-                
-                
-                <div class="listbox">
-                	<input type="checkbox" id="checkbox">
-                    <div class="img-property"><div class="state">입주가능</div></div>
-                    <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
-                        <div class="property-content" id="roomtype">
-                            <span>방유형</span>
-                            <div class="property-content2">원룸</div>
-                        </div>
-                        
-                        <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
-                        </div>
-                        
-                        <div class="property-content" id="contract">
-                            <span>계약유형</span>
-                            <div class="property-content2">월세</div>
-                        </div>
-                        
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
-                        
-                        <div class="property-location">
-                            <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                
-                
-                <div class="listbox">
-                	<input type="checkbox" id="checkbox">
-                    <div class="img-property"><div class="state">입주가능</div></div>
-                    <div class="property-list2">
-                        <div class="property-num">no.0001</div>
-                        <div class="property-title">너무 좋은 방</div>
-                        <div class="property-content" id="roomtype">
-                            <span>방유형</span>
-                            <div class="property-content2">원룸</div>
-                        </div>
-                        
-                        <div class="property-content" id="floor">
-                            <span>층</span>
-                            <div class="property-content2">3/4</div>
-                        </div>
-                        
-                        <div class="property-content" id="contract">
-                            <span>계약유형</span>
-                            <div class="property-content2">월세</div>
-                        </div>
-                        
-                        <div class="property-content" id="price">
-                            <span>가격</span>
-                            <div class="property-content2">30,000원/월(24)</div>
-                        </div>
-                        
-                        <div class="property-location">
-                            <div class="location-icon" style="float: left;"></div>
-                            <div class="location-detail">서울특별시 동작구 상도동</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+            <!-- </div> -->
   
 			
 			<div class="btns">           	
             	<input type="button" class="btn" value="선택한 매물 삭제" id="delete">
             </div>
             
-            <div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-	       	</div>
-	       	</div>
-            
+            <!-- 페이징 -->
+	       	<nav class="pagebar">
+                <ul class="pagination">
+                    ${pagebar}
+                </ul>
+            </nav>
+            <!-- 검색 -->
+			<form id="searchForm" method="GET" action="/Myhome_project/admin/property/listproperty.do">            
            	<div class="search">
-            	<input type="text" class="form-control" placeholder="닉네임/매물번호" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
+            	<input type="text" class="form-control" placeholder="닉네임/매물번호" id="search" name="search" required value="${search}">
+            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
            	</div>
-		
+			</form>
+            <div style="clear:both;"></div>
 
 		
 	</div>

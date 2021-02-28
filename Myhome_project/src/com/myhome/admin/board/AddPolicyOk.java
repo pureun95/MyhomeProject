@@ -1,6 +1,7 @@
 package com.myhome.admin.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ public class AddPolicyOk extends HttpServlet {
 
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
 		//1. 데이터 가져오기 (subject, content)
@@ -28,13 +29,51 @@ public class AddPolicyOk extends HttpServlet {
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
-		
-		String subject = "";
-		String content = "";
+		String title = req.getParameter("title");
+		String content = req.getParameter("content");
 		
 		//로그인한 관리자번호
-		String aseq = (String)session.getAttribute("seq");
+		String seqadmin = (String)session.getAttribute("seqAdmin");
+		
+	
+		
+		//2.
+		PolicyDAO dao = new PolicyDAO();
+		PolicyDTO dto = new PolicyDTO();
+		
+		dto.setTitle(title);
+		dto.setContent(content);
+		dto.setSeqadmin(seqadmin);
+		dto.setViewcount("0");
+		
+		int result = dao.addpolicy(dto);
+		
+		if (result == 1) {
+			//글쓰기 성공 -> 게시판 목록으로 이동
+			resp.sendRedirect("/Myhome_project/admin/board/listpolicy.do");
+			
+		} else {
+			//글쓰기 실패 -> 경고 + 뒤로가기
+			PrintWriter writer = resp.getWriter();
+			
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('filed');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+		}
+		
+		
 
 	}
 
 }
+
+
+
+
+
+

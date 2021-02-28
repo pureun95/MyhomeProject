@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 
@@ -27,12 +28,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -59,11 +62,14 @@
 	
 	.list:nth-child(1) { width: 60px; }
 	.list:nth-child(2) { width: 100px; }
-	.list:nth-child(3) { width: 400px; }
+	.list:nth-child(3) { width: 400px; text-align : left !important;}
 	.list:nth-child(4) { width: 150px; }
 	.list:nth-child(5) { width: 100px; }
 	.list:nth-child(6) { width: 100px; }
 	
+	#policytitle {
+		cursor : pointer;
+	}
 	#tbl1 th, #tbl1 td {
 		font-family: 'NanumBarunGothic';
 		text-align: center;
@@ -76,12 +82,13 @@
 		outline: none;
 	}
 	
-	.paging {
+	.pagebar {
 		text-align : center;
 	}
 	
 	.pagination > li > .page-a {
 		color: #202020;
+		text-decoration: none;
 	}
 	
 	.pagination>.active>a, .pagination>li>a:hover{
@@ -110,9 +117,13 @@
 		
 	}
 	
-	.search #txt {
+	.search #search {
 		width: 200px;
 		display: inline;
+	}
+	
+	.boardtr:hover{
+		color : #f1aeae;
 	}
 
 
@@ -133,6 +144,12 @@
              
 		<div id="title">부동산 정책 게시판 관리</div>
 		
+		<c:if test="${not empty search}">
+	        <div class="message well well-sm">
+	            '${search}'(으)로 ${listpolicy.size()}건의 게시물을 검색했습니다.
+        </div>
+        </c:if>
+		
 		<table id="tbl1" class="table table-hover table-striped table-condensed">
     
                 <tr class="headtr">
@@ -144,120 +161,41 @@
                     <th class="list">조회수</th>
                 </tr>
                 
+                <c:forEach items="${listpolicy}" var="dto">
                 <tr class="boardtr">
                 	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0001</td>
-                    <td class="list">부동산 정책 게시판 제목</td>
-                    <td class="list">관리자1</td>
-                    <td class="list">2021-02-18</td>
-                    <td class="list">123</td>
+                    <td class="list">${dto.seq}</td>
+                    <td class="list" id="policytitle" onclick="location.href='/Myhome_project/admin/board/viewpolicy.do?seq=${dto.seq}';">${dto.title}</td>
+                    <td class="list">${dto.id}</td>
+                    <td class="list">${dto.writedate}</td>
+                    <td class="list">${dto.viewcount}</td>
                     
                 </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0002</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0003</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0004</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0005</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0006</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0007</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0008</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0009</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
-                <tr class="boardtr">
-                	<td class="list"><input type="checkbox" name="seq" id="seq"></td>
-                    <td class="list">0010</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                </tr>
+                </c:forEach>
+               
                 
             </table>
             
             <div class="btns">
-            	<input type="button" class="btn" value="등록" id="add">
-            	<input type="button" class="btn" value="수정" id="update">
-            	<input type="button" class="btn" value="삭제" id="delete">
+            	<input type="button" class="btn" value="등록" id="add" onclick="location.href='/Myhome_project/admin/board/addpolicy.do';">
+            	<input type="button" class="btn" value="삭제" id="delete" onclick="location.href='/Myhome_project/admin/board/deletepolicy.do';">
            	</div>
            	
-           	<div class="search-paging">
-	   		<div class="paging">
-	       		<ul class="pagination">
-					<li class="page-item"><a class="page-link page-a" href="">이전</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">1</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">2</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">3</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">4</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">5</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">6</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">7</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">8</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">9</a></li>
-					<li class="page-item"><a class="page-link page-a" href="">10</a></li>
-					<li><a class="page-link page-a" href="">다음</a></li>
-				</ul>       		
-	       	</div>
+	       	<!-- 페이징 -->
+	       	<nav class="pagebar">
+                <ul class="pagination">
+                    ${pagebar}
+                </ul>
+            </nav>
            	
-           	<div class="search">
-            	<input type="text" class="form-control" placeholder="제목/내용" id="txt">
-            	<input type="button" class="btn" value="검색" id="serch">
-           	</div>
-            
-            
+           	<!-- 검색 -->
+           	<form id="searchForm" method="GET" action="/Myhome_project/admin/board/listpolicy.do">
+	           	<div class="search">
+	            	<input type="text" class="form-control" placeholder="제목/내용" id="search" name="search" required value="${search}">
+	            	<input type="button" class="btn" value="검색" id="serch" onclick="$('#searchForm').submit();">
+	           	</div>
+            </form>
+            <div style="clear:both;"></div>
 			
 
 	</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 
@@ -11,11 +12,9 @@
 <title>Myhome::채팅</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-
+<link rel="stylesheet" href="/Myhome_project/css/bootstrap.css">
 
 <style>
-
-
 	#chatmode {
 		border: 1px solid white;
 		background-color: white;
@@ -128,10 +127,7 @@
 		font-size: 14px;
 	}
 	
-	
-	
 	/* 채팅상세 */
-	
 	#chat-box {
 		/* border: 1px solid black; */
 		width: 255px;
@@ -182,6 +178,8 @@
 		border-radius: 10px;
 		color: #202020;
 		border-radius: 10px;
+		
+		
 	}
 	
 	
@@ -252,9 +250,6 @@
 	}
 	
 	
-	
-	
-	
 </style>
 </head>
 <body>
@@ -268,67 +263,160 @@
    			<div id="chat-title">채팅하기</div>
    			<div class="icon-out" id="chat-out"></div>
    		</div>
-   		
    		<!-- 채팅리스트 -->
-   		<div class="chat-list">
-	   		<div class="send">마이홈</div>
-	   		<div class="date">2020-02-01</div>
-	   		<div class="send-content">회원님...</div>
-   		</div>
-   		
-   		<div class="chat-list">
-	   		<div class="send">왕만두</div>
-	   		<div class="date">2020-02-01</div>
-	   		<div class="send-content">왕만두 팔아요</div>
-   		</div>
+   	</div>
    		
    		
-   		<!-- 채팅 상세 -->
-   		<div id="chat-box">
-	   		<div class="sender">마이홈 <span class="sendtime">2021-02-20</span></div>
-	   		<div class="send-content2">만두 아직 안팔렸어요.</div>
-	   		
-	   		
-	   		<div class="fromme" id="send-fromme">삼다수<span class="sendtime">2021-02-20</span></div>
-	   		<div class="send-content3">살게요.</div>
-	   		
-   		</div>
-   		
-   		
-   		<!-- 텍스트 보내기  -->
-   		<div class="text-submit">
-   			<input type="text" id="chat-reply">
-   			<input type="submit" id="chat-submit" value="보내기">
-   		</div>
-  
-    </div>
+   	<!-- 채팅 상세 -->
+	<div id="chat-box">
+	</div>
+
+
+	<!-- 텍스트 보내기  -->
+	<div class="text-submit">
+    	<input type="text" id="chat-reply">
+   		<input type="submit" id="chat-submit" value="보내기">
+   	</div>
     
     <script>
-    
-	/* 채팅 */
-	
+
 		/* 채팅창 클릭 시 리스트, 채팅창 띄우기 */
 		$("#chat").click(function() {
-			$(".chat-list").css("visibility", "visible");
+			
 			$("#chatmode").css("visibility", "visible");
-		});
+			
+			$.ajax({
+				type: "GET",
+				url: "/Myhome_project/member/chatlistdata.do",
+				
+				success: function(result) {
 
+ 					var list = result.split(',');
+					var html = "";
+					
+					for(var i = 0; i<list.length-1; i+=2) {	//-1은 마지막까지 ,가붙어서 해주는것
+						html += "<div class='chat-list' value='" + list[i] + "'>";
+						html += "<div class='send'>";	//seqTheHost 알기위해서 name에 붙혀준다
+						html += list[i+1];
+						html += "</div>";
+						html += "</div>";
+					}
+					
+					$("#chatmode").append(html);
+					$(".chat-list").css("visibility", "visible");
+				
+					const url = "ws://localhost:8090/Myhome_project/chatserver";
+					let ws;
+					
+					/* 채팅 상세 클릭 시 리스트 hidden, 텍스트&submit 보이기 */
+			    	$(".chat-list").click(function() {
+			    		
+			    		$(".chat-list").css("visibility", "hidden");
+			    		$("#chat-box").css("visibility", "visible");
+			    		var html = "";
+			    		var text= "";
+			    		
+						$.ajax({	//채팅내용 불러옴
+							
+							type: "GET",
+							url: "/Myhome_project/member/chatdata.do",
+							data: "seqTheOther=" + $(this).attr("value"),
+							
+							success: function(result) {
+								
+			 					text = result.split(',');
+								
+								for(var i = 0; i<text.length-1; i++) {	
+									html += "<div class='send-content2'>";
+									html += text[i];
+									html += "</div>";
+								}
+								
+								$("#chat-box").append(html);
+								$("#chat-box").css("visibility", "visible");
+								$(".text-submit").css("visibility", "visible");
+								
+								$("#chat-box").scrollTop($("#chat-box").prop("scrollHeight"));
+							},
+							error: function(a,b,c) {
+								console.log(a,b,c);
+							}
+						});	// chat-list ajax
+						
+						//채팅
+						ws = new WebSocket(url);
+						
+						ws.onopen = function(evt) {
+							print("상대방이 입장했습니다.");
+						};
+						
+						ws.onmessage = function(evt) {
+							console.log("서버에서 클라이언트에게 메시지를 전송했습니다.");
+							console.log(evt.data);
+							
+						};
+						
+						ws.onclose = function(evt) {
+							print("상대방이 퇴장했습니다");
+						};
+						
+						ws.onerror = function(evt) {
+							console.log(evt);
+						};
+						
+						$("#chat-reply").keyup(function() {
+							
+							//서버에 메시지 보내기
+							//강아지#안녕하세요.
+							if (event.keyCode == 13) {
+								ws.send($("#chat-reply").val());
+								
+								print($("#chat-reply").val());
+								
+								$("#chat-reply").val("");
+								$("#chat-reply").focus();
+								
+								//스크롤바를 가장 밑으로 내려라
+								//$("#output").scrollTop($("#output").prop("scrollHeight"));
+							}
+							
+						});
+						
+					});	//chat-list
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			});	//chat ajax
+			
+		});
+		
 		/* 나가기 클릭 시 hidden */
     	$("#chat-out").click(function() {
+    		ws.close();
 			$("#chatmode").css("visibility", "hidden");
 			$("#chat-box").css("visibility", "hidden");
 			$(".text-submit").css("visibility", "hidden");
 			$(".chat-list").css("visibility", "hidden");
 		});
 		
-		/* 채팅 상세 클릭 시 리스트 hidden, 텍스트&submit 보이기 */
-    	$(".chat-list").click(function() {
-			$(".chat-list").css("visibility", "hidden");
-			$("#chat-box").css("visibility", "visible");
-			$(".text-submit").css("visibility", "visible");
-		});
+		
+		
+		function print(msg) {
+			
+			let html = "";
+			
+			html += "<div class='send-content2'>";
+			html += msg;
+			html += "</div>";
+			
+			$("#chat-box").append(html);
+			
+		}
+		
+		
+
     	
-    
     </script>
 	
 	

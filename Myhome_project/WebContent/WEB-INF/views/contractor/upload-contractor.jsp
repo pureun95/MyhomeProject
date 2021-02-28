@@ -27,7 +27,8 @@
 	min-height: 100%;
 }
 .container {
-	/* border: 0px; */ 
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 	font-family: 'NanumBarunGothic', sans-serif;
 	font-size: 16px;
 }
@@ -52,118 +53,7 @@
 	/* margin-bottom: 24px; */
 	/* border:1px solid black; */
 }
-/* header css 시작*/
-header {
-    border-bottom: 1px solid #DBDCE0;
-    width: 100%;
-    height: 100px;
-    margin: 0px auto;
-    position: fixed;
-    left: 0px;
-    top: 0px;
- 	z-index: 999;
- 	
-}
-.header {
-	background-color : white;
-}
-.header-ul {
-    height: 100px;
-    width: 1190px;
-    margin: 0 auto;
-    letter-spacing: -.2px;
-    font-size: 19.2px;
-    font-family: 'MaplestoryOTFLight';
-}
-.header-img {
-    width: 70px;
-    height: 70px;
-    background-image: url('/Myhome_project/image/logo/5.png');
-    background-size: cover;
-    background-position: 50% 50%;
-    float: left;
-    cursor: pointer;
-    position: relative;
-    left: 30px;
-    top: 20px;
-}
-.header-ul2 {
-    width: 710px;
-    height: 30px;
-    color: #202020;
-    position: relative;
-    left: 460px;
-    top: 55px;
-    text-align: right;
-    padding: 5px 0px;
-}
-.li-list {
-    float: left;
-    list-style: none;
-    margin-right: 20px;
-    cursor: pointer;
-    position: relative;
-    top: 3px;
-    
-}
-li.header-li.li-list.header-li-scroll {
-	font-size: 17.6px;
-}
-#last {
-    clear: both;
-} 
-    
-.li-list:last-child {
-    margin-right: 0px;
-}
-.li-login {
-    font-size: 14px;
-    position: relative;
-    left: 15px;
-    top: 9px;
-}
-.li-list-hover {
-    display:inline; 
-    border-bottom: 3px solid #F1AEAE; 
-    padding-bottom: 10px;
-}
-.li-list-scroll-hover {
-    display:inline; 
-    border-bottom: 3px solid #F1AEAE; 
-    padding-bottom: 7px;
-}
-.header-scroll {
-    height: 80px;
-    background-color: white;
-    
-    /* font-size: 17.6px !important; */
-}
-.header-ul-scroll {
-    height: 50px;
-    /* font-size: 1.1em; */
-}
-.header-img-scroll {
-    width: 55px;
-    height: 55px;
-    position: relative;
-    left: 22px;
-    top: 17px;
-}
-.header-ul2-scroll {
-    color: #202020;
-    position: relative;
-    left: 450px;
-    top: 36px;
-    
-    font-size: 17.6px;
-}
-#header:hover {
-	background-color: white;
-}
-	.nav1-box1 {
-		border: 0px;
-	}
-/* header css 끝*/
+
 /* footer css 시작*/
     #footer{
 	    z-index: -1;
@@ -307,25 +197,7 @@ li.header-li.li-list.header-li-scroll {
 
 <div class="boardwrap">
 
- <!-- header -->
-<header id="header">
-    	<div class="header-wrap">
-        <div class="header-ul">
-            <div class="header-img"></div>
-                <ul class="header-ul2">
-                    <li class="header-li li-list">방찾기</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
-                    <li class="header-li li-list">커뮤니티</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
-                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/mypage.do';">마이페이지</li>
-                    <li class="header-li li-list">고객센터</li>
-
-                    <li id="logout" class="li-login li-list">로그아웃</li>
-                </ul>
-            </div>
-            </div>
-    </header> 
-
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
      <div class="container">
 
 			<div id="title">방 올리기</div>

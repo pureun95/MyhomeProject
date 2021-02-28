@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
 @WebServlet("/contractor/mypage-info.do")
 public class MypageInfo extends HttpServlet{
 
@@ -24,13 +25,15 @@ public class MypageInfo extends HttpServlet{
 		
 		//session 받는다.
 		HttpSession session = req.getSession();
+		
 		//seq를 보내준다
 		ArrayList<ContractorDTO> list = dao.list(session.getAttribute("seqAllUser").toString());
 		
-				
-		
 		//내 정보 보내기
 		req.setAttribute("list", list);
+		
+		ContractorDTO dto = new ContractorDTO();
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-info.jsp");
 		dispatcher.forward(req, resp);

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
 	
 %>
@@ -167,54 +169,54 @@
 			<div id="title">회원정보관리</div>
 
 			<div id="subtitle">
-				<span id="name">회원이름</span>님 회원정보</div>
+				<span id="name">${dto.name}</span>님 회원정보</div>
 			
 		
 			<div class="info">
 			
 				<span>회원번호</span>
-				<input type="text" class="form-control" id="seq" value="123" readonly> 
+				<input type="text" class="form-control" id="seq" value="${dto.seq}" readonly> 
 				
 				<span>아이디</span>
-				<input type="text" class="form-control" id="id" value="아이디" readonly> 
+				<input type="text" class="form-control" id="id" value="${dto.id}" readonly> 
 				
 				<span>이름</span>
-				<input type="text" class="form-control" id="name" value="이름" readonly> 
+				<input type="text" class="form-control" id="name" value="${dto.name}" readonly> 
 				
 				<span>닉네임</span>
-				<input type="text" class="form-control" id="nickname" value="닉네임" readonly> 
+				<input type="text" class="form-control" id="nickname" value="${dto.nickname}" readonly> 
 				
 				<span>주민번호</span> 
-				<input type="text" class="form-control ssn" id="ssn1" maxlength=6 value="900101" readonly > - 
-				<input type="text" class="form-control ssn" id="ssn2" maxlength=7 value="1234567" readonly >
+				<input type="text" class="form-control ssn" id="ssn1" maxlength=6 value="${dto.jumin1}" readonly > - 
+				<input type="text" class="form-control ssn" id="ssn2" maxlength=7 value="${dto.jimin2}" readonly >
 				
 				<span>비밀번호</span>
-				<input type="text" class="form-control" id="password" value="비밀번호" readonly>
+				<input type="text" class="form-control" id="password" value="${dto.password}" readonly>
 				
 				<span>주소</span>
-				<input type="text" class="form-control" id="address" value="주소" readonly>
+				<input type="text" class="form-control" id="address" value="${dto.address}" readonly>
 				
 				<span>전화번호</span> 
-				<input type="text" class="form-control tel" id="tel1" value="010" maxlength=3 readonly> - 
-				<input type="text" class="form-control tel" id="tel2" value="1234" maxlength=4 readonly> - 
-				<input type="text" class="form-control tel" id="tel3" value="5678" maxlength=4 readonly>
+				<input type="text" class="form-control tel" id="tel1" value="${dto.tel1}" maxlength=3 readonly> - 
+				<input type="text" class="form-control tel" id="tel2" value="${dto.tel2}" maxlength=4 readonly> - 
+				<input type="text" class="form-control tel" id="tel3" value="${dto.tel3}" maxlength=4 readonly>
 				
 				<span>이메일</span>
-				<input type="text" class="form-control" id="email" value="abc@gmail.com" readonly>
+				<input type="text" class="form-control" id="email" value="${dto.email}" readonly>
 				
 				<span>관심매물</span>
-				<input type="text" class="form-control" id="roomtype" value="원룸" readonly>
+				<input type="text" class="form-control" id="roomtype" value="${dto.roomtype}" readonly>
 				
 				<span>관심지역</span>
-				<input type="text" class="form-control location" id="location1" value="서울특별시" readonly>
-				<input type="text" class="form-control location" id="location2" value="강남구" readonly>
-				<input type="text" class="form-control location" id="location3" value="역삼동" readonly>
+				<input type="text" class="form-control location" id="location1" value="${dto.location[0]}" readonly>
+				<input type="text" class="form-control location" id="location2" value="${dto.location[1]}" readonly>
+				<input type="text" class="form-control location" id="location3" value="${dto.location[2]}" readonly>
 				
 				<span>계정상태</span>
-				<input type="text" class="form-control" id="state" value="일반회원" readonly>
+				<input type="text" class="form-control" id="state" value="${dto.state}" readonly>
 				
 				<span>신고횟수</span>
-				<input type="text" class="form-control" id="reportcount" value="1회 (홍보)" readonly>
+				<input type="text" class="form-control" id="reportcount" value="${dto.reportcount}" readonly>
 				 
 
 				
@@ -222,7 +224,7 @@
 			
 			<div class="btns">		
 				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">삭제</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/Myhome/admin/membermanage-user.do';">목록</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do?search=${search}&page=${page}';">목록</button>
 			</div>
 
 		</div>

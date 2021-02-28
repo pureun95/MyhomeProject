@@ -29,7 +29,6 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -232,7 +231,7 @@
 	}
 	
 	.mypage-title {
-		font-size: 24px;
+		font-size: 30px;
 		color: #202020;
 		text-align: center;
 		font-family: 'MaplestoryOTFLight';
@@ -286,7 +285,7 @@
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      
@@ -302,7 +301,7 @@
         	<div class="start">
         		
         		<div class="mypage-title">마이페이지</div>
-	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/myproperty.do';">
+	       			<div class="mypage-box" id='box1' onclick="location.href='/Myhome_project/contractor/mypage-myproperty.do';">
 	       				<div class="icon glyphicon glyphicon-upload" id="icon1"></div>
 	       				<div class="desc">올린매물관리</div>
 	       				<div class="desc2">내가 올린 매물을 확인할 수 있어요.</div>

@@ -69,6 +69,11 @@ body, html {
 	text-align: center;
 	/* border: 1px solid black; */
 }
+.container {
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
+}
 </style>
 </head>
 <body>
@@ -76,7 +81,7 @@ body, html {
 
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
 			<div class="container">
 				<div class="section1">
@@ -116,7 +121,7 @@ body, html {
 			history.back();
 		}
 		removeuser2.onclick = function () { 
-			location.href = "/Myhome_project/user/mypage.do";
+			location.href = "/Myhome_project/user/removeuserok.do";
 		
 		} 
 	</script>

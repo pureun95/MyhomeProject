@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	
 %>
@@ -39,6 +40,8 @@ body, html {
 	font-family: 'NanumBarunGothic';
 	font-size: 16px;
 	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 
@@ -53,6 +56,7 @@ body, html {
 	text-align: center;
 	width: 800px;
 	margin-left: 256px;
+	position: relative;
 }
 
 .tbl th {
@@ -73,14 +77,9 @@ body, html {
 	cursor: pointer;
 	background-color: #ffe1e1;
 	font-weight: bold;
-	text-decoration:underline;
 }
-#tbl1{
-	margin-top: -3px;
-}
+
 #tbl2{
-	position: relative;
-	top: -201px; 
 	visibility : hidden;
 }
 
@@ -101,7 +100,6 @@ body, html {
 
 #contractor {
 	position: relative;
-	top: -100px; 
 	visibility : hidden;
 }
 
@@ -158,7 +156,7 @@ body, html {
 	<div class="wrap">
 		<div class="header-containerwrap">
 			<!-- header -->
-			<%@include file="/WEB-INF/views/user/bootstrap-header.jsp"%>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
 
 			<div class="container">
 				
@@ -185,95 +183,89 @@ body, html {
 									<th>중개인</th>
 									<th>매칭신청</th>
 								</tr>
+								
+								<c:if test="${glist.size()==0}">
 								<tr>
-									<td>00024</td>
-									<td>전망 좋은 남향방</td>
-									<td>김햇살(햇살중개사사무소)</td>
+									<td colspan="4">받은 매칭 목록이 존재하지 않습니다.</td>
+								</tr>
+								</c:if>
+								
+								<c:forEach items="${glist}" var="gdto">
+								<tr>
+									<td>${gdto.seqMatching }</td>
+									<td onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${gdto.seqLessorProperty}'">${gdto.title}</td>
+									<td>${gdto.name}(${gdto.contractorName})</td>
 									<td>
+										<c:if test="${empty gdto.response}">
 										<div id="matchaccept">
-											<button type="button" class="btn btn-default" id="btnok">매칭 수락</button>
-											<button type="button" class="btn btn-default" id="btnno">매칭 거절</button> 
+											<button type="button" class="btn btn-default" id="btnok" onclick="location.href='/Myhome_project/user/matchingok.do?response=ok&seqMatching=${gdto.seqMatching}&seqLessorProperty=${gdto.seqLessorProperty}&seqContractor=${gdto.seqContractor}';">매칭 수락</button>
+											<button type="button" class="btn btn-default" id="btnno" onclick="location.href='/Myhome_project/user/matchingok.do?response=no&seqMatching=${gdto.seqMatching}';">매칭 거절</button> 
 										</div>
+										</c:if>
+										${gdto.response}
 									</td>
 								</tr>
-								<tr>
-									<td>00013</td>
-									<td>역세권 도보 5분 내에 살고싶다면 여기로</td>
-									<td>김햇살(햇살중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
-								<tr>
-									<td>00004</td>
-									<td>좋은 방입니다.</td>
-									<td>김햇살(햇살중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
+								</c:forEach>
+								
 							</table>
 						</div>
 
 						<div class="matchingbox" id="get">
-							<table class="tbl" id="tbl2">
+							<table class="tbl" id="tbl2" style="top: <c:if test="${empty glist}">-101</c:if><c:if test="${glist.size()>=1}">${-51+glist.size()*-50}</c:if>px">
 								<tr>
 									<th>매물번호</th>
 									<th>제목</th>
 									<th>중개인</th>
 									<th>매칭신청</th>
 								</tr>
+								
+								<c:if test="${slist.size()==0}">
 								<tr>
-									<td>00024</td>
-									<td>전망 좋은 남향방</td>
-									<td>아침햇살(달님중개사사무소)</td>
-									<td>매칭거절됨 <button type="button" class="btn btn-default btncontr">중개사선택</button></td>
+									<td colspan="4">보낸 매칭 목록이 존재하지 않습니다.</td>
 								</tr>
+								</c:if>
+								
+								<c:forEach items="${slist}" var="sdto" varStatus="status">
 								<tr>
-									<td>00014</td>
-									<td>역세권 도보 15분 내에 살고싶다면 여기로</td>
-									<td>반달곰(달님중개사사무소)</td>
-									<td>매칭신청완료 <button type="button" class="btn btn-danger">취소하기</button></td>
+									<td>${sdto.seqMatching }</td>
+									<td onclick="location.href='/Myhome_project/contractor/property-lessor-detail.do?seq=${sdto.seqLessorProperty}'">${sdto.title}</td>
+									<td>${sdto.name}(${sdto.contractorName})</td>
+									<td>
+										<c:choose>
+										<c:when test="${sdto.response eq '거절' }">
+											매칭거절됨<button type="button" class="btn btn-default btncontr">중개사선택</button>
+										</c:when>
+										<c:when test="${sdto.response eq '수락' }">
+											매칭완료
+										</c:when>
+										<c:otherwise>
+											매칭대기중 <button type="button" class="btn btn-default btncontr" id="btn${status.count}" onclick="contractorlist('${sdto.location}', ${sdto.seqMatching});">중개사바꾸기</button>
+										</c:otherwise>
+										</c:choose>
+																			
+									</td>
 								</tr>
-								<tr>
-									<td>00013</td>
-									<td>역세권 도보 5분 내에 살고싶다면 여기로</td>
-									<td></td>
-									<td>매칭대기중 <button type="button" class="btn btn-default btncontr">중개사선택</button></td>
-								</tr>
-								<tr>
-									<td>00004</td>
-									<td>좋은 방입니다.</td>
-									<td>아침햇살(달님중개사사무소)</td>
-									<td>매칭완료(2021-02-05)</td>
-								</tr>
+								
+								</c:forEach>
+								
 							</table>
 						</div>
 						<div class="contractorbox" id="contractor">
 							<div id="whiteboard" style=" border: 1px solid black; border-radius:5px; box-shadow: 5px 5px 5px gray inset;">
 								<div id="title">중개사 목록  <span style=" font-size: 16px; color: #b7b7b7;">매칭을 보낼 중개사를 선택하세요.</span></div>
 								<table class="ctbl" id="tbl3">
-									<tr>
-										<th>중개사이름</th>
-										<th>사업자번호</th>
-										<th>전화번호</th>
-										<th>주소</th>
-									</tr>
-									<tr class="selcontractor">
-										<td>광진부동산</td>
-										<td>115-90-00111</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-									<tr class="selcontractor">
-										<td>쌍용부동산</td>
-										<td>115-90-00158</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-									<tr class="selcontractor">
-										<td>81111부동산</td>
-										<td>924-60-00020</td>
-										<td>010-5933-5833</td>
-										<td>서울특별시 강동구 강일동</td>
-									</tr>
-
+									<thead>
+										<tr>
+											<th>중개사이름</th>
+											<th>사업자번호</th>
+											<th>전화번호</th>
+											<th>주소</th>
+										</tr>
+									</thead>
+									
+									<tbody id="tb">
+										
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -306,7 +298,7 @@ body, html {
 		var btnok = document.getElementById("btnok");
 		var btnno = document.getElementById("btnno");
 		
-		
+	
 		btnget.onclick = function() {
 			document.getElementById("tbl1").style.visibility = 'visible';
 			document.getElementById("tbl2").style.visibility = 'hidden';
@@ -321,28 +313,62 @@ body, html {
 			btnsend.style.backgroundColor = '#c3d9ff';
 		};
 		
-		for (var i=0; i<btncontr.length; i++){
-			btncontr[i].onclick = function() {
-				document.getElementById("contractor").style.visibility = 'visible';
-			};
-		}
-		for (var i=0; i<btncontr.length; i++){
-			selcontractor[i].onclick = function() {
-				document.getElementById("contractor").style.visibility = 'hidden';
-			};
-		}
 		
-		btnok.onclick = function() {
-			btnok.display = 'none'
-			btnno.display = 'none'
-			document.getElementById("matchaccept").innerHTML = '매칭완료(2021-02-18)';
+		function contractorlist(location, seqMatching){
+			
+			let num = seqMatching;
+			
+			$("#contractor").css("visibility","visible");
+			
+			$.ajax({
+				type: "GET",
+				url: "/Myhome_project/user/vwcontractordata.do",
+				data:"location="+location,
+				success: function(llist){
+					
+					var body = '';
+					
+					console.log(llist);
+					llist = JSON.parse(llist);
+
+					
+					if (llist==null || llist==""){
+						body += '<td colspan="4">';
+						body += '지역에 존재하는 다른 중개사가 없습니다.';
+						body += '</td>';
+						body += '</tr>';
+					}
+					
+					
+					for (var i=0; i<llist.length; i++) {
+						
+
+						body += '<tr class="selcontractor" onclick="location.href='
+						body += '\'/Myhome_project/user/selectcontractor.do?seqContractor=';
+						body += llist[i].seqContractor;
+						body += '&seqMatching=';
+						body += num;
+						body += '\'">';
+						body += '<td>'+llist[i].contractorName+'</td>';
+						body += '<td>'+llist[i].companyNumber+'</td>';
+						body += '<td>'+llist[i].phoneNumber +'</td>';
+						body += '<td>'+llist[i].address+'</td>';
+						body += '</tr>';
+						
+						
+					}
+					
+				
+					$("#tb").html(body);
+					
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			})
+			
 		};
 		
-		btnno.onclick = function() {
-			btnok.display = 'none'
-			btnno.display = 'none'
-			document.getElementById("matchaccept").innerHTML = '매칭거절(2021-02-18)';
-		};
 	
 	</script>
 	

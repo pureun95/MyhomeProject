@@ -23,13 +23,14 @@
 <style>
 
 	.container {
+		border: 0px;
 		border-color: transparent;
-		
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin: 0 auto;
 	    letter-spacing: -.2px;
 	    min-height: 100%;
 	    padding-bottom: 100px;
-	    border: 1px solid green;
 	    margin-top: 100px;
 	    
 
@@ -568,7 +569,7 @@
 <div class="header-containerwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp" %>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
      

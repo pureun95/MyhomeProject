@@ -60,12 +60,26 @@ public class Login extends HttpServlet {
 			session.setAttribute("seqAllUser", seqAllUser); 
 			session.setAttribute("name", mdto.getName());
 			
+			//박지현 추가 충돌날 수도..
+			session.setAttribute("nickname", mdto.getNickname());
+			
+			//노푸른임시추가한부분
+			session.setAttribute("id", id);
+			
 			//시작 페이지로 이동
 			resp.sendRedirect("/Myhome_project/Myhome/main.do");			
 			
-		} else if( seqAdmin != null ) {
-			HttpSession session = req.getSession();
 			
+		} else if( seqAdmin != null ) {
+	         HttpSession session = req.getSession();
+	         
+	         session.setAttribute("SeqAdmin", seqAdmin );
+	         //관리자 페이지로 이동
+	         System.out.println("관리자가 로그인 했습니다.");
+	         resp.sendRedirect("/Myhome_project/admin/adminmenu.do");   
+		
+			
+
 			// 02/26강제 접속시 퇴장용도 
 			// admin을 불러와서 안불러와지면 강퇴.
 			String admin = "admin";
@@ -75,6 +89,8 @@ public class Login extends HttpServlet {
 			//관리자 페이지로 이동
 			System.out.println("관리자가 로그인 했습니다.");
 			resp.sendRedirect("/Myhome_project/admin/adminmenu.do");			
+
+
 			
 		} else {
 			//로그인 실패

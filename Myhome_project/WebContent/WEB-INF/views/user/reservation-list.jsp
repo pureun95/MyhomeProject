@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
 
@@ -24,9 +25,7 @@
 	    min-height: 100%;
 	    font-size: 16px;
 	}
-	.container {
-		border: 0px;
-	}
+	
 	
 #title {
 	text-align: left;
@@ -76,8 +75,10 @@ tr td:nth-last-child(1) {
 	text-align: right;
 	margin-bottom: 24px;
 }
-#cancelrv:hover {
-	background-color: #ffe1e1;
+.container {
+	border: 0px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 </style>
@@ -89,7 +90,7 @@ tr td:nth-last-child(1) {
 <div class="boardwrap">
  
  <!-- header -->
-<%@include file="/WEB-INF/views/user/bootstrap-header.jsp" %>
+		<%@include file="/WEB-INF/views/inc/bootstrap-header.jsp"%>
  
      <div class="container">
 		<!-- nav -->
@@ -104,60 +105,59 @@ tr td:nth-last-child(1) {
 
 				<table class="tbl" id="tbl1">
 					<tr>
-						<th>선택</th>
 						<th>예약번호</th>
 						<th>업체</th>
 						<th>예약일</th>
-						<th>예약상태</th>
 						<th>가격</th>
 						<th>후기작성</th>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
-						<td>00021</td>
-						<td>영구24</td>
-						<td>2020.02.18</td>
-						<td>확정</td>
-						<td>80,000원</td>
-						<td><button type="button" class="btn btn-default" id="btn-pro">작성하기</button>
-						</td>
+					
+					<c:if test="${empty clist&& empty mlist}">
+					<tr>
+						<td colspan="6">예약목록이 존재하지 않습니다.</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
-						<td>00009</td>
-						<td>영구크린</td>
-						<td>2020.02.18</td>
-						<td>확정</td>
-						<td>80,000원</td>
+					</c:if>
+					<!-- 청소업체 리스트 출력 -->
+					<c:forEach items="${clist}" var="dto">
+					<!-- <form></form> -->
+					<tr>
+						<td>${dto.seqCleanReservation}</td>
+						<td>${dto.name}</td>
+						<td>${dto.reservationDate}</td>
+						<td>${dto.price}원</td>
 						<td>
-							<button type="button" class="btn btn-default" id="btn-pro">작성하기</button>
+							<c:if test="${empty dto.seqCleanReview}">
+							<button type="button" class="btn btn-default" onclick="">작성하기</button>
+							</c:if>
+							<c:if test="${not empty dto.seqCleanReview}">
+							후기작성됨
+							</c:if>
 						</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
-						<td>00007</td>
-						<td>조아24</td>
-						<td>2020.02.18</td>
-						<td>확정</td>
-						<td>80,000원</td>
-						<td>후기작성 완료</td>
+					</c:forEach>
+					
+					<!-- 이사업체 리스트 출력 -->
+					<c:forEach items="${mlist}" var="dto">
+					<tr>
+						
+						<td>${dto.seqMoveReservation}</td>
+						<td>${dto.name}</td>
+						<td>${dto.reservationDate}</td>
+						<td>${dto.price}원</td>
+						<td>
+							<c:if test="${empty dto.seqMoveReview}">
+							<button type="button" class="btn btn-default" onclick="">작성하기</button>
+							</c:if>
+							<c:if test="${not empty dto.seqMoveReview}">
+							후기작성됨
+							</c:if> 
+						</td>
 					</tr>
-					<tr class="rvbox">
-						<td><input type="checkbox" class="cbs" name="" value=""></td>
-						<td>00002</td>
-						<td>경규이삿짐센터</td>
-						<td>2020.02.18</td>
-						<td>확정</td>
-						<td>80,000원</td>
-						<td>후기작성 기간 경과</td>
-					</tr>
+					</c:forEach>
+					
 					
 				</table>
 				<div style="clear: both;"></div>
-				
-				<div class="wrapbtn" style="text-align: right; margin-top: 20px;">
-					<button type="button" class="btn btn-default" id="cancelrv">예약취소</button>
-				</div>
 			</div>
 
 		</div>
@@ -168,12 +168,6 @@ tr td:nth-last-child(1) {
 </div> 
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
- 		
- 	
- 	<script>
- 	
- 	</script>
- 
  
 </body>
 </html>
