@@ -124,6 +124,8 @@
      	height: 73px;
      	left: -450px;
      	top: 260px;
+     	background-position: 0% -30px; 
+        background-size: cover;
      	
      }
      
@@ -426,7 +428,7 @@
 			
            	<div class="property-list">
                 <div class="img-box">
-	            	<div class="img-property">
+	            	<div class="img-property" style="background-image: url('../image/${dto.path }')">
 	            	<c:if test="${dto.available == 0 }">
 	            	<div class="state">입주가능</div>
 	            	</c:if>
@@ -437,9 +439,9 @@
 	            	
 	            	</div>
 	            	<!-- 작은 이미지 박스 -->
-	            	<div class="imgsmall-property"></div>   
-	            	<div class="imgsmall-property"></div> 
-	            	<div class="imgsmall-property"></div>       
+	            	<div class="imgsmall-property" style="background-image: url('../image/no-img.jpg')"></div>   
+	            	<div class="imgsmall-property" style="background-image: url('../image/no-img.jpg')"></div> 
+	            	<div class="imgsmall-property" style="background-image: url('../image/no-img.jpg')"></div>       
 	            	
 	            	<!-- 옵션 박스  -->
 	                <div class="option-detail">
