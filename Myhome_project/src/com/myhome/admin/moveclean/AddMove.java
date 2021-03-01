@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 이사업체 등록 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/moveclean/addmove.do")
 public class AddMove extends HttpServlet{
 

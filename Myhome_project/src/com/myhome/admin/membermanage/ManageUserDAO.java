@@ -37,6 +37,7 @@ public class ManageUserDAO {
 		}
 	}
 
+	//List
 	public ArrayList<ManageUserDTO> list(HashMap<String, String> map) {
 		
 		try {
@@ -49,7 +50,7 @@ public class ManageUserDAO {
 			}
 			
 			//String sql  = "select seq, id, name, jumin1, jumin2, tel1, tel2, tel3, address, reportcount from vwUser";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUser %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUser %s order by seq asc) a) where rnum between %s and %s"
 									, where
 									, map.get("begin")
 									, map.get("end"));
@@ -89,6 +90,8 @@ public class ManageUserDAO {
 		return null;
 	}
 
+	
+
 	public ManageUserDTO get(String seq) {
 	
 		try {
@@ -102,7 +105,7 @@ public class ManageUserDAO {
 			rs = pstat.executeQuery();
 			
 			if(rs.next()) {
-
+				
 				ManageUserDTO dto = new ManageUserDTO();
 				
 				dto.setSeq(rs.getString("seq"));
@@ -130,10 +133,9 @@ public class ManageUserDAO {
 				return dto;
 				
 			}
-		
-			
+				
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return null;
 	}

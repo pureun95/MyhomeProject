@@ -1,4 +1,4 @@
-package com.myhome.admin.board;
+package com.myhome.admin.membermanage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,35 +11,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-/***
- * 부동산 정책 삭제 처리 서블릿입니다.
+/**
+ * 중개인회원 삭제 처리 서블릿입니다.
  * @author 윤지현
  *
  */
-@WebServlet("/admin/board/deletepolicyok.do")
-public class DeletePolicyOk extends HttpServlet {
+@WebServlet("/admin/membermanage/deletecontractorok.do")
+public class DeleteContractorOk extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		//1. 데이터 가져오기(seq)
+		//2. 권한 확인?
+		//3. DB 작업 -> delete
+		//4. 결과 처리
 		
 		HttpSession session = req.getSession();
 		
 		//1. 
 		req.setCharacterEncoding("UTF-8");
 		
-		//String seq = req.getParameter("seq"); //삭제할 글번호
-		String[] seq = req.getParameterValues("seq");
+		String state = req.getParameter("state");
+		String seq = req.getParameter("seq"); //삭제할 글번호
+		
 		
 		//2.
-		PolicyDAO dao = new PolicyDAO();
+		ManageContractorDAO dao = new ManageContractorDAO();
+		ManageContractorDTO dto = new ManageContractorDTO();
 		
-		int result = dao.delete(seq);	//글삭제하기
+		dto.setState(state);
+		dto.setSeq(seq); //글번호
+		
+		int result = dao.del(dto);	//글삭제하기
 		
 		if (result == 1) {
 			//글삭제 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/admin/board/listepolicy.do");
+			resp.sendRedirect("/Myhome_project/admin/membermanage/membermanage-contractor.do");
 			
 			
 		} else {

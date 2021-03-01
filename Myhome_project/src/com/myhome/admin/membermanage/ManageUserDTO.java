@@ -1,5 +1,10 @@
 package com.myhome.admin.membermanage;
 
+/***
+ * 일반회원 정보 DTO입니다.
+ * @author 윤지현
+ *
+ */
 public class ManageUserDTO {
 
 	private String seq;

@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 체크리스트 게시판 상세페이지 서블릿입니다.
+ * @author MY
+ *
+ */
 @WebServlet("/admin/board/viewchecklist.do")
 public class ViewCheckList extends HttpServlet {
 

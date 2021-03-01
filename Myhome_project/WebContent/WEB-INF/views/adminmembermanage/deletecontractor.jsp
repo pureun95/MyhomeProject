@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+	
 <%
 	
 %>
@@ -154,7 +154,7 @@
 		text-align : center;
 	}
 	
-	
+
 
 
 </style>
@@ -168,13 +168,13 @@
 		<div class="container">
 		<%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
-			<div id="title">회원정보관리</div>
+			<div id="title">중개인정보관리</div>
 
 			<div id="subtitle">
 				<span id="name">${dto.name}</span>님 회원정보</div>
 			
 		
-			<div class="info">
+<%-- 			<div class="info">
 			
 				<span>회원번호</span>
 				<input type="text" class="form-control" id="seq" value="${dto.seq}" readonly> 
@@ -185,18 +185,17 @@
 				<span>이름</span>
 				<input type="text" class="form-control" id="name" value="${dto.name}" readonly> 
 				
-				<span>닉네임</span>
-				<input type="text" class="form-control" id="nickname" value="${dto.nickname}" readonly> 
+				<span>공인중개소명</span>
+				<input type="text" class="form-control" id="contractorname" value="${dto.contractorname}" readonly> 
 				
-				<span>주민번호</span> 
-				<input type="text" class="form-control ssn" id="ssn1" maxlength=6 value="${dto.jumin1}" readonly > - 
-				<input type="text" class="form-control ssn" id="ssn2" maxlength=7 value="${dto.jumin2}" readonly >
+				<span>사업자번호</span> 
+				<input type="text" class="form-control" id="companynumber" value="${dto.companynumber}" readonly >
 				
 				<span>비밀번호</span>
 				<input type="text" class="form-control" id="password" value="${dto.password}" readonly>
 				
 				<span>주소</span>
-				<input type="text" class="form-control" id="address" value="${dto.address}" readonly>
+				<input type="text" class="form-control" id="password" value="${dto.address}" readonly>
 				
 				<span>전화번호</span> 
 				<input type="text" class="form-control tel" id="tel1" value="${dto.tel1}" maxlength=3 readonly> - 
@@ -204,30 +203,30 @@
 				<input type="text" class="form-control tel" id="tel3" value="${dto.tel3}" maxlength=4 readonly>
 				
 				<span>이메일</span>
-				<input type="text" class="form-control" id="email" value="${dto.email}" readonly>
-				
-				<span>관심매물</span>
-				<input type="text" class="form-control" id="roomtype" value="${dto.roomtype}" readonly>
-				
-				<span>관심지역</span>
-				<input type="text" class="form-control location" id="location1" value="${dto.location[0]}" readonly>
-				<input type="text" class="form-control location" id="location2" value="${dto.location[1]}" readonly>
-				<input type="text" class="form-control location" id="location3" value="${dto.location[2]}" readonly>
-				
+				<input type="text" class="form-control" id="email" value="${dto.email}" readonly> 
+				 
 				<span>계정상태</span>
 				<input type="text" class="form-control" id="state" value="${dto.state}" readonly>
 				
 				<span>신고횟수</span>
 				<input type="text" class="form-control" id="reportcount" value="${dto.reportcount}" readonly>
-				 
 
 				
+			</div> --%>
+			
+			<div class="boardalert">				
+				<div class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				  <span class="sr-only">경고!</span>
+				  삭제하시겠습니까? 삭제하시려면 아래의 삭제 버튼을 눌러 주세요.
+				</div>
+			</div>	
+			<div class="btns">	
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/viewcontractorinfo.do?seq=${dto.seq}';">뒤로</button>				
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/deletecontractorok.do?seq=${dto.seq}';">삭제</button>		
 			</div>
 			
-			<div class="btns">		
-				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">삭제</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do?search=${search}&page=${page}';">목록</button>
-			</div>
+
 
 		</div>
 		

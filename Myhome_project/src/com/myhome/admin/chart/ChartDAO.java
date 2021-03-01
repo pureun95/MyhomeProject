@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+/***
+ * 가격변화차트 DAO입니다.
+ * @author MY
+ *
+ */
 public class ChartDAO {
 	private Connection conn;
 	private Statement stat;
@@ -32,7 +37,7 @@ public class ChartDAO {
 		}
 	}
 
-	//월룸 매매차트
+	//원룸 매매차트
 	public ArrayList<Chart1DTO> get1() {
 		
 		try {
@@ -63,7 +68,7 @@ public class ChartDAO {
 		return null;
 	}
 
-	//월룸 전세차트 
+	//원룸 전세차트 
 	public ArrayList<Chart2DTO> get2() {
 		try {
 			
@@ -93,8 +98,9 @@ public class ChartDAO {
 		return null;
 	}
 
+	//원룸 매매차트 
 	public ArrayList<Chart3DTO> get3() {
-try {
+		try {
 			
 			String sql = "select contractdate, roomtype, avg from vwAvg3";
 			

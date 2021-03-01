@@ -36,7 +36,8 @@ public class ManageContractorDAO {
 			System.out.println(e);
 		}
 	}
-
+	
+	//List
 	public ArrayList<ManageContractorDTO> list(HashMap<String, String> map) {
 		
 		try {
@@ -49,7 +50,7 @@ public class ManageContractorDAO {
 			}
 			
 			//String sql = "select seq, name, id, email, companynumber, password, contractorname, tel1, tel2, tel3, address, state, reportcount from vwContractor";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwContractor %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwContractor %s order by seq asc) a) where rnum between %s and %s"
 					, where
 					, map.get("begin")
 					, map.get("end"));
@@ -160,8 +161,35 @@ public class ManageContractorDAO {
 		
 		return 0;
 	}
+
+	//delete
+	//회원삭제시 상태를 2(회원삭제)로 만들어준다.
+	public int del(ManageContractorDTO dto) {
+		try {
+			
+			/*
+			 * String sql = "update tblAllUser set state = 2 where seq = ?";
+			 * 
+			 * pstat = conn.prepareStatement(sql); pstat.setString(1, dto.getSeq());
+			 * 
+			 * return pstat.executeUpdate();
+			 */	
+			
+			String sql = "{ call procDelUser(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, dto.getSeq());
+			
+			return cstat.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	
-	
+	}
 }
 
 

@@ -1,5 +1,10 @@
 package com.myhome.admin.moveclean;
 
+/***
+ * 청소업체 DTO입니다. 
+ * @author 윤지현
+ *
+ */
 public class CleanDTO {
 	
 	private String seq;

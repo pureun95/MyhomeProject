@@ -27,12 +27,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 
 /* ------------------------------------------- */
@@ -54,6 +56,8 @@
 		padding : 0px 10px;
 	}
 
+
+	/* 테이블 */
 	#tbl1 {
 		width:940px;
 	}
@@ -76,13 +80,16 @@
 	.mlist:nth-child(8) { width: 160px; }
 	
 
+	.boardtr:hover {
+		color : #f1aeae;
+	}
+
 	input, select {
 		font-family: 'NanumBarunGothic';
 		outline: none;
 	}
 
-
-	
+	/* 일반회원, 중개인회원 구분 */
 	#member {
 		margin: 10px;
 		
@@ -118,6 +125,7 @@
 		float: left;
 	}
 	
+	/* 페이지바 */
 	.pagebar {
 		text-align : center;
 	}
@@ -139,6 +147,7 @@
 	}
 
     
+    /* 버튼, 검색 */
     .btn {
     	cursor: pointer;
     	margin-bottom: 20px;
@@ -170,9 +179,7 @@
 		cursor : pointer;
 	}
 
-	.boardtr:hover {
-		color : #f1aeae;
-	}
+
 
 
 
@@ -219,7 +226,7 @@
                 
                 <c:forEach items="${list}" var="dto">
                 <tr class="boardtr">
-                	<td class="mlist"><input type="checkbox" name="seq" id="seq"></td>
+                	<td class="mlist"><input type="checkbox" name="seq" id="seq" value="${dto.seq}"></td>
                     <td class="mlist">${dto.seq}</td>
                     <td class="mlist" id="id" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}&search=${search}&page=${nowPage}';">${dto.id}</td>
                     <td class="mlist" id="name" onclick="location.href='/Myhome_project/admin/membermanage/viewuserinfo.do?seq=${dto.seq}';">${dto.name}</td>
@@ -235,7 +242,7 @@
 
 			<!-- 삭제버튼 -->
 			<div class="delete"> 
-			<input type="button" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
+			<input type="button" id="delete" class="btn" value="선택한 회원 삭제" onclick="location.href='/jsp/project/communitywrite.jsp';">
 			</div>
 			
 			
