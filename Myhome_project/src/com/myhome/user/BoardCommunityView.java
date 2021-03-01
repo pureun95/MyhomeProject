@@ -11,9 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 커뮤니티 게시판 게시글 상세페이지를 출력하는 클래스입니다.
+ * 
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardcommunityview.do")
 public class BoardCommunityView extends HttpServlet {
 
+	/**
+	 * get 방식으로 게시글을 호출하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -42,7 +51,7 @@ public class BoardCommunityView extends HttpServlet {
 		// 댓글 목록 가져오기
 		// 현재 보고 있는 글에 달려있는 댓글 목록 가져오기(seq가 현재 보고 있는 글번호)
 		ArrayList<CommentCommunityDTO> clist = dao.listComment(seq);
-		//System.out.println("clist: " + clist.size());
+		// System.out.println("clist: " + clist.size());
 		dao.close();
 
 		dto.setContent(dto.getContent().replace("\r\n", "<br>"));

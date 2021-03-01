@@ -195,7 +195,11 @@
      <!-- footer -->
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 <script>
-
+jQuery(document).ready(function($) {
+	   //$("#next").trigger('click'); // click on button once document is ready
+	   // or
+	   $("#btn3").click();
+	});
 
 </script>
 	

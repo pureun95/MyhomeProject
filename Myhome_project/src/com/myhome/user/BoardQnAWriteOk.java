@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/*import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+*/
+
 /**
- * 커뮤니티 게시판 게시글 수정을 DB에 요청하는 클래스입니다.
- * 
- * @author Blue
+ * Q&A 게시판 게시글 등록을 DB에 요청하는 클래스입니다.
+ * @author 노푸른
  *
  */
-@WebServlet("/Myhome/user/boardcommunityeditok.do")
-public class BoardCommunityEditOk extends HttpServlet {
+@WebServlet("/Myhome/user/boardqnawriteok.do")
+public class BoardQnAWriteOk extends HttpServlet {
 
 	/**
 	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
@@ -27,47 +30,45 @@ public class BoardCommunityEditOk extends HttpServlet {
 
 		HttpSession session = req.getSession();
 
+		// 1.
 		req.setCharacterEncoding("UTF-8");
 
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
-//		String seqCommunity = req.getParameter("seqCommunity");
-		String seqCommunity = req.getParameter("seqCommunity");
-
 		String seqAllUser = String.valueOf(session.getAttribute("seqAllUser"));
+		String seqQnAType  = req.getParameter("seqQnAType");
+			
 
-		BoardCommunityDAO dao = new BoardCommunityDAO();
-		BoardCommunityDTO dto = new BoardCommunityDTO();
+		// 2.
+		BoardQnADAO dao = new BoardQnADAO();
+		BoardQnADTO dto = new BoardQnADTO();
 
 		dto.setTitle(title);
 		dto.setContent(content);
-		dto.setSeqCommunity(seqCommunity); // 글번호
+//		dto.setSeqUser(seqUser);
+		// 수정하기**
 		dto.setSeqAllUser(seqAllUser);
+		dto.setSeqQnAType(seqQnAType);
+		
+		
+		int result = dao.write(dto);
 
-		int result = dao.edit(dto); // 글수정하기 0 or 1
-
+		
 		if (result == 1) {
-			// 글수정 성공 -> 게시판 목록으로 이동(귀찮을 때 쓰는 용도)
-			// resp.sendRedirect("/codestudy/board/list.do");
-
-			// 글수정 성공 -> 글보기로 이동(view.do) (이걸로 보통 많이 쓴다.)
-			// http://localhost:8090/codestudy/board/view.do?seq=13
-			// 오류나면 seq 수정ㅎ아기*****
-			resp.sendRedirect("/Myhome_project/Myhome/user/boardcommunityview.do?seq=" + seqCommunity);
-
+			resp.sendRedirect("/Myhome_project/Myhome/user/boardqnalist.do");
 		} else {
-			// 글수정 실패 -> 경고 + 뒤로 가기
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('editok failed');");
+			writer.print("alert('failed');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");
 
 			writer.close();
 		}
+
 
 	}
 

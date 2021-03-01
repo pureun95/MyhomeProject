@@ -9,6 +9,12 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/**
+ * 커뮤니티 게시판 DB작업을 요청하는 클래스입니다.
+ * 
+ * @author 노푸른
+ *
+ */
 public class BoardCommunityDAO {
 
 	private Connection conn;
@@ -16,10 +22,16 @@ public class BoardCommunityDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * DB 연결하는 메소드입니다.
+	 */
 	public BoardCommunityDAO() {
 		conn = DBUtil.open();
 	}
 
+	/**
+	 * DB 연결을 해제하는 메소드입니다.
+	 */
 	public void close() {
 		try {
 
@@ -31,6 +43,12 @@ public class BoardCommunityDAO {
 		}
 	}
 
+	/**
+	 * 게시글을 작성합니다.
+	 * 
+	 * @param dto 게시글 작성에 필요한 정보를 담고있는 객체입니다.
+	 * @return 작성한 게시글을 목록에 추가합니다.
+	 */
 	public int write(BoardCommunityDTO dto) {
 
 		try {
@@ -52,6 +70,12 @@ public class BoardCommunityDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글 목록을 배열에 넣습니다.
+	 * 
+	 * @param map 게시글 검색어 등을 담은 배열입니다.
+	 * @return 커뮤니티 게시판 게시글 목록을 반환합니다.
+	 */
 	public ArrayList<BoardCommunityDTO> list(HashMap<String, String> map) {
 
 		try {
@@ -89,7 +113,7 @@ public class BoardCommunityDAO {
 				dto.setGap(rs.getInt("gap"));
 
 				dto.setContent(rs.getString("content"));
-				dto.setCcount(rs.getString("ccount")); //댓글 수
+				dto.setCcount(rs.getString("ccount")); // 댓글 수
 
 				list.add(dto);
 
@@ -105,8 +129,13 @@ public class BoardCommunityDAO {
 		return null;
 	}
 
-	// public BoardCommunityDTO get(String seqCommunity) { //오류나면 여기 수정하기*****
-	public BoardCommunityDTO get(String seq) { // 오류나면 여기 수정하기*****
+	/**
+	 * 커뮤니티 게시판 게시글 하나를 출력합니다.
+	 * 
+	 * @param seq 게시글 번호를 담은 변수입니다.
+	 * @return 게시글 하나를 반환합니다.
+	 */
+	public BoardCommunityDTO get(String seq) {
 
 		try {
 
@@ -144,6 +173,11 @@ public class BoardCommunityDAO {
 
 	// View 서블릿 -> 조회수 증가 +1
 	// 조회수 증가시키기
+	/**
+	 * 조회수를 업데이트합니다.
+	 * 
+	 * @param seq 게시물 번호를 담은 변수입니다.
+	 */
 	public void updateViewCount(String seq) { // 오류나면 여기수정하기*****
 
 		try {
@@ -163,6 +197,12 @@ public class BoardCommunityDAO {
 	}
 
 	// EditOk 서블릿 -> 글 수정
+	/**
+	 * 게시글을 수정합니다.
+	 * 
+	 * @param dto 게시글 수정에 필요한 정보를 담은 객체입니다.
+	 * @return 수정한 내용을 게시글에 반영합니다.
+	 */
 	public int edit(BoardCommunityDTO dto) {
 
 		try {
@@ -190,6 +230,12 @@ public class BoardCommunityDAO {
 	}
 
 	// 게시글 삭제
+	/**
+	 * 게시글을 삭제합니다.
+	 * 
+	 * @param seq 삭제할 게시글의 게시글번호를 가져옵니다.
+	 * @return 삭제된 게시글 목록을 반환합니다.
+	 */
 	public int del(String seq) {
 
 		try {
@@ -212,6 +258,12 @@ public class BoardCommunityDAO {
 	}
 
 	// List 서블릿 -> 총 게시물 수 반환
+	/**
+	 * 게시글 목록보기에서 전체 페이지를 계산합니다.
+	 * 
+	 * @param map 검색어 등을 담은 배열입니다.
+	 * @return 전체 페이지 수를 반환합니다.
+	 */
 	public int getTotalCount(HashMap<String, String> map) {
 
 		try {
@@ -243,6 +295,12 @@ public class BoardCommunityDAO {
 	}
 
 	// CommentCommunityOk 서블릿 -> 댓글 쓰기
+	/**
+	 * 게시글에 댓글을 등록합니다.
+	 * 
+	 * @param dto 댓글 등록에 필요한 정보를 담은 객체입니다.
+	 * @return 해당 게시글에 등록한 댓글을 반환합니다.
+	 */
 	public int writeComment(CommentCommunityDTO dto) {
 
 		try {
@@ -265,6 +323,12 @@ public class BoardCommunityDAO {
 		return 0;
 	}
 
+	/**
+	 * 댓글 목록을 출력합니다.
+	 * 
+	 * @param seqCommunity 댓글을 등록할 게시글 번호를 가져옵니다.
+	 * @return 해당 게시글에 댓글 목록을 반환합니다.
+	 */
 	public ArrayList<CommentCommunityDTO> listComment(String seqCommunity) {
 
 		try {
@@ -306,23 +370,28 @@ public class BoardCommunityDAO {
 		return null;
 	}
 
-	// 오류나면 수정하기****
+	/**
+	 * 댓글을 삭제합니다.
+	 * 
+	 * @param seq 삭제할 댓글의 댓글번호를 가져옵니다.
+	 * @return 삭제의 성공 여부를 반환합니다.
+	 */
 	public int deleteComment(String seq) {
-		
+
 		try {
-			
+
 			String sql = "delete from tblCommunityComment where seqCommunityComment = ?";
-			
+
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, seq);
 
-			return pstat.executeUpdate(); //1 or 0
-			
+			return pstat.executeUpdate(); // 1 or 0
+
 		} catch (Exception e) {
 			System.out.println("BoardCommunityDAO.deleteComment()");
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
 

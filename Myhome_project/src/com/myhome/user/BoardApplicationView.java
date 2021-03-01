@@ -10,15 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 청약 게시판 게시글 상세페이지를 출력하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardapplicationview.do")
 public class BoardApplicationView extends HttpServlet {
 	
+	/**
+	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
 		
-		String seq = request.getParameter("seq"); //오류나면 여기 수정하기*****
+		String seq = request.getParameter("seq"); 
 		String search = request.getParameter("search"); //검색어
 		String page = request.getParameter("page");
 		
