@@ -10,32 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /***
- * 일반회원 상세정보 페이지 서블릿입니다.
- * @author 윤지현
+ * 중개인회원 삭제 페이지 서블릿입니다.
+ * @author MY
  *
  */
-@WebServlet("/admin/membermanage/viewuserinfo.do")
-public class ViewUserInfo extends HttpServlet{
-
-	@Override
+@WebServlet("/admin/membermanage/deletecontractor.do")
+public class DeleteContractor extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//1.
 		String seq = req.getParameter("seq");
 		
 		//2.
-		ManageUserDAO dao = new ManageUserDAO();
+		ManageContractorDAO dao = new ManageContractorDAO();
 		
-		ManageUserDTO dto = dao.get(seq);
+		ManageContractorDTO dto = dao.get(seq);
 		
 		dao.close(); //****
 		
 		//3. JSP에게 넘겨주기
 		req.setAttribute("dto", dto);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmembermanage/viewuserinfo.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/adminmembermanage/deletecontractor.jsp");
 		dispatcher.forward(req, resp);
 		
 	}
-	
+
 }
+

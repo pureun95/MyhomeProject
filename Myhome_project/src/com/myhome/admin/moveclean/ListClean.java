@@ -15,6 +15,11 @@ import javax.servlet.http.HttpSession;
 import com.myhome.admin.board.PolicyDAO;
 import com.myhome.admin.board.PolicyDTO;
 
+/***
+ * 청소업체 목록 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/moveclean/listclean.do")
 public class ListClean extends HttpServlet {
 

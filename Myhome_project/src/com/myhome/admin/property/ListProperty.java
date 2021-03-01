@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/***
+ * 매물관리 목록 페이지 서블릿입니다. 
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/property/listproperty.do")
 public class ListProperty extends HttpServlet {
 
@@ -61,9 +65,9 @@ public class ListProperty extends HttpServlet {
 		
 		
 		//1.
-		PropertyDAO dao = new PropertyDAO();
+		AdminPropertyDAO dao = new AdminPropertyDAO();
 		
-		ArrayList<PropertyDTO> list = dao.list(map);
+		ArrayList<AdminPropertyDTO> list = dao.list(map);
 		
 		
 		/* 페이지바 */

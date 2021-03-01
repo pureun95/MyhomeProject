@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 이사업체 DAO입니다. 
+ * @author 윤지현
+ *
+ */
 public class MoveDAO {
 	
 	private Connection conn;
@@ -44,7 +49,7 @@ public class MoveDAO {
 			}
 			
 			//String sql = "select * from vwMove order by seq asc";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwMove %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwMove %s order by seq asc) a) where rnum between %s and %s"
 					, where
 					, map.get("begin")
 					, map.get("end"));

@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 체크리스트 페이지 수정 처리 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/editchecklistok.do")
 public class EditCheckListOk extends HttpServlet {
 

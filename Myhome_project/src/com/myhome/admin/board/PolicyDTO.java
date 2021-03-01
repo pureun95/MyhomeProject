@@ -1,5 +1,10 @@
 package com.myhome.admin.board;
 
+/***
+ * 부동산정책 게시판 DTO입니다.
+ * @author 윤지현
+ *
+ */
 public class PolicyDTO {
 	
 	private String seq;

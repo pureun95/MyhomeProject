@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 부동산정책 게시판 수정 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/editpolicy.do")
 public class EditPolicy extends HttpServlet {
 
