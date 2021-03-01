@@ -15,6 +15,10 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
+/** 
+ * @author 박지현
+ * 임대인 매물 리스트
+ */
 @WebServlet("/contractor/search-lessor.do")
 public class SearchLessor extends HttpServlet{
 
@@ -24,17 +28,6 @@ public class SearchLessor extends HttpServlet{
 		//1. 매물 정보
 		PropertyDAO dao = new PropertyDAO();
 						
-		//2. session 받기
-		//HttpSession session = req.getSession();
-		
-		//3. 쿼리
-		//ArrayList<PropertyDTO> list = dao.Lessorlist();
-						
-		//4. 올린매물리스트 보내기
-		//req.setAttribute("list", list);
-				
-
-		
 		HashMap<String,String> map = new HashMap<String, String>();
 				
 		String search = req.getParameter("search");

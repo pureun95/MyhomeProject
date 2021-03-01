@@ -23,7 +23,9 @@ public class PropertyDAO {
 	private CallableStatement cstat;
 	private ResultSet rs;
 
-	// 생성자
+	/**
+	 * 생성자
+	 */
 	public PropertyDAO() {
 
 		try {
@@ -38,7 +40,11 @@ public class PropertyDAO {
 
 	}
 
-	// 1. 내가 올린 매물리스트
+	/**
+	 * 내가 올린 매물 리스트
+	 * @param seqContractor
+	 * @return
+	 */
 	public ArrayList<PropertyDTO> list(int seqContractor) {
 
 		try {
@@ -193,7 +199,11 @@ public class PropertyDAO {
 		return null;
 	}
 
-	// 2. 매물 상세보기 - 중개인
+	/**
+	 * 중개인 매물 상세보기
+	 * @param seqContratorProperty
+	 * @return
+	 */
 	public ArrayList<PropertyDTO> propertyDetail(int seqContratorProperty) {
 
 		try {
@@ -347,8 +357,12 @@ public class PropertyDAO {
 	}
 	
 
-	// 2. 매물 상세보기 - 임대인
-		public ArrayList<PropertyDTO> LessorPropertyDetail(int seqLessorProperty) {
+	/**
+	 * 임대인 매물 상세보기
+	 * @param seqLessorProperty
+	 * @return
+	 */
+	public ArrayList<PropertyDTO> LessorPropertyDetail(int seqLessorProperty) {
 
 			try {
 
@@ -495,7 +509,11 @@ public class PropertyDAO {
 
 		
 		
-	//3. 임대인이 올린 매물리스트
+	/**
+	 * 임대인이 올린 매물 리스트
+	 * @param map
+	 * @return
+	 */
 	public ArrayList<PropertyDTO> lessorList(HashMap<String, String> map) {
 		
 		try {
@@ -641,7 +659,11 @@ public class PropertyDAO {
 	}
 
 	
-	//임대인이 올린 매물 총 페이지 수
+	/**
+	 * 임대인이 올린 매물 총 개수
+	 * @param map
+	 * @return
+	 */
 	public int getTotalCountLessor(HashMap<String, String> map) {
 		
 		try {
@@ -669,7 +691,11 @@ public class PropertyDAO {
 	}
 	
 	
-	//중개인이 올린 매물리스트
+	/**
+	 * 중개인이 올린 매물 리스트
+	 * @param map
+	 * @return
+	 */
 	public ArrayList<PropertyDTO> ContractorList(HashMap<String, String> map) {
 		
 		try {
@@ -816,7 +842,11 @@ public class PropertyDAO {
 	}
 
 	
-	//중개인이 올린 매물 총 페이지 수
+	/**
+	 * 중개인이 올린 매물 총 개수
+	 * @param map
+	 * @return
+	 */
 	public int getTotalCountContractor(HashMap<String, String> map) {
 		
 		try {

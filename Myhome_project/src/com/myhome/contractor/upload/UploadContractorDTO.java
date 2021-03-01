@@ -1,8 +1,8 @@
 package com.myhome.contractor.upload;
 
-/*
+/**
+ * @ author 박지현
  * 중개인 본인 매물 올리기 DTO
- * 
  * */
 public class UploadContractorDTO {
 	

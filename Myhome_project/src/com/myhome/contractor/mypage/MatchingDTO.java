@@ -1,5 +1,9 @@
 package com.myhome.contractor.mypage;
 
+/**
+ * @author 박지현
+ * 임대인의 매물을 중개인과 매칭하는 DAO
+ */
 public class MatchingDTO {
 	
 	//나에게 온 매칭 & 임대인에게 보낸 매칭

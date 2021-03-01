@@ -1,8 +1,8 @@
 package com.myhome.contractor.mypage;
 
 /**
- * 중개인 회원정보 DTO
  * @author 박지현
+ * 중개인 회원정보 DTO
  */
 public class ContractorDTO {
 	

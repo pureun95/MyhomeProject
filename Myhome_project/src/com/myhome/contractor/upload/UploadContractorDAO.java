@@ -9,10 +9,8 @@ import java.sql.Statement;
 import com.myhome.DBUtil;
 
 /**
- * 
  * @author 박지현
  * 중개인 본인 매물 올리기
- *
  */
 public class UploadContractorDAO {
 	
