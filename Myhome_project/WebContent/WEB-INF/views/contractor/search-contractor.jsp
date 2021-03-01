@@ -330,7 +330,7 @@
 		 </c:if>	
 		 
 		 <!-- 일반회원 메뉴 -->
-		  <c:if test="${not empty nickname }">
+		  <c:if test="${not empty nickname or empty seqContractor }">
 		 	<a href="search-contractor.do">중개인이 올린 방 리스트 입니다.</a>
 		 </c:if>		 		 			
 		 </div>

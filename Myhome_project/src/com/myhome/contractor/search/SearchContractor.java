@@ -24,10 +24,10 @@ public class SearchContractor extends HttpServlet{
 		
 		//내 시퀀스 받기
 		
-		HttpSession session = req.getSession();
-		int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
+		//HttpSession session = req.getSession();
+		//int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 		
-		System.out.println("내 시퀀스" + seqContractor);
+		//System.out.println("내 시퀀스" + seqContractor);
 		
 		
 		//1. 매물 정보
@@ -182,7 +182,7 @@ public class SearchContractor extends HttpServlet{
 			req.setAttribute("room", room);
 			req.setAttribute("deal", deal);
 			req.setAttribute("location", location);
-			req.setAttribute("seq", seqContractor);	
+			/* req.setAttribute("seq", seqContractor); */
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-contractor.jsp");
 			dispatcher.forward(req, resp);

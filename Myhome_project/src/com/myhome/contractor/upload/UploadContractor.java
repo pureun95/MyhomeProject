@@ -8,16 +8,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/contractor/upload-contractor.do")
 public class UploadContractor extends HttpServlet{
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//http://localhost:8090/Myhome_project/contractor/upload-contractor.do
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		//http://localhost:8090/Myhome_project/contractor/upload-contractor.do
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/contractor/upload-contractor.jsp");
-		dispatcher.forward(request, response);
+		
+		HttpSession session = req.getSession();
+		
+		int seq = Integer.parseInt(session.getAttribute("seqAllUser").toString());
+		
+		session.setAttribute("seqAllUser", seq);
+		
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/upload-contractor.jsp");
+		dispatcher.forward(req, resp);
+		
+		
 		
 	}
 }
