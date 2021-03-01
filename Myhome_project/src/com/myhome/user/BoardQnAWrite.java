@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 커뮤니티 게시판 게시글을 작성하는 클래스입니다.
- * @author 노푸른
+ * Q&A 게시판 게시글을 작성하는 클래스입니다.
+ * @author Blue
  *
  */
-@WebServlet("/Myhome/user/boardcommunitywrite.do")
-public class BoardCommunityWrite extends HttpServlet {
+@WebServlet("/Myhome/user/boardqnawrite.do")
+public class BoardQnAWrite extends HttpServlet {
 
 	/**
 	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
@@ -35,8 +35,8 @@ public class BoardCommunityWrite extends HttpServlet {
 
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('로그인이 필요합니다.');");
-			writer.print("location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';");
+			writer.print("alert('failed');");
+			writer.print("location.href='/Myhome_project/Myhome/user/boardqnalist.do';");
 			writer.print("</script>");
 			writer.print("</body></html>");
 
@@ -46,7 +46,7 @@ public class BoardCommunityWrite extends HttpServlet {
 
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/board-community-write.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/board-qna-write.jsp");
 		dispatcher.forward(request, response);
 
 	}

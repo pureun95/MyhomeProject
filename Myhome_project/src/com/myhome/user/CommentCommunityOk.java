@@ -10,9 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 커뮤니티 게시판 댓글 등록을 DB에 요청하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/commentcommunityok.do")
 public class CommentCommunityOk extends HttpServlet {
 
+	/**
+	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
+	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

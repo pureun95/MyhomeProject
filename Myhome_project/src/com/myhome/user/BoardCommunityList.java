@@ -14,10 +14,17 @@ import javax.servlet.http.HttpSession;
 
 //파일명 바꿨더니 기존 파일명으로 사이트가 열려서 오류남.. 이 주소로 열 것
 //http://localhost:8090/Myhome_project/Myhome/user/boardcommunity.do
+/**
+ * 커뮤니티 게시판 게시글 목록보기를 출력하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardcommunitylist.do")
 public class BoardCommunityList extends HttpServlet {
 
-	
+	/**
+	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -1,5 +1,10 @@
 package com.myhome.user;
 
+/**
+ * 방찾기(매물 목록보기)의 객체를 담당하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 public class SearchPropertyDTO {
 
 	// 매물 seq

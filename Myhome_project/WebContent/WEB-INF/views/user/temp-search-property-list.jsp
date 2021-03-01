@@ -578,6 +578,36 @@ position: relative;
 					<div style="clear: both;"></div>
 				
 
+				
+
+
+
+
+
+
+					<div class="map">
+						<div class="temppicture"></div>
+						<!-- <img src="/Myhome_project/Myhome/image/location.png" width="1190px"> -->
+						<!-- <img src="\Myhome_project\WebContent\image\map_1.png" width="1190px"> -->
+					</div>
+					<div style="clear: both;"></div>
+
+
+
+					
+					<%-- <c:if
+						test="${not empty search}">
+						<c:if test="${list.size() == 0 }">
+							<div class="nothing">
+								<span class="nothing1">NOTHING</span> <span class="nothing2">검색결과가
+									없어요.</span>
+							</div>
+						</c:if>
+
+					</c:if> --%>
+					
+					
+					
 					<c:if
 						test="${not empty roomtypeopt and not empty propertytypeopt and not empty location}">
 						<c:if test="${list.size() == 0 }">

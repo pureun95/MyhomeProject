@@ -12,9 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 공짖사항 게시판의 리스트를 조회하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardnoticelist.do")
 public class BoardNoticeList extends HttpServlet {
 	
+	/**
+	 * get 방식으로 공지사항 게시글 목록 데이터를 호출하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

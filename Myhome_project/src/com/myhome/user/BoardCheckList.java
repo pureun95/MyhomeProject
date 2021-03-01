@@ -12,9 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 부동산체크리스트 게시판의 리스트를 조회하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardchecklist.do")
 public class BoardCheckList extends HttpServlet {
 	
+	/**
+	 * get 방식으로 청약 게시글 목록 데이터를 호출하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

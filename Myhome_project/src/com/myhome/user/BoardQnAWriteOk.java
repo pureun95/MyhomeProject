@@ -15,12 +15,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 */
 
 /**
- * 커뮤니티 게시판 게시글 등록을 DB에 요청하는 클래스입니다.
+ * Q&A 게시판 게시글 등록을 DB에 요청하는 클래스입니다.
  * @author 노푸른
  *
  */
-@WebServlet("/Myhome/user/boardcommunitywriteok.do")
-public class BoardCommunityWriteOk extends HttpServlet {
+@WebServlet("/Myhome/user/boardqnawriteok.do")
+public class BoardQnAWriteOk extends HttpServlet {
 
 	/**
 	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
@@ -35,34 +35,27 @@ public class BoardCommunityWriteOk extends HttpServlet {
 
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
-//		String seqUser = (String)session.getAttribute("seq"); //오류나면 이부분 수정하기*****
-//		String seqAllUser = (String)session.getAttribute("seqAllUser"); //오류나면 이부분 수정하기*****
-		String seqAllUser = String.valueOf(session.getAttribute("seqAllUser")); // 오류나면 이부분 수정하기*****
-
-		try {
-
-			// 첨부파일 코드 부분!!! 오류나면 여기 수정하기*****
-
-		} catch (Exception e) {
-			System.out.println("BoardCommunityWriteOk.doPost()");
-			e.printStackTrace();
-		}
+		String seqAllUser = String.valueOf(session.getAttribute("seqAllUser"));
+		String seqQnAType  = req.getParameter("seqQnAType");
+			
 
 		// 2.
-		BoardCommunityDAO dao = new BoardCommunityDAO();
-		BoardCommunityDTO dto = new BoardCommunityDTO();
+		BoardQnADAO dao = new BoardQnADAO();
+		BoardQnADTO dto = new BoardQnADTO();
 
 		dto.setTitle(title);
 		dto.setContent(content);
 //		dto.setSeqUser(seqUser);
 		// 수정하기**
 		dto.setSeqAllUser(seqAllUser);
-
+		dto.setSeqQnAType(seqQnAType);
+		
+		
 		int result = dao.write(dto);
 
-		// *****로그인 연동한 뒤에 이 기능 설정하기. 로그인까지 확인한후 수정하기*****
+		
 		if (result == 1) {
-			resp.sendRedirect("/Myhome_project/Myhome/user/boardcommunitylist.do");
+			resp.sendRedirect("/Myhome_project/Myhome/user/boardqnalist.do");
 		} else {
 			PrintWriter writer = resp.getWriter();
 

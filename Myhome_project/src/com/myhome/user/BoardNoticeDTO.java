@@ -1,5 +1,10 @@
 package com.myhome.user;
 
+/**
+ * 공지사항 게시판의 객체를 담당하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 public class BoardNoticeDTO {
 	
 	private String seqNotice; //공지사항번호

@@ -11,7 +11,11 @@ import java.util.HashMap;
 import com.myhome.DBUtil;
 
 
-
+/**
+ * 방찾기 DB작업을 요청하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 public class SearchPropertyDAO {
 
 	private Connection conn;
@@ -20,6 +24,9 @@ public class SearchPropertyDAO {
 	private CallableStatement cstat;
 	private ResultSet rs;
 	
+	/**
+	 * DB 연결하는 메소드입니다.
+	 */
 	public SearchPropertyDAO() {
 		
 		try {
@@ -33,7 +40,9 @@ public class SearchPropertyDAO {
 		}
 	}
 	
-	
+	/**
+	 * DB 연결을 해제하는 메소드입니다.
+	 */
 	public void close() {
 		try {
 			
@@ -48,6 +57,11 @@ public class SearchPropertyDAO {
 	
 	
 	// 2. 매물 상세보기
+		/**
+		 * 매물의 상세페이지를 배열에 넣습니다.
+		 * @param seqContratorProperty 매물번호를 가져옵니다.
+		 * @return 해당 매물의 상세 페이지를 반환합니다.
+		 */
 		public ArrayList<SearchPropertyDTO> propertyDetailUserVer(int seqContratorProperty) {
 
 			try {
@@ -79,17 +93,17 @@ public class SearchPropertyDAO {
 					dto.setRoomType(rs.getString("roomType"));
 					dto.setSpacing(rs.getString("spacing"));
 
-					System.out.println(dto.getRoomType());
-					System.out.println(dto.getSpacing());
+//					System.out.println(dto.getRoomType());
+//					System.out.println(dto.getSpacing());
 
 					// 2. 계약형태
 					dto.setContractTypeDetail(rs.getString("contractType"));
-					System.out.println(dto.getContractTypeDetail());
+//					System.out.println(dto.getContractTypeDetail());
 
 					// 보증금
 					String deposit = String.format("%,d" + "원", rs.getInt("deposit"));
 					dto.setDeposit(deposit);
-					System.out.println(dto.getDeposit());
+//					System.out.println(dto.getDeposit());
 
 					// 월세
 					String monthlyRent = String.format("%,d" + "원", rs.getInt("monthlyPay"));
@@ -102,7 +116,7 @@ public class SearchPropertyDAO {
 
 					temp = rs.getString("dealing");
 
-					System.out.println(temp);
+//					System.out.println(temp);
 					if (temp == null) {
 						dealing = "";
 						dto.setDealing(dealing);
@@ -118,7 +132,7 @@ public class SearchPropertyDAO {
 					// 기간
 					dto.setContractPeriod(rs.getString("contractPeriod") + "개월");
 
-					System.out.println(dto.getContractPeriod());
+//					System.out.println(dto.getContractPeriod());
 
 					// 3. 관리비
 					dto.setInternet(rs.getInt("internet"));
@@ -132,7 +146,7 @@ public class SearchPropertyDAO {
 					String serviceCharge = String.format("%,d" + "원", (rs.getInt("serviceCharge")));
 					dto.setServiceCharge(serviceCharge);
 
-					System.out.println(dto.getInternet());
+//					System.out.println(dto.getInternet());
 
 					// 4. 건물옵션
 					dto.setParking(rs.getInt("parking"));
@@ -208,21 +222,52 @@ public class SearchPropertyDAO {
 		
 		
 		//중개인이 올린 매물리스트
+		/**
+		 * 중개인이 올린 매물리스트를 배열에 넣습니다.
+		 * @param map 매물리스트를 담은 배열입니다.
+		 * @return 중개인이 올린 매물 목록을 반환합니다.
+		 */
 		public ArrayList<SearchPropertyDTO> contractorListUserVer(HashMap<String, String> map) {
 			
 			try {
-
+				
+				
 				String where = "";
 				
 				if (map.get("search") != null) {
-					
-//					where = String.format("where location like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
 					where = String.format("where location like '%%%s%%'", map.get("search"));
-				} else if (map.get("search2") != null) {
-					where = String.format("where location like '%%%s%%'", map.get("search2"));
-				}
+				} else if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null || map.get("location") != null) {
+					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("location"));
+				} 
+
+				
+//				if (map.get("search") != null) {
+//					
+////					where = String.format("where location like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
+//					where = String.format("where location like '%%%s%%'", map.get("search"));
+//					
+//				//} else if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null || map.get("buildingopt1") != null || map.get("buildingopt2") != null || map.get("buildingopt3") != null || map.get("buildingopt4") != null && map.get("maintenopt") != null && map.get("depositopt") != null || map.get("locatioin") != null) {
+//
+//				//} else if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null && map.get("maintenopt") != null && map.get("depositopt") != null && map.get("locatioin") != null) {
+//
+//				} else if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null && map.get("locatioin") != null) {
+//					
+//					//temptest
+////					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("location"));
+//					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("location"));
+//
+//				}
+				
+				//String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwSearchProperty %s order by seqContractorProperty desc) a) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
+
 				
 				String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwSearchProperty %s order by seqContractorProperty desc) a) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
+				
+				//where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and parking = '%%%s%%' and pet = '%%%s%%' and window = '%%%s%%' and elevator = '%%%s%%' and maintenopt >= '%%%s%%' and depositopt >= '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("buildingopt1"), map.get("buildingopt2"), map.get("buildingopt3"), map.get("buildingopt4"), map.get("maintenopt"), map.get("depositopt"), map.get("location"));
+
+				 //where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and maintenopt >= '%%%s%%' and depositopt >= '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("maintenopt"), map.get("depositopt"), map.get("location"));
+				 
+				 
 				
 				pstat = conn.prepareStatement(sql);
 
@@ -245,17 +290,17 @@ public class SearchPropertyDAO {
 					dto.setRoomType(rs.getString("roomType"));
 					dto.setSpacing(rs.getString("spacing"));
 
-					System.out.println(dto.getRoomType());
-					System.out.println(dto.getSpacing());
+//					System.out.println(dto.getRoomType());
+//					System.out.println(dto.getSpacing());
 
 					// 2. 계약형태
 					dto.setContractTypeDetail(rs.getString("contractType"));
-					System.out.println(dto.getContractTypeDetail());
+//					System.out.println(dto.getContractTypeDetail());
 
 					// 보증금
 					String deposit = String.format("%,d" + "원", rs.getInt("deposit"));
 					dto.setDeposit(deposit);
-					System.out.println(dto.getDeposit());
+//					System.out.println(dto.getDeposit());
 
 					// 월세
 					String monthlyRent = String.format("%,d" + "원", rs.getInt("monthlyPay"));
@@ -268,7 +313,7 @@ public class SearchPropertyDAO {
 
 					temp = rs.getString("dealing");
 
-					System.out.println(temp);
+//					System.out.println(temp);
 					if (temp == null) {
 						dealing = "";
 						dto.setDealing(dealing);
@@ -282,7 +327,7 @@ public class SearchPropertyDAO {
 					// 기간
 					dto.setContractPeriod(rs.getString("contractPeriod") + "개월");
 
-					System.out.println(dto.getContractPeriod());
+//					System.out.println(dto.getContractPeriod());
 
 					// 3. 관리비
 					dto.setInternet(rs.getInt("internet"));
@@ -296,7 +341,7 @@ public class SearchPropertyDAO {
 					String serviceCharge = String.format("%,d" + "원", (rs.getInt("serviceCharge")));
 					dto.setServiceCharge(serviceCharge);
 
-					System.out.println(dto.getInternet());
+//					System.out.println(dto.getInternet());
 
 					// 4. 건물옵션
 					dto.setParking(rs.getInt("parking"));
@@ -360,16 +405,38 @@ public class SearchPropertyDAO {
 
 		
 		//중개인이 올린 매물 총 페이지 수
+		/**
+		 * 방찾기(매물 목록보기)에서 전체 페이지를 계산합니다.
+		 * @param map 검색어 등을 담은 배열입니다.
+		 * @return 전체 페이지 수를 반환합니다.
+		 */
 		public int getTotalCountContractor(HashMap<String, String> map) {
 			
 			try {
 				String where = "";
 				
+////				if (map.get("search") != null) {
+////					if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null && map.get("location") != null) {
+//						if (map.get("location") != null) {
+////					where = String.format("where companyName like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
+////					where = String.format("where location like '%%%s%%'", map.get("location"));
+////					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and maintenopt >= '%%%s%%' and depositopt >= '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("maintenopt"), map.get("depositopt"), map.get("location"));
+//					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("location"));
+//					
+//				}
+//				
+//				String sql = String.format("select count(*) as cnt from vwSearchProperty %s", where);
+//				//String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwSearchProperty %s order by seqContractorProperty desc) a) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
+				
 				if (map.get("search") != null) {
-					where = String.format("where companyName like '%%%s%%' or seqContractorProperty like '%%%s%%'", map.get("search"), map.get("search"));
-				}
+					where = String.format("where location like '%%%s%%'", map.get("search"));
+					
+				}  else if (map.get("roomtypeopt") != null && map.get("propertytypeopt") != null) {
+					where = String.format("where roomType like '%%%s%%' and contractType like '%%%s%%' and location like '%%%s%%'", map.get("roomtypeopt"), map.get("propertytypeopt"), map.get("location"));
+				} 
 				
 				String sql = String.format("select count(*) as cnt from vwSearchProperty %s", where);
+				
 				
 				stat = conn.createStatement();
 				rs = stat.executeQuery(sql);

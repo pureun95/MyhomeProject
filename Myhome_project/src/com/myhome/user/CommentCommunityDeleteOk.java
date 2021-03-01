@@ -9,9 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 커뮤니티 게시판 댓글 삭제를 DB에 요청하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/commentcommunitydeleteok.do")
 public class CommentCommunityDeleteOk extends HttpServlet {
 	
+	/**
+	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
