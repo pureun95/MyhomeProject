@@ -28,12 +28,14 @@ style>body, html {
 }
 
 .container {
-	border: 1px solid green;
+	/* border: 1px solid green; */
 	width: 1190px;
 	margin: 0px auto;
 	margin-top: 100px;
 	position: relative;
 	height: 1200px;
+	border-right: 1px solid #DBDCE0;
+    border-left: 1px solid #DBDCE0;
 }
 
 /* ------------------------------------------- */

@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
+/***
+ * 일반회원 목록 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/membermanage/membermanage-user.do")
 public class MemberManageUser extends HttpServlet{
 

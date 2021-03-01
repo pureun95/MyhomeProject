@@ -28,16 +28,18 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	.boardcover{
-		border: 1px solid tomato;
+		/* border: 1px solid tomato; */
 		float: left;
 		width:900px;
 		height: auto;
@@ -213,8 +215,8 @@
 			</div>
 			
 			<div class="btns">		
-				<button class="btn btn-outline-secondary" type="submit" id="button-addon1">삭제</button>		
-				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-contractor.do';">목록</button>
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-contractor.do';">목록</button>		
+				<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="location.href='/Myhome_project/admin/membermanage/deletecontractor.do?seq=${dto.seq}';">삭제</button>
 			</div>
 
 		</div>

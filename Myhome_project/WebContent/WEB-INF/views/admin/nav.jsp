@@ -17,6 +17,7 @@
 <style>
 .nav1-box1 {
 	border: none;
+	height: auto;
 }
 
 .navsub {
@@ -105,6 +106,7 @@ margin-top:-5px;
 				<div class="nav1-box1-img glyphicon glyphicon-user"></div>
 				<div class="nav1-content" id="nav1-content1">
 					<div class="nav1-box1-content nav-list" >
+					
 					<input type="button" id="menu1" onclick="location.href='/Myhome_project/admin/membermanage/membermanage-user.do';">
 					<label for="menu1">회원정보관리</label>
 					</div>
@@ -156,8 +158,8 @@ margin-top:-5px;
 					<input type="checkbox" id="menu4" name="menupage" checked>
 					<label for="menu4">게시판관리</label>
 					<div class="navsub">
-						<a id="" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';" class="nav-list adpolicy">부동산정책</a> 
-						<a id="" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';" class="nav-list adchecklist ">체크리스트</a> 
+						<a id="policy" onclick="location.href='/Myhome_project/admin/board/listpolicy.do';" class="nav-list adpolicy">부동산정책</a> 
+						<a id="checklist" onclick="location.href='/Myhome_project/admin/board/listchecklist.do';" class="nav-list adchecklist ">체크리스트</a> 
 						<a id="" href="" class="nav-list adapplication ">청약안내</a> 
 						<a id="" href="" class="nav-list adcommunity ">정보공유커뮤니티</a> 
 						<a id="" href="" class="nav-list adused ">중고물품게시판관리</a>

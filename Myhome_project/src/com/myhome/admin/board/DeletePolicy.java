@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /***
- * 부동산 정책 삭제 서블릿
+ * 부동산 정책 삭제 서블릿입니다.
  * @author 윤지현
  *
  */

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /***
- * 부동산 정책 등록 DB 서블릿입니다.
+ * 부동산 정책 등록 처리 서블릿입니다.
  * @author 윤지현
  * 
  */

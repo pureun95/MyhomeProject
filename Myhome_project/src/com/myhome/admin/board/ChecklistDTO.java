@@ -1,5 +1,10 @@
 package com.myhome.admin.board;
 
+/***
+ * 체크리스트 DTO입니다.
+ * @author 윤지현
+ *
+ */
 public class ChecklistDTO {
 
 	private String seq;

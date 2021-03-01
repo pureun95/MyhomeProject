@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/***
+ * 청소업체 등록 처리 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/moveclean/addcleanok.do")
 public class AddCleanOk extends HttpServlet {
 

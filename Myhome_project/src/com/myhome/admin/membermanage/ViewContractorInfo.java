@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /***
- * 중개인회원 상세정보 페이지 입니다.
+ * 중개인회원 상세정보 페이지 서블릿입니다.
  * @author 윤지현
  *
  */
