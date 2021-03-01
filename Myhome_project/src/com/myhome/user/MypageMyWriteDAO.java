@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+/**
+ * 내가쓴글보기의 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class MypageMyWriteDAO {
 
 
@@ -32,6 +37,11 @@ public class MypageMyWriteDAO {
 	}
 	
 	//중고장터리스트 불러오기요청
+	/**
+	 * 회원의 중고장터 내 게시글을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 중고장터 게시글
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyUsedList(int seqUser) {
 		
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -66,6 +76,11 @@ public class MypageMyWriteDAO {
 		
 	}
 	//방올리기 게시물 리스트 요청
+	/**
+	 * 회원의 방올리기 내 게시글을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 방올리기 게시글
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyPropertyList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -98,6 +113,11 @@ public class MypageMyWriteDAO {
 		return list;
 	}
 	//커뮤니티 게시글 리스트 요청
+	/**
+	 * 회원의 커뮤니티 내 게시글을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 커뮤니티 게시글
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyCommunityList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -132,6 +152,11 @@ public class MypageMyWriteDAO {
 		return list;
 	}
 	//중고장터 댓글 리스트 요청
+	/**
+	 * 회원의 중고장터 내 댓글을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 중고장터 댓글
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyUsedCommentList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -165,6 +190,11 @@ public class MypageMyWriteDAO {
 		return list;
 	}
 	//커뮤니티 댓글리스트 요청
+	/**
+	 * 회원의 커뮤니티 내 댓글을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 커뮤니티 댓글
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyCommunityCommentList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -197,6 +227,11 @@ public class MypageMyWriteDAO {
 		return list;
 	}
 	//이삿짐센터 후기 리스트 요청
+	/**
+	 * 회원의 이삿짐센터 후기를 가져옵니다. 
+	 * @param seqUser 회원번호
+	 * @return 이삿짐센터 후기
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyMoveReviewList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -233,6 +268,11 @@ public class MypageMyWriteDAO {
 	}
 
 	//청소업체 후기 리스트 요청
+	/**
+	 * 회원의 청소업체 후기를 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 청소업체 후기
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyCleanReviewList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -269,6 +309,11 @@ public class MypageMyWriteDAO {
 	}
 
 	//중개인 후기 리스트 요청
+	/**
+	 * 회원의 중개인후기를 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 중개인후기
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyContractorReviewList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -304,6 +349,11 @@ public class MypageMyWriteDAO {
 	}
 	
 	//매물 후기 리스트 요청
+	/**
+	 * 회원의 매물 후기를 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 매물후기
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyPropertyReviewList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -340,6 +390,11 @@ public class MypageMyWriteDAO {
 	}
 
 	//중고장터 신고 목록 요청
+	/**
+	 * 회원의 중고장터 내 신고 목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 중고장터 신고목록
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyUsedReportList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -375,6 +430,11 @@ public class MypageMyWriteDAO {
 	}
 
 	//방찾기 신고 목록 요청
+	/**
+	 * 회원의 방찾기 내 신고목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 방찾기 신고목록
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyPropertyReportList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();
@@ -410,6 +470,11 @@ public class MypageMyWriteDAO {
 	}
 
 	//커뮤니티 신고 목록 요청
+	/**
+	 * 회원의 커뮤니티 내 신고목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 커뮤니티 신고목록
+	 */
 	public ArrayList<MypageMyWriteDTO> getMyCommunityReportList(int seqUser) {
 
 		ArrayList<MypageMyWriteDTO> list = new ArrayList<MypageMyWriteDTO>();

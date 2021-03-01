@@ -10,8 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 중고장터 게시물의 찜목록 DB작업(등록/삭제)을 요청하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boardusedinsertlike.do")
 public class BoardUsedInsertLike extends HttpServlet {
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

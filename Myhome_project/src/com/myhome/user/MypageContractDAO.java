@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+/**
+ * 마이페이지 > 전자계약관리의 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class MypageContractDAO {
 
 
@@ -18,6 +23,7 @@ public class MypageContractDAO {
 	private ResultSet rs;
 	private CallableStatement cstat;
 
+	
 	public MypageContractDAO() {
 		// DB 연결
 		conn = DBUtil.open();
@@ -32,6 +38,11 @@ public class MypageContractDAO {
 	}
 
 	//리스트 요청
+	/**
+	 * 회원번호와 일치하는 전자계약 목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 해당하는 전자계약 목록입니다.
+	 */
 	public ArrayList<MypageContractDTO> contractList(int seqUser) {
 		ArrayList<MypageContractDTO> list = new ArrayList<MypageContractDTO>();
 		
@@ -71,6 +82,12 @@ public class MypageContractDAO {
 	}
 	
 	//전자계약 세부내용 요청!
+	/**
+	 * 회원번호, 전자계약서번호와 일치하는 전자계약서에 필요한 세부내용을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @param seqContract 전자계약서번호
+	 * @return 해당하는 전자계약서 내용입니다.
+	 */
 	public MypageContractDTO getContractDetail(int seqUser, int seqContract) {
 		MypageContractDTO dto = new MypageContractDTO();
 		
@@ -131,6 +148,11 @@ public class MypageContractDAO {
 	}
 
 	// 계약 파기하기 버튼 클릭 ..
+	/**
+	 * 계약을 파기하는 작업을 합니다.
+	 * @param seqContract 전자계약서번호
+	 * @return DB작업(계약파기)의 결과입니다.
+	 */
 	public int cancelContract(int seqContract) {
 		
 		int result = 0;
@@ -153,6 +175,12 @@ public class MypageContractDAO {
 	}
 
 	// 계약 채결
+	/**
+	 * 계약을 채결하는 작업을 합니다.
+	 * @param seqContractorProperty 중개인매물번호
+	 * @param seqContract 전자계약서번호
+	 * @return DB작업(계약 채결)의 결과입니다.
+	 */
 	public int contract(int seqContractorProperty, int seqContract) {
 		
 		int result = 0;

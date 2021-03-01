@@ -11,6 +11,12 @@ import java.util.Map;
 
 import com.myhome.DBUtil;
 
+
+/**
+ * 매칭매물관리에 관한 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class MypageMatchingDAO {
 
 
@@ -35,6 +41,11 @@ public class MypageMatchingDAO {
 	}
 
 	//받은 매칭 목록 요청
+	/**
+	 * 회원이 받은 매칭 목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 회원번호에 따른 받은 매칭 목록
+	 */
 	public ArrayList<MypageMatchingDTO> getReceiveMatchingList(int seqUser) {
 		ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 		
@@ -72,6 +83,11 @@ public class MypageMatchingDAO {
 	}
 	
 	//보낸 매칭 목록 요청
+	/**
+	 * 회원이 보낸 매칭 목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 회원번호에 따른 보낸 매칭 목록
+	 */
 	public ArrayList<MypageMatchingDTO> getSendMatchingList(int seqUser) {
 		ArrayList<MypageMatchingDTO> list = new ArrayList<MypageMatchingDTO>();
 		
@@ -110,6 +126,11 @@ public class MypageMatchingDAO {
 	}
 	
 	//들어온 매칭 -> 매칭 거절
+	/**
+	 * 들어온 매칭의 거절 작업을 합니다.
+	 * @param seqMatching 매칭요청번호
+	 * @return DB작업(거절)의 결과
+	 */
 	public int reject(int seqMatching) {
 
 		int result = 0;
@@ -133,6 +154,13 @@ public class MypageMatchingDAO {
 	}
 
 	//들어온 매칭 -> 매칭 수락
+	/**
+	 * 들어온 매칭의 수락 작업을 합니다.
+	 * @param seqMatching 매칭요청번호
+	 * @param seqLessorProperty 임대인매물번호
+	 * @param seqContractor 중개인번호
+	 * @return DB작업(수락)의 결과
+	 */
 	public int accept(int seqMatching, int seqLessorProperty, int seqContractor) {
 
 		int result = 0;
@@ -158,6 +186,11 @@ public class MypageMatchingDAO {
 	}
 	
 	//중개사 목록 출력 요청
+	/**
+	 * 올린매물 주변의 중개사 목록을 가져옵니다.
+	 * @param location 지역정보
+	 * @return 지역에 따른 중개사목록
+	 */
 	public ArrayList getContractorList(String location) {
 		
 		ArrayList list = new ArrayList();
@@ -201,6 +234,12 @@ public class MypageMatchingDAO {
 	}
 
 	//매칭 대기중 매물 중개사 선택해서 바꿔줌
+	/**
+	 * 매칭 대기중인 매물의 중개사를 바꾸는 작업을 합니다.
+	 * @param seqMatching 매칭요청번호
+	 * @param seqContractor 중개사번호
+	 * @return DB작업(중개사 수정) 결과
+	 */
 	public int updateMatching(int seqMatching, int seqContractor) {
 		
 		int result = 0;

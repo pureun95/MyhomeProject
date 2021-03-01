@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * 매칭매물관리 > 내가보낸매칭 > DB작업(중개사 바꾸기)을 요청하는 클래스입니다. 
+ * @author User
+ *
+ */
 @WebServlet("/user/selectcontractor.do")
 public class SelectContractor extends HttpServlet {
 	

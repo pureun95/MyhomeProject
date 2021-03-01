@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 중고장터 게시글 목록페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boardusedlist.do")
 public class BoardUsedList extends HttpServlet {
 

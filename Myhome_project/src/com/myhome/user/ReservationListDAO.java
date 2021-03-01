@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+/**
+ * 내 예약목록의 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class ReservationListDAO {
 
 
@@ -33,6 +38,11 @@ public class ReservationListDAO {
 	}
 	
 	//청소업체 예약목록 요청
+	/**
+	 * 회원의 청소업체 예약목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 청소업체 예약목록
+	 */
 	public ArrayList<ReservationListDTO> getReservationCleanList(int seqUser) {
 		
 		ArrayList<ReservationListDTO> list = new ArrayList<ReservationListDTO>();
@@ -71,6 +81,11 @@ public class ReservationListDAO {
 	}
 
 	//이사업체 예약목록 요청
+	/**
+	 * 회원의 이사업체 예약목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 이사업체 예약목록
+	 */
 	public ArrayList<ReservationListDTO> getReservationMoveList(int seqUser) {
 		
 		ArrayList<ReservationListDTO> list = new ArrayList<ReservationListDTO>();

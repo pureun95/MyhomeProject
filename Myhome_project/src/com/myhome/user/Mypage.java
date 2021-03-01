@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 마이페이지 초기화면을 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/mypage.do")
 public class Mypage extends HttpServlet {
 

@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 
+/**
+ * 중개인 목록을 요청하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/vwcontractordata.do")
 public class vwContractorData extends HttpServlet {
 

@@ -9,6 +9,11 @@ import java.util.ArrayList;
 
 import com.myhome.DBUtil;
 
+/**
+ * 매물거래내역의 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class MypageOrderlistDAO {
 
 
@@ -33,6 +38,11 @@ public class MypageOrderlistDAO {
 	}
 	
 	//나의 매물 목록 요청
+	/**
+	 * 회원의 매물목록을 가져옵니다.
+	 * @param seqUser 회원번호
+	 * @return 매물목록
+	 */
 	public ArrayList<MypageOrderlistDTO> getBoughtList(int seqUser) {
 
 		ArrayList<MypageOrderlistDTO> list = new ArrayList<MypageOrderlistDTO>();
