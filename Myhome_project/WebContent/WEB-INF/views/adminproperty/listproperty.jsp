@@ -83,7 +83,7 @@
        	width: 280px;
         height: 180px;
         float: left;
-       	background-image: url(../image/6.jpg);
+       	/* background-image: url(../image/6.jpg); */
         background-position: 0% 0px; 
         background-size: cover;
         cursor: pointer;
@@ -182,7 +182,7 @@
 			<c:forEach items="${list}" var="dto">
 			<div class="listbox">
 				<input type="checkbox" id="checkbox">
-                    <div class="img-property" style="background-image : url('${dto.image}');" onclick="location.href='/Myhome_project/admin/property/viewproperty.do?seq=${dto.seq}';"><div class="state">${dto.state}</div></div>
+                    <div class="img-property" <%-- style="background-image : url('${dto.image}');" --%> ><div class="state">${dto.state}</div></div>
                     <div class="property-list2">
                         <div class="property-num">no.${dto.seq}</div>
                         <div class="property-title">${dto.title}</div>
