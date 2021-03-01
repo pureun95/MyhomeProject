@@ -15,7 +15,10 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.MatchingDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
-
+/**
+ * @author 박지현
+ * 임대인 매물 리스트
+ */
 @WebServlet("/contractor/upload-lessor-list.do")
 public class UploadLessorList extends HttpServlet{
 	

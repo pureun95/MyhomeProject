@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
+/**
+ * @author 박지현
+ * 임대인 매물 올리기를 완료
+ */
 @WebServlet("/contractor/upload-lessorok.do")
 public class UploadLessorOk extends HttpServlet{
 	

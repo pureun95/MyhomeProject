@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * @author 박지현
+ * 중개인 회원정보를 수정하는 클래스
+ */
 @WebServlet("/contractor/editcontractorok.do")
 public class EditContractorOk extends HttpServlet {
 
@@ -37,7 +40,7 @@ public class EditContractorOk extends HttpServlet {
 		//String seq = req.getParameter("seq");	//회원번호 
 		String seq = session.getAttribute("seqAllUser").toString();
 		
-		String cseq = req.getParameter("seq");
+		/* String cseq = req.getParameter("seq"); */
 		String password = req.getParameter("password");
 		String address = req.getParameter("address");
 		String email = req.getParameter("email"); 
@@ -92,7 +95,7 @@ public class EditContractorOk extends HttpServlet {
 		
 		if (result == 1) {
 			//회원정보수정 성공 -> 페이지에서 성공 팝업
-			resp.sendRedirect("/Myhome_project/contractor/mypage-info.do?seqAllUser=" + cseq);
+			resp.sendRedirect("/Myhome_project/contractor/mypage-info.do?seqAllUser=" + seq);
 			
 		} else {
 			//글수정 실패 -> 경고 + 뒤로 가기

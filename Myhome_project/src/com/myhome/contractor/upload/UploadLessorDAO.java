@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import com.myhome.DBUtil;
 
 /**
- * 
  * @author 박지현
  *중개인과 매칭된 임대인의 매물 올리기
- *
  */
 public class UploadLessorDAO {
 

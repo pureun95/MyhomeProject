@@ -14,10 +14,8 @@ import com.myhome.contractor.mypage.PropertyDTO;
 
 
 /**
- * 
  * @author 박지현
  * 중개인의 매물을 올리는 클래스
- *
  */
 @WebServlet("/contractor/upload-contractor-ok.do")
 public class UploadContractorOk extends HttpServlet {

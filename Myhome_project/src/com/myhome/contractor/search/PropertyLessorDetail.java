@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
+/**
+ * 
+ * @author 박지현
+ * 임대인 매물 상세 정보 
+ * 
+ */
 @WebServlet("/contractor/property-lessor-detail.do")
 public class PropertyLessorDetail extends HttpServlet{
 

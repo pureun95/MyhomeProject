@@ -3,8 +3,8 @@ package com.myhome.contractor.mypage;
 import java.util.Calendar;
 
 /**
- * 
- * @ 중개인 전자계약 DTO
+ * @author 박지현
+ * 중개인 전자계약 DTO
  * 
  * */
 public class ContractDTO {

@@ -11,8 +11,8 @@ import java.util.HashMap;
 import com.myhome.DBUtil;
 
 /**
- * 
- * @ 중개인 전자계약 DAO
+ * @author 박지현
+ * 중개인 전자계약 DAO
  * 
  * */
 public class ContractDAO {

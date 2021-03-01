@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author 박지현
+ * 중개인 본인 매물 올리기
+ */
 @WebServlet("/contractor/upload-contractor.do")
 public class UploadContractor extends HttpServlet{
 
