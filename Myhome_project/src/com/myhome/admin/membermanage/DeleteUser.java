@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /***
- * 중개인회원 삭제 페이지 서블릿입니다.
+ * 일반회원 삭제 페이지 서블릿입니다.
  * @author 윤지현
  *
  */
-@WebServlet("/admin/membermanage/deletecontractor.do")
-public class DeleteContractor extends HttpServlet {
+@WebServlet("/admin/membermanage/deleteuser.do")
+public class DeleteUser extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

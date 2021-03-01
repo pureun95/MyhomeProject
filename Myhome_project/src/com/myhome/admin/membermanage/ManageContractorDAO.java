@@ -163,7 +163,7 @@ public class ManageContractorDAO {
 	}
 
 	//delete
-	//회원삭제시 상태를 2(회원삭제)로 만들어준다.
+	//삭제시 상태를 2(중개인삭제)로 만들어준다.
 	public int del(ManageContractorDTO dto) {
 		try {
 			
@@ -175,7 +175,7 @@ public class ManageContractorDAO {
 			 * return pstat.executeUpdate();
 			 */	
 			
-			String sql = "{ call procDelUser(?) }";
+			String sql = "{ call procDelContractor(?) }";
 			
 			cstat = conn.prepareCall(sql);
 			cstat.setString(1, dto.getSeq());

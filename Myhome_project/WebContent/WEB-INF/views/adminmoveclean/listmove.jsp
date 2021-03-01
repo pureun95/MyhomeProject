@@ -68,10 +68,9 @@
     	float: left;
     	position: relative;
     	/* background-image: url('../image/move_clean/1. 쌍용청소.jpg'); */
-    	/* background-position: center center;  */
-        /* background-size: contain; */
-        /* background-repeat: no-repeat; */
-        background-position: 0% 0px; 
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 0% -20px; 
         background-size: cover;
         margin: 0px 20px;
     }
@@ -207,7 +206,7 @@
 			<c:forEach items="${list}" var="dto">
 			<div class="list">
 				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo" style="background-image : url('/Myhome_project/image/${dto.image}');"> 
+				<div class="imagelogo" style="background-image : url('${dto.image}')";"> 
 					<%-- <img src="${dto.image}" class="imagelogo"> --%>				
 					<div class="glyphicon glyphicon-star"></div>
 					<div class="rating">${dto.rating} / 5.0</div>					

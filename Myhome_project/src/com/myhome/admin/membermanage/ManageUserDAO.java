@@ -168,4 +168,30 @@ public class ManageUserDAO {
 		return 0;
 	}
 
+	//delete
+	//회원삭제시 상태를 2(회원삭제)로 만들어준다.
+	public int del(ManageUserDTO dto) {
+		try {
+			/*
+			 * String sql = "update tblAllUser set state = 2 where seq = ?";
+			 * 
+			 * pstat = conn.prepareStatement(sql); pstat.setString(1, dto.getSeq());
+			 * 
+			 * return pstat.executeUpdate();
+			 */	
+			
+			String sql = "{ call procDelUser(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, dto.getSeq());
+			
+			return cstat.executeUpdate();
+			
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 }
