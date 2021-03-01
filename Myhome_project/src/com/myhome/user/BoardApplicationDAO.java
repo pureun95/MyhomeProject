@@ -9,11 +9,6 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
-/**
- * 청약 게시판 DB작업을 요청하는 클래스입니다.
- * @author 노푸른
- *
- */
 public class BoardApplicationDAO {
 
 
@@ -22,16 +17,10 @@ public class BoardApplicationDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	/**
-	 * DB 연결하는 메소드입니다.
-	 */
 	public BoardApplicationDAO() {
 		conn = DBUtil.open();
 	}
 	
-	/**
-	 * DB 연결을 해제하는 메소드입니다.
-	 */
 	public void close() {
 		try {
 			
@@ -43,11 +32,6 @@ public class BoardApplicationDAO {
 		}
 	}
 
-	/**
-	 * 게시글 목록을 배열에 넣습니다.
-	 * @param map 게시글 검색어 등을 담은 배열입니다.
-	 * @return 청약 게시판 게시글 목록을 반환합니다.
-	 */
 	public ArrayList<BoardApplicationDTO> list(HashMap<String, String> map) {
 
 		try {
@@ -95,11 +79,7 @@ public class BoardApplicationDAO {
 	
 	
 	
-	/**
-	 * 게시글 목록보기에서 전체 페이지를 계산합니다.
-	 * @param map 검색어 등을 담은 배열입니다.
-	 * @return 전체 페이지 수를 반환합니다.
-	 */
+
 	public int getTotalCount(HashMap<String, String> map) {
 
 		try {
@@ -126,10 +106,7 @@ public class BoardApplicationDAO {
 	}
 	
 	
-	/**
-	 * 조회수를 업데이트합니다.
-	 * @param seq 게시물 번호를 담은 변수입니다.
-	 */
+
 	public void updateViewCount(String seq) {
 
 		try {
@@ -148,11 +125,6 @@ public class BoardApplicationDAO {
 		
 	}
 
-	/**
-	 * 청약 게시판 게시글 하나를 출력합니다.
-	 * @param seq 게시글 번호를 담은 변수입니다.
-	 * @return 게시글 하나를 반환합니다.
-	 */
 	public BoardApplicationDTO get(String seq) {
 
 		try {

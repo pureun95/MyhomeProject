@@ -1,10 +1,5 @@
 package com.myhome.user;
 
-/**
- * 커뮤니티 게시판 댓글의 객체를 담당하는 클래스입니다.
- * @author 노푸른
- *
- */
 public class CommentCommunityDTO {
 	
 	private String seqCommunityComment;

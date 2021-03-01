@@ -155,7 +155,7 @@
      
      <div class="content col-sm-12 col-md-9">
      
-      <%@include file="/WEB-INF/views/user/nav-board.jsp"%> 
+     <%@include file="/WEB-INF/views/user/nav-board.jsp"%>
     
 		<div>
 				<div id="maintitle">커뮤니티</div>
@@ -196,11 +196,6 @@
 <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 <script>
 
-	jQuery(document).ready(function($) {
-		   //$("#next").trigger('click'); // click on button once document is ready
-		   // or
-		   $("#btn3").click();
-		});
 
 </script>
 	

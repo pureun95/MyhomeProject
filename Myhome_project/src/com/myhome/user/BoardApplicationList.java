@@ -12,18 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * 청약 게시판의 리스트를 조회하는 클래스입니다.
- * @author 노푸른
- *
- */
 @WebServlet("/Myhome/user/boardapplicationlist.do") 
 //http://localhost:8090/Myhome_project/Myhome/user/boardapplicationlist.do  주소 오류나면 이 주소로 연결해주세요!
 public class BoardApplicationList extends HttpServlet {
 	
-	/**
-	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

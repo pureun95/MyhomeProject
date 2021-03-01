@@ -180,7 +180,7 @@
 
 /* 전체 property list 박스 property.css 덮어쓰기 */
 .property-box {
-	
+	border: 1px solid blue; */
 	float: left;
 	/* 	    width: 900px; */
 	width: 100%;
@@ -192,36 +192,14 @@
 	/* padding: 0 100px; */
 	position: relative;
 	margin: 20px auto;
-	padding-top: 5px;
 }
-
- .nothing {
-   		height: 250px;
-   }
-   
-   .nothing1 {
-   		margin-top: 130px;
-   		font-size: 50px;
-   		color: #f1aeae;
-   		font-family: 'MaplestoryOTFLight';
-   		display: block;
-   		text-align: center;
-   }
-   	
-   .nothing2 {
-   		font-size: 16px;
-   		color: #202020;
-   		display: block;
-   		font-family: 'NanumBarunGothic';
-   		text-align: center;
-   }
 
 .img-property {
 	border: 1px solid black;
 	width: 280px;
 	height: 180px;
 	float: left;
-	background-image: url('/Myhome_project/image/6.jpg');
+	background-image: url('../image/6.jpg');
 	background-position: 0% 0px;
 	background-size: cover;
 	cursor: pointer;
@@ -305,24 +283,21 @@
 }
 
 /* 수정하며 추가된 소스 */
-#searchForm {
+#searchForm1 {
 	position: relative;
 	margin: 40px auto;
 	width: 100%;
 	display: inline-block;
 	margin-bottom: 10px;
-	 visibility: hidden; 
 }
 
 #searchForm2 {
-	    position: relative;
-    margin: 40px auto;
-    width: 100%;
-    display: inline-block;
-    margin-bottom: 10px;
-   
-    
-    top: -300px;
+	position: relative;
+	margin: 40px auto;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 10px;
+	top: -133px;
 }
 
 .search {
@@ -340,7 +315,7 @@
 	font-size: 16px;
 }
 
-#location {
+#search2 {
 	height: 40px;
 	border: 2px solid #f1aeae;
 	border-radius: 40px;
@@ -385,8 +360,6 @@
 	margin: 0 auto;
 	font-size: 16px;
 	z-index: 2;
-	
-	    top: -300px;
 }
 
 .boardcontent {
@@ -397,21 +370,6 @@
 
 .property-list {
 	width: 100%;
-	position: relative;
-	top: -170px;
-}
-
-.pagebar {
-    display: block;
-    top: -170px;
-    position: relative;
-
-}
-
-#basic-addon4 {
-	position: relative;
-    top: -235px;
-    float: right;
 }
 
 .options {
@@ -427,17 +385,15 @@ label {
 }
 
 .filters {
-	    margin: 20px auto;
-    display: inline-block;
-    width: 350px;
-    left: 320px;
-    position: relative;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-    padding-left: 50px;
-    top: 50px;
-    
-     visibility: hidden; 
+	margin: 20px auto;
+	display: inline-block;
+	width: 800px;
+	left: 110px;
+	position: relative;
+	border-top: 1px solid #ccc;
+	padding-top: 20px;
+	padding-left: 50px;
+	top: 70px;
 }
 
 .optionname {
@@ -447,24 +403,6 @@ label {
 	text-align: center;
 	color: white;
 	padding: 2px 3px;
-}
-
-#out_img {
-width: 16px;
-height: 16px;
-float: left;
-background-size:cover;
-background-position: 50% 50%;
-cursor: pointer;
-position: relative;
-    left: 125px;
-    top: -130px;
-
-}
-
-.map {
-	position: relative;
-	top: -150px;
 }
 </style>
 
@@ -488,27 +426,44 @@ position: relative;
 
 			<div class="boardcontent">
 
-				<!-- 				<form id="searchForm" method="GET" -->
-				<form id="searchForm" method="GET"
+				<form id="searchForm1" method="GET"
 					action="/Myhome_project/Myhome/user/searchpropertylist.do">
-
-					<!-- 지역명 검색 -->
 					<div class="input-group search">
-						<%-- <input type="text" class="form-control" placeholder="지역명을 입력해주세요"
+
+						<input type="text" class="form-control" placeholder="지역명을 입력해주세요"
 							aria-describedby="basic-addon2" id="search" name="search"
 							required value="${search}"> <span
 							class="input-group-addon" id="basic-addon2"
-							onclick="$('#searchForm').submit();" style="cursor: pointer;"><span>검색</span></span> --%>
-
-
-						<input type="text" class="form-control" placeholder="지역명을 입력해주세요"
-							aria-describedby="basic-addon3" id="location" name="location"
-							required value="${location}"> <span
-							class="input-group-addon" id="basic-addon3"
 							onclick="$('#searchForm').submit();" style="cursor: pointer;"><span>검색</span></span>
 					</div>
+				</form>
+				<div style="clear: both;"></div>
 
-					
+
+				<div style="width: 100%; text-align: center;">
+					<button type="button" class="btn btn-default" id="btnsearch"
+						name="btnsearch">
+						상세검색 필터 <span class="glyphicon glyphicon-triangle-bottom"></span>
+					</button>
+				</div>
+				<div style="clear: both;"></div>
+
+
+
+
+
+
+
+				<form id="searchForm2" method="GET"
+					action="/Myhome_project/Myhome/user/searchpropertylist.do">
+					<div class="input-group search">
+
+						<input type="text" class="form-control" placeholder="지역명을 입력해주세요"
+							aria-describedby="basic-addon2" id="search2" name="search2"
+							required value="${search2}"> <span
+							class="input-group-addon" id="basic-addon3"
+							onclick="$('#searchForm2').submit();" style="cursor: pointer;"><span>검색</span></span>
+					</div>
 
 					<div class="filters" id="filterlist">
 
@@ -516,8 +471,8 @@ position: relative;
 						<div class="options" id="option1">
 							<div class="optionname">매물유형</div>
 							<div>
-								<input type="radio" name="roomtypeopt" id="opt1" value="원룸"
-									checked="checked"> <label for="opt1">원룸</label>
+								<input type="radio" name="roomtypeopt" id="opt1" value="원룸">
+								<label for="opt1">원룸</label>
 							</div>
 							<div>
 								<input type="radio" name="roomtypeopt" id="opt2" value="투룸">
@@ -534,8 +489,8 @@ position: relative;
 						<div class="options" id="option2">
 							<div class="optionname">거래유형</div>
 							<div>
-								<input type="radio" name="propertytypeopt" id="opt4" value="월세"
-									checked="checked"> <label for="opt4">월세</label>
+								<input type="radio" name="propertytypeopt" id="opt4" value="월세">
+								<label for="opt4">월세</label>
 							</div>
 							<div>
 								<input type="radio" name="propertytypeopt" id="opt5" value="전세">
@@ -545,172 +500,212 @@ position: relative;
 								<input type="radio" name="propertytypeopt" id="opt6" value="매매">
 								<label for="opt6">매매</label>
 							</div>
-							<div style="clear: both;"></div>
-											<img src="/Myhome_project/image/out.png" alt="outimage" id="out_img">
 						</div>
-							
+
+
+						<!-- 건물옵션 -->
+						<div class="options" id="option3">
+							<div class="optionname">건물옵션</div>
+							<div>
+								<input type="checkbox" name="buildingopt" id="opt7" value="주차가능">
+								<label for="opt7">주차가능</label>
+							</div>
+							<div>
+								<input type="checkbox" name="buildingopt" id="opt8" value="반려동물">
+								<label for="opt8">반려동물</label>
+							</div>
+							<div>
+								<input type="checkbox" name="buildingopt" id="opt9" value="베란다">
+								<label for="opt9">베란다/발코니</label>
+							</div>
+							<div>
+								<input type="checkbox" name="buildingopt" id="opt10" value="엘리베이터">
+								<label for="opt10">엘리베이터</label>
+							</div>
+						</div>
+
+
+						<!-- 관리비 -->
+						<div class="options" id="option4">
+							<div class="optionname">관리비</div>
+							<div>
+								<input type="radio" name="maintenopt" id="opt11" value="50000">
+								<label for="opt11">~5만원</label>
+							</div>
+							<div>
+								<input type="radio" name="maintenopt" id="opt12" value="100000">
+								<label for="opt12">~10만원</label>
+							</div>
+							<div>
+								<input type="radio" name="maintenopt" id="opt13" value="101000">
+								<label for="opt13">10만원 이상</label>
+							</div>
+						</div>
+
+
+						<!-- 보증금 -->
+						<div class="options" id="option5">
+							<div class="optionname">보증금</div>
+							<div>
+								<input type="radio" name="depositopt" id="opt14" value="5000000">
+								<label for="opt14">~500만원</label>
+							</div>
+							<div>
+								<input type="radio" name="depositopt" id="opt15"
+									value="10000000"> <label for="opt15">~1천만원</label>
+							</div>
+							<div>
+								<input type="radio" name="depositopt" id="opt16"
+									value="50000000"> <label for="opt16">5천만원 이상</label>
+							</div>
+						</div>
+
+						<!-- filters -->
 					</div>
 
-					
+
+
+
+
+
+
 				</form>
 				<div style="clear: both;"></div>
 
 
 
-				<form id="searchForm2" method="GET"
-					action="/Myhome_project/Myhome/user/searchpropertylist.do">
-					<div class="input-group search">
-
-						<input type="text" class="form-control" placeholder="지역명을 입력해주세요"
-							aria-describedby="basic-addon3" id="search" name="search"
-							required value="${search}"> <span
-							class="input-group-addon" id="basic-addon3"
-							onclick="$('#searchForm2').submit();" style="cursor: pointer;"><span>검색</span></span>
-					</div>
-				</form>
-				
-				<div style="width: 100%; text-align: center;">
-						<button type="button" class="btn btn-default" id="btnsearch"
-							name="btnsearch">
-							상세검색 필터 <span class="glyphicon glyphicon-triangle-bottom"></span>
-						</button>
-					</div>
-					<div style="clear: both;"></div>
-				
-
-					<c:if
-						test="${not empty roomtypeopt and not empty propertytypeopt and not empty location}">
-						<c:if test="${list.size() == 0 }">
-							<div class="nothing">
-								<span class="nothing1">NOTHING</span> <span class="nothing2">검색결과가
-									없어요.</span>
-							</div>
-						</c:if>
-
-					</c:if>
 
 
-					<c:if
-						test="${not empty roomtypeopt and not empty propertytypeopt and empty location}">
 
-						<c:if test="${list.size() == 0 }">
-							<div class="nothing">
-								<span class="nothing1">NOTHING</span> <span class="nothing2">검색결과가
-									없어요.</span>
-							</div>
 
-						</c:if>
+
+
+				<div class="map">
+					<div class="temppicture"></div>
+					<!-- <img src="/Myhome_project/Myhome/image/location.png" width="1190px"> -->
+					<!-- <img src="\Myhome_project\WebContent\image\map_1.png" width="1190px"> -->
+				</div>
+				<div style="clear: both;"></div>
+
+
+
+
+
+
+
+
+
+				<!-- 리스트 -->
+				<div class="property-box">
+
+					<c:if test="${list.size() == 0}">
+
+						<div style="text-align: center; width: 100%; font-weight: bold;">검색한
+							조건의 매물이 존재하지 않습니다.</div>
 
 					</c:if>
 
+					<c:forEach items="${list}" var="dto">
+						<div class="property-list">
+
+							<div class="img-property">
+
+								<c:if test="${dto.available == 0 }">
+									<div class="state">입주가능</div>
+								</c:if>
+
+								<c:if test="${dto.available == 1 }">
+									<div class="state">계약완료</div>
+								</c:if>
+
+							</div>
 
 
-					<!-- 리스트 -->
-					<div class="property-box">
+							<div class="property-list2">
 
-
-						<c:forEach items="${list}" var="dto">
-							<div class="property-list">
-
-								<div class="img-property">
-
-									<c:if test="${dto.available == 0 }">
-										<div class="state">입주가능</div>
-									</c:if>
-
-									<c:if test="${dto.available == 1 }">
-										<div class="state">계약완료</div>
-									</c:if>
-
-								</div>
-
-
-								<div class="property-list2">
-
-									<div class="property-num">no. ${dto.seqContractorProperty }</div>
-									<div class="property-title"
-										onclick="location.href='/Myhome_project/Myhome/user/searchpropertydetaillist.do?seq=${dto.seqContractorProperty}&page=${nowPage}';"
-										<%-- 									onclick="location.href='/Myhome_project/Myhome/user/searchpropertydetaillist.do?seq=${dto.seqContractorProperty}&page=${nowPage}';" --%>
+								<div class="property-num">no. ${dto.seqContractorProperty }</div>
+								<div class="property-title"
+									onclick="location.href='/Myhome_project/Myhome/user/searchpropertydetaillist.do?seq=${dto.seqContractorProperty}&page=${nowPage}';"
 									style="cursor: pointer">${dto.title }</div>
 
 
-									<div class="property-content" id="roomtype">
-										<span>방유형</span>
-										<div class="property-content2">${dto.roomType }</div>
-									</div>
+								<div class="property-content" id="roomtype">
+									<span>방유형</span>
+									<div class="property-content2">${dto.roomType }</div>
+								</div>
 
-									<div class="property-content" id="floor">
-										<span>층</span>
-										<div class="property-content2">${dto.floor }</div>
-									</div>
+								<div class="property-content" id="floor">
+									<span>층</span>
+									<div class="property-content2">${dto.floor }</div>
+								</div>
 
-									<div class="property-content" id="contract">
-										<span>계약유형</span>
-										<div class="property-content2">${dto.contractTypeDetail }</div>
-									</div>
-
-
-
-									<c:if test="${dto.contractTypeDetail eq '월세'}">
-										<div class="property-content" id="price">
-											<span>가격</span>
-											<div class="property-content2">${dto.monthlyRent }/월(${dto.contractPeriod })</div>
-										</div>
-									</c:if>
-
-									<c:if test="${dto.contractTypeDetail eq '전세'}">
-										<div class="property-content" id="price">
-											<span>가격</span>
-											<div class="property-content2">${dto.deposit }</div>
-										</div>
-									</c:if>
-
-									<c:if test="${dto.contractTypeDetail eq '매매'}">
-										<div class="property-content" id="price">
-											<span>가격</span>
-											<div class="property-content2">${dto.dealing }</div>
-										</div>
-									</c:if>
-
-
-									<div class="property-location">
-										<div class="location-icon" style="float: left;"></div>
-										<div class="location-detail">${dto.location }</div>
-									</div>
-
-									<!-- Ajax로 보내기 -->
-									<input type="hidden" id="seq"
-										value="${dto.seqContractorProperty }">
+								<div class="property-content" id="contract">
+									<span>계약유형</span>
+									<div class="property-content2">${dto.contractTypeDetail }</div>
 								</div>
 
 
+
+								<c:if test="${dto.contractTypeDetail eq '월세'}">
+									<div class="property-content" id="price">
+										<span>가격</span>
+										<div class="property-content2">${dto.monthlyRent }/월(${dto.contractPeriod })</div>
+									</div>
+								</c:if>
+
+								<c:if test="${dto.contractTypeDetail eq '전세'}">
+									<div class="property-content" id="price">
+										<span>가격</span>
+										<div class="property-content2">${dto.deposit }</div>
+									</div>
+								</c:if>
+
+								<c:if test="${dto.contractTypeDetail eq '매매'}">
+									<div class="property-content" id="price">
+										<span>가격</span>
+										<div class="property-content2">${dto.dealing }</div>
+									</div>
+								</c:if>
+
+
+								<div class="property-location">
+									<div class="location-icon" style="float: left;"></div>
+									<div class="location-detail">${dto.location }</div>
+								</div>
+
+								<!-- Ajax로 보내기 -->
+								<input type="hidden" id="seq"
+									value="${dto.seqContractorProperty }">
 							</div>
-						</c:forEach>
-						<div style="clear: both;"></div>
 
 
-
-
-						<!-- 검색, 페이지바 -->
-						<div style="text-align: center;">
-							<nav class="pagebar">
-								<ul class="pagination" id="page_bar">${pagebar}
-								</ul>
-							</nav>
 						</div>
-						<div style="width: 100%;">
-							<button type="button" class="btn btn-default" id="basic-addon4"
-								onclick="location.href='/Myhome_project/Myhome/user/searchpropertylist.do';">목록</button>
-						</div>
-						<div style="clear: both;"></div>
+					</c:forEach>
+					<div style="clear: both;"></div>
 
 
 
-						<!-- search-paging -->
+
+					<!-- 검색, 페이지바 -->
+					<div style="text-align: center;">
+						<nav class="pagebar">
+							<ul class="pagination" id="page_bar">${pagebar}
+							</ul>
+						</nav>
 					</div>
+					<div style="width: 100%;">
+						<button type="button" class="btn btn-default" id="basic-addon4"
+							onclick="location.href='/Myhome_project/Myhome/user/searchpropertylist.do';">목록</button>
+					</div>
+					<div style="clear: both;"></div>
 
 
-					<!-- property-box -->
+
+					<!-- search-paging -->
+				</div>
+
+
+				<!-- property-box -->
 			</div>
 			<div style="clear: both;"></div>
 
@@ -728,29 +723,27 @@ position: relative;
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script>
-	
-		 var btnsearch = document.getElementById("btnsearch");
+		var btnsearch = document.getElementById("btnsearch");
 		var filterlist = document.getElementById("filterlist");
-		
-		var searchForm = document.getElementById("searchForm");
-		var searchForm2 = document.getElementById("searchForm2");
-		var out_img = document.getElementById("out_img");
 
-		
+		var searchForm1 = document.getElementById("searchForm1");
+		var searchForm2 = document.getElementById("searchForm2");
+
 		btnsearch.onclick = function() {
 
-				filterlist.style.visibility = 'visible';
-				searchForm.style.visibility = 'visible';
+			if (filterlist.style.visibility == 'visible') {
+
+				filterlist.style.visibility = 'hidden';
+				searchForm1.style.visibility = 'visible';
 				searchForm2.style.visibility = 'hidden';
 
-		} 
-		
-		out_img.onclick = function() {
-			
-			filterlist.style.visibility = 'hidden';
-			searchForm.style.visibility = 'hidden';
-			searchForm2.style.visibility = 'visible';
-			
+			} else {
+
+				filterlist.style.visibility = 'visible';
+				searchForm1.style.visibility = 'hidden';
+				searchForm2.style.visibility = 'visible';
+
+			}
 		}
 	</script>
 

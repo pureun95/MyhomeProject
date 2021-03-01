@@ -33,7 +33,7 @@
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/uploadproperty.do';">방올리기</li>
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">게시판</li>
 	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/user/boardusedlist.do';">중고장터</li>
-	                    <li class="header-li li-list" onclick="location.href='/Myhome_project/Myhome/user/boardqnalist.do';">고객센터</li>
+	                    <li class="header-li li-list" onclick="location.href='/Myhome/user/boardqnalist.do';">고객센터</li>
 	
 	 					<li id="login" class="li-login li-list" onclick="location.href='/Myhome_project/member/Auth.do';">로그인</li>
 	                    <li id="signup" class="li-login li-list" onclick="location.href='/Myhome_project/member/Register.do';">회원가입</li>

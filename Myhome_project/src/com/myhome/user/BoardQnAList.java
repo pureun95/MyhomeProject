@@ -12,18 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//http://localhost:8090/Myhome_project/Myhome/user/boardqnalist.do 로 수정해서 들어가기.
-/**
- * Q&A 게시판 게시글 상세페이지를 출력하는 클래스입니다.
- * @author 노푸른
- *
- */
+
 @WebServlet("/Myhome/user/boardqnalist.do")
 public class BoardQnAList extends HttpServlet{
 
-	/**
-	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
-	 */
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -33,17 +26,10 @@ public class BoardQnAList extends HttpServlet{
 		HashMap<String,String> map = new HashMap<String, String>();
 		
 		String search = request.getParameter("search");
-		String category = request.getParameter("category");
 		
 		if (!(search == null || search.equals(""))) {
 			map.put("search", search);
 		}
-		
-		if(category==null || category.trim().equals("") ) {
-			category="0";
-		}
-		
-		map.put("category", category);
 		
 		
 		//1. DB작업 > select
@@ -94,11 +80,11 @@ public class BoardQnAList extends HttpServlet{
 		
 		
 		//1.
-		BoardQnADAO dao = new BoardQnADAO();
-		ArrayList<BoardQnADTO> list = dao.list(map);
+		BoardCommunityDAO dao = new BoardCommunityDAO();
+		ArrayList<BoardCommunityDTO> list = dao.list(map);
 		
 		//1.5
-		for (BoardQnADTO dto : list) {
+		for (BoardCommunityDTO dto : list) {
 			//날짜에서 년월일만 잘라내기
 			dto.setWriteDate(dto.getWriteDate().substring(0,10));
 			
@@ -177,14 +163,12 @@ public class BoardQnAList extends HttpServlet{
 				
 				
 				//2.
-				//if( !category.equals("0")) {
-					request.setAttribute("list", list);
-					request.setAttribute("search", search);
-					request.setAttribute("pagebar", pagebar);
-					request.setAttribute("nowPage", nowPage);
-				//};
+				request.setAttribute("list", list);
+				request.setAttribute("search", search);
+				request.setAttribute("pagebar", pagebar);
+				request.setAttribute("nowPage", nowPage);
 		
-				request.setAttribute("category", category);
+			
 		
 		
 		

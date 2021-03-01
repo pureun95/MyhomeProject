@@ -10,17 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * 부동산체크리스트 게시판 게시글 상세페이지를 출력하는 클래스입니다.
- * @author 노푸른
- *
- */
 @WebServlet("/Myhome/user/boardcheckview.do")
 public class BoardCheckView extends HttpServlet {
 	
-	/**
-	 * get 방식으로 게시글을 호출하는 메소드입니다.
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

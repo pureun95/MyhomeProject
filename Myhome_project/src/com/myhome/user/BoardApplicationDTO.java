@@ -1,10 +1,5 @@
 package com.myhome.user;
 
-/**
- * 청약 게시판의 객체를 담당하는 클래스입니다.
- * @author 노푸른
- *
- */
 public class BoardApplicationDTO {
 
 	private String seqApplication; //청약게시글번호

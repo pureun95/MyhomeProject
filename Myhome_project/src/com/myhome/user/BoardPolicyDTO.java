@@ -1,10 +1,5 @@
 package com.myhome.user;
 
-/**
- * 부동산정책 게시판의 객체를 담당하는 클래스입니다.
- * @author 노푸른
- *
- */
 public class BoardPolicyDTO {
 
 	private String seqPolicy; //정책번호

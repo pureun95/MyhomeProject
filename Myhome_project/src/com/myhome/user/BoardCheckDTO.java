@@ -1,10 +1,5 @@
 package com.myhome.user;
 
-/**
- * 부동산체크리스트 게시판의 객체를 담당하는 클래스입니다.
- * @author 노푸른
- *
- */
 public class BoardCheckDTO {
 	
 	private String seqCheckList; //체크리스트번호
