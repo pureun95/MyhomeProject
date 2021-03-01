@@ -130,7 +130,7 @@
        	width: 280px;
         height: 180px;
         float: left;
-       	background-image: url('../image/6.jpg');
+       	/* background-image: url('../image/6.jpg'); */
         background-position: 0% 0px; 
         background-size: cover;
         cursor: pointer;
@@ -305,10 +305,10 @@
 		 <div class="property-box">		 			 	
 		 	
 		 		<c:forEach items="${list }" var="dto">
-                <div class="property-list">
-                
-                    <div class="img-property">           
- 
+		 		
+                <div class="property-list">           
+                    <div class="img-property" style="background-image: url('../image/${dto.path }')">           
+
 	                   <c:if test="${dto.response eq '1' }">	           
 	                    <div class="state">매칭완료</div>             
 	                    </c:if>

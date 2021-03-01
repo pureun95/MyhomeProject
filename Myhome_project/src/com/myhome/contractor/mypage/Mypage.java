@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 중개인 마이페이지 메인 접근 클래스
- * @author 박지현
+ *
  *
  */
 @WebServlet("/contractor/mypage.do")
