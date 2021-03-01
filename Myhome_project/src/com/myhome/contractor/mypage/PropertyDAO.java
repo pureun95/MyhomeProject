@@ -634,7 +634,7 @@ public class PropertyDAO {
 				// 7. 이미지
 				dto.setPath(rs.getString("imagePath"));
 
-				// System.out.println(dto.getPath());
+				System.out.println("img: " + dto.getPath());
 
 				// System.out.println(dto.getSeqContractor());
 				dto.setOccupancyDate(rs.getString("occupancyDate"));
@@ -812,7 +812,7 @@ public class PropertyDAO {
 				// 7. 이미지
 				dto.setPath(rs.getString("imagePath"));
 
-				// System.out.println(dto.getPath());
+				System.out.println(dto.getPath());
 
 				// System.out.println(dto.getSeqContractor());
 				dto.setOccupancyDate(rs.getString("occupancyDate"));
