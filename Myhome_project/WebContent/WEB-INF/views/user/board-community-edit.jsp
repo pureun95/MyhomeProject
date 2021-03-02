@@ -153,7 +153,7 @@
                 <div style="clear:both;"></div>
 
                 <div class="btns">
-                    <button type="submit" class="btn" id="btn1">글쓰기</button>
+                    <button type="submit" class="btn" id="btn1">수정하기</button>
                     <button type="button" class="btn" id="btn2" onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">뒤로가기</button>
                 </div>
                 

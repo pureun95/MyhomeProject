@@ -14,9 +14,18 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 */
 
+/**
+ * 커뮤니티 게시판 게시글 등록을 DB에 요청하는 클래스입니다.
+ * 
+ * @author 노푸른
+ *
+ */
 @WebServlet("/Myhome/user/boardcommunitywriteok.do")
 public class BoardCommunityWriteOk extends HttpServlet {
 
+	/**
+	 * 클라이언트 웹브라우저에 DB결과를 전달하는 메소드입니다.
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -67,7 +76,6 @@ public class BoardCommunityWriteOk extends HttpServlet {
 
 			writer.close();
 		}
-
 
 	}
 

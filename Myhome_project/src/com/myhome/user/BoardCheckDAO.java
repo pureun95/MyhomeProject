@@ -9,6 +9,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/**
+ * 부동산 체크리스트 게시판 DB작업을 요청하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 public class BoardCheckDAO {
 
 	private Connection conn;
@@ -16,10 +21,16 @@ public class BoardCheckDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
+	/**
+	 * DB 연결하는 메소드입니다.
+	 */
 	public BoardCheckDAO() {
 		conn = DBUtil.open();
 	}
 	
+	/**
+	 * DB 연결을 해제하는 메소드입니다.
+	 */
 	public void close() {
 		try {
 			
@@ -33,6 +44,11 @@ public class BoardCheckDAO {
 	
 	
 
+	/**
+	 * 게시글 목록을 배열에 넣습니다.
+	 * @param map 게시글 검색어 등을 담은 배열입니다.
+	 * @return 부동산체크리스트 게시판 게시글 목록을 반환합니다.
+	 */
 	public ArrayList<BoardCheckDTO> list(HashMap<String, String> map) {
 
 		try {
@@ -82,6 +98,11 @@ public class BoardCheckDAO {
 		return null;
 	}
 
+	/**
+	 * 게시글 목록보기에서 전체 페이지를 계산합니다.
+	 * @param map 검색어 등을 담은 배열입니다.
+	 * @return 전체 페이지 수를 반환합니다.
+	 */
 	public int getTotalCount(HashMap<String, String> map) {
 
 		try {
@@ -108,6 +129,10 @@ public class BoardCheckDAO {
 		return 0;
 	}
 
+	/**
+	 * 조회수를 업데이트합니다.
+	 * @param seq 게시물 번호를 담은 변수입니다.
+	 */
 	public void updateViewCount(String seq) {
 		
 		try {
@@ -126,6 +151,11 @@ public class BoardCheckDAO {
 		
 	}
 
+	/**
+	 * 부동산체크리스트 게시판 게시글 하나를 출력합니다.
+	 * @param seq 게시글 번호를 담은 변수입니다.
+	 * @return 게시글 하나를 반환합니다.
+	 */
 	public BoardCheckDTO get(String seq) {
 
 		try {
