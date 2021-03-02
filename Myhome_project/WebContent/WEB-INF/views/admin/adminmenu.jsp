@@ -140,7 +140,7 @@ style>body, html {
 							<div class="explain">가격변화, 매물관리, 알림</div>
 						</div>
 						<div class="menu"
-							onclick="location.href=' ';">
+							onclick="location.href='/Myhome_project/admin2/notice/list.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-align-justify"></span>
@@ -150,7 +150,7 @@ style>body, html {
 							<div class="explain">공지사항 QnA 신고</div>
 						</div>
 						<div class="menu"
-							onclick="location.href='';">
+							onclick="location.href='/Myhome_project/admin2/contract/list.do';">
 
 							<div class="image">
 								<span class="glyphicon glyphicon-resize-small"></span>
@@ -162,11 +162,9 @@ style>body, html {
 
 						<div class="menu"
 							onclick="location.href='/Myhome_project/admin/board/listpolicy.do';">
-
 							<div class="image">
 								<span class="glyphicon glyphicon-list-alt"></span>
 							</div>
-
 							기타 게시판관리
 							<div class="explain">중고장터, 커뮤니티 등.</div>
 						</div>
