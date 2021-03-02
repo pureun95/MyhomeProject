@@ -14,6 +14,12 @@ import com.myhome.member.MemberDTO;
 import oracle.jdbc.OracleTypes;
 import oracle.jdbc.oracore.OracleType;
 
+
+/**
+ * 회원에 관한 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class UserDAO {
 
 	private Connection conn;
@@ -36,6 +42,11 @@ public class UserDAO {
 	}
 
 	// user/mypageinfo.do -> 고객정보 요청
+	/**
+	 * 회원의 정보를 가져옵니다.
+	 * @param seqAllUser 회원번호
+	 * @return 회원정보
+	 */
 	public UserDTO getUserInfo(int seqAllUser) {
 
 		try {
@@ -72,6 +83,10 @@ public class UserDAO {
 
 	}
 
+	/**
+	 * 모든 닉네임을 가져옵니다.
+	 * @return 닉네임
+	 */
 	public ArrayList<UserDTO> getAllNickname() {
 
 		try {
@@ -99,6 +114,13 @@ public class UserDAO {
 	}
 
 	// mypageinfo.do -> 회원정보 수정
+	/**
+	 * 회원의 정보를 수정하는 DB작업을 수행합니다.
+	 * @param dto 수정할 회원정보
+	 * @param seq 회원번호
+	 * @return DB작업 처리결과
+	 * @throws SQLException
+	 */
 	public int updateUser(UserDTO dto, int seq) throws SQLException {
 		int result = 0;
 
@@ -144,6 +166,11 @@ public class UserDAO {
 	}
 
 	// location에 따른 seqLocation을 요청
+	/**
+	 * 지역정보에 따른 seq를 가져옵니다.
+	 * @param interestlocation 관심지역
+	 * @return 지역번호
+	 */
 	public int getSeqLocation(String interestlocation) {
 
 		int seq = 0;
@@ -170,6 +197,11 @@ public class UserDAO {
 	}
 
 	// 방 종류에 따른 seq를 요청
+	/**
+	 * 매물유형에 따른 seq를 가져옵니다.
+	 * @param interestroomtype 관심 매물 유형
+	 * @return 매물유형번호
+	 */
 	public int getSeqRoomtype(String interestroomtype) {
 
 		int seq = 0;
@@ -195,6 +227,12 @@ public class UserDAO {
 	}
 	
 	//removeuserok.do 에서 회원 삭제 요청
+	/**
+	 * 회원을 삭제하는 작업을 수행합니다.
+	 * @param seq 회원번호
+	 * @return DB작업 처리결과
+	 * @throws SQLException
+	 */
 	public int removeUser(int seq) throws SQLException {
 		int num = 0;
 		
@@ -219,6 +257,11 @@ public class UserDAO {
 	
 	
 	//mypagelike.do -> 회원 매물 찜목록 요청
+	/**
+	 * 회원의 매물 찜목록을 가져옵니다.
+	 * @param seq 회원번호
+	 * @return 매물 찜목록
+	 */
 	public ArrayList<vwPropertyLikeDTO> getPropertyLike(int seq) {
 		ArrayList<vwPropertyLikeDTO> list = new ArrayList<vwPropertyLikeDTO>();
 		
@@ -296,6 +339,11 @@ public class UserDAO {
 	}
 	
 	//mypagelike.do -> 회원 중고장터 찜목록 요청
+	/**
+	 * 회원의 중고장터 찜목록을 가져옵니다.
+	 * @param seq 회원번호
+	 * @return 중고장터 찜목록
+	 */
 	public ArrayList<vwUsedLikeDTO> getUsedLike(int seq) {
 
 		ArrayList<vwUsedLikeDTO> list = new ArrayList<vwUsedLikeDTO>();

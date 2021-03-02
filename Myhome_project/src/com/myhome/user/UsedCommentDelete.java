@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 중고장터 댓글을 삭제를 요청하는 클래스
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/usedcommentdelete.do")
 public class UsedCommentDelete extends HttpServlet{
 

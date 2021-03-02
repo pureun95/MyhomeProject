@@ -17,6 +17,11 @@ import com.myhome.member.LocationDTO;
 import com.myhome.member.MemberDAO;
 import com.myhome.member.MemberDTO;
 
+/**
+ * 마이페이지 > 회원정보수정 페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/mypageinfo.do")
 public class MypageInfo extends HttpServlet {
 

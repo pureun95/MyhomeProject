@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 중고장터 게시판 DB작업(글작성)을 요청하는 클래스입니다. 
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boardusedwriteok.do")
 public class BoardUsedWriteOk extends HttpServlet {
 

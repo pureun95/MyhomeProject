@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 주소검색을 위한 팝업창을 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/jusopopup.do")
 public class JusoPopup extends HttpServlet {
 

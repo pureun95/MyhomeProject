@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 마이페이지 > 매칭매물관리 페이지를 출력하는 서블릿(클래스)입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/mypagematching.do")
 public class MypageMatching extends HttpServlet {
 

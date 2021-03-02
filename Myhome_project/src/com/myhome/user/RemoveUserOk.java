@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 회원삭제의 DB작업(회원삭제)를 요청하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/removeuserok.do")
 public class RemoveUserOk extends HttpServlet {
 	

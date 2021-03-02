@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 마이페이지 > 이사청소예약 > 내 예약목록 페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/reservationlist.do")
 public class ReservationList extends HttpServlet {
 
