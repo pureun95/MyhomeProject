@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 중고장터 게시판에서 글삭제를 요청하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boarduseddelete.do")
 public class BoardUsedDelete extends HttpServlet {
 

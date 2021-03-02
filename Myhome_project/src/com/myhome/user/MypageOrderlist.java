@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 마이페이지 > 매물거래내역 페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/mypageorderlist.do")
 public class MypageOrderlist extends HttpServlet {
 

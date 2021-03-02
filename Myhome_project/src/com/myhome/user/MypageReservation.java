@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.myhome.company.CompanyDAO;
 import com.myhome.company.CompanyDTO;
 
+/**
+ * 마이페이지 > 이사청소예약 페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/mypagereservation.do")
 public class MypageReservation extends HttpServlet {
 

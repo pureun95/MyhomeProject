@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 전자계약서 DB작업(파기)을 요청하는 클래스입니다. 
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/contractcancel.do")
 public class ContractCancel extends HttpServlet {
 	

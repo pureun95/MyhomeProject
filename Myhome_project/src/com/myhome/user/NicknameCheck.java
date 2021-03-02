@@ -14,6 +14,11 @@ import javax.servlet.http.HttpSession;
 import com.myhome.member.MemberDAO;
 import com.myhome.member.MemberDTO;
 
+/**
+ * 회원 정보 수정 시 닉네임의 중복을 체크하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/nicknamecheck.do")
 public class NicknameCheck extends HttpServlet {
 

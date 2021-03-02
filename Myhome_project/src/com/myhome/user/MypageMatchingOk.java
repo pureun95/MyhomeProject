@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 매칭매물관리의 DB작업(매칭수락/매칭거절)을 요청하는 클래스
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/matchingok.do")
 public class MypageMatchingOk extends HttpServlet {
 	

@@ -14,6 +14,11 @@ import com.myhome.company.CompanyDAO;
 import com.myhome.company.CompanyDTO;
 import com.myhome.company.ReviewDTO;
 
+/**
+ * 이사/청소업체의 정보를 출력하는 클래스입니다.
+ * @author 장진영
+ *
+ */
 @WebServlet("/user/cleanmovedetail.do")
 public class CleanMoveDetail extends HttpServlet {
 
