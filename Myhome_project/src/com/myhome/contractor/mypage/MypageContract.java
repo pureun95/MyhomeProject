@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 
+ * 전자계약 리스트를 확인하는 서블릿
+ * @author 박지현
+ *
+ */
 @WebServlet("/contractor/mypage-contract.do")
 public class MypageContract extends HttpServlet{
 
@@ -26,7 +32,7 @@ public class MypageContract extends HttpServlet{
 		HttpSession session = req.getSession();
 		int seqContractor = Integer.parseInt(session.getAttribute("seqAllUser").toString());
 
-				
+		
 		HashMap<String,String> map = new HashMap<String, String>();
 		
 		String search = req.getParameter("search");

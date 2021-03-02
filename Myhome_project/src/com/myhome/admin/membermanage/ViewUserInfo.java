@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/***
+ * 일반회원 상세정보 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/membermanage/viewuserinfo.do")
 public class ViewUserInfo extends HttpServlet{
 

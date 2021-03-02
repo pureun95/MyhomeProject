@@ -10,6 +10,12 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/**
+ * 
+ * @author 박지현
+ * 임대인의 매물을 중개인과 매칭하는 DAO
+ *
+ */
 public class MatchingDAO {
 
 	private Connection conn;

@@ -29,8 +29,10 @@
 	    letter-spacing: -.2px;
 	    min-height: 100%;
 	    padding-bottom: 100px;
-	    border: 1px solid green;
+	    /* border: 1px solid green; */
 	    margin-top: 100px;
+	    border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	    
 
 		}
@@ -404,9 +406,6 @@
          <div class="property-box">		 	
 		 
 		
-			<!-- 중개인 올린매물관리 -->
-			<c:if test="${empty nickname }">
-			
 			<c:forEach items="${list }" var="dto">
 			
            	<div class="property-list">
@@ -645,7 +644,7 @@
                     <div style="clear:both;"></div>
                     
                     </c:forEach>
-                   </c:if>
+                   
                    
                    
                    

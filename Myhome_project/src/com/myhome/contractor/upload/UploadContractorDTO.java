@@ -1,56 +1,57 @@
 package com.myhome.contractor.upload;
 
-/*
+/**
+ * @ author 박지현
  * 중개인 본인 매물 올리기 DTO
- * 
  * */
 public class UploadContractorDTO {
 	
 	//1. 방옵션
-	private int roomType; //1. 원룸 2. 투룸 3. 오피스텔
-	private int spacing;
+	private String roomType; //1. 원룸 2. 투룸 3. 오피스텔
+	private String spacing;
 	
 	//2. 계약형태
-	private int contractTypeDetail; //1. 월세 2. 전세 3. 매매
-	private int deposit;
-	private int monthlyRent;
-	private int dealing;
-	private int contractPeriod;
+	private String contractTypeDetail; //1. 월세 2. 전세 3. 매매
+	private String deposit;
+	private String monthlyRent;
+	private String dealing;
+	private String contractPeriod;
 	
 	//3. 관리비
-	private int internet;
-	private int cable; //방옵션 tv와 겹침 
-	private int cleaning;
-	private int water;
-	private int gas;
-	private int electric;
-	private int serviceCharge;
+	private String internet;
+	private String cable; //방옵션 tv와 겹침 
+	private String cleaning;
+	private String water;
+	private String gas;
+	private String electric;
+	private String serviceCharge;
 	
 	//4. 건물옵션
-	private int parking;
-	private int elevator;
-	private int pet;
-	private int window;
+	private String parking;
+	private String elevator;
+	private String pet;
+	private String window;
 	
 	//5. 방옵션 12개
-	private int airconditional;
-	private int washer;
-	private int bed;
-	private int desk;
-	private int closet;
-	private int tv;
-	private int shoebox;
-	private int refrigerator;
-	private int stove;
-	private int induction;
-	private int microwave;
-	private int bidet;
+	private String airconditional;
+	private String washer;
+	private String bed;
+	private String desk;
+	private String closet;
+	private String tv;
+	private String shoebox;
+	private String refrigerator;
+	private String stove;
+	private String induction;
+	private String microwave;
+	private String bidet;
 	
 	//6. 지역 
 	private String location;
 	
 	//7. 이미지
 	private String path;
+	
 	
 	//8. 최종넣기
 	private int seqContractor;
@@ -61,213 +62,198 @@ public class UploadContractorDTO {
 	
 	//getter & setter
 	
-	//1. 방옵션
-	public int getRoomType() {
+	public String getRoomType() {
 		return roomType;
 	}
-	public void setRoomType(int roomType) {
+	public void setRoomType(String roomType) {
 		this.roomType = roomType;
 	}
-	public int getSpacing() {
+	public String getSpacing() {
 		return spacing;
 	}
-	public void setSpacing(int spacing) {
+	public void setSpacing(String spacing) {
 		this.spacing = spacing;
 	}
-	
-	//2. 계약형태
-	public int getContractTypeDetail() {
+	public String getContractTypeDetail() {
 		return contractTypeDetail;
 	}
-	public void setContractTypeDetail(int contractTypeDetail) {
+	public void setContractTypeDetail(String contractTypeDetail) {
 		this.contractTypeDetail = contractTypeDetail;
 	}
-	public int getDeposit() {
+	public String getDeposit() {
 		return deposit;
 	}
-	public void setDeposit(int deposit) {
+	public void setDeposit(String deposit) {
 		this.deposit = deposit;
 	}
-	public int getMonthlyRent() {
+	public String getMonthlyRent() {
 		return monthlyRent;
 	}
-	public void setMonthlyRent(int monthlyRent) {
+	public void setMonthlyRent(String monthlyRent) {
 		this.monthlyRent = monthlyRent;
 	}
-	public int getDealing() {
+	public String getDealing() {
 		return dealing;
 	}
-	public void setDealing(int dealing) {
+	public void setDealing(String dealing) {
 		this.dealing = dealing;
 	}
-	public int getContractPeriod() {
+	public String getContractPeriod() {
 		return contractPeriod;
 	}
-	public void setContractPeriod(int contractPeriod) {
+	public void setContractPeriod(String contractPeriod) {
 		this.contractPeriod = contractPeriod;
 	}
-	
-	//3. 관리비
-	public int getInternet() {
+	public String getInternet() {
 		return internet;
 	}
-	public void setInternet(int internet) {
+	public void setInternet(String internet) {
 		this.internet = internet;
 	}
-	public int getCable() {
+	public String getCable() {
 		return cable;
 	}
-	public void setCable(int cable) {
+	public void setCable(String cable) {
 		this.cable = cable;
 	}
-	public int getCleaning() {
+	public String getCleaning() {
 		return cleaning;
 	}
-	public void setCleaning(int cleaning) {
+	public void setCleaning(String cleaning) {
 		this.cleaning = cleaning;
 	}
-	public int getWater() {
+	public String getWater() {
 		return water;
 	}
-	public void setWater(int water) {
+	public void setWater(String water) {
 		this.water = water;
 	}
-	public int getGas() {
+	public String getGas() {
 		return gas;
 	}
-	public void setGas(int gas) {
+	public void setGas(String gas) {
 		this.gas = gas;
 	}
-	public int getElectric() {
+	public String getElectric() {
 		return electric;
 	}
-	public void setElectric(int electric) {
+	public void setElectric(String electric) {
 		this.electric = electric;
 	}
-	public int getServiceCharge() {
+	public String getServiceCharge() {
 		return serviceCharge;
 	}
-	public void setServiceCharge(int serviceCharge) {
+	public void setServiceCharge(String serviceCharge) {
 		this.serviceCharge = serviceCharge;
 	}
-	
-	//4. 건물옵션
-	public int getParking() {
+	public String getParking() {
 		return parking;
 	}
-	public void setParking(int parking) {
+	public void setParking(String parking) {
 		this.parking = parking;
 	}
-	public int getElevator() {
+	public String getElevator() {
 		return elevator;
 	}
-	public void setElevator(int elevator) {
+	public void setElevator(String elevator) {
 		this.elevator = elevator;
 	}
-	public int getPet() {
+	public String getPet() {
 		return pet;
 	}
-	public void setPet(int pet) {
+	public void setPet(String pet) {
 		this.pet = pet;
 	}
-	public int getWindow() {
+	public String getWindow() {
 		return window;
 	}
-	public void setWindow(int window) {
+	public void setWindow(String window) {
 		this.window = window;
 	}
-	
-	//5. 방옵션
-	public int getAirconditional() {
+	public String getAirconditional() {
 		return airconditional;
 	}
-	public void setAirconditional(int airconditional) {
+	public void setAirconditional(String airconditional) {
 		this.airconditional = airconditional;
 	}
-	public int getWasher() {
+	public String getWasher() {
 		return washer;
 	}
-	public void setWasher(int washer) {
+	public void setWasher(String washer) {
 		this.washer = washer;
 	}
-	public int getBed() {
+	public String getBed() {
 		return bed;
 	}
-	public void setBed(int bed) {
+	public void setBed(String bed) {
 		this.bed = bed;
 	}
-	public int getDesk() {
+	public String getDesk() {
 		return desk;
 	}
-	public void setDesk(int desk) {
+	public void setDesk(String desk) {
 		this.desk = desk;
 	}
-	public int getCloset() {
+	public String getCloset() {
 		return closet;
 	}
-	public void setCloset(int closet) {
+	public void setCloset(String closet) {
 		this.closet = closet;
 	}
-	public int getTv() {
+	public String getTv() {
 		return tv;
 	}
-	public void setTv(int tv) {
+	public void setTv(String tv) {
 		this.tv = tv;
 	}
-	public int getShoebox() {
+	public String getShoebox() {
 		return shoebox;
 	}
-	public void setShoebox(int shoebox) {
+	public void setShoebox(String shoebox) {
 		this.shoebox = shoebox;
 	}
-	public int getRefrigerator() {
+	public String getRefrigerator() {
 		return refrigerator;
 	}
-	public void setRefrigerator(int refrigerator) {
+	public void setRefrigerator(String refrigerator) {
 		this.refrigerator = refrigerator;
 	}
-	public int getStove() {
+	public String getStove() {
 		return stove;
 	}
-	public void setStove(int stove) {
+	public void setStove(String stove) {
 		this.stove = stove;
 	}
-	public int getInduction() {
+	public String getInduction() {
 		return induction;
 	}
-	public void setInduction(int induction) {
+	public void setInduction(String induction) {
 		this.induction = induction;
 	}
-	public int getMicrowave() {
+	public String getMicrowave() {
 		return microwave;
 	}
-	public void setMicrowave(int microwave) {
+	public void setMicrowave(String microwave) {
 		this.microwave = microwave;
 	}
-	public int getBidet() {
+	public String getBidet() {
 		return bidet;
 	}
-	public void setBidet(int bidet) {
+	public void setBidet(String bidet) {
 		this.bidet = bidet;
 	}
-	
-	//6. 지역
 	public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
-	//7. 이미지
 	public String getPath() {
 		return path;
 	}
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	//8. 최종넣기
 	public int getSeqContractor() {
 		return seqContractor;
 	}
@@ -292,7 +278,6 @@ public class UploadContractorDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
 	
 	
 	

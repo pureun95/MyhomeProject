@@ -1,5 +1,10 @@
 package com.myhome.admin.chart;
 
+/***
+ * 가격변화차트 원룸 매매 DTO입니다. 
+ * @author 윤지현
+ *
+ */
 public class Chart3DTO {
 	
 	private String contractdate;

@@ -32,9 +32,6 @@ public class MypageInfo extends HttpServlet{
 		//내 정보 보내기
 		req.setAttribute("list", list);
 		
-		ContractorDTO dto = new ContractorDTO();
-		
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/mypage-info.jsp");
 		dispatcher.forward(req, resp);
 		

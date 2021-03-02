@@ -1,6 +1,7 @@
 package com.myhome.admin.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,7 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+/***
+ * 부동산정책 게시판 수정 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/editpolicy.do")
 public class EditPolicy extends HttpServlet {
 
@@ -27,6 +34,25 @@ public class EditPolicy extends HttpServlet {
 		PolicyDAO dao = new PolicyDAO();
 		PolicyDTO dto = dao.getpolicy(seq);
 		
+/*		HttpSession session = req.getSession();
+		
+		if(!dto.getId().equals((String)session.getAttribute("id"))) {
+			
+			//권한 없음 -> 쫒아내기
+			PrintWriter writer = resp.getWriter();
+			
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('filed');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+			
+			return;//**********
+		}
+*/		
 		//3.
 		req.setAttribute("dto", dto);
 		

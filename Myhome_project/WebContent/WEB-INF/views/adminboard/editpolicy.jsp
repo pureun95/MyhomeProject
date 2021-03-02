@@ -27,12 +27,14 @@
 	}
 	
 	.container {
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		width: 1190px;
 		margin: 0px auto;
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	/* ------------------------------------------- */
@@ -114,9 +116,9 @@
              
 		<div id="title">부동산 정책 게시판 수정</div>
 		
-		<form method="POST" action="/admin/board/editpolicyok.do">
+		<form method="POST" action="/Myhome_project/admin/board/editpolicyok.do">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" required value="${dto.title}"> 
+	        	<input type="text" class="form-control" name="title" id=" title" required value="${dto.title}"> 
 	            <textarea class="form-control" name="content" id="content" required>${dto.content}</textarea>
 				<input type="file"  id="file">
 			</div>
@@ -132,7 +134,7 @@
               <!-- 어떤 글인지 알아야하니까 form 끝나기 전에 seq를 넘겨준다 -->
               <input type="hidden" name="seq" value="${dto.seq}">
               </form>
-            
+              <div style="clear:both;"></div>
 			
 
 	</div>

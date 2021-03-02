@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import com.myhome.company.CompanyDAO;
 
+/**
+ * 이사/청소 업체를 예약하는 클래스입니다.
+ * @author 장진영
+ *
+ */
 @WebServlet("/user/cleanmovedetailok.do")
 public class CleanMoveDetailOk extends HttpServlet {
 	
@@ -49,10 +54,10 @@ public class CleanMoveDetailOk extends HttpServlet {
 //
 //		결과 : JSP 작업 X -> Servlet 작업 O
 		if (result == 1) {
-			//회원 가입 성공
+			// 성공
 			resp.sendRedirect("/Myhome_project/Myhome/main.do");
 		} else {
-			//회원 가입 실패
+			// 실패
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");

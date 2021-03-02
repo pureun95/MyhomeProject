@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 이사업체 목록 페이지 서블릿입니다. 
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/moveclean/listmove.do")
 public class ListMove extends HttpServlet {
 

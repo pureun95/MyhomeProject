@@ -322,15 +322,15 @@
 		 <!-- 중개인 메뉴 -->
 		 <c:if test="${empty nickname }">
 		 	
-		 	<c:if test="${not empty seqAlluser }">
+		 	
 		 	<a href="search-lessor.do">임대인이 올린 방</a>
 		 	<a href="search-contractor.do">중개인이 올린 방</a>
-		 	</c:if>
+		 	
 		 	
 		 </c:if>	
 		 
 		 <!-- 일반회원 메뉴 -->
-		  <c:if test="${not empty nickname }">
+		  <c:if test="${not empty nickname and empty seqContractor }">
 		 	<a href="search-contractor.do">중개인이 올린 방 리스트 입니다.</a>
 		 </c:if>		 		 			
 		 </div>
@@ -378,7 +378,7 @@
 		 		<c:forEach items="${list }" var="dto">
                 <div class="property-list">
                 
-                    <div class="img-property">           
+                    <div class="img-property" style="background-image: url('../image/${dto.path }')">           
                   		          
 	                   <c:if test="${dto.available == 0 }">	           
 	                    <div class="state">입주가능</div>             

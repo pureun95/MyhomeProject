@@ -48,7 +48,7 @@
 		margin-left: 20px; 
 	}
 	
-	#title {
+	#boardtitle {
 		font-size: 24px;
 		font-family: 'MaplestoryOTFLight';
 		border-left: 5px solid #F1AEAE;
@@ -118,14 +118,14 @@
      <%@include file="/WEB-INF/views/admin/nav.jsp" %>
         <div class="boardcover">
              
-		<div id="title">체크리스트 게시판 관리</div>
+		<div id="boardtitle">체크리스트 게시판 관리</div>
 			
 			<div id ="subtitle">체크리스트 등록</div>
 		
 			<form method="POST" action="addchecklistok.do" enctype="multipart/form-data">
 			<div class="txt">
-	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="체크리스트 제목입니다."> 
-	            <textarea class="form-control" name="content" id="content" placeholder="체크리스트 내용입니다."></textarea>
+	        	<input type="text" class="form-control" name="subject" id=" subject" placeholder="체크리스트 제목입니다." required> 
+	            <textarea class="form-control" name="content" id="content" placeholder="체크리스트 내용입니다." required></textarea>
 				<input type="file"  id="file">
 			</div>
 			

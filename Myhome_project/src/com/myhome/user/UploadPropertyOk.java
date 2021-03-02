@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+/**
+ * 방올리기페이지에서 전송한 정보를 토대로 DB작업을 요청하는 클래스
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/uploadpropertyok.do")
 public class UploadPropertyOk extends HttpServlet{
 

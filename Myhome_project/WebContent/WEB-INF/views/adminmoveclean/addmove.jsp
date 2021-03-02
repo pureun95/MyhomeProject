@@ -32,7 +32,9 @@
 		margin-top: 100px;
 		position: relative;
 		height: 1200px;
-		border: 1px solid tomato;
+		/* border: 1px solid tomato; */
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 	}
 	
 	.boardcover{

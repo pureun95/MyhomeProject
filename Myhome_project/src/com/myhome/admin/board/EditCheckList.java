@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/***
+ * 체크리스트 페이지 수정 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/editchecklist.do")
 public class EditCheckList extends HttpServlet {
 
@@ -25,6 +30,27 @@ public class EditCheckList extends HttpServlet {
 		//2.
 		ChecklistDAO dao = new ChecklistDAO();
 		ChecklistDTO dto = dao.getchecklist(seq);
+		
+/*		HttpSession session = req.getSession();
+		
+		if(!dto.getId().equals((String)session.getAttribute("id"))) {
+			
+			//권한 없음 -> 쫒아내기
+			PrintWriter writer = resp.getWriter();
+			
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('filed');");
+			writer.print("history.back();");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
+			writer.close();
+			
+			return;//**********
+		}
+*/		
+		
 		
 		//3.
 		req.setAttribute("dto", dto);

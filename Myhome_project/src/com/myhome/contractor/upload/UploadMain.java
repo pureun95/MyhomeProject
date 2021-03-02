@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author 박지현
+ * 임대인 매물 올리기 & 중개인 매물 올리기 선택
+ */
 @WebServlet("/contractor/upload-main.do")
 public class UploadMain extends HttpServlet {
 

@@ -65,12 +65,11 @@
     	width: 280px;
         height: 180px;
     	float: left;
-    	/* position: relative; */
-    	background-image: url('../image/move_clean/1. 쌍용청소.jpg');
-    	/* background-position: center center;  */
-        /* background-size: contain; */
-        /* background-repeat: no-repeat; */
-        background-position: 0% 0px; 
+    	position: relative;
+    	/* background-image: url('../image/move_clean/1. 쌍용청소.jpg'); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 0% -20px; 
         background-size: cover;
         margin: 0px 20px;
     }
@@ -202,7 +201,7 @@
 			<c:forEach items="${list}" var="dto">
 			<div class="list">
 				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
+				<div class="imagelogo" style="background-image : url('${dto.image}');"> 
 					<span class="glyphicon glyphicon-star"></span>
 					<span class="rating">${dto.rating} / 5.0</span>
 				</div>
@@ -234,10 +233,10 @@
             </nav>
             
             <!-- 검색 -->
-            <form id="searchForm" method="GET" action="/admin/moveclean/listclean.do">
+            <form id="searchForm" method="GET" action="/Myhome_project/admin/moveclean/listclean.do">
 	           	<div class="search">
 	            	<input type="text" class="form-control" placeholder="청소업체명" id="search" name="search" required value="${search}">
-	            	<input type="button" class="btn" value="검색" id="search" onclick="$('#searchForm').submit();">
+	            	<input type="button" class="btn" value="검색"  onclick="$('#searchForm').submit();">
 	           	</div>
 	           	</form>
                 <div style="clear:both;"></div>

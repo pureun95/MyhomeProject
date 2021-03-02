@@ -10,7 +10,12 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
-public class PropertyDAO {
+/***
+ * 매물관리 DAO입니다. 
+ * @author 윤지현
+ *
+ */
+public class AdminPropertyDAO {
 
 	private Connection conn;
 	private Statement stat;
@@ -18,7 +23,7 @@ public class PropertyDAO {
 	private CallableStatement cstat;
 	private ResultSet rs;
 	
-	public PropertyDAO() {
+	public AdminPropertyDAO() {
 		
 		//DB 연결
 		conn = DBUtil.open();
@@ -32,7 +37,7 @@ public class PropertyDAO {
 		}
 	}
 
-	public ArrayList<PropertyDTO> list(HashMap<String, String> map) {
+	public ArrayList<AdminPropertyDTO> list(HashMap<String, String> map) {
 
 		try {
 			
@@ -44,7 +49,7 @@ public class PropertyDAO {
 			}
 			
 			//String sql = "select * from vwMove order by seq asc";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwProperty %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwProperty %s order by seq asc) a) where rnum between %s and %s"
 					, where
 					, map.get("begin")
 					, map.get("end"));
@@ -52,12 +57,12 @@ public class PropertyDAO {
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
 			
-			ArrayList<PropertyDTO> list = new ArrayList<PropertyDTO>();
+			ArrayList<AdminPropertyDTO> list = new ArrayList<AdminPropertyDTO>();
 			
 			while(rs.next()) {
 				//레코드 1줄 -> DTO 1개
 				
-				PropertyDTO dto = new PropertyDTO();
+				AdminPropertyDTO dto = new AdminPropertyDTO();
 				
 				dto.setSeq(rs.getString("seq"));
 				dto.setImage(rs.getString("image"));
@@ -112,7 +117,7 @@ public class PropertyDAO {
 	}
 
 	//ViewProperty 서블릿 -> 글 1개 반환 요청
-	public PropertyDTO get(String seq) {
+	public AdminPropertyDTO get(String seq) {
 		
 		try {
 			
@@ -125,7 +130,7 @@ public class PropertyDAO {
 			
 			if(rs.next()) {
 				
-				PropertyDTO dto = new PropertyDTO();
+				AdminPropertyDTO dto = new AdminPropertyDTO();
 				
 				dto.setSeq(rs.getString("seq"));
 				dto.setImage(rs.getString("image"));

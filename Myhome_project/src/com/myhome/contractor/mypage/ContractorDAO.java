@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import com.myhome.DBUtil;
 
 /**
- * 중개인 회원정보 목록, 수정, 탈퇴 DAO
  * @author 박지현
+ * 중개인 회원정보 목록, 수정, 탈퇴 DAO
  */
 public class ContractorDAO {
 

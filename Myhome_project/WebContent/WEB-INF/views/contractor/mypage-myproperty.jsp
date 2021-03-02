@@ -167,8 +167,8 @@
    		position: fixed;
    		border-radius: 30px;
    		padding: 50px 40px;
-   		left: 600px;
-   		top: 400px;
+   		left: 700px;
+   		top: 300px;
    		background-color: white;
    		font-family: 'NanumBarunGothic';
    		visibility: hidden;
@@ -183,7 +183,7 @@
    }
    
    .t2 {
-   		border: 1px solid black;
+   		/* border: 1px solid black; */
    		margin-top: 30px;
    		padding: 0px 10px;
    		margin-bottom: 20px;
@@ -198,7 +198,7 @@
    }
    
    .btns {
-   		border: 1px solid black;
+   		/* border: 1px solid black; */
    		text-align: center;
    		margin-top: 20px;
    		
@@ -230,13 +230,14 @@
 		 <div class="property-box">
 		 	<div class="board-name">올린매물관리</div>
 		 		
-		 		
-		 		<c:forEach items="${list }" var="dto">
-		 		<form method="GET" action="/Myhome_project/contractor/mypage-contract-write.do">      		
+		 		<form method="GET" action="/Myhome_project/contractor/mypage-contract-write.do">  
+		 		<c:forEach items="${list }" var="dto">    		
                 <div class="property-list">
                 
                 	<!-- 전자계약 체크박스 중개인 매물번호 seq를 들고간다. -->       
-                	<div class="checkbox"><input type="checkbox" id="ck" value="${dto.seqContractorProperty}"></div>    		     
+                	<div class="checkbox">
+                		<input type="checkbox" name="lestcontract" id="ck" value="${dto.seqContractorProperty}" onclick='checkOnlyOne(this)'>
+                	</div>                		    		    
                      
                     <div class="img-property">           
                   	
@@ -309,7 +310,7 @@
                     
                    
                 </div>
-              
+               </c:forEach> 
                 
                                           
                 <input type="button" id="btn1" class="btn btn-outline-secondary btn-contract" value="전자계약하기">
@@ -318,23 +319,18 @@
                 <div class="tenantid">              
                 	<span>임차인 아이디를 입력해주세요.</span>
                 	<div class="t2">
-                		<input type="text" id="seqProperty" class="form-control seqProperty" value="매물번호 ${dto.seqContractorProperty }" readonly>
-                		
-                		
+                		<input type="text" id="seqProperty" class="form-control seqProperty" value="매물번호 ${dto.seqContractorProperty }" readonly>                		     
                 		<input type="text" class="form-control" id="idT" name="idT" value="임차인 아이디 입력" onfocus="this.value=''">
                 		
                 		<div class="btns">
                 			<input type="submit" class="btn btn-outline-secondary btn2" id="check"  value="확인">
                 			<input type="button" class="btn btn-outline-secondary btn2"  id="close" value="닫기">
-                		</div>
-                		
-                		
-                		
+                		</div>                		                		            
                 	</div>
                 </div>
+               </form> 
                 
-                </form>
-                </c:forEach> 
+               
                  
         <!-- 검색, 페이지바 -->
    		<div class="search-paging">
@@ -382,7 +378,16 @@
 	 });
 	 
 	 
-	 
+	 //버튼은 하나만 선택
+	 function checkOnlyOne(element) {
+			const checkbox = document.getElementsByName("lestcontract");
+			
+			checkbox.forEach((cb) => {
+				  cb.checked = false;
+			})
+			
+			 element.checked = true;
+		}
  
  
  

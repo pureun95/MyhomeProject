@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/*
- * 중개인 본인 매물 올리기 DAO
- * 
- * */
+import com.myhome.DBUtil;
+
+/**
+ * @author 박지현
+ * 중개인 본인 매물 올리기
+ */
 public class UploadContractorDAO {
 	
 	private Connection conn;
@@ -18,18 +20,45 @@ public class UploadContractorDAO {
 	private CallableStatement cstat;
 	private ResultSet rs;
 
-	//1. 방형태 넣기
-	public int insertRoom(UploadContractorDTO dto) {
+	
+	/**
+	 * @author 박지현
+	 * 생성자
+	 */
+	public UploadContractorDAO() {
+
+		try {
+
+			this.conn = DBUtil.open();
+			this.stat = conn.createStatement();
+
+		} catch (Exception e) {
+			System.out.println("UploadConractorDAO()");
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
+	/**
+	 * 방 형태 넣기
+	 * @param roomType
+	 * @param spacing
+	 * @return 결과값
+	 */
+	public int insertRoom(String roomType, String spacing) {
 		
 		try {
 			
-			String sql = "insert into tblPropertyRoomType(seqPropertyRoomType, seqPropertyRoomTypeDetail, spacing)\r\n"
+			String sql = "insert into tblPropertyRoomType(seqPropertyRoomType, seqPropertyRoomTypeDetail, spacing)"
 					+ " values(seqPropertyRoomType.nextVal, ?, ?)";
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setInt(1, dto.getRoomType());
-			pstat.setInt(2, dto.getSpacing());
+			pstat.setString(1, roomType);
+			pstat.setString(2, spacing);
 			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
@@ -39,9 +68,18 @@ public class UploadContractorDAO {
 	
 		
 	}
-	
-	//2. 계약형태 넣기
-	public int insertContractType(UploadContractorDTO dto) {
+
+	/**
+	 * 계약 형태 넣기
+	 * @param contractType
+	 * @param deposit
+	 * @param monthlyRent
+	 * @param dealing
+	 * @param contractPeriod
+	 * @return 결과값
+	 *
+	 */
+	public int insertContractType(String contractType, String deposit, String monthlyRent, String dealing, String contractPeriod) {
 		
 		try {
 			
@@ -51,14 +89,17 @@ public class UploadContractorDAO {
 					+ "        contractPeriod) values (seqPropertyContractType.nextVal, ?, ?, ?, ?, ?)";
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setInt(1, dto.getContractTypeDetail());
-			pstat.setInt(2, dto.getDeposit());
-			pstat.setInt(3, dto.getMonthlyRent());
-			pstat.setInt(4, dto.getDealing());
-			pstat.setInt(5, dto.getContractPeriod());
+			pstat.setString(1, contractType);
+			pstat.setString(2, deposit);
+			pstat.setString(3, monthlyRent);
+			pstat.setString(4, dealing);
+			pstat.setString(5, contractPeriod);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
@@ -66,77 +107,98 @@ public class UploadContractorDAO {
 	}
 	
 	
-	//3. 관리비
-	public int insertServiceCharge(UploadContractorDTO dto) {
+	/**
+	 * 관리비 배열 넣기
+	 * @param 관리비 옵션 배열
+	 * @return 결과값
+	 */
+	public int insertServiceCharge(String[] op) {
 		
 		try {
 			
 			String sql = "insert into tblMaintenanceOption values (seqMaintenanceOption.nextVal, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setInt(1, dto.getInternet());
-			pstat.setInt(2, dto.getCable());
-			pstat.setInt(3, dto.getCleaning());
-			pstat.setInt(4, dto.getWater());
-			pstat.setInt(5, dto.getGas());
-			pstat.setInt(6, dto.getElectric());
-			pstat.setInt(7, dto.getServiceCharge());
+			pstat.setString(1, op[0]);
+			pstat.setString(2, op[1]);
+			pstat.setString(3, op[2]);
+			pstat.setString(4, op[3]);
+			pstat.setString(5, op[4]);
+			pstat.setString(6, op[5]);
+			pstat.setString(7, op[6]);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
 		
 	}
 	
-	//4. 건물옵션 넣기
-	public int buildingOption(UploadContractorDTO dto) {
+	
+	/**
+	 * 건물옵션 넣기
+	 * @param 건물옵션 배열
+	 * @return 결과값
+	 */
+	
+	public int buildingOption(String[] op) {
 		
 		try {
 			
-			String sql = "insert into tblPropertyBuildingOption values (seqPropertyBuildingOption.nextVal, 1, 1, 1, 1)";					
+			String sql = "insert into tblPropertyBuildingOption values (seqPropertyBuildingOption.nextVal, ?, ?, ?, ?)";					
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setInt(1, dto.getParking());
-			pstat.setInt(2, dto.getElevator());
-			pstat.setInt(3, dto.getPet());
-			pstat.setInt(4, dto.getWindow());
-			pstat.setInt(5, dto.getGas());
-			pstat.setInt(6, dto.getElectric());
-			pstat.setInt(7, dto.getServiceCharge());
+			pstat.setString(1, op[0]);
+			pstat.setString(2, op[1]);
+			pstat.setString(3, op[2]);
+			pstat.setString(4, op[3]);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
 		
 	}
 	
-	//5. 방옵션 12개
-	public int roomOption(UploadContractorDTO dto) {
+	/**
+	 * 방 옵션 넣기
+	 * @param 방옵션 배열
+	 * @return 결과값
+	 */
+	
+	public int roomOption(String[] op) {
 		
 		try {
 			
-			String sql = "insert into tblPropertyRoomOption values (seqPropertyRoomOption.nextVal, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)";				
+			String sql = "insert into tblPropertyRoomOption values (seqPropertyRoomOption.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";				
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setInt(1, dto.getAirconditional());
-			pstat.setInt(2, dto.getWasher());
-			pstat.setInt(3, dto.getBed());
-			pstat.setInt(4, dto.getDesk());
-			pstat.setInt(5, dto.getCloset());
-			pstat.setInt(6, dto.getTv());
-			pstat.setInt(7, dto.getShoebox());
-			pstat.setInt(8, dto.getRefrigerator());
-			pstat.setInt(9, dto.getStove());
-			pstat.setInt(10, dto.getInduction());
-			pstat.setInt(11, dto.getMicrowave());
-			pstat.setInt(11, dto.getBidet());
+			pstat.setString(1, op[0]);
+			pstat.setString(2, op[1]);
+			pstat.setString(3, op[2]);
+			pstat.setString(4, op[3]);
+			pstat.setString(5, op[4]);
+			pstat.setString(6, op[5]);
+			pstat.setString(7, op[6]);
+			pstat.setString(8, op[7]);
+			pstat.setString(9, op[8]);
+			pstat.setString(10, op[9]);
+			pstat.setString(11, op[10]);
+			pstat.setString(11, op[11]);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
@@ -144,36 +206,51 @@ public class UploadContractorDAO {
 	}
 	
 	
-	//6. 지역
-	public int location(UploadContractorDTO dto) {
+	/**
+	 * 
+	 * @param 기본주소 + 상세주소
+	 * @return 결과값
+	 */
+	public int location(String[] location) {
 		
 		try {
 			
-			String sql = "insert into tblLocation values(seqLocation.nextVal, '서울시 어쩌구 저쩌동')";			
+			String sql = "insert into tblLocation values(seqLocation.nextVal, '?')";			
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, dto.getLocation());
+			pstat.setString(1, location[0] + " " + location[1]);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
 		
 	}
 	
-	//7. 이미지
-	public int image(UploadContractorDTO dto) {
+
+/**
+ * 
+ * @param img
+ * @return 결과값
+ */
+	public int image(String img) {
 		
 		try {
 			
 			String sql = "insert into tblImage values(seqImage.nextVal, 'path')";	
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, dto.getPath());
+			pstat.setString(1, img);
+			
+			return pstat.executeUpdate(); //1 or 0
 			
 		} catch (Exception e) {
 			
+			System.out.println(e);
 		}
 		
 		return 0;
@@ -181,21 +258,30 @@ public class UploadContractorDAO {
 	}
 	
 	
-	//8. 최종 방 올리기
-	public int write(UploadContractorDTO dto) {
+	/**
+	 * 
+	 * @param seq 중개인 seq
+	 * @param occupancyDate 입주가능일
+	 * @param floor 층
+	 * @param title 제목
+	 * @param content 내용
+	 * @return 결과값
+	 */
+	public int write(int seq, String occupancyDate, String[] floor, String title, String content) {
 		
 		try {
 			
 			//최종 넣기 프로시저
-			String sql = "{ call procUploadProperty(?, ?, ?, ?)";
+			String sql = "{ call procUploadProperty(?, ?, ?, ?, ?)";
 			
 			cstat = conn.prepareCall(sql);
 
-			//중개인번호, 입주가능일, 제목, 상세내용
-			cstat.setInt(1, dto.getSeqContractor());
-			cstat.setString(2, dto.getOccupancyDate());
-			cstat.setString(3, dto.getTitle());
-			cstat.setString(4, dto.getContent());
+			//중개인번호, 입주가능일, 층, 제목, 상세내용
+			cstat.setInt(1, seq);
+			cstat.setString(2, occupancyDate);
+			cstat.setString(3, floor[0] + "/" + floor[1] + "층");
+			cstat.setString(4, title);
+			cstat.setString(5, content);
 			
 			cstat.executeUpdate();
 			

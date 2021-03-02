@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 부동산 정책 등록 페이지 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/addpolicy.do")
 public class AddPolicy extends HttpServlet {
 

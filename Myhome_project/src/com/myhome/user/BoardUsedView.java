@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 중고장터 게시글 세부정보를 요청/출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boardusedview.do")
 public class BoardUsedView extends HttpServlet {
 

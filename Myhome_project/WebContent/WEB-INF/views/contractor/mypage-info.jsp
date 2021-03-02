@@ -196,7 +196,7 @@
 	/* info css */
 	
 	.start {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		height: auto;
 		margin-top: 40px;
 		padding: 0px 240px;

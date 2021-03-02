@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 import com.myhome.DBUtil;
 
+/***
+ * 일반회원 관리 DAO입니다.
+ * @author 윤지현
+ * 목록(list), 상세페이지(view), 삭제(delete)
+ */
 public class ManageUserDAO {
 	
 	private Connection conn;
@@ -32,6 +37,7 @@ public class ManageUserDAO {
 		}
 	}
 
+	//List
 	public ArrayList<ManageUserDTO> list(HashMap<String, String> map) {
 		
 		try {
@@ -44,7 +50,7 @@ public class ManageUserDAO {
 			}
 			
 			//String sql  = "select seq, id, name, jumin1, jumin2, tel1, tel2, tel3, address, reportcount from vwUser";
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUser %s order by seq desc) a) where rnum between %s and %s"
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwUser %s order by seq asc) a) where rnum between %s and %s"
 									, where
 									, map.get("begin")
 									, map.get("end"));
@@ -84,11 +90,14 @@ public class ManageUserDAO {
 		return null;
 	}
 
+	
+
 	public ManageUserDTO get(String seq) {
 	
 		try {
 			
 			String sql ="select * from vwUser where seq=?";
+			
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, seq);
@@ -96,7 +105,7 @@ public class ManageUserDAO {
 			rs = pstat.executeQuery();
 			
 			if(rs.next()) {
-
+				
 				ManageUserDTO dto = new ManageUserDTO();
 				
 				dto.setSeq(rs.getString("seq"));
@@ -124,10 +133,9 @@ public class ManageUserDAO {
 				return dto;
 				
 			}
-		
-			
+				
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -157,6 +165,32 @@ public class ManageUserDAO {
 			System.out.println(e);
 		}
 		
+		return 0;
+	}
+
+	//delete
+	//회원삭제시 상태를 2(회원삭제)로 만들어준다.
+	public int del(ManageUserDTO dto) {
+		try {
+			/*
+			 * String sql = "update tblAllUser set state = 2 where seq = ?";
+			 * 
+			 * pstat = conn.prepareStatement(sql); pstat.setString(1, dto.getSeq());
+			 * 
+			 * return pstat.executeUpdate();
+			 */	
+			
+			String sql = "{ call procDelUser(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, dto.getSeq());
+			
+			return cstat.executeUpdate();
+			
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 

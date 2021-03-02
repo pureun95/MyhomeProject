@@ -10,11 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/***
+ * 부동산정책 게시판 수정 처리 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/board/editpolicyok.do")
 public class EditPolicyOk extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//1. 데이터 가져오기 (seq, title, content)
 		//2. DB작업 -> update
@@ -44,7 +49,7 @@ public class EditPolicyOk extends HttpServlet {
 	
 			//글수정 성공 -> 글보기로 이동 (view.do)
 			
-			resp.sendRedirect("/admin/board/viewpolicy.do?seq=" + seq);
+			resp.sendRedirect("/Myhome_project/admin/board/viewpolicy.do?seq=" + seq);
 			
 		} else {
 			//글수정 실패 -> 경고 + 뒤로가기

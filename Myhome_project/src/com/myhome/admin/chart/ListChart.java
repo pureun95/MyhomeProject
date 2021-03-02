@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/***
+ * 가격변화 차트 목록 서블릿입니다.
+ * @author 윤지현
+ *
+ */
 @WebServlet("/admin/chart/listchart.do")
 public class ListChart extends HttpServlet {
 

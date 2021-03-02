@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
+/**
+ * 
+ * @author 박지현
+ * 임대인 매물 상세 정보 
+ * 
+ */
 @WebServlet("/contractor/property-lessor-detail.do")
 public class PropertyLessorDetail extends HttpServlet{
 
@@ -32,7 +38,6 @@ public class PropertyLessorDetail extends HttpServlet{
 			
 		//4. 매물상세보기로 보내기
 			req.setAttribute("list", LessorPropertyDetail);
-		
 			
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/property-lessor-detail.jsp");

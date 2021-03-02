@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
+/**
+ * 
+ * @author 박지현
+ * 중개인 매물 상세 정보 
+ * 
+ */
 @WebServlet("/contractor/property-contractor-detail.do")
 public class PropertyContractorDetail extends HttpServlet{
 
@@ -34,7 +40,7 @@ public class PropertyContractorDetail extends HttpServlet{
 			
 		//3. 임대인 매물번호 쿼리에 보내기
 			int seqLessorProperty = Integer.parseInt(req.getParameter("seq").toString());
-			ArrayList<PropertyDTO> LessorPropertyDetail = dao.propertyDetail(seqLessorProperty);
+			ArrayList<PropertyDTO> LessorPropertyDetail = dao.LessorPropertyDetail(seqLessorProperty);
 			
 			
 		//4. 매물상세보기 보내기

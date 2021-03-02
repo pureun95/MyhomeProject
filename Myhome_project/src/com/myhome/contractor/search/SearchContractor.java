@@ -10,10 +10,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.myhome.contractor.mypage.PropertyDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
+/** 
+ * @author 박지현
+ * 중개인 매물 리스트
+ */
 @WebServlet("/contractor/search-contractor.do")
 public class SearchContractor extends HttpServlet{
 
@@ -39,9 +44,9 @@ public class SearchContractor extends HttpServlet{
 		//방찾기 페이지에서 검색
 		String search = req.getParameter("search");
 		
-		System.out.println("list" + room);
-		System.out.println("deal: " + deal);
-		System.out.println("location" + location);
+		//System.out.println("list" + room);
+		//System.out.println("deal: " + deal);
+		//System.out.println("location" + location);
 		
 		//메인에서 검색했을 때
 		if(!(room == null || room.equals(""))) {
@@ -173,7 +178,7 @@ public class SearchContractor extends HttpServlet{
 			req.setAttribute("room", room);
 			req.setAttribute("deal", deal);
 			req.setAttribute("location", location);
-						
+			/* req.setAttribute("seq", seqContractor); */
 			
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/contractor/search-contractor.jsp");
 			dispatcher.forward(req, resp);

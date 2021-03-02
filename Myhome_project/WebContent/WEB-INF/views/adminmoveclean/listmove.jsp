@@ -66,12 +66,11 @@
     	width: 280px;
         height: 180px;
     	float: left;
-    	/* position: relative; */
-    	background-image: url('../image/move_clean/1. 쌍용청소.jpg');
-    	/* background-position: center center;  */
-        /* background-size: contain; */
-        /* background-repeat: no-repeat; */
-        background-position: 0% 0px; 
+    	position: relative;
+    	/* background-image: url('../image/move_clean/1. 쌍용청소.jpg'); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 0% -20px; 
         background-size: cover;
         margin: 0px 20px;
     }
@@ -118,15 +117,21 @@
     
     .glyphicon, .rating {
   
-    	/* float: left; */
+    	float: left;
     	font-size : 16px;
     	padding-left : 10px;
     	padding-top: 10px;
     	margin : 0px;
+    	/* position : absolute; */
+    	top : 10px;
+    	left: 10px;
     }
+    
+
     
     .glyphicon {
     	color : #F1AEAE;
+    	float: left;
     }   
     
   
@@ -201,9 +206,10 @@
 			<c:forEach items="${list}" var="dto">
 			<div class="list">
 				<input type="checkbox" class="check" style="float:left; zoom:1.5;">
-				<div class="imagelogo">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="rating">${dto.rating} / 5.0</span>					
+				<div class="imagelogo" style="background-image : url('${dto.image}')";"> 
+					<%-- <img src="${dto.image}" class="imagelogo"> --%>				
+					<div class="glyphicon glyphicon-star"></div>
+					<div class="rating">${dto.rating} / 5.0</div>					
 				</div>
 				<div class="listbox">
 					<div class="name" style="font-weight:bold">${dto.name}</div>

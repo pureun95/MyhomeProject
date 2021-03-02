@@ -8,6 +8,11 @@ import java.sql.Statement;
 
 import com.myhome.DBUtil;
 
+/**
+ * 방올리기의 DB작업을 담당하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 public class UploadPropertyDAO {
 
 	private Connection conn;
@@ -30,6 +35,11 @@ public class UploadPropertyDAO {
 	}
 
 	//방올리기 -> 주소 등록
+	/**
+	 * 주소를 등록합니다.
+	 * @param address3 매물주소
+	 * @return DB작업결과
+	 */
 	public int insertLocation(String address3) {
 		int result = 0;
 		
@@ -52,6 +62,10 @@ public class UploadPropertyDAO {
 	}
 
 	//지역 seq 받아오기
+	/**
+	 * 회원이 방금 insert한 지역정보의 seq를 가져옵니다.
+	 * @return 지역정보번호
+	 */
 	public int getSeqLocation() {
 		int result = 0;
 		
@@ -74,6 +88,11 @@ public class UploadPropertyDAO {
 	}
 
 	//월세 가격정보 등 등록
+	/**
+	 * 가격정보(월세)를 등록합니다.
+	 * @param dto 가격정보 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertMonthlyRentData(UploadPropertyDTO dto) {
 		int result = 0;
 		
@@ -99,6 +118,11 @@ public class UploadPropertyDAO {
 	}
 	
 	//전세 가격정보 등 등록
+	/**
+	 * 가격정보(전세)를 등록합니다.
+	 * @param dto 가격정보 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertYearlyRentData(UploadPropertyDTO dto) {
 		int result = 0;
 		
@@ -123,6 +147,11 @@ public class UploadPropertyDAO {
 	}
 
 	//매매 관련 정보 등록
+	/**
+	 * 가격정보(매매)를 등록합니다.
+	 * @param dto 가격정보 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertDealingData(UploadPropertyDTO dto) {
 		int result = 0;
 		
@@ -146,6 +175,10 @@ public class UploadPropertyDAO {
 	}
 	
 	//마지막 seq를 받는다. 방금등록한것의 seq!
+	/**
+	 * 회원이 등록한 가격정보의 seq를 가져옵니다.
+	 * @return 가격정보번호
+	 */
 	public int getSeqPropertyContractType() {
 		int result = 0;
 		
@@ -170,6 +203,11 @@ public class UploadPropertyDAO {
 
 	
 	//관리비 항목에따른 추가
+	/**
+	 * 매물의 관리비 정보를 등록합니다. 
+	 * @param dto 관리비정보 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertMaintenance(UploadPropertyDTO dto) {
 		
 		int result = 0;
@@ -197,6 +235,10 @@ public class UploadPropertyDAO {
 	}
 	
 	//관리비옵션 seq 요청
+	/**
+	 * 회원이 등록한 관리비정보의 seq를 가져옵니다.
+	 * @return 관리비정보번호
+	 */
 	public int getSeqMaintenanceOption() {
 		
 		int result = 0;
@@ -221,6 +263,11 @@ public class UploadPropertyDAO {
 	}
 
 	//매물옵션(건물)에 따른 row 추가하기
+	/**
+	 * 회원이 선택한 건물옵션의 정보를 등록합니다.
+	 * @param dto2 건물옵션 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertBuildingOption(UploadPropertyDTO dto2) {
 		
 		int result = 0;
@@ -245,6 +292,10 @@ public class UploadPropertyDAO {
 	}
 
 	//마지막에 추가된 매물옵션 row의 seqPropertyBuildingOption 가져오기
+	/**
+	 * 회원이 등록한 건물옵션의 번호를 가져옵니다.
+	 * @return 건물옵션 번호
+	 */
 	public int getSeqPropertyBuildingOption() {
 		
 		int result = 0;
@@ -270,6 +321,11 @@ public class UploadPropertyDAO {
 	}
 
 	//방의형태 tblPropertyRoomType에 row 추가!
+	/**
+	 * 회원이 선택한 방의형태의 정보를 등록합니다.
+	 * @param dto3 방의형태 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertPropertyRoomType(UploadPropertyDTO dto3) {
 		int result=0;
 		
@@ -291,6 +347,10 @@ public class UploadPropertyDAO {
 	}
 	
 	//방금만든 방의형태 row중 seq 가져오기seqPropertyRoomType!
+	/**
+	 * 회원이 등록한 방의형태 번호를 가져옵니다.
+	 * @return 방의형태 번호
+	 */
 	public int getSeqPropertyRoomType() {
 		int result = 0;
 		
@@ -314,6 +374,11 @@ public class UploadPropertyDAO {
 	}
 
 	//매물옵션(방)에 row 추가하기!!
+	/**
+	 * 회원이 선택한 방옵션 정보를 등록합니다. 
+	 * @param dto4 방옵션 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertPropertyRoomOption(UploadPropertyDTO dto4) {
 		int result = 0;
 		
@@ -346,6 +411,10 @@ public class UploadPropertyDAO {
 	}
 
 	//방금 만든 매물옵션(방) row 의 seq 가져오기
+	/**
+	 * 회원이 등록한 방옵션의 seq를 가져옵니다.
+	 * @return 방옵션 번호
+	 */
 	public int getSeqPropertyRoomOption() {
 		int result = 0;
 		
@@ -369,6 +438,11 @@ public class UploadPropertyDAO {
 	}
 	
 	//드디어 매물 넣기..
+	/**
+	 * 회원의 매물을 등록합니다. 
+	 * @param dto5 매물 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertProperty(PropertyDTO dto5) {
 		int result = 0;
 		
@@ -400,6 +474,10 @@ public class UploadPropertyDAO {
 	}
 
 	//방금 넣은 매물 seq 가져오기
+	/**
+	 * 회원이 등록한 매물의 seq를 가져옵니다.
+	 * @return 매물 번호
+	 */
 	public int getSeqProperty() {
 		
 		int result = 0;
@@ -424,6 +502,11 @@ public class UploadPropertyDAO {
 	}
 	
 	//임대인 매물에 row 넣기! tblLessorProperty
+	/**
+	 * 임대인 매물을 등록합니다.
+	 * @param dto6 임대인매물 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertLessorProperty(LessorPropertyDTO dto6) {
 		
 		int result = 0;
@@ -448,6 +531,10 @@ public class UploadPropertyDAO {
 	}
 
 	//방금 만든 tblLessorProperty의 마지막 row의 seq 가져오기
+	/**
+	 * 회원이 등록한 임대인매물의 seq를 가져옵니다.
+	 * @return 임대인매물 번호
+	 */
 	public int getSeqLessorProperty() {
 
 		int result = 0;
@@ -472,6 +559,11 @@ public class UploadPropertyDAO {
 	}
 
 	//매칭요청 tblMatching 에 row 넣기.
+	/**
+	 * 회원이 선택한 중개사에게 매칭요청을 등록합니다.
+	 * @param dto7 매칭 객체
+	 * @return DB작업 처리결과
+	 */
 	public int insertMatching(MatchingDTO dto7) {
 		int result = 0;
 		

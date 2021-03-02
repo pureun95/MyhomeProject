@@ -15,7 +15,10 @@ import javax.servlet.http.HttpSession;
 import com.myhome.contractor.mypage.MatchingDAO;
 import com.myhome.contractor.mypage.PropertyDTO;
 
-
+/**
+ * @author 박지현
+ * 중개인과 매칭된 임대인의 매물 리스트
+ */
 @WebServlet("/contractor/upload-lessor.do")
 public class UploadLessor extends HttpServlet{
 	
@@ -33,7 +36,8 @@ public class UploadLessor extends HttpServlet{
 		HashMap<String,String> map = new HashMap<String, String>();
 							
 		String search = req.getParameter("search");
-							
+		
+		
 		if (!(search == null || search.equals(""))) {
 								map.put("search", search);
 		}

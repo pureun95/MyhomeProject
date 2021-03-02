@@ -28,13 +28,15 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		/* border: 1px solid green; */
 		margin-top: 100px;
 		z-index: -1;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
     }
     
 	.boardcover{
-    	border: 1px solid tomato;
+    	/* border: 1px solid tomato; */
     	float: left;
     	width:900px;
     	height: auto;
@@ -50,7 +52,8 @@
 	}
 	
 	.property-list2{
-		width:510px;
+		width:530px;
+		margin-left: 10px;
 	}
 
     
@@ -80,7 +83,7 @@
        	width: 280px;
         height: 180px;
         float: left;
-       	background-image: url('../image/6.jpg');
+       	/* background-image: url(../image/6.jpg); */
         background-position: 0% 0px; 
         background-size: cover;
         cursor: pointer;
@@ -179,7 +182,7 @@
 			<c:forEach items="${list}" var="dto">
 			<div class="listbox">
 				<input type="checkbox" id="checkbox">
-                    <div class="img-property" onclick="location.href='/Myhome_project//admin/property/viewproperty.do?seq=${dto.seq}';">${dto.image}<div class="state">${dto.state}</div></div>
+                    <div class="img-property" <%-- style="background-image : url('${dto.image}');" --%> ><div class="state">${dto.state}</div></div>
                     <div class="property-list2">
                         <div class="property-num">no.${dto.seq}</div>
                         <div class="property-title">${dto.title}</div>

@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/***
+ * 부동산정책 게시판 상세페이지 서블릿입니다.
+ * @author MY
+ *
+ */
 @WebServlet("/admin/board/viewpolicy.do")
 public class ViewPolicy extends HttpServlet {
 

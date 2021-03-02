@@ -30,7 +30,8 @@
         letter-spacing: -.2px;
         min-height:100%;
 		padding-bottom:100px;
-		border: 1px solid green;
+		border-right: 1px solid #DBDCE0;
+    	border-left: 1px solid #DBDCE0;
 		margin-top: 100px;
 		z-index: -1;
     }
@@ -194,7 +195,7 @@
 	/* info css */
 	
 	.start {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		height: auto;
 		margin-top: 100px;
 		padding: 0px 240px;

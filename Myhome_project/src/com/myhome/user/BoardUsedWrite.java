@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 중고장터 게시글 작성페이지를 출력하는 클래스입니다.
+ * @author 이준오
+ *
+ */
 @WebServlet("/user/boardusedwrite.do")
 public class BoardUsedWrite extends HttpServlet {
 

@@ -1,6 +1,11 @@
 package com.myhome.admin.property;
 
-public class PropertyDTO {
+/***
+ * 매물관리 DTO입니다. 
+ * @author 윤지현
+ *
+ */
+public class AdminPropertyDTO {
 	
 	private String seq;
 	private String image;
