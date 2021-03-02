@@ -85,7 +85,7 @@
 	width: 450px;
 	height: 300px;
 	float: none;
-	background-image: url('../image/6.jpg');
+	background-image: url('/Myhome_project/image/6.jpg');
 	background-position: 0% 0px;
 	background-size: cover;
 	cursor: pointer;

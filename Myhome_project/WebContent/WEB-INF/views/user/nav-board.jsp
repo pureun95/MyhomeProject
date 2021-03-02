@@ -17,6 +17,7 @@
 <style>
 	.nav1-box1 {
 		border: 0px;
+		height: auto;
 	}
 	
 	.nav1-box1-img {

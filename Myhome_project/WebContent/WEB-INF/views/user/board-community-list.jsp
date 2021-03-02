@@ -111,6 +111,8 @@
 	/* 	left: 70px;
 		top: 640px; */
 	margin-right: 10px;
+	left: 30px;
+    top: 610px;
 }
 
 #basic-addon3 {
@@ -274,8 +276,8 @@
 					<!-- 로그인을 해야지만 글쓰기 버튼 출력하기 -->
 					<c:if test="${not empty name}">
 						<%-- 	        <c:if test="${not empty id}"> --%>
-						<button type="button" class="btn btn-default" id="basic-addon3"
-							onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">목록</button>
+						<!-- <button type="button" class="btn btn-default" id="basic-addon3"
+							onclick="location.href='/Myhome_project/Myhome/user/boardcommunitylist.do';">목록</button> -->
 
 						<button type="button" class="btn btn-default" id="basic-addon1"
 							onclick="location.href='/Myhome_project/Myhome/user/boardcommunitywrite.do';">글쓰기</button>

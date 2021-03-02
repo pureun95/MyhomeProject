@@ -1,5 +1,10 @@
 package com.myhome.user;
 
+/**
+ * 커뮤니티 게시판의 객체를 담당하는 클래스입니다.
+ * @author 노푸른
+ *
+ */
 public class BoardCommunityDTO {
 
 	private String seqCommunity; // 게시글번호
