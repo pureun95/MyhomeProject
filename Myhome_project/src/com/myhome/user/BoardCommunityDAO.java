@@ -84,9 +84,6 @@ public class BoardCommunityDAO {
 
 			if (map.get("search") != null) {
 
-				// 제목과 내용에 포함되는 것만 검색되도록 설정했음.. 추후에 작성자도 검색할 수 있도록 코드 수정할 것. 수정하기*****
-//				  where = String.format("where nickName like '%%%s%%' or title like '%%%s%%' or content like '%%%s%%'", map.get("search"), map.get("search"), map.get("search"));
-
 				where = String.format("where title like '%%%s%%' or content like '%%%s%%'", map.get("search"),
 						map.get("search"));
 			}
@@ -139,7 +136,6 @@ public class BoardCommunityDAO {
 
 		try {
 
-			// 오류나면 여기 수정하기*****
 			String sql = "select a.*, (select nickName from tblAllUser where seqAllUser = a.seqUser) as nickName from tblCommunity a where seqCommunity = ?";
 
 			pstat = conn.prepareStatement(sql);
@@ -178,7 +174,7 @@ public class BoardCommunityDAO {
 	 * 
 	 * @param seq 게시물 번호를 담은 변수입니다.
 	 */
-	public void updateViewCount(String seq) { // 오류나면 여기수정하기*****
+	public void updateViewCount(String seq) { 
 
 		try {
 
